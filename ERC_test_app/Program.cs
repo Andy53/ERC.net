@@ -7,11 +7,11 @@ namespace ERC_test_app
 {
     class Program
     {
-        public static ERC_Core core = new ERC_Core(@"C:", "Author");
+        public static ERC_Core core = new ERC_Core(@"D:\Junk", "Author");
 
         static void Main(string[] args)
         {
-            Console.WriteLine("create a pattern 1000 characters long: ");
+            /*Console.WriteLine("create a pattern 1000 characters long: ");
             create_a_pattern();
             Console.WriteLine("Find offset in pattern (Ag9):");
             find_pattern_offset();
@@ -28,7 +28,7 @@ namespace ERC_test_app
             Console.WriteLine("Generating byte array, skipping [ 0xA1, 0xB1, 0xC1, 0xD1 ]");
             output_byte_array();
             Console.WriteLine("Get thread Context:");
-            Get_Thread_Context();
+            Get_Thread_Context();*/
             Console.WriteLine("Find SEH Jumps:");
             Find_SEH();
             Console.ReadKey();
@@ -146,7 +146,6 @@ namespace ERC_test_app
         public static void Find_SEH()
         {
             //ensure notepad is open before running this function.
-            /*
             Process[] processes = Process.GetProcesses();
             Process thisProcess = null;
             foreach (Process process1 in processes)
@@ -157,16 +156,13 @@ namespace ERC_test_app
                 }
             }
 
-            Process_Info info = new Process_Info(core, thisProcess);*/
-            byte[] bytes = new byte[] {
-                0x11, 0x22, 0x33, 0x33, 0x55, 0x5F, 0x5E, 0xC3, 0x11, 0x41, 0xC3, 0xC2, 0xC3,
-                0x5C, 0x44, 0xC3, 0x11, 0x11, 0x5F, 0x41, 0x5F, 0xC3, 0x11, 0x22, 0x33, 0x41, 0x58, 0x5E, 0xC3 };
-            var list = Payloads.Pop_Pop_Ret(bytes);
-            foreach(int i in list)
+            Process_Info info = new Process_Info(core, thisProcess);
+            var tester = info.Search_All_Memory_PPR();
+            foreach(IntPtr ptr in tester.Return_Value)
             {
-                Console.WriteLine(i);
+                Console.WriteLine("0x" + ptr.ToString("x"));
             }
-            Console.WriteLine("list length = {0}", list.Count);
+            Console.WriteLine("tester.ReturnValue.Length = {0}", tester.Return_Value.Count);
             Console.WriteLine("Function Complete");
         }
     }

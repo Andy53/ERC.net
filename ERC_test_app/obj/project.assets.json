@@ -438,11 +438,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Andy\\source\\repos\\ERC_net\\ERC_test_app\\ERC_test_app.csproj",
+      "projectUniqueName": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC_test_app\\ERC_test_app.csproj",
       "projectName": "ERC_test_app",
-      "projectPath": "C:\\Users\\Andy\\source\\repos\\ERC_net\\ERC_test_app\\ERC_test_app.csproj",
+      "projectPath": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC_test_app\\ERC_test_app.csproj",
       "packagesPath": "C:\\Users\\Andy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Andy\\source\\repos\\ERC_net\\ERC_test_app\\obj\\",
+      "outputPath": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC_test_app\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -461,8 +461,8 @@
       "frameworks": {
         "net472": {
           "projectReferences": {
-            "C:\\Users\\Andy\\source\\repos\\ERC_net\\ERC\\ERC_Lib.csproj": {
-              "projectPath": "C:\\Users\\Andy\\source\\repos\\ERC_net\\ERC\\ERC_Lib.csproj"
+            "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC_Lib.csproj": {
+              "projectPath": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC_Lib.csproj"
             }
           }
         }

@@ -64,6 +64,7 @@ namespace ERC
         /// <returns></returns>
         public static List<int> Pop_Pop_Ret(byte[] data)
         {
+            Console.WriteLine("data length = {0}", data.Length);
             List<int> locations = new List<int>();
             List<byte[]> assemblies = new List<byte[]>();
             byte[] R8 = new byte[] { 0x58, 0x41 };
