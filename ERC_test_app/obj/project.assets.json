@@ -1,0 +1,492 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.7.2": {
+      "Reloaded.Assembler/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Reloaded.Memory.Buffers": "1.2.0"
+        },
+        "compile": {
+          "lib/net47/Reloaded.Assembler.dll": {}
+        },
+        "runtime": {
+          "lib/net47/Reloaded.Assembler.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "Reloaded.Memory/1.2.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/net47/Reloaded.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/net47/Reloaded.Memory.dll": {}
+        }
+      },
+      "Reloaded.Memory.Buffers/1.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Reloaded.Memory": "1.2.2",
+          "System.Memory": "4.5.1",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/net47/Reloaded.Memory.Buffers.dll": {}
+        },
+        "runtime": {
+          "lib/net47/Reloaded.Memory.Buffers.dll": {}
+        }
+      },
+      "SharpDisasm/1.1.11": {
+        "type": "package",
+        "compile": {
+          "lib/net45/SharpDisasm.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDisasm.dll": {}
+        }
+      },
+      "System.Buffers/4.4.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Buffers.dll": {}
+        }
+      },
+      "System.Memory/4.5.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.4.0",
+          "System.Numerics.Vectors": "4.4.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        }
+      },
+      "System.Numerics.Vectors/4.4.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Numerics",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/_._": {}
+        },
+        "runtime": {
+          "lib/net46/System.Numerics.Vectors.dll": {}
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "ERC_Lib/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.7.2",
+        "dependencies": {
+          "Reloaded.Assembler": "1.0.5",
+          "SharpDisasm": "1.1.11"
+        },
+        "compile": {
+          "bin/placeholder/ERC_Lib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ERC_Lib.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win7-x64": {
+      "Reloaded.Assembler/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Reloaded.Memory.Buffers": "1.2.0"
+        },
+        "compile": {
+          "lib/net47/Reloaded.Assembler.dll": {}
+        },
+        "runtime": {
+          "lib/net47/Reloaded.Assembler.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "Reloaded.Memory/1.2.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/net47/Reloaded.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/net47/Reloaded.Memory.dll": {}
+        }
+      },
+      "Reloaded.Memory.Buffers/1.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Reloaded.Memory": "1.2.2",
+          "System.Memory": "4.5.1",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/net47/Reloaded.Memory.Buffers.dll": {}
+        },
+        "runtime": {
+          "lib/net47/Reloaded.Memory.Buffers.dll": {}
+        }
+      },
+      "SharpDisasm/1.1.11": {
+        "type": "package",
+        "compile": {
+          "lib/net45/SharpDisasm.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDisasm.dll": {}
+        }
+      },
+      "System.Buffers/4.4.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Buffers.dll": {}
+        }
+      },
+      "System.Memory/4.5.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.4.0",
+          "System.Numerics.Vectors": "4.4.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        }
+      },
+      "System.Numerics.Vectors/4.4.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Numerics",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/_._": {}
+        },
+        "runtime": {
+          "lib/net46/System.Numerics.Vectors.dll": {}
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "ERC_Lib/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.7.2",
+        "dependencies": {
+          "Reloaded.Assembler": "1.0.5",
+          "SharpDisasm": "1.1.11"
+        },
+        "compile": {
+          "bin/placeholder/ERC_Lib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ERC_Lib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Reloaded.Assembler/1.0.5": {
+      "sha512": "nBHhP8NKocUNbVDtjB9WZkpFbtGcmII5gPVhcbAhTKY7b82LCK0ndO6QntlpUcwnGzR7nZr+FJLgfgd+ylnNrw==",
+      "type": "package",
+      "path": "reloaded.assembler/1.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "build/FASM-LICENSE.TXT",
+        "build/FASM.DLL",
+        "build/FASMX64.DLL",
+        "build/Reloaded.Assembler.targets",
+        "lib/net452/Reloaded.Assembler.dll",
+        "lib/net452/Reloaded.Assembler.pdb",
+        "lib/net452/Reloaded.Assembler.xml",
+        "lib/net47/Reloaded.Assembler.dll",
+        "lib/net47/Reloaded.Assembler.pdb",
+        "lib/net47/Reloaded.Assembler.xml",
+        "lib/netstandard2.0/Reloaded.Assembler.dll",
+        "lib/netstandard2.0/Reloaded.Assembler.pdb",
+        "lib/netstandard2.0/Reloaded.Assembler.xml",
+        "reloaded.assembler.1.0.5.nupkg.sha512",
+        "reloaded.assembler.nuspec"
+      ]
+    },
+    "Reloaded.Memory/1.2.2": {
+      "sha512": "SLbIGHT9avK72w8Nrpt+0Ft4zP2xUDtK803nHywHTk3W71qKzsLZ5wqsL42CqbqC+x8Lgval3Khnq9lCh9Ql0Q==",
+      "type": "package",
+      "path": "reloaded.memory/1.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net452/Reloaded.Memory.dll",
+        "lib/net452/Reloaded.Memory.xml",
+        "lib/net47/Reloaded.Memory.dll",
+        "lib/net47/Reloaded.Memory.xml",
+        "lib/netstandard2.0/Reloaded.Memory.dll",
+        "lib/netstandard2.0/Reloaded.Memory.xml",
+        "reloaded.memory.1.2.2.nupkg.sha512",
+        "reloaded.memory.nuspec"
+      ]
+    },
+    "Reloaded.Memory.Buffers/1.2.0": {
+      "sha512": "B+HHUihJb08zikqlZY2f5TDqSE7/w/N9yG99nFhXjryMgW1rz1iUV4emGNnTTncF7YwBvZkZ9gyfMwKJryCxiQ==",
+      "type": "package",
+      "path": "reloaded.memory.buffers/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net452/Reloaded.Memory.Buffers.dll",
+        "lib/net452/Reloaded.Memory.Buffers.xml",
+        "lib/net47/Reloaded.Memory.Buffers.dll",
+        "lib/net47/Reloaded.Memory.Buffers.xml",
+        "lib/netstandard2.0/Reloaded.Memory.Buffers.dll",
+        "lib/netstandard2.0/Reloaded.Memory.Buffers.xml",
+        "reloaded.memory.buffers.1.2.0.nupkg.sha512",
+        "reloaded.memory.buffers.nuspec"
+      ]
+    },
+    "SharpDisasm/1.1.11": {
+      "sha512": "3y+5A2RZHlHHj3d8SssTKvAr3624xXu3RoWjqkCQ6TE8frYbyj8kxJxjqXh6noLX2mHRbAoPpd1O0Duzv2u+qA==",
+      "type": "package",
+      "path": "sharpdisasm/1.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/SharpDisasm.dll",
+        "lib/net40/SharpDisasm.dll",
+        "lib/net45/SharpDisasm.dll",
+        "lib/netstandard2.0/SharpDisasm.dll",
+        "sharpdisasm.1.1.11.nupkg.sha512",
+        "sharpdisasm.nuspec"
+      ]
+    },
+    "System.Buffers/4.4.0": {
+      "sha512": "AwarXzzoDwX6BgrhjoJsk6tUezZEozOT5Y9QKF94Gl4JK91I4PIIBkBco9068Y9/Dra8Dkbie99kXB8+1BaYKw==",
+      "type": "package",
+      "path": "system.buffers/4.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.1/System.Buffers.dll",
+        "lib/netstandard1.1/System.Buffers.xml",
+        "lib/netstandard2.0/System.Buffers.dll",
+        "lib/netstandard2.0/System.Buffers.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.1/System.Buffers.dll",
+        "ref/netstandard1.1/System.Buffers.xml",
+        "ref/netstandard2.0/System.Buffers.dll",
+        "ref/netstandard2.0/System.Buffers.xml",
+        "system.buffers.4.4.0.nupkg.sha512",
+        "system.buffers.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Memory/4.5.1": {
+      "sha512": "sDJYJpGtTgx+23Ayu5euxG5mAXWdkDb4+b0rD0Cab0M1oQS9H0HXGPriKcqpXuiJDTV7fTp/d+fMDJmnr6sNvA==",
+      "type": "package",
+      "path": "system.memory/4.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "ref/netstandard1.1/System.Memory.dll",
+        "ref/netstandard1.1/System.Memory.xml",
+        "ref/netstandard2.0/System.Memory.dll",
+        "ref/netstandard2.0/System.Memory.xml",
+        "system.memory.4.5.1.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Numerics.Vectors/4.4.0": {
+      "sha512": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ==",
+      "type": "package",
+      "path": "system.numerics.vectors/4.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Numerics.Vectors.dll",
+        "lib/net46/System.Numerics.Vectors.xml",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.0/System.Numerics.Vectors.dll",
+        "lib/netstandard1.0/System.Numerics.Vectors.xml",
+        "lib/netstandard2.0/System.Numerics.Vectors.dll",
+        "lib/netstandard2.0/System.Numerics.Vectors.xml",
+        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Numerics.Vectors.dll",
+        "ref/net46/System.Numerics.Vectors.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/System.Numerics.Vectors.dll",
+        "ref/netstandard1.0/System.Numerics.Vectors.xml",
+        "ref/netstandard2.0/System.Numerics.Vectors.dll",
+        "ref/netstandard2.0/System.Numerics.Vectors.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.numerics.vectors.4.4.0.nupkg.sha512",
+        "system.numerics.vectors.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "sha512": "wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+      "type": "package",
+      "path": "system.runtime.compilerservices.unsafe/4.5.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "ERC_Lib/1.0.0": {
+      "type": "project",
+      "path": "../ERC/ERC_Lib.csproj",
+      "msbuildProject": "../ERC/ERC_Lib.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.7.2": [
+      "ERC_Lib >= 1.0.0",
+      "SharpDisasm >= 1.1.11"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Andy\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Andy\\source\\repos\\ERC_net\\ERC_test_app\\ERC_test_app.csproj",
+      "projectName": "ERC_test_app",
+      "projectPath": "C:\\Users\\Andy\\source\\repos\\ERC_net\\ERC_test_app\\ERC_test_app.csproj",
+      "packagesPath": "C:\\Users\\Andy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Andy\\source\\repos\\ERC_net\\ERC_test_app\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net472"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net472": {
+          "projectReferences": {
+            "C:\\Users\\Andy\\source\\repos\\ERC_net\\ERC\\ERC_Lib.csproj": {
+              "projectPath": "C:\\Users\\Andy\\source\\repos\\ERC_net\\ERC\\ERC_Lib.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net472": {
+        "dependencies": {
+          "SharpDisasm": {
+            "target": "Package",
+            "version": "[1.1.11, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win7-x64": {
+        "#import": []
+      }
+    }
+  }
+}

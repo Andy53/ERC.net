@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERC_test_app", "ERC_test_app\ERC_test_app.csproj", "{AB6BD48F-ED8E-4F7C-9561-C5938D32023F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERC_Lib", "ERC\ERC_Lib.csproj", "{AAAB1A0D-9E32-41F9-B0D0-ADA79D52C164}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB6BD48F-ED8E-4F7C-9561-C5938D32023F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB6BD48F-ED8E-4F7C-9561-C5938D32023F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB6BD48F-ED8E-4F7C-9561-C5938D32023F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB6BD48F-ED8E-4F7C-9561-C5938D32023F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAAB1A0D-9E32-41F9-B0D0-ADA79D52C164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAAB1A0D-9E32-41F9-B0D0-ADA79D52C164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAAB1A0D-9E32-41F9-B0D0-ADA79D52C164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAAB1A0D-9E32-41F9-B0D0-ADA79D52C164}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A42320AC-BC57-4FE5-AD3F-72DF17C82509}
+	EndGlobalSection
+EndGlobal

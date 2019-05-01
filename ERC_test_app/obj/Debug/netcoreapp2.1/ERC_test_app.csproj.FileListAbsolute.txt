@@ -1,0 +1,14 @@
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\bin\Debug\netcoreapp2.1\ERC_test_app.deps.json
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\bin\Debug\netcoreapp2.1\ERC_test_app.runtimeconfig.json
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\bin\Debug\netcoreapp2.1\ERC_test_app.runtimeconfig.dev.json
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\bin\Debug\netcoreapp2.1\ERC_test_app.dll
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\bin\Debug\netcoreapp2.1\ERC_test_app.pdb
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\bin\Debug\netcoreapp2.1\ERC.dll
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\bin\Debug\netcoreapp2.1\ERC.pdb
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\obj\Debug\netcoreapp2.1\ERC_test_app.csprojAssemblyReference.cache
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\obj\Debug\netcoreapp2.1\ERC_test_app.csproj.CoreCompileInputs.cache
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\obj\Debug\netcoreapp2.1\ERC_test_app.AssemblyInfoInputs.cache
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\obj\Debug\netcoreapp2.1\ERC_test_app.AssemblyInfo.cs
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\obj\Debug\netcoreapp2.1\ERC_test_app.csproj.CopyComplete
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\obj\Debug\netcoreapp2.1\ERC_test_app.dll
+c:\users\andy\source\repos\ERC_test_app\ERC_test_app\obj\Debug\netcoreapp2.1\ERC_test_app.pdb
