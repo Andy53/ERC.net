@@ -308,11 +308,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Andy\\source\\repos\\ERC_net\\ERC\\ERC_Lib.csproj",
+      "projectUniqueName": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC_Lib.csproj",
       "projectName": "ERC_Lib",
-      "projectPath": "C:\\Users\\Andy\\source\\repos\\ERC_net\\ERC\\ERC_Lib.csproj",
+      "projectPath": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC_Lib.csproj",
       "packagesPath": "C:\\Users\\Andy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Andy\\source\\repos\\ERC_net\\ERC\\obj\\",
+      "outputPath": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

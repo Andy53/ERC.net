@@ -306,18 +306,7 @@ namespace ERC
 
             result_addresses.Return_Value = new List<IntPtr>();
             Process process = Process_Current;
-            IntPtr processHandle;
 
-            try
-            {
-                processHandle = OpenProcess(PROCESS_VM_READ, false, process.Id);
-            }
-            catch(Exception e)
-            {
-                result_addresses.Error = e;
-                return result_addresses;
-            }
-            
             if (Process_Machine_Type == MachineType.I386)
             {
                 for (int i = 0; i < Process_Memory_Basic_Info32.Count; i++)
@@ -331,7 +320,7 @@ namespace ERC
                         {
                             byte[] buffer = new byte[region / 100]; 
                             int bytesRead = 0;
-                            ReadProcessMemory(processHandle, (IntPtr)j, buffer, buffer.Length, out bytesRead);
+                            ReadProcessMemory(Process_Handle, (IntPtr)j, buffer, buffer.Length, out bytesRead);
 
                             long pos = 0;
                             long index = 0;
@@ -361,7 +350,7 @@ namespace ERC
                         IntPtr base_address = Process_Memory_Basic_Info32[i].BaseAddress;
                         byte[] buffer = new byte[buffer_size]; 
 
-                        ReadProcessMemory(processHandle, base_address, buffer, buffer.Length, out bytesRead);
+                        ReadProcessMemory(Process_Handle, base_address, buffer, buffer.Length, out bytesRead);
 
                         long pos = 0;
                         long index = 0;
@@ -399,7 +388,7 @@ namespace ERC
 
                         for (ulong j = start_address; j < end_address; j += int.MaxValue / 10)
                         {
-                            ReadProcessMemory(processHandle, (IntPtr)j, buffer, buffer.Length, out bytesRead);
+                            ReadProcessMemory(Process_Handle, (IntPtr)j, buffer, buffer.Length, out bytesRead);
                             long pos = 0;
                             long index = 0;
                             do
@@ -428,7 +417,7 @@ namespace ERC
                         IntPtr base_address = (IntPtr)Process_Memory_Basic_Info64[i].BaseAddress;
                         byte[] buffer1 = new byte[buffer_size]; 
 
-                        ReadProcessMemory(processHandle, base_address, buffer1, buffer1.Length, out bytesRead);
+                        ReadProcessMemory(Process_Handle, base_address, buffer1, buffer1.Length, out bytesRead);
                         long pos = 0;
                         long index = 0;
                         do
@@ -453,6 +442,138 @@ namespace ERC
             }
             result_addresses.Return_Value = new HashSet<IntPtr>(result_addresses.Return_Value).ToList();
             return result_addresses;  
+        }
+
+        /// <summary>
+        /// Searches all memory associated with a given process and associated modules for POP X POP X RET instructions. 
+        /// Passing a list of module paths or names will exclude those modules from the search. Returns an ERC_Result<List<IntPtr>>
+        /// </summary>
+        /// <returns></returns>
+        public ERC_Result<List<IntPtr>> Search_All_Memory_PPR(List<string> excludes = null)
+        {
+            ERC_Result<List<IntPtr>> ptrs = new ERC_Result<List<IntPtr>>(Process_Core);
+            ptrs.Return_Value = new List<IntPtr>();
+            if (Process_Machine_Type == MachineType.I386)
+            {
+                for (int i = 0; i < Process_Memory_Basic_Info32.Count; i++)
+                {
+                    if ((ulong)Process_Memory_Basic_Info32[i].RegionSize > int.MaxValue)
+                    {
+                        long start_address = (long)Process_Memory_Basic_Info32[i].BaseAddress;
+                        long end_address = (long)Process_Memory_Basic_Info32[i].BaseAddress + (long)(Process_Memory_Basic_Info32[i].RegionSize - 1);
+                        long region = (long)Process_Memory_Basic_Info32[i].RegionSize;
+                        for (long j = start_address; j < end_address; j += (region / 100))
+                        {
+                            byte[] buffer = new byte[region / 100];
+                            int bytesRead = 0;
+                            ReadProcessMemory(Process_Handle, (IntPtr)j, buffer, buffer.Length, out bytesRead);
+                            List<int> pprs = Payloads.Pop_Pop_Ret(buffer);
+                            if (pprs.Count > 0)
+                            {
+                                for (int k = 0; k < pprs.Count; k++)
+                                {
+                                    ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + (ulong)Process_Memory_Basic_Info32[i].BaseAddress));
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        long buffer_size = (long)Process_Memory_Basic_Info32[i].RegionSize;
+                        int bytesRead = 0;
+                        IntPtr base_address = Process_Memory_Basic_Info32[i].BaseAddress;
+                        byte[] buffer = new byte[buffer_size];
+
+                        ReadProcessMemory(Process_Handle, base_address, buffer, buffer.Length, out bytesRead);
+                        List<int> pprs = Payloads.Pop_Pop_Ret(buffer);
+                        if (pprs.Count > 0)
+                        {
+                            for (int k = 0; k < pprs.Count; k++)
+                            {
+                                ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + (ulong)Process_Memory_Basic_Info32[i].BaseAddress));
+                            }
+                        }
+                    }
+                }
+            }
+            else if (Process_Machine_Type == MachineType.x64)
+            {
+                byte[] buffer = new byte[int.MaxValue / 10];
+                int bytesRead = 0;
+                for (int i = 0; i < Process_Memory_Basic_Info64.Count; i++)
+                {
+                    if (Process_Memory_Basic_Info64[i].RegionSize > int.MaxValue)
+                    {
+                        ulong start_address = Process_Memory_Basic_Info64[i].BaseAddress;
+                        ulong end_address = Process_Memory_Basic_Info64[i].BaseAddress + (Process_Memory_Basic_Info64[i].RegionSize - 1);
+                        ulong region = Process_Memory_Basic_Info64[i].RegionSize;
+
+                        for (ulong j = start_address; j < end_address; j += int.MaxValue / 10)
+                        {
+                            ReadProcessMemory(Process_Handle, (IntPtr)j, buffer, buffer.Length, out bytesRead);
+                            List<int> pprs = Payloads.Pop_Pop_Ret(buffer);
+                            if (pprs.Count > 0)
+                            {
+                                for (int k = 0; k < pprs.Count; k++)
+                                {
+                                    ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + Process_Memory_Basic_Info64[i].BaseAddress));
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        long buffer_size = (long)Process_Memory_Basic_Info64[i].RegionSize;
+                        bytesRead = 0;
+                        IntPtr base_address = (IntPtr)Process_Memory_Basic_Info64[i].BaseAddress;
+                        byte[] buffer1 = new byte[buffer_size];
+
+                        ReadProcessMemory(Process_Handle, base_address, buffer1, buffer1.Length, out bytesRead);
+                        List<int> pprs = Payloads.Pop_Pop_Ret(buffer1);
+                        if(pprs.Count > 0)
+                        {
+                            for (int k = 0; k < pprs.Count; k++)
+                            {
+                                ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + Process_Memory_Basic_Info64[i].BaseAddress));
+                            }
+                        }
+                    }
+                }
+            }
+            List<Module_Info> modules = new List<Module_Info>();
+            for(int i = 0; i < Modules_Info.Count; i++)
+            {
+                if (excludes != null)
+                {
+                    if (!excludes.Contains(Modules_Info[i].Module_Name) && !excludes.Contains(Modules_Info[i].Module_Path))
+                    {
+                        modules.Add(Modules_Info[i]);
+                    }
+                }
+                else
+                {
+                    modules.Add(Modules_Info[i]);
+                }
+            }
+            Console.WriteLine("modules.Count {0}", modules.Count);
+            for(int i = 0; i < modules.Count; i++)
+            {
+
+                IntPtr base_address = modules[i].Module_Base;
+                byte[] buffer = new byte[modules[i].Module_Size];
+                int bytesread = 0;
+
+                ReadProcessMemory(Process_Handle, modules[i].Module_Base, buffer, buffer.Length, out bytesread);
+                List<int> pprs = Payloads.Pop_Pop_Ret(buffer);
+                if (pprs.Count > 0)
+                {
+                    for (int k = 0; k < pprs.Count; k++)
+                    {
+                        ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + (ulong)modules[i].Module_Base));
+                    }
+                }
+            }
+            return ptrs;
         }
 
         #endregion
@@ -560,89 +681,6 @@ namespace ERC
             string modFilename = Display_Output.Get_Module_File_Name(Working_Directory, "modules_", ".txt");
             File.WriteAllText(modFilename, modOutput);
             return modOutput;
-        }
-
-        public ERC_Result<List<IntPtr>> Find_POP_POP_RET()
-        {
-            const int PROCESS_VM_READ = 0x0010;
-            ERC_Result<List<IntPtr>> result = new ERC_Result<List<IntPtr>>(Process_Core);
-            byte[] searchBytes = new byte[0];
-            result.Return_Value = new List<IntPtr>();
-            Process process = Process_Current;
-            IntPtr processHandle;
-
-            try
-            {
-                processHandle = OpenProcess(PROCESS_VM_READ, false, process.Id);
-            }
-            catch (Exception e)
-            {
-                result.Error = e;
-                return result;
-            }
-
-            if (Process_Machine_Type == MachineType.I386)
-            {
-                for (int i = 0; i < Process_Memory_Basic_Info32.Count; i++)
-                {
-                    if ((ulong)Process_Memory_Basic_Info32[i].RegionSize > int.MaxValue)
-                    {
-                        long start_address = (long)Process_Memory_Basic_Info32[i].BaseAddress;
-                        long end_address = (long)Process_Memory_Basic_Info32[i].BaseAddress + (long)(Process_Memory_Basic_Info32[i].RegionSize - 1);
-                        long region = (long)Process_Memory_Basic_Info32[i].RegionSize;
-                        for (long j = start_address; j < end_address; j += (region / 100))
-                        {
-                            byte[] buffer = new byte[region / 100];
-                            int bytesRead = 0;
-                            ReadProcessMemory(processHandle, (IntPtr)j, buffer, buffer.Length, out bytesRead);
-                            //Put comparison to pop pop ret instructions here.
-                        }
-                    }
-                    else
-                    {
-                        long buffer_size = (long)Process_Memory_Basic_Info32[i].RegionSize;
-                        int bytesRead = 0;
-                        IntPtr base_address = Process_Memory_Basic_Info32[i].BaseAddress;
-                        byte[] buffer = new byte[buffer_size];
-
-                        ReadProcessMemory(processHandle, base_address, buffer, buffer.Length, out bytesRead);
-                        //Put comparison to pop pop ret instructions here.
-                    }
-                }
-            }
-            else if (Process_Machine_Type == MachineType.x64)
-            {
-                byte[] buffer = new byte[int.MaxValue / 10];
-                int bytesRead = 0;
-                for (int i = 0; i < Process_Memory_Basic_Info64.Count; i++)
-                {
-                    if (Process_Memory_Basic_Info64[i].RegionSize > int.MaxValue)
-                    {
-                        ulong start_address = Process_Memory_Basic_Info64[i].BaseAddress;
-                        ulong end_address = Process_Memory_Basic_Info64[i].BaseAddress + (Process_Memory_Basic_Info64[i].RegionSize - 1);
-                        ulong region = Process_Memory_Basic_Info64[i].RegionSize;
-
-                        for (ulong j = start_address; j < end_address; j += int.MaxValue / 10)
-                        {
-                            ReadProcessMemory(processHandle, (IntPtr)j, buffer, buffer.Length, out bytesRead);
-                            //Put comparison to pop pop ret instructions here.
-                        }
-                    }
-                    else
-                    {
-                        long buffer_size = (long)Process_Memory_Basic_Info64[i].RegionSize;
-                        bytesRead = 0;
-                        IntPtr base_address = (IntPtr)Process_Memory_Basic_Info64[i].BaseAddress;
-                        byte[] buffer1 = new byte[buffer_size];
-
-                        ReadProcessMemory(processHandle, base_address, buffer1, buffer1.Length, out bytesRead);
-                        //Put comparison to pop pop ret instructions here.
-                    }
-                }
-            }
-            result.Return_Value = new HashSet<IntPtr>(result.Return_Value).ToList();
-
-            return result;
         }
         #endregion
     }
