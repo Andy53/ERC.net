@@ -17,13 +17,13 @@ namespace ERC
         public CONTEXT32 Context32;
         public CONTEXT64 Context64;
 
-        public Thread_Info(ProcessThread thread, ERC_Core core)
+        public Thread_Info(ProcessThread thread, ERC_Core core, Process_Info Thread_Process)
         {
             Thread_ID = thread.Id;
             Thread_Current = thread;
             Thread_Core = core;
 
-            if (Environment.Is64BitOperatingSystem)
+            if (Thread_Process.Process_Machine_Type == MachineType.x64)
             {
                 x64 = true;
             }

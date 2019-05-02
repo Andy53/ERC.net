@@ -16,9 +16,9 @@ namespace ERC_test_app
             Console.WriteLine("Find offset in pattern (Ag9):");
             find_pattern_offset();
             Console.WriteLine("List all local processes: ");
-            List_All_Local_Processes();*/
+            List_All_Local_Processes();
             Console.WriteLine("Search Process Memory (notepad): ");
-            Search_Process_Memory();/*
+            Search_Process_Memory();
             Console.WriteLine("Assembling opcodes:");
             assembling_opcodes();
             Console.WriteLine("Disassembling Opcodes:");
@@ -31,6 +31,8 @@ namespace ERC_test_app
             Get_Thread_Context();
             Console.WriteLine("Find SEH Jumps:");
             Find_SEH();*/
+            Console.WriteLine("Generating egg hunters:");
+            egghunters();
             Console.ReadKey();
         }
 
@@ -117,7 +119,7 @@ namespace ERC_test_app
         public static void output_byte_array()
         {
             byte[] unwantedBytes = new byte[] { 0xA1, 0xB1, 0xC1, 0xD1 };
-            var bytes = core.Generate_Byte_Array(unwantedBytes);
+            var bytes = Display_Output.Generate_Byte_Array(unwantedBytes, core);
             Console.WriteLine(BitConverter.ToString(bytes).Replace("-", " "));
         }
 
@@ -164,6 +166,15 @@ namespace ERC_test_app
             }
             Console.WriteLine("tester.ReturnValue.Length = {0}", tester.Return_Value.Count);
             Console.WriteLine("Function Complete");
+        }
+
+        public static void egghunters()
+        {
+            var eggs = Payloads.Egg_Hunter_Constructor("AAAA");
+            foreach(KeyValuePair<string, byte[]> s in eggs)
+            {
+                Console.WriteLine("{0}:{1}", s.Key, BitConverter.ToString(s.Value));
+            }
         }
     }
 }
