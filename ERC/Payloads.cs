@@ -9,11 +9,10 @@ namespace ERC
     public class Payloads
     {
         /// <summary>
-        /// Creates an array of all possible byte values except those passed to the function. Takes a byte array of bytes to be excluded and 
-        /// returns an array of all other possible bytes.
+        /// Creates an array of all possible byte values except those passed to the function. Takes a byte array of bytes to be excluded and  
         /// </summary>
         /// <param name="unwantedBytes"></param>
-        /// <returns></returns>
+        /// <returns>Returns an array of all other possible bytes.</returns>
         public static byte[] Get_Byte_Array(byte[] unwantedBytes)
         {
             byte[] Byte_Array = new byte[]
@@ -58,10 +57,10 @@ namespace ERC
         }
 
         /// <summary>
-        /// Finds all instances of POP X POP X RET in a given byte array. Returns an array of integers containing the offsets of the instruction sets.
+        /// Finds all instances of POP X POP X RET in a given byte array. 
         /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+        /// <param name="data">Byte array to be searched</param>
+        /// <returns>Returns an array of integers containing the offsets of the instruction sets.</returns>
         public static List<int> Pop_Pop_Ret(byte[] data)
         {
             List<int> locations = new List<int>();
