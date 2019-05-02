@@ -72,7 +72,7 @@ namespace ERC
             }
             for(int i = 0; i < process.Threads.Count; i++)
             {
-                Thread_Info this_thread_info = new Thread_Info(process.Threads[i], Process_Core);
+                Thread_Info this_thread_info = new Thread_Info(process.Threads[i], Process_Core, this);
                 if(this_thread_info.Thread_Failed == false)
                 {
                     Threads_Info.Add(this_thread_info);

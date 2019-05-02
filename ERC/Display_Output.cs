@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace ERC
@@ -212,6 +213,46 @@ namespace ERC
 
             }
             return ret;
+        }
+
+        public static byte[] Generate_Byte_Array(byte[] unwantedBytes, ERC_Core core)
+        {
+            string byteFilename = Display_Output.Get_Module_File_Name(core.Working_Directory, "ByteArray_", ".dll");
+            byte[] Byte_Array = Payloads.Byte_Array_Constructor(unwantedBytes);
+            FileStream fs1 = new FileStream(byteFilename, FileMode.Create, FileAccess.Write);
+            fs1.Write(Byte_Array, 0, Byte_Array.Length);
+            fs1.Close();
+
+            string outputString = "---------------------------------------------------------------------------------------" + Environment.NewLine;
+            outputString += "Byte Array generated at:" + DateTime.Now + "  Omitted values: " + BitConverter.ToString(unwantedBytes).Replace("-", ", ") + Environment.NewLine;
+            outputString += "---------------------------------------------------------------------------------------" + Environment.NewLine;
+            outputString += Environment.NewLine;
+            outputString += "Raw:" + Environment.NewLine;
+
+            string raw = "\\x" + BitConverter.ToString(Byte_Array).Replace("-", "\\x");
+            var rawlist = Enumerable
+                .Range(0, raw.Length / 48)
+                .Select(i => raw.Substring(i * 48, 48))
+                .ToList();
+            raw = string.Join(Environment.NewLine, rawlist);
+            outputString += raw;
+
+            outputString += Environment.NewLine + Environment.NewLine + "C#:" + Environment.NewLine;
+            string CSharp = "byte[] buf = new byte[]" + Environment.NewLine + "{" + Environment.NewLine;
+            string CSharpTemp = "0x" + BitConverter.ToString(Byte_Array).Replace("-", ", 0x");
+            var list = Enumerable
+                .Range(0, CSharpTemp.Length / 48)
+                .Select(i => CSharpTemp.Substring(i * 48, 48))
+                .ToList();
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i] = "    " + list[i];
+            }
+            CSharp += string.Join(Environment.NewLine, list) + Environment.NewLine + "}";
+            outputString += CSharp;
+            File.WriteAllText(byteFilename.Substring(0, (byteFilename.Length - 4)) + ".txt", outputString);
+
+            return Byte_Array;
         }
         #endregion
     }
