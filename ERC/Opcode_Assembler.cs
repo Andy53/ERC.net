@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Reloaded.Assembler;
 
-namespace ERC
+namespace ERC.Utilities
 {
     public class Opcode_Assembler : Process_Info
     {

@@ -196,7 +196,7 @@ namespace ERC
                             {
                                 opcodes.Add(ppr[j]);
                             }
-                            Opcode_Disassembler disas = new Opcode_Disassembler(info);
+                            ERC.Utilities.Opcode_Disassembler disas = new ERC.Utilities.Opcode_Disassembler(info);
                             var result = disas.Disassemble(opcodes.ToArray());
                             ret.Return_Value.Add("0x" + s.Key.ToString("x") + " " +
                                 result.Return_Value.Replace(Environment.NewLine, ", ") + " Source file: " + s.Value);
@@ -218,7 +218,7 @@ namespace ERC
         public static byte[] Generate_Byte_Array(byte[] unwantedBytes, ERC_Core core)
         {
             string byteFilename = Display_Output.Get_Module_File_Name(core.Working_Directory, "ByteArray_", ".dll");
-            byte[] Byte_Array = Payloads.Byte_Array_Constructor(unwantedBytes);
+            byte[] Byte_Array = ERC.Utilities.Payloads.Byte_Array_Constructor(unwantedBytes);
             FileStream fs1 = new FileStream(byteFilename, FileMode.Create, FileAccess.Write);
             fs1.Write(Byte_Array, 0, Byte_Array.Length);
             fs1.Close();
