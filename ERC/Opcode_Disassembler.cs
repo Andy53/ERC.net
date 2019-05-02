@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace ERC
+namespace ERC.Utilities
 {
     public class Opcode_Disassembler : Process_Info
     {

@@ -149,6 +149,16 @@ namespace ERC
         error = -1
     }
 
+    public struct RegisterOffset
+    {
+        public string Register;
+        public IntPtr Register_Value;
+        public int Register_Offset;
+        public int String_Offset;
+        public int Buffer_Size;
+        public int Thread_ID;
+    }
+
     #region DLL Headers
     [StructLayout(LayoutKind.Explicit)]
     public struct IMAGE_DOS_HEADER

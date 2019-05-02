@@ -30,9 +30,11 @@ namespace ERC_test_app
             Console.WriteLine("Get thread Context:");
             Get_Thread_Context();
             Console.WriteLine("Find SEH Jumps:");
-            Find_SEH();*/
+            Find_SEH();
             Console.WriteLine("Generating egg hunters:");
-            egghunters();
+            egghunters();*/
+            Console.WriteLine("Searching for Non repeating pattern");
+            FindNRP();
             Console.ReadKey();
         }
 
@@ -88,14 +90,14 @@ namespace ERC_test_app
             instructions.Add("POP RBX");
             instructions.Add("PUSH RSP");
 
-            var asmResult = Opcode_Assembler.Assemble_Opcodes(instructions, MachineType.x64, core);
+            var asmResult = ERC.Utilities.Opcode_Assembler.Assemble_Opcodes(instructions, MachineType.x64, core);
             Console.WriteLine(BitConverter.ToString(asmResult.Return_Value).Replace("-", ""));
         }
 
         public static void disassemble_opcodes()
         {
             byte[] opcodes = new byte[] { 0xFF, 0xE4, 0x48, 0x31, 0xC0, 0x55, 0xC3 };
-            var result = Opcode_Disassembler.Disassemble(opcodes, MachineType.x64, core);
+            var result = ERC.Utilities.Opcode_Disassembler.Disassemble(opcodes, MachineType.x64, core);
             Console.WriteLine(result.Return_Value + Environment.NewLine);
         }
 
@@ -170,11 +172,28 @@ namespace ERC_test_app
 
         public static void egghunters()
         {
-            var eggs = Payloads.Egg_Hunter_Constructor("AAAA");
+            var eggs = ERC.Utilities.Payloads.Egg_Hunter_Constructor("AAAA");
             foreach(KeyValuePair<string, byte[]> s in eggs)
             {
                 Console.WriteLine("{0}:{1}", s.Key, BitConverter.ToString(s.Value));
             }
+        }
+
+        public static void FindNRP()
+        {
+            //ensure notepad is open before running this function.
+            Process[] processes = Process.GetProcesses();
+            Process thisProcess = null;
+            foreach (Process process1 in processes)
+            {
+                if (process1.ProcessName.Contains("notepad"))//"KMFtp"))//"x64dbg"))//
+                {
+                    thisProcess = process1;
+                }
+            }
+
+            Process_Info info = new Process_Info(core, thisProcess);
+            info.FindNRP();
         }
     }
 }
