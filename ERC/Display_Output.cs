@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 
 namespace ERC
 {
-    public class Display_Output
+    public static class Display_Output
     {
         #region Display_Output_Functions
         /// <summary>
@@ -147,6 +148,70 @@ namespace ERC
                     seh_element + aslr_element + nx_element + os_element + file_element + Environment.NewLine;
             }
             return output;
+        }
+
+        /// <summary>
+        /// Aquires filename and outputs all module data to the current working directory. Requires a Process_Info object to be passed as a parameter.
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
+        public static string Module_Info_Output(Process_Info info)
+        {
+            string modOutput = Display_Module_Info(info);
+            string modFilename = Get_Module_File_Name(info.Working_Directory, "modules_", ".txt");
+            File.WriteAllText(modFilename, modOutput);
+            return modOutput;
+        }
+
+        /// <summary>
+        /// Searches all memory associated with a given process and associated modules for POP X POP X RET instructions. 
+        /// Passing a list of module paths or names will exclude those modules from the search. Returns an ERC_Result<List<String>>. 
+        /// Similar to Search_All_Memory_PPR however provides output in an easily readable format.
+        /// </summary>
+        /// <returns></returns>
+        public static ERC_Result<List<string>> Get_SEH_Jumps(Process_Info info, List<string> excludes = null)
+        {
+            ERC_Result<List<string>> ret = new ERC_Result<List<string>>(info.Process_Core);
+            ERC_Result<Dictionary<IntPtr, string>> ptrs = info.Search_All_Memory_PPR(excludes);
+            if (ptrs.Error != null)
+            {
+                ret.Error = new Exception("Error passed from Search_All_Memory_PPR: " + ptrs.Error.ToString());
+                return ret;
+            }
+            ret.Return_Value = new List<string>();
+            byte[] ppr = new byte[5];
+            int bytesread = 0;
+            foreach (KeyValuePair<IntPtr, string> s in ptrs.Return_Value)
+            {
+                List<byte> opcodes = new List<byte>();
+                try
+                {
+                    ERC_Core.ReadProcessMemory(info.Process_Handle, s.Key, ppr, ppr.Length, out bytesread);
+                    for (int i = 0; i < 5; i++)
+                    {
+                        if (ppr[i].Equals(0xC3))
+                        {
+                            for (int j = 0; j <= i; j++)
+                            {
+                                opcodes.Add(ppr[j]);
+                            }
+                            Opcode_Disassembler disas = new Opcode_Disassembler(info);
+                            var result = disas.Disassemble(opcodes.ToArray());
+                            ret.Return_Value.Add("0x" + s.Key.ToString("x") + " " +
+                                result.Return_Value.Replace(Environment.NewLine, ", ") + " Source file: " + s.Value);
+                            opcodes.Clear();
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    ret.Error = e;
+                    ret.Log_Event();
+                    return ret;
+                }
+
+            }
+            return ret;
         }
         #endregion
     }

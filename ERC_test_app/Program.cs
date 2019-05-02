@@ -16,9 +16,9 @@ namespace ERC_test_app
             Console.WriteLine("Find offset in pattern (Ag9):");
             find_pattern_offset();
             Console.WriteLine("List all local processes: ");
-            List_All_Local_Processes();
+            List_All_Local_Processes();*/
             Console.WriteLine("Search Process Memory (notepad): ");
-            Search_Process_Memory();
+            Search_Process_Memory();/*
             Console.WriteLine("Assembling opcodes:");
             assembling_opcodes();
             Console.WriteLine("Disassembling Opcodes:");
@@ -28,9 +28,9 @@ namespace ERC_test_app
             Console.WriteLine("Generating byte array, skipping [ 0xA1, 0xB1, 0xC1, 0xD1 ]");
             output_byte_array();
             Console.WriteLine("Get thread Context:");
-            Get_Thread_Context();*/
+            Get_Thread_Context();
             Console.WriteLine("Find SEH Jumps:");
-            Find_SEH();
+            Find_SEH();*/
             Console.ReadKey();
         }
 
@@ -72,10 +72,10 @@ namespace ERC_test_app
             }
 
             Process_Info info = new Process_Info(core, thisProcess);
-            var listy = info.Search_Process_Memory(1, searchString: "anonymous");
-            foreach (IntPtr i in listy.Return_Value)
+            var listy = info.Search_Memory(1, searchString: "anonymous");
+            foreach (KeyValuePair<IntPtr, string> s in listy.Return_Value)
             {
-                Console.WriteLine("0x" + i.ToString("x"));
+                Console.WriteLine("0x" + s.Key.ToString("x") + " Filepath: " + s.Value);
             }
         }
 
@@ -111,7 +111,7 @@ namespace ERC_test_app
             }
 
             Process_Info info = new Process_Info(core, thisProcess);
-            Console.WriteLine(info.Module_Info_Output());
+            Console.WriteLine(Display_Output.Module_Info_Output(info));
         }
 
         public static void output_byte_array()
@@ -157,10 +157,10 @@ namespace ERC_test_app
             }
 
             Process_Info info = new Process_Info(core, thisProcess);
-            var tester = info.Search_All_Memory_PPR();
-            foreach(IntPtr ptr in tester.Return_Value)
+            var tester = Display_Output.Get_SEH_Jumps(info);
+            foreach(string s in tester.Return_Value)
             {
-                Console.WriteLine("0x" + ptr.ToString("x"));
+                Console.WriteLine(s);
             }
             Console.WriteLine("tester.ReturnValue.Length = {0}", tester.Return_Value.Count);
             Console.WriteLine("Function Complete");

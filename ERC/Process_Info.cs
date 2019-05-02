@@ -53,7 +53,7 @@ namespace ERC
             Process_ID = process.Id;
             Process_Current = process;
             Process_Handle = process.Handle;
-            Process_Module_Handles = GetProcessModules(Process_Handle).Return_Value; 
+            Process_Module_Handles = GetProcessModules().Return_Value; 
             
             if(Process_Module_Handles.Count == 0)
             {
@@ -78,7 +78,7 @@ namespace ERC
                     Threads_Info.Add(this_thread_info);
                 }
             }
-            Locate_Memory_Regions(process);
+            Locate_Memory_Regions();
         }
 
         protected Process_Info(Process_Info parent)
@@ -147,8 +147,10 @@ namespace ERC
         /// <summary>
         /// Returns a list of files loaded by the current process as List<String>
         /// </summary>
-        private ERC_Result<Dictionary<string, IntPtr>> GetProcessModules(IntPtr hProcess)
+        /// <returns>Returns an ERC_Result containing a Dictionary of module names and the associated handles</returns>
+        private ERC_Result<Dictionary<string, IntPtr>> GetProcessModules()
         {
+            IntPtr hProcess = Process_Handle;
             ERC_Result<Dictionary<string, IntPtr>> result = new ERC_Result<Dictionary<string, IntPtr>>(Process_Core);
             result.Return_Value = new Dictionary<string, IntPtr>();
             Dictionary<string, IntPtr> modules = new Dictionary<string, IntPtr>();
@@ -222,8 +224,10 @@ namespace ERC
         /// <summary>
         /// Identifies memory regions occupied by the current process and populates the associated list with the Process_Info object.
         /// </summary>
-        private void Locate_Memory_Regions(Process process)
+        /// <param name="process"></param>
+        private void Locate_Memory_Regions()
         {
+            Process process = Process_Current;
             if (Process_Machine_Type == MachineType.I386)
             {
                 Process_Memory_Basic_Info32 = new List<MEMORY_BASIC_INFORMATION32>();
@@ -272,37 +276,15 @@ namespace ERC
 
         #region Search_Functions
 
+        #region Search_Process_Memory
         /// <summary>
-        /// Searches memory regions populated by the process for specific strings. Takes a string or byte array as input to be searched for. 
-        /// Returns a list of IntPtr for each instance found. Takes an integer to determine search type.
+        /// Private function called from Search_Memory. Searches memory regions populated by the process for specific strings. Takes a byte array as input to be searched for. 
         /// </summary>
-        public ERC_Result<List<IntPtr>> Search_Process_Memory(int searchType, byte[] byteString = null, string searchString = null)
+        /// <param name="searchBytes"></param>
+        /// <returns>Returns a list of IntPtr for each instance found.</returns>
+        private ERC_Result<List<IntPtr>> Search_Process_Memory(byte[] searchBytes)
         {
-            const int PROCESS_VM_READ = 0x0010;
             ERC_Result<List<IntPtr>> result_addresses = new ERC_Result<List<IntPtr>>(Process_Core);
-            byte[] searchBytes;
-
-            switch (searchType)
-            {
-                case 0:
-                    searchBytes = byteString;
-                    break;
-                case 1:
-                    searchBytes = Encoding.Unicode.GetBytes(searchString);
-                    break;
-                case 2:
-                    searchBytes = Encoding.ASCII.GetBytes(searchString);
-                    break;
-                case 3:
-                    searchBytes = Encoding.UTF8.GetBytes(searchString);
-                    break;
-                case 4:
-                    searchBytes = Encoding.UTF7.GetBytes(searchString);
-                    break;
-                default:
-                    result_addresses.Error = new Exception("Incorrect searchType value provided, value must be 0-4");
-                    return result_addresses;
-            }
 
             result_addresses.Return_Value = new List<IntPtr>();
             Process process = Process_Current;
@@ -443,16 +425,18 @@ namespace ERC
             result_addresses.Return_Value = new HashSet<IntPtr>(result_addresses.Return_Value).ToList();
             return result_addresses;  
         }
+        #endregion
 
+        #region Search_All_Memory_PPR
         /// <summary>
         /// Searches all memory associated with a given process and associated modules for POP X POP X RET instructions. 
-        /// Passing a list of module paths or names will exclude those modules from the search. Returns an ERC_Result<List<IntPtr>>
+        /// Passing a list of module paths or names will exclude those modules from the search. 
         /// </summary>
-        /// <returns></returns>
-        public ERC_Result<List<IntPtr>> Search_All_Memory_PPR(List<string> excludes = null)
+        /// <returns>Returns an ERC_Result containing a dictionary of pointers and the main module in which they were found</returns>
+        public ERC_Result<Dictionary<IntPtr, string>> Search_All_Memory_PPR(List<string> excludes = null)
         {
-            ERC_Result<List<IntPtr>> ptrs = new ERC_Result<List<IntPtr>>(Process_Core);
-            ptrs.Return_Value = new List<IntPtr>();
+            ERC_Result<Dictionary<IntPtr, string>> ptrs = new ERC_Result<Dictionary<IntPtr, string>>(Process_Core);
+            ptrs.Return_Value = new Dictionary<IntPtr, string>();
             if (Process_Machine_Type == MachineType.I386)
             {
                 for (int i = 0; i < Process_Memory_Basic_Info32.Count; i++)
@@ -472,7 +456,10 @@ namespace ERC
                             {
                                 for (int k = 0; k < pprs.Count; k++)
                                 {
-                                    ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + (ulong)Process_Memory_Basic_Info32[i].BaseAddress));
+                                    if (!ptrs.Return_Value.ContainsKey((IntPtr)((ulong)pprs[k] + (ulong)Process_Memory_Basic_Info32[i].BaseAddress)))
+                                    {
+                                        ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + (ulong)Process_Memory_Basic_Info32[i].BaseAddress), Process_Filename);
+                                    }
                                 }
                             }
                         }
@@ -490,7 +477,10 @@ namespace ERC
                         {
                             for (int k = 0; k < pprs.Count; k++)
                             {
-                                ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + (ulong)Process_Memory_Basic_Info32[i].BaseAddress));
+                                if (!ptrs.Return_Value.ContainsKey((IntPtr)((ulong)pprs[k] + (ulong)Process_Memory_Basic_Info32[i].BaseAddress)))
+                                {
+                                    ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + (ulong)Process_Memory_Basic_Info32[i].BaseAddress), Process_Filename);
+                                }
                             }
                         }
                     }
@@ -516,7 +506,10 @@ namespace ERC
                             {
                                 for (int k = 0; k < pprs.Count; k++)
                                 {
-                                    ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + Process_Memory_Basic_Info64[i].BaseAddress));
+                                    if (!ptrs.Return_Value.ContainsKey((IntPtr)((ulong)pprs[k] + Process_Memory_Basic_Info64[i].BaseAddress)))
+                                    {
+                                        ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + Process_Memory_Basic_Info64[i].BaseAddress), Process_Filename);
+                                    }
                                 }
                             }
                         }
@@ -534,7 +527,10 @@ namespace ERC
                         {
                             for (int k = 0; k < pprs.Count; k++)
                             {
-                                ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + Process_Memory_Basic_Info64[i].BaseAddress));
+                                if (!ptrs.Return_Value.ContainsKey((IntPtr)((ulong)pprs[k] + Process_Memory_Basic_Info64[i].BaseAddress)))
+                                {
+                                    ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + Process_Memory_Basic_Info64[i].BaseAddress), Process_Filename);
+                                }
                             }
                         }
                     }
@@ -555,7 +551,6 @@ namespace ERC
                     modules.Add(Modules_Info[i]);
                 }
             }
-            Console.WriteLine("modules.Count {0}", modules.Count);
             for(int i = 0; i < modules.Count; i++)
             {
 
@@ -569,12 +564,104 @@ namespace ERC
                 {
                     for (int k = 0; k < pprs.Count; k++)
                     {
-                        ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + (ulong)modules[i].Module_Base));
+                        if (!ptrs.Return_Value.ContainsKey((IntPtr)((ulong)pprs[k] + (ulong)modules[i].Module_Base)))
+                        {
+                            ptrs.Return_Value.Add((IntPtr)((ulong)pprs[k] + (ulong)modules[i].Module_Base), modules[i].Module_Path);
+                        }
                     }
                 }
             }
             return ptrs;
         }
+        #endregion
+
+        #region Search_Memory
+        /// <summary>
+        /// Searches all memory (the process and associated DLLs) for a specific string or byte array. Strings can be passed as ASCII, Unicode, UTF7 or UTF8.
+        /// Specific modules can be exclude through passing a Listof strings containing module names or paths.
+        /// </summary>
+        /// <param name="searchType">0 = search term is in bytes\n1 = search term is in unicode\n2 = search term is in ASCII\n3 = Search term is in UTF8\n4 = Search term is in UTF7</param>
+        /// <param name="searchBytes">Byte array to be searched for (optional)</param>
+        /// <param name="searchString">String to be searched for (optional)</param>
+        /// <param name="excludes">Modules to be excluded from the search (optional)</param>
+        /// <returns>Returns an ERC_Result containing pointers to all instances of the search query.</returns>
+        public ERC_Result<Dictionary<IntPtr, string>> Search_Memory(int searchType, byte[] searchBytes = null, string searchString = null, List<string> excludes = null)
+        {
+            ERC_Result<Dictionary<IntPtr, string>> result_addresses = new ERC_Result<Dictionary<IntPtr, string>>(Process_Core);
+            if (searchBytes == null && searchString == null)
+            {
+                result_addresses.Error = new Exception("No search term provided. " +
+                    "Either a byte array or string must be provided as the search term or there is nothing to search for.");
+                return result_addresses;
+            }
+            result_addresses.Return_Value = new Dictionary<IntPtr, string>();
+            switch (searchType)
+            {
+                case 0:
+                    break;
+                case 1:
+                    searchBytes = Encoding.Unicode.GetBytes(searchString);
+                    break;
+                case 2:
+                    searchBytes = Encoding.ASCII.GetBytes(searchString);
+                    break;
+                case 3:
+                    searchBytes = Encoding.UTF8.GetBytes(searchString);
+                    break;
+                case 4:
+                    searchBytes = Encoding.UTF7.GetBytes(searchString);
+                    break;
+                default:
+                    result_addresses.Error = new Exception("Incorrect searchType value provided, value must be 0-4");
+                    return result_addresses;
+            }
+            var process_ptrs = Search_Process_Memory(searchBytes);
+            if(process_ptrs.Error != null)
+            {
+                result_addresses.Error = new Exception("Error passed from Search_Process_Memory: " + process_ptrs.Error.ToString());
+                return result_addresses;
+            }
+
+            for(int i = 0; i < process_ptrs.Return_Value.Count; i++)
+            {
+                if (!result_addresses.Return_Value.ContainsKey(process_ptrs.Return_Value[i]))
+                {
+                    result_addresses.Return_Value.Add(process_ptrs.Return_Value[i], Process_Filename);
+                }
+            }
+
+            List<Module_Info> modules = new List<Module_Info>();
+            for (int i = 0; i < Modules_Info.Count; i++)
+            {
+                if (excludes != null)
+                {
+                    if (!excludes.Contains(Modules_Info[i].Module_Name) && !excludes.Contains(Modules_Info[i].Module_Path))
+                    {
+                        modules.Add(Modules_Info[i]);
+                    }
+                }
+                else
+                {
+                    modules.Add(Modules_Info[i]);
+                }
+            }
+            for(int i = 0; i < modules.Count; i++)
+            {
+                var module_ptrs = modules[i].Search_Module(searchBytes);
+                if(module_ptrs.Return_Value.Count > 0)
+                {
+                    for(int j = 0; j < module_ptrs.Return_Value.Count; j++)
+                    {
+                        if (!result_addresses.Return_Value.ContainsKey(module_ptrs.Return_Value[j]))
+                        {
+                            result_addresses.Return_Value.Add(module_ptrs.Return_Value[j], modules[i].Module_Path);
+                        }
+                    }
+                }
+            }
+            return result_addresses;
+        }
+        #endregion
 
         #endregion
 
@@ -672,16 +759,6 @@ namespace ERC
             return len;
         }
 
-        #endregion
-
-        #region Output Functions
-        public string Module_Info_Output()
-        {
-            string modOutput = Display_Output.Display_Module_Info(this);
-            string modFilename = Display_Output.Get_Module_File_Name(Working_Directory, "modules_", ".txt");
-            File.WriteAllText(modFilename, modOutput);
-            return modOutput;
-        }
         #endregion
     }
 }
