@@ -154,7 +154,7 @@ namespace ERC
         /// Aquires filename and outputs all module data to the current working directory. Requires a Process_Info object to be passed as a parameter.
         /// </summary>
         /// <param name="info"></param>
-        /// <returns></returns>
+        /// <returns>Returns a formatted string of all results</returns>
         public static string Module_Info_Output(Process_Info info)
         {
             string modOutput = Display_Module_Info(info);
@@ -165,10 +165,10 @@ namespace ERC
 
         /// <summary>
         /// Searches all memory associated with a given process and associated modules for POP X POP X RET instructions. 
-        /// Passing a list of module paths or names will exclude those modules from the search. Returns an ERC_Result<List<String>>. 
+        /// Passing a list of module paths or names will exclude those modules from the search. 
         /// Similar to Search_All_Memory_PPR however provides output in an easily readable format.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns an ERC_Result containing a list of strings detailing the pointers, opcodes and base files of suitable instruction sets. </returns>
         public static ERC_Result<List<string>> Get_SEH_Jumps(Process_Info info, List<string> excludes = null)
         {
             ERC_Result<List<string>> ret = new ERC_Result<List<string>>(info.Process_Core);

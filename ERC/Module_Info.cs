@@ -214,8 +214,10 @@ namespace ERC
 
         #region Module_Search
         /// <summary>
-        /// Searches for a string of bytes within a specific module. Takes a byte array to be searched for. Returns ERC_Result<List<IntPtr>>
+        /// Searches for a string of bytes within a specific module. Takes a byte array to be searched for. 
         /// </summary>
+        /// <param name="searchBytes">A byte array to be searched for</param>
+        /// <returns>Returns ERC_Result of pointers to the search term</returns>
         public ERC_Result<List<IntPtr>> Search_Module(byte[] searchBytes)
         {
             ERC_Result<List<IntPtr>> results = new ERC_Result<List<IntPtr>>(Module_Core);
