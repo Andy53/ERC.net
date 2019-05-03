@@ -2,9 +2,9 @@
 using System.IO;
 using System.Text;
 using System.Runtime.InteropServices;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Security;
+using System.Reflection;
+using System.Xml.Linq;
+using System.Xml;
 
 namespace ERC
 {
@@ -12,11 +12,14 @@ namespace ERC
     public class ERC_Core
     {
         #region Class Variables
-        public const string ERC_Version = "v0.1"; //place holder, change this later
-        public string Installation_Directory = null; //To be used later
+        public string ERC_Version { get; set; }
         public string Working_Directory { get; set; }
         public string Author { get; set; }
+        public string Config_Path { get; set; }
+        public string Pattern_Standard_Path { get; set; }
+        public string Pattern_Extended_Path { get; set; }
         public bool Logging { get; set; }
+        XmlDocument ERC_Config = new XmlDocument();
         #endregion
 
         #region DLL Imports
@@ -42,8 +45,14 @@ namespace ERC
         [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "GetThreadContext")]
         public static extern bool GetThreadContext32(IntPtr hThread, ref CONTEXT32 lpContext);
 
+        [DllImport("kernel32.dll")]
+        public static extern bool Wow64GetThreadContext(IntPtr thread, ref CONTEXT32 lpContext);
+
         [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "GetThreadContext")]
         public static extern bool GetThreadContext64(IntPtr hThread, ref CONTEXT64 lpContext);
+
+        [DllImport("kernel32.dll", SetLastError= true)]
+        public static extern int SuspendThread(IntPtr hThread);
 
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern bool CloseHandle(IntPtr hObject);
@@ -67,34 +76,111 @@ namespace ERC
         #endregion
 
         #region Constructor
-        public ERC_Core(string user_supplied_working_directory = null, string user_supplied_author = null)
+        public ERC_Core()
         {
-            if (Directory.Exists(user_supplied_working_directory))
+            Working_Directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+            Working_Directory = Working_Directory.Remove(0, 6);
+            Config_Path = Path.Combine(Working_Directory, "ERC_Config.XML");
+            Pattern_Standard_Path = "";
+            Pattern_Extended_Path = "";
+
+            bool config_read = false;
+            while (config_read == false)
             {
-                Working_Directory = user_supplied_working_directory;
-            }
-            else
-            {
-                Console.WriteLine("User supplied working directory does not exist");
-                Working_Directory = Directory.GetCurrentDirectory();
+                if (File.Exists(Config_Path))
+                {
+                    try
+                    {
+                        ERC_Config.Load(Config_Path);
+                        var singleNode = ERC_Config.DocumentElement.SelectNodes("//Working_Directory");
+                        Working_Directory = singleNode[0].InnerText;
+                        singleNode = ERC_Config.DocumentElement.SelectNodes("//Author");
+                        Author = singleNode[0].InnerText;
+                        singleNode = ERC_Config.DocumentElement.SelectNodes("//Standard_Pattern");
+                        Pattern_Standard_Path = singleNode[0].InnerText;
+                        singleNode = ERC_Config.DocumentElement.SelectNodes("//Extended_Pattern");
+                        Pattern_Extended_Path = singleNode[0].InnerText;
+                        singleNode = ERC_Config.DocumentElement.SelectNodes("//Logging");
+                        if (singleNode[0].InnerText == "True")
+                        {
+                            Logging = true;
+                        }
+                        else
+                        {
+                            Logging = false; 
+                        }
+                        config_read = true;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        Build_Default_Config();
+                    }
+                }
+                else
+                {
+                    Build_Default_Config();
+                }
             }
 
-            if(user_supplied_author != null)
+            if (Pattern_Standard_Path == "")
             {
-                Author = user_supplied_author;
+                Pattern_Standard_Path = Path.Combine(Working_Directory, "Pattern_Standard");
+                if (!File.Exists(Pattern_Standard_Path))
+                {
+                    Console.WriteLine("Building standard pattern file...");
+                    var pattern_ext = Utilities.Pattern_Tools.Pattern_Create(20277, this, false);
+                    if (pattern_ext.Error != null)
+                    {
+                        pattern_ext.Log_Event();
+                        Environment.Exit(1);
+                    }
+                    File.WriteAllText(Pattern_Standard_Path, pattern_ext.Return_Value);
+                }
             }
             else
             {
-                Author = null;
+                if (!File.Exists(Pattern_Standard_Path))
+                {
+                    Console.WriteLine("Building standard pattern file...");
+                    var pattern_ext = Utilities.Pattern_Tools.Pattern_Create(20277, this, false);
+                    if (pattern_ext.Error != null)
+                    {
+                        pattern_ext.Log_Event();
+                        Environment.Exit(1);
+                    }
+                    File.WriteAllText(Pattern_Standard_Path, pattern_ext.Return_Value);
+                }
             }
             
-            if(user_supplied_working_directory != null)
+            if(Pattern_Extended_Path == "")
             {
-                Logging = true;
+                Pattern_Extended_Path = Path.Combine(Working_Directory, "Pattern_Extended");
+                if (!File.Exists(Pattern_Extended_Path))
+                {
+                    Console.WriteLine("Building extended pattern file...");
+                    var pattern_ext = Utilities.Pattern_Tools.Pattern_Create(66923, this, true);
+                    if (pattern_ext.Error != null)
+                    {
+                        pattern_ext.Log_Event();
+                        Environment.Exit(1);
+                    }
+                    File.WriteAllText(Pattern_Extended_Path, pattern_ext.Return_Value);
+                }
             }
             else
             {
-                Logging = false;
+                if (!File.Exists(Pattern_Extended_Path))
+                {
+                    Console.WriteLine("Building extended pattern file...");
+                    var pattern_ext = Utilities.Pattern_Tools.Pattern_Create(66923, this, true);
+                    if (pattern_ext.Error != null)
+                    {
+                        pattern_ext.Log_Event();
+                        Environment.Exit(1);
+                    }
+                    File.WriteAllText(Pattern_Extended_Path, pattern_ext.Return_Value);
+                }
             }
             
         }
@@ -104,6 +190,58 @@ namespace ERC
             Working_Directory = parent.Working_Directory;
             Author = parent.Author;
             Logging = parent.Logging;
+        }
+
+        private void Build_Default_Config()
+        {
+            Console.WriteLine("Building ERC_Config.XML file");
+            string Pattern_Standard_Path = Path.Combine(Working_Directory, "Pattern_Standard");
+            string Pattern_Extended_Path = Path.Combine(Working_Directory, "Pattern_Extended");
+
+            XmlDocument defaultConfig = new XmlDocument();
+            XmlDeclaration xmlDeclaration = defaultConfig.CreateXmlDeclaration("1.0", "UTF-8", null);
+            XmlElement root = defaultConfig.DocumentElement;
+            defaultConfig.InsertBefore(xmlDeclaration, root);
+
+            XmlElement erc_xml = defaultConfig.CreateElement(string.Empty, "ERC.Net", Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            defaultConfig.AppendChild(erc_xml);
+
+            XmlElement parameters = defaultConfig.CreateElement(string.Empty, "Parameters", string.Empty);
+            erc_xml.AppendChild(parameters);
+
+            XmlElement workingDir = defaultConfig.CreateElement(string.Empty, "Working_Directory", string.Empty);
+            XmlText text1 = defaultConfig.CreateTextNode(Working_Directory);
+            workingDir.AppendChild(text1);
+            parameters.AppendChild(workingDir);
+
+            XmlElement author = defaultConfig.CreateElement(string.Empty, "Author", string.Empty);
+            text1 = defaultConfig.CreateTextNode("No_Author_Set");
+            author.AppendChild(text1);
+            parameters.AppendChild(author);
+
+            XmlElement patternS = defaultConfig.CreateElement(string.Empty, "Standard_Pattern", string.Empty);
+            text1 = defaultConfig.CreateTextNode(Pattern_Standard_Path);
+            patternS.AppendChild(text1);
+            parameters.AppendChild(patternS);
+
+            XmlElement patternE = defaultConfig.CreateElement(string.Empty, "Extended_Pattern", string.Empty);
+            text1 = defaultConfig.CreateTextNode(Pattern_Extended_Path);
+            patternE.AppendChild(text1);
+            parameters.AppendChild(patternE);
+
+            XmlElement log = defaultConfig.CreateElement(string.Empty, "Logging", string.Empty);
+            text1 = defaultConfig.CreateTextNode("True");
+            log.AppendChild(text1);
+            parameters.AppendChild(log);
+
+            try
+            {
+                defaultConfig.Save(Config_Path);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
         #endregion
     }
@@ -149,14 +287,14 @@ namespace ERC
         error = -1
     }
 
-    public struct RegisterOffset
+    public class RegisterOffset
     {
-        public string Register;
-        public IntPtr Register_Value;
-        public int Register_Offset;
-        public int String_Offset;
-        public int Buffer_Size;
-        public int Thread_ID;
+        public string Register { get; set; }
+        public IntPtr Register_Value { get; set; }
+        public int Register_Offset { get; set; }
+        public int String_Offset { get; set; }
+        public int Buffer_Size { get; set; }
+        public int Thread_ID { get; set; }
     }
 
     #region DLL Headers
