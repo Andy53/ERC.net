@@ -580,7 +580,7 @@ namespace ERC
         /// Searches all memory (the process and associated DLLs) for a specific string or byte array. Strings can be passed as ASCII, Unicode, UTF7 or UTF8.
         /// Specific modules can be exclude through passing a Listof strings containing module names or paths.
         /// </summary>
-        /// <param name="searchType">0 = search term is in bytes\n1 = search term is in unicode\n2 = search term is in ASCII\n3 = Search term is in UTF8\n4 = Search term is in UTF7</param>
+        /// <param name="searchType">0 = search term is in bytes\n1 = search term is in unicode\n2 = search term is in ASCII\n3 = Search term is in UTF8\n4 = Search term is in UTF7\n5 = Search term is in UTF32</param>
         /// <param name="searchBytes">Byte array to be searched for (optional)</param>
         /// <param name="searchString">String to be searched for (optional)</param>
         /// <param name="excludes">Modules to be excluded from the search (optional)</param>
@@ -610,6 +610,9 @@ namespace ERC
                     break;
                 case 4:
                     searchBytes = Encoding.UTF7.GetBytes(searchString);
+                    break;
+                case 5:
+                    searchBytes = Encoding.UTF32.GetBytes(searchString);
                     break;
                 default:
                     result_addresses.Error = new Exception("Incorrect searchType value provided, value must be 0-4");
@@ -664,10 +667,43 @@ namespace ERC
         #endregion
 
         #region FindNRP
-        public ERC_Result<RegisterOffset> FindNRP()
+        /// <summary>
+        /// Searches process registers and identifies pointers to buffers in memory containing a non repeating pattern. Functionality to identify SEH overwrites not yet implements.
+        /// </summary>
+        /// <param name="searchType">(Optional) 0 = search term is system default\n1 = search term is in unicode\n2 = search term is in ASCII\n3 = Search term is in UTF8\n4 = Search term is in UTF7\n5 = Search term is in UTF32</param>
+        /// <param name="extended">(Optional) Include additional characters in the pattern (!#$%^& etc) in the to be searched</param>
+        /// <returns>Returns a ERC_Result containing a List of RegisterOffset</returns>
+        public ERC_Result<List<RegisterOffset>> FindNRP(int searchType = 0, bool extended = false)
         {
-            ERC_Result<RegisterOffset> offsets = new ERC_Result<RegisterOffset>(Process_Core);
-            var result_pattern = ERC.Utilities.Pattern_Tools.Pattern_Create(66923, Process_Core, true);
+            ERC_Result<List<RegisterOffset>> offsets = new ERC_Result<List<RegisterOffset>>(Process_Core);
+            List<string> nrps = new List<string>();
+            string pattern = "";
+            if(extended == false)
+            {
+                pattern = File.ReadAllText(Process_Core.Pattern_Standard_Path);
+            }
+            else
+            {
+                pattern = File.ReadAllText(Process_Core.Pattern_Extended_Path);
+            }
+
+            string nrp_holder = "";
+            int counter = 0;
+            for(int i = 0; i < pattern.Length; i++)
+            {
+                if(counter != 2)
+                {
+                    nrp_holder += pattern[i];
+                    counter++;
+                }
+                else
+                {
+                    nrp_holder += pattern[i];
+                    nrps.Add(nrp_holder);
+                    nrp_holder = "";
+                    counter = 0;
+                }
+            }
 
             for (int i = 0; i < Threads_Info.Count; i++)
             {
@@ -722,20 +758,100 @@ namespace ERC
                     RegisterOffset regEIP = new RegisterOffset();
                     regEIP.Register = "EIP";
                     regEIP.Register_Value = (IntPtr)Threads_Info[i].Context32.Eip;
-                    registers.Add(regEbp);
+                    registers.Add(regEIP);
                 }
 
                 for (int i = 0; i < registers.Count; i++)
                 {
                     for (int j = 0; j < Process_Memory_Basic_Info32.Count; j++)
                     {
-                        if(registers[i].Register != "EIP" && (ulong)registers[i].Register_Value > (ulong)Process_Memory_Basic_Info32[j].BaseAddress
-                            && (ulong)registers[i].Register_Value < (ulong)Process_Memory_Basic_Info32[j].BaseAddress + (ulong)Process_Memory_Basic_Info32[j].RegionSize)
+                        ulong regionStart = (ulong)Process_Memory_Basic_Info32[j].BaseAddress;
+                        ulong regionEnd = (ulong)Process_Memory_Basic_Info32[j].BaseAddress + (ulong)Process_Memory_Basic_Info32[j].RegionSize;
+
+                        if (registers[i].Register != "EIP" && registers[i].Register != "EBP" &&
+                            (ulong)registers[i].Register_Value > regionStart && 
+                            (ulong)registers[i].Register_Value < regionEnd)
                         {
                             ulong bufferSize = ((ulong)Process_Memory_Basic_Info32[j].BaseAddress + (ulong)Process_Memory_Basic_Info32[j].RegionSize) - (ulong)registers[i].Register_Value;
                             byte[] buffer = new byte[bufferSize];
                             int bytesRead = 0;
                             ReadProcessMemory(Process_Handle, registers[i].Register_Value, buffer, (int)bufferSize, out bytesRead);
+
+                            string memoryString = "";
+                            switch (searchType)
+                            {
+                                case 0:
+                                    memoryString = Encoding.Default.GetString(buffer);
+                                    break;
+                                case 1:
+                                    memoryString = Encoding.Unicode.GetString(buffer);
+                                    break;
+                                case 2:
+                                    memoryString = Encoding.ASCII.GetString(buffer);
+                                    break;
+                                case 3:
+                                    memoryString = Encoding.UTF8.GetString(buffer);
+                                    break;
+                                case 4:
+                                    memoryString = Encoding.UTF7.GetString(buffer);
+                                    break;
+                                case 5:
+                                    memoryString = Encoding.UTF32.GetString(buffer);
+                                    break;
+                                default:
+                                    memoryString = Encoding.Default.GetString(buffer);
+                                    break;
+                            }
+                            int length = 0;
+                            for(int k = 0; k < nrps.Count; k++)
+                            {
+                                if (memoryString.Contains(nrps[k]))
+                                {
+                                    if(length == 0)
+                                    {
+                                        registers[i].String_Offset = pattern.IndexOf(nrps[k]);
+
+                                        //Check to see if previous characters match
+                                        int index = memoryString.IndexOf(nrps[k]);
+                                        registers[i].Register_Offset = index;
+                                        if (index >= 2)
+                                        {
+                                            char pos3 = memoryString[index - 1];
+                                            char pos2 = memoryString[index - 2];
+                                            char pos1 = memoryString[index - 3];
+                                            if (k > 0 && nrps[k - 1][2] == pos3)
+                                            {
+                                                registers[i].String_Offset--;
+                                                registers[i].Register_Offset--;
+                                                if (nrps[k - 1][1] == pos2)
+                                                {
+                                                    registers[i].String_Offset--;
+                                                    registers[i].Register_Offset--;
+                                                    if (nrps[k - 1][0] == pos1)
+                                                    {
+                                                        registers[i].String_Offset--;
+                                                        registers[i].Register_Offset--;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else if (index == 1)
+                                        {
+                                            char pos3 = memoryString[index - 1];
+                                            if (nrps[k - 1][2] == pos3 && k > 0)
+                                            {
+                                                registers[i].Register_Offset--;
+                                            }
+                                        }
+                                    }
+                                    length += 3;
+                                }
+                                else
+                                {
+                                    k = nrps.Count;
+                                    registers[i].Buffer_Size = length;
+                                }
+                            }
                         }
                     }
                 }
@@ -744,14 +860,185 @@ namespace ERC
             {
                 for (int i = 0; i < Threads_Info.Count; i++)
                 {
-                    //populate 64bit registers into register offset structs here.
+                    RegisterOffset regRax = new RegisterOffset();
+                    regRax.Register = "Rax";
+                    regRax.Register_Value = (IntPtr)Threads_Info[i].Context64.Rax;
+                    regRax.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regRax);
+                    RegisterOffset regRbx = new RegisterOffset();
+                    regRbx.Register = "RBX";
+                    regRbx.Register_Value = (IntPtr)Threads_Info[i].Context64.Rbx;
+                    regRbx.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regRbx);
+                    RegisterOffset regRcx = new RegisterOffset();
+                    regRcx.Register = "RCX";
+                    regRcx.Register_Value = (IntPtr)Threads_Info[i].Context64.Rcx;
+                    regRcx.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regRcx);
+                    RegisterOffset regRdx = new RegisterOffset();
+                    regRdx.Register = "RDX";
+                    regRdx.Register_Value = (IntPtr)Threads_Info[i].Context64.Rdx;
+                    regRdx.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regRdx);
+                    RegisterOffset regRsp = new RegisterOffset();
+                    regRsp.Register = "RSP";
+                    regRsp.Register_Value = (IntPtr)Threads_Info[i].Context64.Rsp;
+                    regRsp.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regRsp);
+                    RegisterOffset regRbp = new RegisterOffset();
+                    regRbp.Register = "RBP";
+                    regRbp.Register_Value = (IntPtr)Threads_Info[i].Context64.Rbp;
+                    regRbp.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regRbp);
+                    RegisterOffset regRsi = new RegisterOffset();
+                    regRsi.Register = "RSI";
+                    regRsi.Register_Value = (IntPtr)Threads_Info[i].Context64.Rsi;
+                    regRsi.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regRsi);
+                    RegisterOffset regRdi = new RegisterOffset();
+                    regRdi.Register = "RDI";
+                    regRdi.Register_Value = (IntPtr)Threads_Info[i].Context64.Rdi;
+                    regRdi.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regRdi);
+                    RegisterOffset regR8 = new RegisterOffset();
+                    regR8.Register = "R8";
+                    regR8.Register_Value = (IntPtr)Threads_Info[i].Context64.R8;
+                    regR8.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regR8);
+                    RegisterOffset regR9 = new RegisterOffset();
+                    regR9.Register = "R9";
+                    regR9.Register_Value = (IntPtr)Threads_Info[i].Context64.R9;
+                    regR9.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regR9);
+                    RegisterOffset regR10 = new RegisterOffset();
+                    regR10.Register = "R10";
+                    regR10.Register_Value = (IntPtr)Threads_Info[i].Context64.R10;
+                    regR10.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regR10);
+                    RegisterOffset regR11 = new RegisterOffset();
+                    regR11.Register = "R11";
+                    regR11.Register_Value = (IntPtr)Threads_Info[i].Context64.R11;
+                    regR11.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regR11);
+                    RegisterOffset regR12 = new RegisterOffset();
+                    regR12.Register = "R12";
+                    regR12.Register_Value = (IntPtr)Threads_Info[i].Context64.R12;
+                    regR12.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regR12);
+                    RegisterOffset regR13 = new RegisterOffset();
+                    regR13.Register = "R13";
+                    regR13.Register_Value = (IntPtr)Threads_Info[i].Context64.R13;
+                    regR13.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regR13);
+                    RegisterOffset regR14 = new RegisterOffset();
+                    regR14.Register = "R14";
+                    regR14.Register_Value = (IntPtr)Threads_Info[i].Context64.R14;
+                    regR14.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regR14);
+                    RegisterOffset regR15 = new RegisterOffset();
+                    regR15.Register = "R15";
+                    regR15.Register_Value = (IntPtr)Threads_Info[i].Context64.R15;
+                    regR15.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regR15);
+                    RegisterOffset regRIP = new RegisterOffset();
+                    regRIP.Register = "RIP";
+                    regRIP.Register_Value = (IntPtr)Threads_Info[i].Context64.Rip;
+                    regRIP.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regRIP);
                 }
 
                 for (int i = 0; i < registers.Count; i++)
                 {
-                    for (int j = 0; j < Process_Memory_Basic_Info64.Count; j++)
+                    for (int j = 0; j < Process_Memory_Basic_Info32.Count; j++)
                     {
-                        //check register points to memory region here. Then search that memory for pattern.
+                        ulong regionStart = Process_Memory_Basic_Info64[j].BaseAddress;
+                        ulong regionEnd = Process_Memory_Basic_Info64[j].BaseAddress + Process_Memory_Basic_Info64[j].RegionSize;
+
+                        if (registers[i].Register != "RIP" && registers[i].Register != "RBP" &&
+                            (ulong)registers[i].Register_Value > regionStart &&
+                            (ulong)registers[i].Register_Value < regionEnd)
+                        {
+                            ulong bufferSize = (Process_Memory_Basic_Info64[j].BaseAddress + Process_Memory_Basic_Info64[j].RegionSize) - (ulong)registers[i].Register_Value;
+                            byte[] buffer = new byte[bufferSize];
+                            int bytesRead = 0;
+                            ReadProcessMemory(Process_Handle, registers[i].Register_Value, buffer, (int)bufferSize, out bytesRead);
+
+                            string memoryString = "";
+                            switch (searchType)
+                            {
+                                case 0:
+                                    memoryString = Encoding.Default.GetString(buffer);
+                                    break;
+                                case 1:
+                                    memoryString = Encoding.Unicode.GetString(buffer);
+                                    break;
+                                case 2:
+                                    memoryString = Encoding.ASCII.GetString(buffer);
+                                    break;
+                                case 3:
+                                    memoryString = Encoding.UTF8.GetString(buffer);
+                                    break;
+                                case 4:
+                                    memoryString = Encoding.UTF7.GetString(buffer);
+                                    break;
+                                case 5:
+                                    memoryString = Encoding.UTF32.GetString(buffer);
+                                    break;
+                                default:
+                                    memoryString = Encoding.Default.GetString(buffer);
+                                    break;
+                            }
+                            int length = 0;
+                            for (int k = 0; k < nrps.Count; k++)
+                            {
+                                if (memoryString.Contains(nrps[k]))
+                                {
+                                    if (length == 0)
+                                    {
+                                        registers[i].String_Offset = pattern.IndexOf(nrps[k]);
+
+                                        //Check to see if previous characters match
+                                        int index = memoryString.IndexOf(nrps[k]);
+                                        registers[i].Register_Offset = index;
+                                        if (index >= 2)
+                                        {
+                                            char pos3 = memoryString[index - 1];
+                                            char pos2 = memoryString[index - 2];
+                                            char pos1 = memoryString[index - 3];
+                                            if (k > 0 && nrps[k - 1][2] == pos3)
+                                            {
+                                                registers[i].String_Offset--;
+                                                registers[i].Register_Offset--;
+                                                if (nrps[k - 1][1] == pos2)
+                                                {
+                                                    registers[i].String_Offset--;
+                                                    registers[i].Register_Offset--;
+                                                    if (nrps[k - 1][0] == pos1)
+                                                    {
+                                                        registers[i].String_Offset--;
+                                                        registers[i].Register_Offset--;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else if (index == 1)
+                                        {
+                                            char pos3 = memoryString[index - 1];
+                                            if (nrps[k - 1][2] == pos3 && k > 0)
+                                            {
+                                                registers[i].Register_Offset--;
+                                            }
+                                        }
+                                    }
+                                    length += 3;
+                                }
+                                else
+                                {
+                                    k = nrps.Count;
+                                    registers[i].Buffer_Size = length;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -759,9 +1046,7 @@ namespace ERC
             {
                 offsets.Error = new Exception("Critical Error: Process returned incompatible machine type.");
             }
-
-            
-
+            offsets.Return_Value = registers;
             return offsets;
         }
         #endregion

@@ -141,13 +141,11 @@ namespace ERC
                 if (extended == true)
                 {
                     digits += ": ,.;+=-_!&()#@'({})[]%";
-                    var result_pattern = Pattern_Create(66923, core, true);
-                    pattern_full = result_pattern.Return_Value;
+                    pattern_full = File.ReadAllText(core.Pattern_Extended_Path);
                 }
                 else
                 {
-                    var result_pattern = Pattern_Create(20277, core);
-                    pattern_full = result_pattern.Return_Value;
+                    pattern_full = File.ReadAllText(core.Pattern_Standard_Path);
                 }
                 ERC_Result<int> result = new ERC_Result<int>(core);
 

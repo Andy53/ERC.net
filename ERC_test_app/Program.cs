@@ -7,7 +7,7 @@ namespace ERC_test_app
 {
     class Program
     {
-        public static ERC_Core core = new ERC_Core(@"D:\Junk", "Author");
+        public static ERC_Core core = new ERC_Core();
 
         static void Main(string[] args)
         {
@@ -40,7 +40,7 @@ namespace ERC_test_app
 
         public static void create_a_pattern()
         {
-            var result = ERC.Utilities.Pattern_Tools.Pattern_Create(1000, core);
+            var result = ERC.Utilities.Pattern_Tools.Pattern_Create(4000, core);
             Console.WriteLine(result.Return_Value);
             Console.WriteLine(Environment.NewLine);
         }
@@ -186,7 +186,7 @@ namespace ERC_test_app
             Process thisProcess = null;
             foreach (Process process1 in processes)
             {
-                if (process1.ProcessName.Contains("notepad"))//"KMFtp"))//"x64dbg"))//
+                if (process1.ProcessName.Contains("Kolibri"))//"x64dbg"))//"notepad"))//
                 {
                     thisProcess = process1;
                 }

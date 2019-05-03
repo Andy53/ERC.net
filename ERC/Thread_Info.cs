@@ -67,10 +67,25 @@ namespace ERC
                     return result;
                 }
             }
+            else if(Environment.Is64BitProcess == true && x64 == false)
+            {
+                Context32 = new CONTEXT32();
+                Context32.ContextFlags = CONTEXT_FLAGS.CONTEXT_ALL;
+                try
+                {
+                    ERC_Core.Wow64GetThreadContext(Thread_HANDLE, ref Context32);
+                }
+                catch (Exception e)
+                {
+                    result.Error = new Win32Exception(Marshal.GetLastWin32Error());
+                    result.Log_Event();
+                    return result;
+                }
+            }
             else
             {
                 Context32 = new CONTEXT32();
-                Context32.ContextFlags = CONTEXT_FLAGS.CONTEXT_CONTROL;
+                Context32.ContextFlags = CONTEXT_FLAGS.CONTEXT_ALL;
                 try
                 {
                     ERC_Core.GetThreadContext32(Thread_HANDLE, ref Context32);
