@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERC_Lib;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -116,13 +117,13 @@ namespace ERC
                     Module_Image_Base = (IntPtr)Image_Optional_Header64.ImageBase;
                     byte[] dllByte = BitConverter.GetBytes(Image_Optional_Header64.DllCharacteristics);
                     BitArray bits = new BitArray(dllByte);
-                    for(int i = 0; i < bits.Count; i++)
+                    for (int i = 0; i < bits.Count; i++)
                     {
                         if (bits[i] == true && i == 6)
                         {
                             Module_ASLR = true;
                         }
-                        else if(bits[i] == false && i == 6)
+                        else if (bits[i] == false && i == 6)
                         {
                             Module_ASLR = false;
                         }
@@ -131,7 +132,7 @@ namespace ERC
                         {
                             Module_NXCompat = true;
                         }
-                        else if(bits[i] == false && i == 8)
+                        else if (bits[i] == false && i == 8)
                         {
                             Module_NXCompat = false;
                         }
@@ -149,8 +150,8 @@ namespace ERC
                 else
                 {
                     Module_Failed = true;
-                    throw new Exception("Unsupported machine type " + Module_Machine_Type.ToString());
-                }
+                    throw new ERCException("Unsupported machine type: " + Module_Machine_Type.ToString());
+                }             
 
                 if (Module_Product == "Microsoft® Windows® Operating System")
                 {

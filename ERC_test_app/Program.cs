@@ -11,7 +11,8 @@ namespace ERC_test_app
 
         static void Main(string[] args)
         {
-            /*Console.WriteLine("create a pattern 1000 characters long: ");
+            core.Set_Working_Directory(@"C:\Users\Andy\Desktop\");/*
+            Console.WriteLine("create a pattern 1000 characters long: ");
             create_a_pattern();
             Console.WriteLine("Find offset in pattern (Ag9):");
             find_pattern_offset();
@@ -28,13 +29,13 @@ namespace ERC_test_app
             Console.WriteLine("Generating byte array, skipping [ 0xA1, 0xB1, 0xC1, 0xD1 ]");
             output_byte_array();
             Console.WriteLine("Get thread Context:");
-            Get_Thread_Context();
+            Get_Thread_Context();*/
             Console.WriteLine("Find SEH Jumps:");
-            Find_SEH();
+            Find_SEH();/*
             Console.WriteLine("Generating egg hunters:");
-            egghunters();*/
+            egghunters();
             Console.WriteLine("Searching for Non repeating pattern");
-            FindNRP();
+            FindNRP();*/
             Console.ReadKey();
         }
 
@@ -115,7 +116,7 @@ namespace ERC_test_app
             }
 
             Process_Info info = new Process_Info(core, thisProcess);
-            Console.WriteLine(Display_Output.Module_Info_Output(info));
+            Console.WriteLine(Display_Output.Generate_Module_Info_Table(info));
         }
 
         public static void output_byte_array()
@@ -166,17 +167,12 @@ namespace ERC_test_app
             {
                 Console.WriteLine(s);
             }
-            Console.WriteLine("tester.ReturnValue.Length = {0}", tester.Return_Value.Count);
-            Console.WriteLine("Function Complete");
         }
 
         public static void egghunters()
         {
-            var eggs = ERC.Utilities.Payloads.Egg_Hunter_Constructor("AAAA");
-            foreach(KeyValuePair<string, byte[]> s in eggs)
-            {
-                Console.WriteLine("{0}:{1}", s.Key, BitConverter.ToString(s.Value));
-            }
+            var eggs = ERC.Display_Output.Generate_Egg_Hunters(core, "AAAA");
+            Console.WriteLine(eggs);
         }
 
         public static void FindNRP()
@@ -186,7 +182,7 @@ namespace ERC_test_app
             Process thisProcess = null;
             foreach (Process process1 in processes)
             {
-                if (process1.ProcessName.Contains("Kolibri"))//"x64dbg"))//"notepad"))//
+                if (process1.ProcessName.Contains("notepad"))//"Kolibri"))//"x64dbg"))//
                 {
                     thisProcess = process1;
                 }

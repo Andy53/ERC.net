@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ERC.Net xmlns="1.0.0.0">
   <Parameters xmlns="">
-    <Working_Directory>D:\Source\Repos\ERC_net\ERC.net\ERC_test_app\bin\Debug\net472</Working_Directory>
+    <Working_Directory>C:\Users\Andy\Desktop\</Working_Directory>
     <Author>No_Author_Set</Author>
     <Standard_Pattern>D:\Source\Repos\ERC_net\ERC.net\ERC_test_app\bin\Debug\net472\Pattern_Standard</Standard_Pattern>
     <Extended_Pattern>D:\Source\Repos\ERC_net\ERC.net\ERC_test_app\bin\Debug\net472\Pattern_Extended</Extended_Pattern>
     <Logging>True</Logging>
+    <Error_Log_File>D:\Source\Repos\ERC_net\ERC.net\ERC_test_app\bin\Debug\net472\System_Error.LOG</Error_Log_File>
   </Parameters>
 </ERC.Net>

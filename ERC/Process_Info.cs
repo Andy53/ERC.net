@@ -1,12 +1,11 @@
-﻿using System;
+﻿using ERC_Lib;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Text.RegularExpressions;
 
 namespace ERC
 {
@@ -100,7 +99,6 @@ namespace ERC
 
             Working_Directory = parent.Working_Directory;
             Author = parent.Author;
-            Logging = parent.Logging;
         }
         #endregion
 
@@ -206,16 +204,18 @@ namespace ERC
         /// </summary>
         public static bool Is64Bit(Process process)
         {
+            bool isWow64;
+
             if (!Environment.Is64BitOperatingSystem)
             {
                 return false;
             }
 
-            bool isWow64;
             if (!IsWow64Process(process.Handle, out isWow64))
             {
-                throw new Exception("An error has occured in the IsWow64Process call from Process.Is64Bit()");
+                throw new ERCException("An error has occured in the IsWow64Process call from Process.Is64Bit()");
             }
+
             return !isWow64;
         }
         #endregion
@@ -260,16 +260,16 @@ namespace ERC
                     if (address == (long)m.BaseAddress + (long)m.RegionSize)
                         break;
                     address = (long)m.BaseAddress + (long)m.RegionSize;
-                    if(m.State == StateEnum.MEM_COMMIT && (m.Type == TypeEnum.MEM_MAPPED || m.Type == TypeEnum.MEM_PRIVATE))
+                    if (m.State == StateEnum.MEM_COMMIT && (m.Type == TypeEnum.MEM_MAPPED || m.Type == TypeEnum.MEM_PRIVATE))
                     {
                         Process_Memory_Basic_Info64.Add(m);
                     }
-                    
+
                 } while (address <= MaxAddress);
             }
             else
             {
-                throw new Exception("Machine type is invalid");
+                throw new ERCException("Machine type is invalid");
             }
         }
         #endregion
@@ -590,8 +590,9 @@ namespace ERC
             ERC_Result<Dictionary<IntPtr, string>> result_addresses = new ERC_Result<Dictionary<IntPtr, string>>(Process_Core);
             if (searchBytes == null && searchString == null)
             {
-                result_addresses.Error = new Exception("No search term provided. " +
+                result_addresses.Error = new ERCException("No search term provided. " +
                     "Either a byte array or string must be provided as the search term or there is nothing to search for.");
+                result_addresses.Log_Event();
                 return result_addresses;
             }
             result_addresses.Return_Value = new Dictionary<IntPtr, string>();
@@ -615,13 +616,15 @@ namespace ERC
                     searchBytes = Encoding.UTF32.GetBytes(searchString);
                     break;
                 default:
-                    result_addresses.Error = new Exception("Incorrect searchType value provided, value must be 0-4");
+                    result_addresses.Error = new ERCException("Incorrect searchType value provided, value must be 0-4");
+                    result_addresses.Log_Event();
                     return result_addresses;
             }
             var process_ptrs = Search_Process_Memory(searchBytes);
             if(process_ptrs.Error != null)
             {
-                result_addresses.Error = new Exception("Error passed from Search_Process_Memory: " + process_ptrs.Error.ToString());
+                result_addresses.Error = new ERCException("Error passed from Search_Process_Memory: " + process_ptrs.Error.ToString());
+                result_addresses.Log_Event();
                 return result_addresses;
             }
 
@@ -750,6 +753,11 @@ namespace ERC
                     regEax.Register_Value = (IntPtr)Threads_Info[i].Context32.Eax;
                     regEax.Thread_ID = Threads_Info[i].Thread_ID;
                     registers.Add(regEax);
+                    RegisterOffset regEsp = new RegisterOffset();
+                    regEsp.Register = "ESP";
+                    regEsp.Register_Value = (IntPtr)Threads_Info[i].Context32.Esp;
+                    regEsp.Thread_ID = Threads_Info[i].Thread_ID;
+                    registers.Add(regEsp);
                     RegisterOffset regEbp = new RegisterOffset();
                     regEbp.Register = "EBP";
                     regEbp.Register_Value = (IntPtr)Threads_Info[i].Context32.Ebp;
@@ -853,6 +861,38 @@ namespace ERC
                                 }
                             }
                         }
+                        else if (registers[i].Register != "EIP")
+                        {
+                            string EIPValue = "";
+                            switch (searchType)
+                            {
+                                case 0:
+                                    EIPValue = Encoding.Default.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                                case 1:
+                                    EIPValue = Encoding.Unicode.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                                case 2:
+                                    EIPValue = Encoding.ASCII.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                                case 3:
+                                    EIPValue = Encoding.UTF8.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                                case 4:
+                                    EIPValue = Encoding.UTF7.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                                case 5:
+                                    EIPValue = Encoding.UTF32.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                                default:
+                                    EIPValue = Encoding.Default.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                            }
+                            if (pattern.Contains(EIPValue))
+                            {
+                                registers[i].String_Offset = pattern.IndexOf(EIPValue);
+                            }
+                        }
                     }
                 }
             }
@@ -949,7 +989,7 @@ namespace ERC
 
                 for (int i = 0; i < registers.Count; i++)
                 {
-                    for (int j = 0; j < Process_Memory_Basic_Info32.Count; j++)
+                    for (int j = 0; j < Process_Memory_Basic_Info64.Count; j++)
                     {
                         ulong regionStart = Process_Memory_Basic_Info64[j].BaseAddress;
                         ulong regionEnd = Process_Memory_Basic_Info64[j].BaseAddress + Process_Memory_Basic_Info64[j].RegionSize;
@@ -1039,12 +1079,45 @@ namespace ERC
                                 }
                             }
                         }
+                        else if(registers[i].Register != "RIP")
+                        {
+                            string RIPValue = "";
+                            switch (searchType)
+                            {
+                                case 0:
+                                    RIPValue = Encoding.Default.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                                case 1:
+                                    RIPValue = Encoding.Unicode.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                                case 2:
+                                    RIPValue = Encoding.ASCII.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                                case 3:
+                                    RIPValue = Encoding.UTF8.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                                case 4:
+                                    RIPValue = Encoding.UTF7.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                                case 5:
+                                    RIPValue = Encoding.UTF32.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                                default:
+                                    RIPValue = Encoding.Default.GetString(BitConverter.GetBytes((ulong)registers[i].Register_Value));
+                                    break;
+                            }
+                            if (pattern.Contains(RIPValue))
+                            {
+                                registers[i].String_Offset = pattern.IndexOf(RIPValue);
+                            }
+                        }
                     }
                 }
             }
             else
             {
-                offsets.Error = new Exception("Critical Error: Process returned incompatible machine type.");
+                offsets.Error = new ERCException("Critical Error: Process returned incompatible machine type.");
+                offsets.Log_Event();
             }
             offsets.Return_Value = registers;
             return offsets;

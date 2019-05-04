@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERC_Lib;
+using System;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -29,7 +30,7 @@ namespace ERC
                     digits += ": ,.;+=-_!&()#@'({})[]%";
                     if(length > 66923)
                     {
-                        result.Error = new Exception("User input error: Pattern length must be less that 66923");
+                        result.Error = new ERCException("User input error: Pattern length must be less that 66923");
                         result.Log_Event();
                         return result;
                     }
@@ -38,22 +39,23 @@ namespace ERC
                 {
                     if(length > 20277)
                     {
-                        result.Error = new Exception("User input error: Pattern length must be less that 20277. Add the extended flag to create larger strings.");
+                        result.Error = new ERCException("User input error: Pattern length must be less that 20277. Add the extended flag to create larger strings.");
                         result.Log_Event();
                         return result;
                     }
                 }
                 
                 result.Return_Value = "";
-
-                if (core.Working_Directory != null && core.Logging == true)
+                string Output_File = "";
+                if (core.Working_Directory != null)
                 {
-                    result.Output_File = Get_Pattern_File_Name(core.Working_Directory, "create");
+                    Output_File = Get_Pattern_File_Name(core.Working_Directory, "create");
                 }
 
                 if (length < 1)
                 {
-                    result.Error = new Exception("Pattern length must be greate than 0.");
+                    result.Error = new ERCException("User Input Error: Pattern length must be greate than 0.");
+                    result.Log_Event();
                     return result;
                 }
 
@@ -69,16 +71,16 @@ namespace ERC
 
                             if (result.Return_Value.Length > length)
                             {
-                                result.Error = new Exception("Pattern string has exceeded the length supplied");
+                                result.Error = new ERCException("Procedural Error: Pattern string has exceeded the length supplied");
                                 result.Return_Value = "";
                                 return result;
                             }
 
                             if (result.Return_Value.Length == length)
                             {
-                                if (!string.IsNullOrEmpty(result.Output_File))
+                                if (!string.IsNullOrEmpty(Output_File))
                                 {
-                                    File.WriteAllText(result.Output_File, Pattern_Output_Builder(result.Return_Value, core));
+                                    File.WriteAllText(Output_File, Pattern_Output_Builder(result.Return_Value, core));
                                 }
                                 return result;
                             }
@@ -90,9 +92,9 @@ namespace ERC
                                 result.Return_Value += pos3;
                                 if (result.Return_Value.Length == length)
                                 {
-                                    if (!string.IsNullOrEmpty(result.Output_File))
+                                    if (!string.IsNullOrEmpty(Output_File))
                                     {
-                                        File.WriteAllText(result.Output_File, Pattern_Output_Builder(result.Return_Value, core));
+                                        File.WriteAllText(Output_File, Pattern_Output_Builder(result.Return_Value, core));
                                     }
                                     return result;
                                 }
@@ -103,9 +105,9 @@ namespace ERC
                                 result.Return_Value += pos2;
                                 if (result.Return_Value.Length == length)
                                 {
-                                    if (!string.IsNullOrEmpty(result.Output_File))
+                                    if (!string.IsNullOrEmpty(Output_File))
                                     {
-                                        File.WriteAllText(result.Output_File, Pattern_Output_Builder(result.Return_Value, core));
+                                        File.WriteAllText(Output_File, Pattern_Output_Builder(result.Return_Value, core));
                                     }
                                     return result;
                                 }
@@ -115,9 +117,9 @@ namespace ERC
                                 result.Return_Value += pos1;
                                 if (result.Return_Value.Length == length)
                                 {
-                                    if (!string.IsNullOrEmpty(result.Output_File))
+                                    if (!string.IsNullOrEmpty(Output_File))
                                     {
-                                        File.WriteAllText(result.Output_File, Pattern_Output_Builder(result.Return_Value, core));
+                                        File.WriteAllText(Output_File, Pattern_Output_Builder(result.Return_Value, core));
                                     }
                                     return result;
                                 }
@@ -125,7 +127,8 @@ namespace ERC
                         }
                     }
                 }
-                result.Error = new Exception("An unknown error has occured. Function exited incorrectly");
+                result.Error = new ERCException("An unknown error has occured. Function exited incorrectly. Function: ERC.Pattern_Tools.Pattern_Create");
+                result.Log_Event();
                 return result;
             }
             #endregion
@@ -151,7 +154,8 @@ namespace ERC
 
                 if (pattern.Length < 3)
                 {
-                    result.Error = new Exception("Pattern length must be 3 characters or longer.");
+                    result.Error = new ERCException("User Input Error: Pattern length must be 3 characters or longer.");
+                    result.Log_Event();
                     return result;
                 }
 
@@ -161,7 +165,8 @@ namespace ERC
                     return result;
                 }
                 
-                result.Error = new Exception("Error: Pattern not found.");
+                result.Error = new ERCException("Error: Pattern not found.");
+                result.Return_Value = -1;
                 return result;
             }
             #endregion
@@ -183,9 +188,9 @@ namespace ERC
                 foreach (FileInfo f in files)
                 {
                     string file_number_string = Regex.Match(f.Name, @"\d+").Value;
-                    if (file_number < Int32.Parse(file_number_string))
+                    if (file_number < int.Parse(file_number_string))
                     {
-                        file_number = Int32.Parse(file_number_string);
+                        file_number = int.Parse(file_number_string);
                     }
                 }
 

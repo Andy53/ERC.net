@@ -3,7 +3,6 @@ using System.IO;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Reflection;
-using System.Xml.Linq;
 using System.Xml;
 
 namespace ERC
@@ -12,13 +11,14 @@ namespace ERC
     public class ERC_Core
     {
         #region Class Variables
-        public string ERC_Version { get; set; }
+        public string ERC_Version { get; }
         public string Working_Directory { get; set; }
         public string Author { get; set; }
-        public string Config_Path { get; set; }
-        public string Pattern_Standard_Path { get; set; }
-        public string Pattern_Extended_Path { get; set; }
-        public bool Logging { get; set; }
+        private string Config_Path { get; set; }
+        public string System_Error_Log_Path { get; set; }
+        public string Pattern_Standard_Path { get; }
+        public string Pattern_Extended_Path { get; }
+        public Exception System_Error { get; set; }
         XmlDocument ERC_Config = new XmlDocument();
         #endregion
 
@@ -80,9 +80,11 @@ namespace ERC
         {
             Working_Directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
             Working_Directory = Working_Directory.Remove(0, 6);
+            Working_Directory += "\\";
             Config_Path = Path.Combine(Working_Directory, "ERC_Config.XML");
             Pattern_Standard_Path = "";
             Pattern_Extended_Path = "";
+            System_Error_Log_Path = Path.Combine(Working_Directory, "System_Error.LOG");
 
             bool config_read = false;
             while (config_read == false)
@@ -100,20 +102,13 @@ namespace ERC
                         Pattern_Standard_Path = singleNode[0].InnerText;
                         singleNode = ERC_Config.DocumentElement.SelectNodes("//Extended_Pattern");
                         Pattern_Extended_Path = singleNode[0].InnerText;
-                        singleNode = ERC_Config.DocumentElement.SelectNodes("//Logging");
-                        if (singleNode[0].InnerText == "True")
-                        {
-                            Logging = true;
-                        }
-                        else
-                        {
-                            Logging = false; 
-                        }
+                        singleNode = ERC_Config.DocumentElement.SelectNodes("//Error_Log_File");
+                        System_Error_Log_Path = singleNode[0].InnerText;
                         config_read = true;
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine(e);
+                        System_Error = e;
                         Build_Default_Config();
                     }
                 }
@@ -182,14 +177,12 @@ namespace ERC
                     File.WriteAllText(Pattern_Extended_Path, pattern_ext.Return_Value);
                 }
             }
-            
         }
 
         protected ERC_Core(ERC_Core parent)
         {
             Working_Directory = parent.Working_Directory;
             Author = parent.Author;
-            Logging = parent.Logging;
         }
 
         private void Build_Default_Config()
@@ -197,6 +190,7 @@ namespace ERC
             Console.WriteLine("Building ERC_Config.XML file");
             string Pattern_Standard_Path = Path.Combine(Working_Directory, "Pattern_Standard");
             string Pattern_Extended_Path = Path.Combine(Working_Directory, "Pattern_Extended");
+            string System_Error_Log_Path = Path.Combine(Working_Directory, "System_Error.LOG");
 
             XmlDocument defaultConfig = new XmlDocument();
             XmlDeclaration xmlDeclaration = defaultConfig.CreateXmlDeclaration("1.0", "UTF-8", null);
@@ -229,10 +223,10 @@ namespace ERC
             patternE.AppendChild(text1);
             parameters.AppendChild(patternE);
 
-            XmlElement log = defaultConfig.CreateElement(string.Empty, "Logging", string.Empty);
-            text1 = defaultConfig.CreateTextNode("True");
-            log.AppendChild(text1);
-            parameters.AppendChild(log);
+            XmlElement errorlog = defaultConfig.CreateElement(string.Empty, "Error_Log_File", string.Empty);
+            text1 = defaultConfig.CreateTextNode(System_Error_Log_Path);
+            errorlog.AppendChild(text1);
+            parameters.AppendChild(errorlog);
 
             try
             {
@@ -240,9 +234,101 @@ namespace ERC
             }
             catch(Exception e)
             {
-                Console.WriteLine(e);
+                System_Error = e;
+                Log_Event(e);
             }
         }
+        #endregion
+
+        #region Variable Setters
+
+        #region Set_Working_Directory
+        public void Set_Working_Directory(string path)
+        {
+            if (Directory.Exists(path))
+            {
+                if (!path.EndsWith("\\"))
+                {
+                    path += "\\";
+                }
+                XmlDocument xmldoc = new XmlDocument();
+                xmldoc.Load(Config_Path);
+                var singleNode = xmldoc.DocumentElement.SelectSingleNode("//Working_Directory");
+                singleNode.InnerText = path;
+                xmldoc.Save(Config_Path);
+            }
+            else
+            {
+                throw new Exception("User Input Error: Value supplied for working directory is not a valid directory");
+            }
+        }
+        #endregion
+
+        #region Set_Pattern_Standard_Path
+        public void Set_Pattern_Standard_Path(string path)
+        {
+            if (Directory.Exists(path))
+            {
+                if (!path.EndsWith("\\"))
+                {
+                    path += "\\";
+                }
+                XmlDocument xmldoc = new XmlDocument();
+                xmldoc.Load(Config_Path);
+                var singleNode = xmldoc.DocumentElement.SelectSingleNode("//Standard_Pattern");
+                singleNode.InnerText = path;
+                xmldoc.Save(Config_Path);
+            }
+            else
+            {
+                throw new Exception("User Input Error: Value supplied for the standard pattern path is not a valid directory");
+            }
+        }
+        #endregion
+
+        #region Set_Pattern_Extended_Path
+        public void Set_Pattern_Extended_Path(string path)
+        {
+            if (Directory.Exists(path))
+            {
+                if (!path.EndsWith("\\"))
+                {
+                    path += "\\";
+                }
+                XmlDocument xmldoc = new XmlDocument();
+                xmldoc.Load(Config_Path);
+                var singleNode = xmldoc.DocumentElement.SelectSingleNode("//Extended_Pattern");
+                singleNode.InnerText = path;
+                xmldoc.Save(Config_Path);
+            }
+            else
+            {
+                throw new Exception("User Input Error: Value supplied for the extended pattern path is not a valid directory");
+            }
+        }
+        #endregion
+
+        #region Set_Author
+        public void Set_Author(string author)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            xmldoc.Load(Config_Path);
+            var singleNode = xmldoc.DocumentElement.SelectSingleNode("//Author");
+            singleNode.InnerText = author;
+            xmldoc.Save(Config_Path);
+        }
+        #endregion
+
+        #region Log_Event
+        public void Log_Event(Exception e)
+        {
+            using (StreamWriter sw = File.AppendText(System_Error_Log_Path))
+            {
+                sw.WriteLine(e);
+            }
+        }
+        #endregion
+
         #endregion
     }
     #endregion
@@ -253,7 +339,6 @@ namespace ERC
         public T Return_Value { get; set; }
         public Exception Error { get; set; }
         public string Error_Log_File { get; set; }
-        public string Output_File { get; set; }
 
         public ERC_Result(ERC_Core core) : base(core)
         {
@@ -267,8 +352,6 @@ namespace ERC
 
         public void Log_Event()
         {
-            Console.WriteLine(Error_Log_File);
-            Console.WriteLine(Error);
             using (StreamWriter sw = File.AppendText(Error_Log_File))
             {
                 sw.WriteLine(Error);
