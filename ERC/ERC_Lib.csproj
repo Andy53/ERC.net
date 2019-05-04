@@ -37,4 +37,8 @@
     <NativeLibs Remove="Thread_Info.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <NativeLibs Remove="ERCException.cs" />
+  </ItemGroup>
+
 </Project>

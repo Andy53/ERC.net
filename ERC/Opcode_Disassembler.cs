@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERC_Lib;
+using System;
 using System.Linq;
 
 namespace ERC.Utilities
@@ -36,10 +37,10 @@ namespace ERC.Utilities
                 }
                 else
                 {
-                    throw new Exception("User input error: Machine Type is invalid, must be ERC.MachineType.x86_64 or ERC.MachineType.x86_32");
+                    throw new ERCException("User input error: Machine Type is invalid, must be ERC.MachineType.x86_64 or ERC.MachineType.x86_32");
                 }
             }
-            catch (Exception e)
+            catch (ERCException e)
             {
                 result.Error = e;
                 result.Log_Event();
@@ -55,7 +56,7 @@ namespace ERC.Utilities
             catch (Exception e)
             {
                 result.Error = e;
-                result.Log_Event();
+                result.Log_Event(e);
                 return result;
             }
 
@@ -94,10 +95,10 @@ namespace ERC.Utilities
                 }
                 else
                 {
-                    throw new Exception("User input error: Machine Type is invalid, must be ERC.MachineType.x86_64 or ERC.MachineType.x86_32");
+                    throw new ERCException("User input error: Machine Type is invalid, must be ERC.MachineType.x86_64 or ERC.MachineType.x86_32");
                 }
             }
-            catch(Exception e)
+            catch(ERCException e)
             {
                 result.Error = e;
                 result.Log_Event();
@@ -113,7 +114,7 @@ namespace ERC.Utilities
             catch(Exception e)
             {
                 result.Error = e;
-                result.Log_Event();
+                result.Log_Event(e);
                 return result;
             }
 
