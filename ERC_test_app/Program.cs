@@ -11,7 +11,7 @@ namespace ERC_test_app
 
         static void Main(string[] args)
         {
-            core.SetWorkingDirectory(@"C:\Users\Andy\Desktop\");/*
+            core.SetWorkingDirectory(@"C:\Users\Andy\Desktop\");
             Console.WriteLine("create a pattern 1000 characters long: ");
             create_a_pattern();
             Console.WriteLine("Find offset in pattern (Ag9):");
@@ -31,11 +31,11 @@ namespace ERC_test_app
             Console.WriteLine("Get thread Context:");
             Get_Thread_Context();
             Console.WriteLine("Find SEH Jumps:");
-            Find_SEH();*/
+            Find_SEH();
             Console.WriteLine("Generating egg hunters:");
-            egghunters();/*
+            egghunters();
             Console.WriteLine("Searching for Non repeating pattern");
-            FindNRP();*/
+            FindNRP();
             Console.ReadKey();
         }
 
