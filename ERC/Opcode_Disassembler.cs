@@ -4,22 +4,21 @@ using System.Linq;
 
 namespace ERC.Utilities
 {
-    public class Opcode_Disassembler : Process_Info
+    public class OpcodeDisassembler : ProcessInfo
     {
-        public Opcode_Disassembler(Process_Info parent) : base(parent)
+        public OpcodeDisassembler(ProcessInfo parent) : base(parent)
         {
 
         }
 
         /// <summary>
-        /// Disassembles opcodes into the associated instructions. Takes a byte array containing opcodes and returns an ERC_Result containing
-        /// associated instructions.
+        /// Disassembles opcodes into the associated instructions. Takes a byte array containing opcodes. 
         /// </summary>
         /// <param name="opcodes"></param>
-        /// <returns></returns>
-        public ERC_Result<string> Disassemble(byte[] opcodes)
+        /// <returns>returns an ERC_Result containing associated instructions.</returns>
+        public ErcResult<string> Disassemble(byte[] opcodes)
         {
-            ERC_Result<string> result = new ERC_Result<string>(Process_Core);
+            ErcResult<string> result = new ErcResult<string>(ProcessCore);
             SharpDisasm.Disassembler.Translator.IncludeAddress = true;
             SharpDisasm.Disassembler.Translator.IncludeBinary = true;
             SharpDisasm.Disassembler disasm;
@@ -27,11 +26,11 @@ namespace ERC.Utilities
 
             try
             {
-                if (Process_Machine_Type == MachineType.I386)
+                if (ProcessMachineType == MachineType.I386)
                 {
                     mode = SharpDisasm.ArchitectureMode.x86_32;
                 }
-                else if (Process_Machine_Type == MachineType.x64)
+                else if (ProcessMachineType == MachineType.x64)
                 {
                     mode = SharpDisasm.ArchitectureMode.x86_64;
                 }
@@ -43,7 +42,7 @@ namespace ERC.Utilities
             catch (ERCException e)
             {
                 result.Error = e;
-                result.Log_Event();
+                result.LogEvent();
                 return result;
             }
 
@@ -56,14 +55,14 @@ namespace ERC.Utilities
             catch (Exception e)
             {
                 result.Error = e;
-                result.Log_Event(e);
+                result.LogEvent(e);
                 return result;
             }
 
             foreach (var insn in disasm.Disassemble())
             {
                 var mne = insn.ToString().Split(new string[] { "  " }, StringSplitOptions.None);
-                result.Return_Value += mne[mne.Length - 1].Trim() + Environment.NewLine;
+                result.ReturnValue += mne[mne.Length - 1].Trim() + Environment.NewLine;
             }
 
             return result;
@@ -75,9 +74,9 @@ namespace ERC.Utilities
         /// </summary>
         /// <param name="opcodes"></param>
         /// <returns></returns>
-        public static ERC_Result<string> Disassemble(byte[] opcodes, MachineType machineType, ERC_Core core)
+        public static ErcResult<string> Disassemble(byte[] opcodes, MachineType machineType, ErcCore core)
         {
-            ERC_Result<string> result = new ERC_Result<string>(core);
+            ErcResult<string> result = new ErcResult<string>(core);
             SharpDisasm.Disassembler.Translator.IncludeAddress = true;
             SharpDisasm.Disassembler.Translator.IncludeBinary = true;
             SharpDisasm.Disassembler disasm;
@@ -101,7 +100,7 @@ namespace ERC.Utilities
             catch(ERCException e)
             {
                 result.Error = e;
-                result.Log_Event();
+                result.LogEvent();
                 return result;
             }
 
@@ -114,14 +113,14 @@ namespace ERC.Utilities
             catch(Exception e)
             {
                 result.Error = e;
-                result.Log_Event(e);
+                result.LogEvent(e);
                 return result;
             }
 
             foreach (var insn in disasm.Disassemble())
             {
                 var mne = insn.ToString().Split(new string[] { "  " }, StringSplitOptions.None);
-                result.Return_Value += mne[mne.Length - 1].Trim() + Environment.NewLine;
+                result.ReturnValue += mne[mne.Length - 1].Trim() + Environment.NewLine;
             }
 
             return result;

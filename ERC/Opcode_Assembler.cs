@@ -4,27 +4,27 @@ using Reloaded.Assembler;
 
 namespace ERC.Utilities
 {
-    public class Opcode_Assembler : Process_Info
+    public class OpcodeAssembler : ProcessInfo
     {
-        public Opcode_Assembler(Process_Info parent) : base(parent)
+        public OpcodeAssembler(ProcessInfo parent) : base(parent)
         {
 
         }
 
         /// <summary>
-        /// Takes either an array or list of strings containing assembly instructions and returns the associated opcodes. Returns an ERC_Result. 
+        /// Takes either an array or list of strings containing assembly instructions and returns the associated opcodes.  
         /// </summary>
         /// <param name="instructions"></param>
-        /// <returns></returns>
-        public ERC_Result<byte[]> Assemble_Opcodes(List<string> instructions)
+        /// <returns>Returns an ErcResult byte array</returns>
+        public ErcResult<byte[]> AssembleOpcodes(List<string> instructions)
         {
-            ERC_Result<byte[]> result = new ERC_Result<byte[]>(Process_Core);
+            ErcResult<byte[]> result = new ErcResult<byte[]>(ProcessCore);
             List<string> mnemonics = new List<string>();
-            if (Process_Machine_Type == MachineType.I386)
+            if (ProcessMachineType == MachineType.I386)
             {
                 mnemonics.Add("use32");
             }
-            else if (Process_Machine_Type == MachineType.x64)
+            else if (ProcessMachineType == MachineType.x64)
             {
                 mnemonics.Add("use64");
             }
@@ -38,13 +38,13 @@ namespace ERC.Utilities
 
             try
             {
-                result.Return_Value = asm.Assemble(mnemonics);
+                result.ReturnValue = asm.Assemble(mnemonics);
                 asm.Dispose();
             }
             catch (Exception e)
             {
                 result.Error = e;
-                result.Log_Event();
+                result.LogEvent();
                 asm.Dispose();
                 return result;
             }
@@ -53,13 +53,13 @@ namespace ERC.Utilities
 
         /// <summary>
         /// Takes either an array or list of strings containing assembly instructions, a MachineType of I386 or x64, 
-        /// an instance of the ERC_Core object and returns the associated opcodes. Returns an ERC_Result. 
+        /// an instance of the ERC_Core object and returns the associated opcodes.  
         /// </summary>
         /// <param name="instructions"></param>
-        /// <returns></returns>
-        public static ERC_Result<byte[]> Assemble_Opcodes(List<string> instructions, MachineType machineType, ERC_Core core)
+        /// <returns>Returns an ERC_Result. byte array</returns>
+        public static ErcResult<byte[]> AssembleOpcodes(List<string> instructions, MachineType machineType, ErcCore core)
         {
-            ERC_Result<byte[]> result = new ERC_Result<byte[]>(core);
+            ErcResult<byte[]> result = new ErcResult<byte[]>(core);
             List<string> mnemonics = new List<string>();
             if (machineType == MachineType.I386)
             {
@@ -79,13 +79,13 @@ namespace ERC.Utilities
 
             try
             {
-                result.Return_Value = asm.Assemble(mnemonics);
+                result.ReturnValue = asm.Assemble(mnemonics);
                 asm.Dispose();
             }
             catch(Exception e)
             {
                 result.Error = e;
-                result.Log_Event();
+                result.LogEvent();
                 asm.Dispose();
                 return result;
             }
