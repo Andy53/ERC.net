@@ -7,51 +7,51 @@ using System.Runtime.InteropServices;
 
 namespace ERC
 {
-    public class Thread_Info
+    public class ThreadInfo
     {
-        public IntPtr Thread_HANDLE { get; set; }
-        public int Thread_ID { get; set; }
-        public bool Thread_Failed { get; set; }
+        public IntPtr ThreadHandle { get; set; }
+        public int ThreadID { get; set; }
+        public bool ThreadFailed { get; set; }
         public bool x64 { get; set; }
-        public ProcessThread Thread_Current { get; set; }
-        public ERC_Core Thread_Core { get; set; }
+        public ProcessThread ThreadCurrent { get; set; }
+        public ErcCore ThreadCore { get; set; }
         public CONTEXT32 Context32;
         public CONTEXT64 Context64;
 
-        public Thread_Info(ProcessThread thread, ERC_Core core, Process_Info Thread_Process)
+        public ThreadInfo(ProcessThread thread, ErcCore core, ProcessInfo Thread_Process)
         {
-            Thread_ID = thread.Id;
-            Thread_Current = thread;
-            Thread_Core = core;
+            ThreadID = thread.Id;
+            ThreadCurrent = thread;
+            ThreadCore = core;
 
-            if (Thread_Process.Process_Machine_Type == MachineType.x64)
+            if (Thread_Process.ProcessMachineType == MachineType.x64)
             {
                 x64 = true;
             }
 
             try
             {
-                Thread_HANDLE = ERC_Core.OpenThread(ThreadAccess.GET_CONTEXT, false, (uint)thread.Id);
-                if(Thread_HANDLE == null)
+                ThreadHandle = ErcCore.OpenThread(ThreadAccess.GET_CONTEXT, false, (uint)thread.Id);
+                if(ThreadHandle == null)
                 {
-                    Thread_Failed = true;
+                    ThreadFailed = true;
                     
                     throw new ERCException(new Win32Exception(Marshal.GetLastWin32Error()).Message);
                 }
             }
             catch(ERCException e)
             {
-                ERC_Result<Exception> exceptionThrower = new ERC_Result<Exception>(Thread_Core)
+                ErcResult<Exception> exceptionThrower = new ErcResult<Exception>(ThreadCore)
                 {
                     Error = e
                 };
-                exceptionThrower.Log_Event();
+                exceptionThrower.LogEvent();
             }
         }
 
-        public ERC_Result<string> Get_Context()
+        public ErcResult<string> Get_Context()
         {
-            ERC_Result<string> result = new ERC_Result<string>(Thread_Core);
+            ErcResult<string> result = new ErcResult<string>(ThreadCore);
             
             if(x64 == true)
             {
@@ -59,7 +59,7 @@ namespace ERC
                 Context64.ContextFlags = CONTEXT_FLAGS.CONTEXT_ALL;
                 try
                 {
-                    ERC_Core.GetThreadContext64(Thread_HANDLE, ref Context64);
+                    ErcCore.GetThreadContext64(ThreadHandle, ref Context64);
                     if(new Win32Exception(Marshal.GetLastWin32Error()).Message != "The operation completed successfully")
                     {
                         throw new ERCException("Win32 Exception encountered when attempting to get thread context" + 
@@ -69,13 +69,13 @@ namespace ERC
                 catch (ERCException e)
                 {
                     result.Error = e;
-                    result.Log_Event();
+                    result.LogEvent();
                     return result;
                 }
                 catch(Exception e)
                 {
                     result.Error = e;
-                    result.Log_Event(e);
+                    result.LogEvent(e);
                 }
             }
             else if(Environment.Is64BitProcess == true && x64 == false)
@@ -84,7 +84,7 @@ namespace ERC
                 Context32.ContextFlags = CONTEXT_FLAGS.CONTEXT_ALL;
                 try
                 {
-                    ERC_Core.Wow64GetThreadContext(Thread_HANDLE, ref Context32);
+                    ErcCore.Wow64GetThreadContext(ThreadHandle, ref Context32);
                     if (new Win32Exception(Marshal.GetLastWin32Error()).Message != "The operation completed successfully")
                     {
                         throw new ERCException("Win32 Exception encountered when attempting to get thread context" +
@@ -94,13 +94,13 @@ namespace ERC
                 catch (ERCException e)
                 {
                     result.Error = e;
-                    result.Log_Event();
+                    result.LogEvent();
                     return result;
                 }
                 catch (Exception e)
                 {
                     result.Error = e;
-                    result.Log_Event(e);
+                    result.LogEvent(e);
                 }
             }
             else
@@ -109,7 +109,7 @@ namespace ERC
                 Context32.ContextFlags = CONTEXT_FLAGS.CONTEXT_ALL;
                 try
                 {
-                    ERC_Core.GetThreadContext32(Thread_HANDLE, ref Context32);
+                    ErcCore.GetThreadContext32(ThreadHandle, ref Context32);
                     if (new Win32Exception(Marshal.GetLastWin32Error()).Message != "The operation completed successfully")
                     {
                         throw new ERCException("Win32 Exception encountered when attempting to get thread context" +
@@ -119,13 +119,13 @@ namespace ERC
                 catch (ERCException e)
                 {
                     result.Error = e;
-                    result.Log_Event();
+                    result.LogEvent();
                     return result;
                 }
                 catch (Exception e)
                 {
                     result.Error = e;
-                    result.Log_Event(e);
+                    result.LogEvent(e);
                 }
             }
             return result;

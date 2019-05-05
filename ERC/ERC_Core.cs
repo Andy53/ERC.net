@@ -7,19 +7,19 @@ using System.Xml;
 
 namespace ERC
 {
-    #region ERC_Core
-    public class ERC_Core
+    #region ErcCore
+    public class ErcCore
     {
         #region Class Variables
-        public string ERC_Version { get; }
-        public string Working_Directory { get; set; }
+        public string ErcVersion { get; }
+        public string WorkingDirectory { get; set; }
         public string Author { get; set; }
-        private string Config_Path { get; set; }
-        public string System_Error_Log_Path { get; set; }
-        public string Pattern_Standard_Path { get; }
-        public string Pattern_Extended_Path { get; }
-        public Exception System_Error { get; set; }
-        XmlDocument ERC_Config = new XmlDocument();
+        private string ConfigPath { get; set; }
+        public string SystemErrorLogPath { get; set; }
+        public string PatternStandardPath { get; }
+        public string PatternExtendedPath { get; }
+        public Exception SystemError { get; set; }
+        XmlDocument ErcConfig = new XmlDocument();
         #endregion
 
         #region DLL Imports
@@ -76,121 +76,121 @@ namespace ERC
         #endregion
 
         #region Constructor
-        public ERC_Core()
+        public ErcCore()
         {
-            Working_Directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
-            Working_Directory = Working_Directory.Remove(0, 6);
-            Working_Directory += "\\";
-            Config_Path = Path.Combine(Working_Directory, "ERC_Config.XML");
-            Pattern_Standard_Path = "";
-            Pattern_Extended_Path = "";
-            System_Error_Log_Path = Path.Combine(Working_Directory, "System_Error.LOG");
+            WorkingDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+            WorkingDirectory = WorkingDirectory.Remove(0, 6);
+            WorkingDirectory += "\\";
+            ConfigPath = Path.Combine(WorkingDirectory, "ERC_Config.XML");
+            PatternStandardPath = "";
+            PatternExtendedPath = "";
+            SystemErrorLogPath = Path.Combine(WorkingDirectory, "System_Error.LOG");
 
-            bool config_read = false;
-            while (config_read == false)
+            bool configRead = false;
+            while (configRead == false)
             {
-                if (File.Exists(Config_Path))
+                if (File.Exists(ConfigPath))
                 {
                     try
                     {
-                        ERC_Config.Load(Config_Path);
-                        var singleNode = ERC_Config.DocumentElement.SelectNodes("//Working_Directory");
-                        Working_Directory = singleNode[0].InnerText;
-                        singleNode = ERC_Config.DocumentElement.SelectNodes("//Author");
+                        ErcConfig.Load(ConfigPath);
+                        var singleNode = ErcConfig.DocumentElement.SelectNodes("//Working_Directory");
+                        WorkingDirectory = singleNode[0].InnerText;
+                        singleNode = ErcConfig.DocumentElement.SelectNodes("//Author");
                         Author = singleNode[0].InnerText;
-                        singleNode = ERC_Config.DocumentElement.SelectNodes("//Standard_Pattern");
-                        Pattern_Standard_Path = singleNode[0].InnerText;
-                        singleNode = ERC_Config.DocumentElement.SelectNodes("//Extended_Pattern");
-                        Pattern_Extended_Path = singleNode[0].InnerText;
-                        singleNode = ERC_Config.DocumentElement.SelectNodes("//Error_Log_File");
-                        System_Error_Log_Path = singleNode[0].InnerText;
-                        config_read = true;
+                        singleNode = ErcConfig.DocumentElement.SelectNodes("//Standard_Pattern");
+                        PatternStandardPath = singleNode[0].InnerText;
+                        singleNode = ErcConfig.DocumentElement.SelectNodes("//Extended_Pattern");
+                        PatternExtendedPath = singleNode[0].InnerText;
+                        singleNode = ErcConfig.DocumentElement.SelectNodes("//Error_Log_File");
+                        SystemErrorLogPath = singleNode[0].InnerText;
+                        configRead = true;
                     }
                     catch (Exception e)
                     {
-                        System_Error = e;
-                        Build_Default_Config();
+                        SystemError = e;
+                        BuildDefaultConfig();
                     }
                 }
                 else
                 {
-                    Build_Default_Config();
+                    BuildDefaultConfig();
                 }
             }
 
-            if (Pattern_Standard_Path == "")
+            if (PatternStandardPath == "")
             {
-                Pattern_Standard_Path = Path.Combine(Working_Directory, "Pattern_Standard");
-                if (!File.Exists(Pattern_Standard_Path))
+                PatternStandardPath = Path.Combine(WorkingDirectory, "Pattern_Standard");
+                if (!File.Exists(PatternStandardPath))
                 {
                     Console.WriteLine("Building standard pattern file...");
-                    var pattern_ext = Utilities.Pattern_Tools.Pattern_Create(20277, this, false);
-                    if (pattern_ext.Error != null)
+                    var patternExt = Utilities.PatternTools.PatternCreate(20277, this, false);
+                    if (patternExt.Error != null)
                     {
-                        pattern_ext.Log_Event();
+                        patternExt.LogEvent();
                         Environment.Exit(1);
                     }
-                    File.WriteAllText(Pattern_Standard_Path, pattern_ext.Return_Value);
+                    File.WriteAllText(PatternStandardPath, patternExt.ReturnValue);
                 }
             }
             else
             {
-                if (!File.Exists(Pattern_Standard_Path))
+                if (!File.Exists(PatternStandardPath))
                 {
                     Console.WriteLine("Building standard pattern file...");
-                    var pattern_ext = Utilities.Pattern_Tools.Pattern_Create(20277, this, false);
-                    if (pattern_ext.Error != null)
+                    var patternExt = Utilities.PatternTools.PatternCreate(20277, this, false);
+                    if (patternExt.Error != null)
                     {
-                        pattern_ext.Log_Event();
+                        patternExt.LogEvent();
                         Environment.Exit(1);
                     }
-                    File.WriteAllText(Pattern_Standard_Path, pattern_ext.Return_Value);
+                    File.WriteAllText(PatternStandardPath, patternExt.ReturnValue);
                 }
             }
             
-            if(Pattern_Extended_Path == "")
+            if(PatternExtendedPath == "")
             {
-                Pattern_Extended_Path = Path.Combine(Working_Directory, "Pattern_Extended");
-                if (!File.Exists(Pattern_Extended_Path))
+                PatternExtendedPath = Path.Combine(WorkingDirectory, "Pattern_Extended");
+                if (!File.Exists(PatternExtendedPath))
                 {
                     Console.WriteLine("Building extended pattern file...");
-                    var pattern_ext = Utilities.Pattern_Tools.Pattern_Create(66923, this, true);
-                    if (pattern_ext.Error != null)
+                    var patternExt = Utilities.PatternTools.PatternCreate(66923, this, true);
+                    if (patternExt.Error != null)
                     {
-                        pattern_ext.Log_Event();
+                        patternExt.LogEvent();
                         Environment.Exit(1);
                     }
-                    File.WriteAllText(Pattern_Extended_Path, pattern_ext.Return_Value);
+                    File.WriteAllText(PatternExtendedPath, patternExt.ReturnValue);
                 }
             }
             else
             {
-                if (!File.Exists(Pattern_Extended_Path))
+                if (!File.Exists(PatternExtendedPath))
                 {
                     Console.WriteLine("Building extended pattern file...");
-                    var pattern_ext = Utilities.Pattern_Tools.Pattern_Create(66923, this, true);
-                    if (pattern_ext.Error != null)
+                    var patternExt = Utilities.PatternTools.PatternCreate(66923, this, true);
+                    if (patternExt.Error != null)
                     {
-                        pattern_ext.Log_Event();
+                        patternExt.LogEvent();
                         Environment.Exit(1);
                     }
-                    File.WriteAllText(Pattern_Extended_Path, pattern_ext.Return_Value);
+                    File.WriteAllText(PatternExtendedPath, patternExt.ReturnValue);
                 }
             }
         }
 
-        protected ERC_Core(ERC_Core parent)
+        protected ErcCore(ErcCore parent)
         {
-            Working_Directory = parent.Working_Directory;
+            WorkingDirectory = parent.WorkingDirectory;
             Author = parent.Author;
         }
 
-        private void Build_Default_Config()
+        private void BuildDefaultConfig()
         {
             Console.WriteLine("Building ERC_Config.XML file");
-            string Pattern_Standard_Path = Path.Combine(Working_Directory, "Pattern_Standard");
-            string Pattern_Extended_Path = Path.Combine(Working_Directory, "Pattern_Extended");
-            string System_Error_Log_Path = Path.Combine(Working_Directory, "System_Error.LOG");
+            string patternStandardPath = Path.Combine(WorkingDirectory, "Pattern_Standard");
+            string patternExtendedPath = Path.Combine(WorkingDirectory, "Pattern_Extended");
+            string systemErrorLogPath = Path.Combine(WorkingDirectory, "System_Error.LOG");
 
             XmlDocument defaultConfig = new XmlDocument();
             XmlDeclaration xmlDeclaration = defaultConfig.CreateXmlDeclaration("1.0", "UTF-8", null);
@@ -204,7 +204,7 @@ namespace ERC
             erc_xml.AppendChild(parameters);
 
             XmlElement workingDir = defaultConfig.CreateElement(string.Empty, "Working_Directory", string.Empty);
-            XmlText text1 = defaultConfig.CreateTextNode(Working_Directory);
+            XmlText text1 = defaultConfig.CreateTextNode(WorkingDirectory);
             workingDir.AppendChild(text1);
             parameters.AppendChild(workingDir);
 
@@ -214,36 +214,36 @@ namespace ERC
             parameters.AppendChild(author);
 
             XmlElement patternS = defaultConfig.CreateElement(string.Empty, "Standard_Pattern", string.Empty);
-            text1 = defaultConfig.CreateTextNode(Pattern_Standard_Path);
+            text1 = defaultConfig.CreateTextNode(patternStandardPath);
             patternS.AppendChild(text1);
             parameters.AppendChild(patternS);
 
             XmlElement patternE = defaultConfig.CreateElement(string.Empty, "Extended_Pattern", string.Empty);
-            text1 = defaultConfig.CreateTextNode(Pattern_Extended_Path);
+            text1 = defaultConfig.CreateTextNode(patternExtendedPath);
             patternE.AppendChild(text1);
             parameters.AppendChild(patternE);
 
             XmlElement errorlog = defaultConfig.CreateElement(string.Empty, "Error_Log_File", string.Empty);
-            text1 = defaultConfig.CreateTextNode(System_Error_Log_Path);
+            text1 = defaultConfig.CreateTextNode(systemErrorLogPath);
             errorlog.AppendChild(text1);
             parameters.AppendChild(errorlog);
 
             try
             {
-                defaultConfig.Save(Config_Path);
+                defaultConfig.Save(ConfigPath);
             }
             catch(Exception e)
             {
-                System_Error = e;
-                Log_Event(e);
+                SystemError = e;
+                LogEvent(e);
             }
         }
         #endregion
 
         #region Variable Setters
 
-        #region Set_Working_Directory
-        public void Set_Working_Directory(string path)
+        #region SetWorkingDirectory
+        public void SetWorkingDirectory(string path)
         {
             if (Directory.Exists(path))
             {
@@ -252,10 +252,10 @@ namespace ERC
                     path += "\\";
                 }
                 XmlDocument xmldoc = new XmlDocument();
-                xmldoc.Load(Config_Path);
+                xmldoc.Load(ConfigPath);
                 var singleNode = xmldoc.DocumentElement.SelectSingleNode("//Working_Directory");
                 singleNode.InnerText = path;
-                xmldoc.Save(Config_Path);
+                xmldoc.Save(ConfigPath);
             }
             else
             {
@@ -264,8 +264,8 @@ namespace ERC
         }
         #endregion
 
-        #region Set_Pattern_Standard_Path
-        public void Set_Pattern_Standard_Path(string path)
+        #region SetPatternStandardPath
+        public void SetPatternStandardPath(string path)
         {
             if (Directory.Exists(path))
             {
@@ -274,10 +274,10 @@ namespace ERC
                     path += "\\";
                 }
                 XmlDocument xmldoc = new XmlDocument();
-                xmldoc.Load(Config_Path);
+                xmldoc.Load(ConfigPath);
                 var singleNode = xmldoc.DocumentElement.SelectSingleNode("//Standard_Pattern");
                 singleNode.InnerText = path;
-                xmldoc.Save(Config_Path);
+                xmldoc.Save(ConfigPath);
             }
             else
             {
@@ -286,8 +286,8 @@ namespace ERC
         }
         #endregion
 
-        #region Set_Pattern_Extended_Path
-        public void Set_Pattern_Extended_Path(string path)
+        #region SetPatternExtendedPath
+        public void SetPatternExtendedPath(string path)
         {
             if (Directory.Exists(path))
             {
@@ -296,10 +296,10 @@ namespace ERC
                     path += "\\";
                 }
                 XmlDocument xmldoc = new XmlDocument();
-                xmldoc.Load(Config_Path);
+                xmldoc.Load(ConfigPath);
                 var singleNode = xmldoc.DocumentElement.SelectSingleNode("//Extended_Pattern");
                 singleNode.InnerText = path;
-                xmldoc.Save(Config_Path);
+                xmldoc.Save(ConfigPath);
             }
             else
             {
@@ -308,21 +308,21 @@ namespace ERC
         }
         #endregion
 
-        #region Set_Author
-        public void Set_Author(string author)
+        #region SetAuthor
+        public void SetAuthor(string author)
         {
             XmlDocument xmldoc = new XmlDocument();
-            xmldoc.Load(Config_Path);
+            xmldoc.Load(ConfigPath);
             var singleNode = xmldoc.DocumentElement.SelectSingleNode("//Author");
             singleNode.InnerText = author;
-            xmldoc.Save(Config_Path);
+            xmldoc.Save(ConfigPath);
         }
         #endregion
 
-        #region Log_Event
-        public void Log_Event(Exception e)
+        #region LogEvent
+        public void LogEvent(Exception e)
         {
-            using (StreamWriter sw = File.AppendText(System_Error_Log_Path))
+            using (StreamWriter sw = File.AppendText(SystemErrorLogPath))
             {
                 sw.WriteLine(e);
             }
@@ -333,26 +333,26 @@ namespace ERC
     }
     #endregion
 
-    #region ERC_Result
-    public class ERC_Result<T> : ERC_Core
+    #region ErcResult
+    public class ErcResult<T> : ErcCore
     {
-        public T Return_Value { get; set; }
+        public T ReturnValue { get; set; }
         public Exception Error { get; set; }
-        public string Error_Log_File { get; set; }
+        public string ErrorLogFile { get; set; }
 
-        public ERC_Result(ERC_Core core) : base(core)
+        public ErcResult(ErcCore core) : base(core)
         {
-            Error_Log_File = Path.Combine(Working_Directory + "ERC_Error_log_" + DateTime.Now.TimeOfDay.ToString().Replace(':', '-') + ".txt");
+            ErrorLogFile = Path.Combine(WorkingDirectory + "ERC_Error_log_" + DateTime.Now.TimeOfDay.ToString().Replace(':', '-') + ".txt");
         }
 
-        public void Set_Error_File(string path)
+        public void SetErrorFile(string path)
         {
-            Error_Log_File = path;
+            ErrorLogFile = path;
         }
 
-        public void Log_Event()
+        public void LogEvent()
         {
-            using (StreamWriter sw = File.AppendText(Error_Log_File))
+            using (StreamWriter sw = File.AppendText(ErrorLogFile))
             {
                 sw.WriteLine(Error);
             }
@@ -370,14 +370,14 @@ namespace ERC
         error = -1
     }
 
-    public class RegisterOffset
+    public class RegisterInfo
     {
         public string Register { get; set; }
-        public IntPtr Register_Value { get; set; }
-        public int Register_Offset { get; set; }
-        public int String_Offset { get; set; }
-        public int Buffer_Size { get; set; }
-        public int Thread_ID { get; set; }
+        public IntPtr RegisterValue { get; set; }
+        public int RegisterOffset { get; set; }
+        public int StringOffset { get; set; }
+        public int BufferSize { get; set; }
+        public int ThreadID { get; set; }
     }
 
     #region DLL Headers

@@ -19,23 +19,23 @@ namespace ERC
         public static string GetFilePath(string directory, string prefix, string extension)
         {
             string result = "";
-            int file_number = 0;
-            char[] delimiter_chars = { '_', '.' };
+            int fileNumber = 0;
+            char[] delimiterChars = { '_', '.' };
 
             DirectoryInfo d = new DirectoryInfo(directory);
             FileInfo[] files = d.GetFiles(prefix + "*");
 
             foreach (FileInfo f in files)
             {
-                string file_number_string = Regex.Match(f.Name, @"\d+").Value;
-                if (file_number < int.Parse(file_number_string))
+                string fileNumberString = Regex.Match(f.Name, @"\d+").Value;
+                if (fileNumber < int.Parse(fileNumberString))
                 {
-                    file_number = int.Parse(file_number_string);
+                    fileNumber = int.Parse(fileNumberString);
                 }
             }
 
-            file_number++;
-            result = directory + prefix + file_number.ToString() + extension;
+            fileNumber++;
+            result = directory + prefix + fileNumber.ToString() + extension;
             return result;
         }
         #endregion
@@ -44,7 +44,7 @@ namespace ERC
         /// <summary>
         /// Displays a list of all modules and associated information from a specific process. Can output to stdout, a file or both.
         /// </summary>
-        public static string DisplayModuleInfo(Process_Info info)
+        public static string DisplayModuleInfo(ProcessInfo info)
         {
             int ptrSegmentWidth = 16;
             int flagSegmentWidth = 10;
@@ -53,150 +53,150 @@ namespace ERC
 
             if (info.Author != "No_Author_Set")
             {
-                output += "Process Name: " + info.Process_Name + " Pattern created by: " + info.Author + " " +
-                "Modules total: " + info.Modules_Info.Count + Environment.NewLine;
+                output += "Process Name: " + info.ProcessName + " Pattern created by: " + info.Author + " " +
+                "Modules total: " + info.ModulesInfo.Count + Environment.NewLine;
             }
             else
             {
-                output += "Process Name: " + info.Process_Name + " Modules total: " + info.Modules_Info.Count + Environment.NewLine;
+                output += "Process Name: " + info.ProcessName + " Modules total: " + info.ModulesInfo.Count + Environment.NewLine;
             }
 
             output += "-------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
             output += " Base          | Entry point   | Size      | Rebase   | SafeSEH  | ASLR     | NXCompat | OS DLL  | Version, Name and Path" + Environment.NewLine;
             output += "-------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
-            foreach (Module_Info module in info.Modules_Info)
+            foreach (ModuleInfo module in info.ModulesInfo)
             {
-                string base_element = " ";
-                base_element += "0x" + module.Module_Base.ToString("x");
-                for (int i = base_element.Length; i < ptrSegmentWidth; i++)
+                string baseElement = " ";
+                baseElement += "0x" + module.ModuleBase.ToString("x");
+                for (int i = baseElement.Length; i < ptrSegmentWidth; i++)
                 {
-                    base_element += " ";
+                    baseElement += " ";
                 }
 
-                string entry_element = " ";
-                entry_element += "0x" + module.Module_Entry.ToString("x");
-                for (int i = entry_element.Length; i < ptrSegmentWidth; i++)
+                string entryElement = " ";
+                entryElement += "0x" + module.ModuleEntry.ToString("x");
+                for (int i = entryElement.Length; i < ptrSegmentWidth; i++)
                 {
-                    entry_element += " ";
+                    entryElement += " ";
                 }
 
-                string size_element = " ";
-                size_element += "0x" + module.Module_Size.ToString("x");
-                for (int i = size_element.Length; i < flagSegmentWidth; i++)
+                string sizeElement = " ";
+                sizeElement += "0x" + module.ModuleSize.ToString("x");
+                for (int i = sizeElement.Length; i < flagSegmentWidth; i++)
                 {
-                    size_element += " ";
+                    sizeElement += " ";
                 }
 
-                string rebase_element = "   ";
-                if (module.Module_Rebase == true)
+                string rebaseElement = "   ";
+                if (module.ModuleRebase == true)
                 {
-                    rebase_element += "True    ";
+                    rebaseElement += "True    ";
                 }
                 else
                 {
-                    rebase_element += "False   ";
+                    rebaseElement += "False   ";
                 }
 
-                string seh_element = "   ";
-                if (module.Module_Safe_SEH == true)
+                string sehElement = "   ";
+                if (module.ModuleSafeSEH == true)
                 {
-                    seh_element += "True     ";
+                    sehElement += "True     ";
                 }
                 else
                 {
-                    seh_element += "False    ";
+                    sehElement += "False    ";
                 }
 
-                string aslr_element = "  ";
-                if (module.Module_ASLR == true)
+                string aslrElement = "  ";
+                if (module.ModuleASLR == true)
                 {
-                    aslr_element += "True     ";
+                    aslrElement += "True     ";
                 }
                 else
                 {
-                    aslr_element += "False    ";
+                    aslrElement += "False    ";
                 }
 
-                string nx_element = "  ";
-                if (module.Module_NXCompat == true)
+                string nxElement = "  ";
+                if (module.ModuleNXCompat == true)
                 {
-                    nx_element += "True     ";
+                    nxElement += "True     ";
                 }
                 else
                 {
-                    nx_element += "False    ";
+                    nxElement += "False    ";
                 }
 
-                string os_element = "  ";
-                if (module.Module_OS_DLL == true)
+                string osElement = "  ";
+                if (module.ModuleOsDll == true)
                 {
-                    os_element += "True     ";
+                    osElement += "True     ";
                 }
                 else
                 {
-                    os_element += "False    ";
+                    osElement += "False    ";
                 }
 
-                string file_element = "  ";
-                if (!string.IsNullOrEmpty(module.Module_Version))
+                string fileElement = "  ";
+                if (!string.IsNullOrEmpty(module.ModuleVersion))
                 {
-                    file_element += module.Module_Version + ";";
+                    fileElement += module.ModuleVersion + ";";
                 }
-                if (!string.IsNullOrEmpty(module.Module_Name))
+                if (!string.IsNullOrEmpty(module.ModuleName))
                 {
-                    file_element += module.Module_Name + ";";
+                    fileElement += module.ModuleName + ";";
                 }
-                if (!string.IsNullOrEmpty(module.Module_Path))
+                if (!string.IsNullOrEmpty(module.ModulePath))
                 {
-                    file_element += module.Module_Path;
+                    fileElement += module.ModulePath;
                 }
-                output += base_element + entry_element + size_element + rebase_element +
-                    seh_element + aslr_element + nx_element + os_element + file_element + Environment.NewLine;
+                output += baseElement + entryElement + sizeElement + rebaseElement +
+                    sehElement + aslrElement + nxElement + osElement + fileElement + Environment.NewLine;
             }
             return output;
         }
         #endregion
 
-        #region Generate_Module_Info_Table
+        #region GenerateModuleInfoTable
         /// <summary>
         /// Aquires filename and outputs all module data to the current working directory. Requires a Process_Info object to be passed as a parameter.
         /// </summary>
         /// <param name="info"></param>
         /// <returns>Returns a formatted string of all results</returns>
-        public static string Generate_Module_Info_Table(Process_Info info)
+        public static string GenerateModuleInfoTable(ProcessInfo info)
         {
             string modOutput = DisplayModuleInfo(info);
-            string modFilename = GetFilePath(info.Working_Directory, "modules_", ".txt");
+            string modFilename = GetFilePath(info.WorkingDirectory, "modules_", ".txt");
             File.WriteAllText(modFilename, modOutput);
             return modOutput;
         }
         #endregion
 
-        #region Get_SEH_Jumps
+        #region GetSEHJumps
         /// <summary>
         /// Searches all memory associated with a given process and associated modules for POP X POP X RET instructions. 
         /// Passing a list of module paths or names will exclude those modules from the search. 
         /// Similar to Search_All_Memory_PPR however provides output in an easily readable format.
         /// </summary>
         /// <returns>Returns an ERC_Result containing a list of strings detailing the pointers, opcodes and base files of suitable instruction sets. </returns>
-        public static ERC_Result<List<string>> Get_SEH_Jumps(Process_Info info, List<string> excludes = null)
+        public static ErcResult<List<string>> GetSEHJumps(ProcessInfo info, List<string> excludes = null)
         {
-            ERC_Result<List<string>> ret = new ERC_Result<List<string>>(info.Process_Core);
-            ret.Return_Value = new List<string>();
-            ERC_Result<Dictionary<IntPtr, string>> ptrs = info.Search_All_Memory_PPR(excludes);
+            ErcResult<List<string>> ret = new ErcResult<List<string>>(info.ProcessCore);
+            ret.ReturnValue = new List<string>();
+            ErcResult<Dictionary<IntPtr, string>> ptrs = info.SearchAllMemoryPPR(excludes);
 
-            string sehFilename = GetFilePath(info.Working_Directory, "SEH_jumps_", ".txt");
-            ret.Return_Value.Add("---------------------------------------------------------------------------------------");
+            string sehFilename = GetFilePath(info.WorkingDirectory, "SEH_jumps_", ".txt");
+            ret.ReturnValue.Add("---------------------------------------------------------------------------------------");
             if (info.Author != "No_Author_Set")
             {
-                ret.Return_Value.Add("Process Name: " + info.Process_Name + " Created by: " + info.Author + " " +
-                "Total Jumps: " + ptrs.Return_Value.Count);
+                ret.ReturnValue.Add("Process Name: " + info.ProcessName + " Created by: " + info.Author + " " +
+                "Total Jumps: " + ptrs.ReturnValue.Count);
             }
             else
             {
-                ret.Return_Value.Add("Process Name: " + info.Process_Name + " Total Jumps: " + ptrs.Return_Value.Count);
+                ret.ReturnValue.Add("Process Name: " + info.ProcessName + " Total Jumps: " + ptrs.ReturnValue.Count);
             }
-            ret.Return_Value.Add("---------------------------------------------------------------------------------------");
+            ret.ReturnValue.Add("---------------------------------------------------------------------------------------");
 
             if (ptrs.Error != null)
             {
@@ -206,12 +206,12 @@ namespace ERC
             
             byte[] ppr = new byte[5];
             int bytesread = 0;
-            foreach (KeyValuePair<IntPtr, string> s in ptrs.Return_Value)
+            foreach (KeyValuePair<IntPtr, string> s in ptrs.ReturnValue)
             {
                 List<byte> opcodes = new List<byte>();
                 try
                 {
-                    ERC_Core.ReadProcessMemory(info.Process_Handle, s.Key, ppr, ppr.Length, out bytesread);
+                    ErcCore.ReadProcessMemory(info.ProcessHandle, s.Key, ppr, ppr.Length, out bytesread);
                     for (int i = 0; i < 5; i++)
                     {
                         if (ppr[i].Equals(0xC3))
@@ -220,10 +220,10 @@ namespace ERC
                             {
                                 opcodes.Add(ppr[j]);
                             }
-                            ERC.Utilities.Opcode_Disassembler disas = new ERC.Utilities.Opcode_Disassembler(info);
+                            ERC.Utilities.OpcodeDisassembler disas = new ERC.Utilities.OpcodeDisassembler(info);
                             var result = disas.Disassemble(opcodes.ToArray());
-                            ret.Return_Value.Add("0x" + s.Key.ToString("x") + " " +
-                                result.Return_Value.Replace(Environment.NewLine, ", ") + " Source file: " + s.Value);
+                            ret.ReturnValue.Add("0x" + s.Key.ToString("x") + " " +
+                                result.ReturnValue.Replace(Environment.NewLine, ", ") + " Source file: " + s.Value);
                             opcodes.Clear();
                         }
                     }
@@ -231,23 +231,23 @@ namespace ERC
                 catch (Exception e)
                 {
                     ret.Error = e;
-                    ret.Log_Event();
+                    ret.LogEvent();
                     return ret;
                 }
 
             }
-            File.WriteAllLines(sehFilename, ret.Return_Value);
+            File.WriteAllLines(sehFilename, ret.ReturnValue);
             return ret;
         }
         #endregion
 
-        #region Generate_Byte_Array
-        public static byte[] Generate_Byte_Array(byte[] unwantedBytes, ERC_Core core)
+        #region GenerateByteArray
+        public static byte[] GenerateByteArray(byte[] unwantedBytes, ErcCore core)
         {
-            string byteFilename = Display_Output.GetFilePath(core.Working_Directory, "ByteArray_", ".dll");
-            byte[] Byte_Array = ERC.Utilities.Payloads.Byte_Array_Constructor(unwantedBytes);
+            string byteFilename = Display_Output.GetFilePath(core.WorkingDirectory, "ByteArray_", ".dll");
+            byte[] byteArray = ERC.Utilities.Payloads.Byte_Array_Constructor(unwantedBytes);
             FileStream fs1 = new FileStream(byteFilename, FileMode.Create, FileAccess.Write);
-            fs1.Write(Byte_Array, 0, Byte_Array.Length);
+            fs1.Write(byteArray, 0, byteArray.Length);
             fs1.Close();
 
             string outputString = "---------------------------------------------------------------------------------------" + Environment.NewLine;
@@ -256,7 +256,7 @@ namespace ERC
             outputString += Environment.NewLine;
             outputString += "Raw:" + Environment.NewLine;
 
-            string raw = "\\x" + BitConverter.ToString(Byte_Array).Replace("-", "\\x");
+            string raw = "\\x" + BitConverter.ToString(byteArray).Replace("-", "\\x");
             var rawlist = Enumerable
                 .Range(0, raw.Length / 48)
                 .Select(i => raw.Substring(i * 48, 48))
@@ -266,7 +266,7 @@ namespace ERC
 
             outputString += Environment.NewLine + Environment.NewLine + "C#:" + Environment.NewLine;
             string CSharp = "byte[] buf = new byte[]" + Environment.NewLine + "{" + Environment.NewLine;
-            string CSharpTemp = "0x" + BitConverter.ToString(Byte_Array).Replace("-", ", 0x");
+            string CSharpTemp = "0x" + BitConverter.ToString(byteArray).Replace("-", ", 0x");
             var list = Enumerable
                 .Range(0, CSharpTemp.Length / 48)
                 .Select(i => CSharpTemp.Substring(i * 48, 48))
@@ -279,15 +279,15 @@ namespace ERC
             outputString += CSharp;
             File.WriteAllText(byteFilename.Substring(0, (byteFilename.Length - 4)) + ".txt", outputString);
 
-            return Byte_Array;
+            return byteArray;
         }
         #endregion
 
-        #region Generate_Egg_Hunters
-        public static string Generate_Egg_Hunters(ERC_Core core, string tag = null)
+        #region GenerateEggHunters
+        public static string GenerateEggHunters(ErcCore core, string tag = null)
         {
-            var eggHunters = Payloads.Egg_Hunter_Constructor(tag);
-            string eggFilename = GetFilePath(core.Working_Directory, "Egg_Hunters_", ".txt");
+            var eggHunters = Payloads.EggHunterConstructor(tag);
+            string eggFilename = GetFilePath(core.WorkingDirectory, "Egg_Hunters_", ".txt");
             string outputString = "";
             outputString = "---------------------------------------------------------------------------------------" + Environment.NewLine;
             outputString += "EggHunters generated at:" + DateTime.Now + Environment.NewLine;
@@ -295,7 +295,7 @@ namespace ERC
             outputString += Environment.NewLine;
             foreach(KeyValuePair<string, byte[]> k in eggHunters)
             {
-                outputString += k.Key + ":" + Environment.NewLine + Environment.NewLine;
+                outputString += k.Key + Environment.NewLine;
                 outputString += "Raw:" + Environment.NewLine; 
                 string raw = "\\x" + BitConverter.ToString(k.Value).Replace("-", "\\x");
                 var rawlist = Enumerable
@@ -324,19 +324,19 @@ namespace ERC
         }
         #endregion
 
-        #region Generate_FindNRP_Table
-        public static List<string> Generate_FindNRP_Table(Process_Info info, int searchType = 0, bool extended = false)
+        #region GenerateFindNRPTable
+        public static List<string> GenerateFindNRPTable(ProcessInfo info, int searchType = 0, bool extended = false)
         {
             List<string> output = new List<string>();
-            string fnrpFilename = GetFilePath(info.Working_Directory, "Find_NRP_", ".txt");
+            string fnrpFilename = GetFilePath(info.WorkingDirectory, "Find_NRP_", ".txt");
             output.Add("---------------------------------------------------------------------------------------");
             if (info.Author != "No_Author_Set")
             {
-                output.Add("Process Name: " + info.Process_Name + " Created by: " + info.Author + " FindNRP table generated at: " + DateTime.Now);
+                output.Add("Process Name: " + info.ProcessName + " Created by: " + info.Author + " FindNRP table generated at: " + DateTime.Now);
             }
             else
             {
-                output.Add("Process Name: " + info.Process_Name + " FindNRP table generated at: " + DateTime.Now);
+                output.Add("Process Name: " + info.ProcessName + " FindNRP table generated at: " + DateTime.Now);
             }
             output.Add("---------------------------------------------------------------------------------------");
             var fnrp = info.FindNRP(searchType, extended);
@@ -346,31 +346,31 @@ namespace ERC
                 File.WriteAllLines(fnrpFilename, output);
                 return output;
             }
-            for(int i = 0; i < fnrp.Return_Value.Count; i++)
+            for(int i = 0; i < fnrp.ReturnValue.Count; i++)
             {
-                string register_info = "";
-                if(fnrp.Return_Value[i].String_Offset > 0 && !fnrp.Return_Value[i].Register.Contains("IP") && !fnrp.Return_Value[i].Register.Contains("SP"))
+                string registerInfoText = "";
+                if(fnrp.ReturnValue[i].StringOffset > 0 && !fnrp.ReturnValue[i].Register.Contains("IP") && !fnrp.ReturnValue[i].Register.Contains("SP"))
                 {
-                    register_info += "Register " + fnrp.Return_Value[i].Register + " points into pattern at position " + fnrp.Return_Value[i].String_Offset;
+                    registerInfoText += "Register " + fnrp.ReturnValue[i].Register + " points into pattern at position " + fnrp.ReturnValue[i].StringOffset;
                 }
-                else if(fnrp.Return_Value[i].String_Offset > 0 && fnrp.Return_Value[i].Register.Contains("SP"))
+                else if(fnrp.ReturnValue[i].StringOffset > 0 && fnrp.ReturnValue[i].Register.Contains("SP"))
                 {
-                    register_info += "Register " + fnrp.Return_Value[i].Register + " points into pattern at position " + fnrp.Return_Value[i].String_Offset;
-                    if(fnrp.Return_Value[i].Register_Offset > 0)
+                    registerInfoText += "Register " + fnrp.ReturnValue[i].Register + " points into pattern at position " + fnrp.ReturnValue[i].StringOffset;
+                    if(fnrp.ReturnValue[i].RegisterOffset > 0)
                     {
-                        register_info += " at " + fnrp.Return_Value[i].Register + " +" + fnrp.Return_Value[i].Register_Offset + " length of pattern found is " +
-                            fnrp.Return_Value[i].Buffer_Size + " characters";
+                        registerInfoText += " at " + fnrp.ReturnValue[i].Register + " +" + fnrp.ReturnValue[i].RegisterOffset + " length of pattern found is " +
+                            fnrp.ReturnValue[i].BufferSize + " characters";
                     }
                     else
                     {
-                        register_info += " length of pattern found is " + fnrp.Return_Value[i].Buffer_Size + " characters";
+                        registerInfoText += " length of pattern found is " + fnrp.ReturnValue[i].BufferSize + " characters";
                     }
                 }
-                else if(fnrp.Return_Value[i].String_Offset > 0 && fnrp.Return_Value[i].Register.Contains("IP"))
+                else if(fnrp.ReturnValue[i].StringOffset > 0 && fnrp.ReturnValue[i].Register.Contains("IP"))
                 {
-                    register_info += "Register " + fnrp.Return_Value[i].Register + "is overwritten with pattern at position " + fnrp.Return_Value[i].String_Offset;
+                    registerInfoText += "Register " + fnrp.ReturnValue[i].Register + "is overwritten with pattern at position " + fnrp.ReturnValue[i].StringOffset;
                 }
-                output.Add(register_info);
+                output.Add(registerInfoText);
             }
             File.WriteAllLines(fnrpFilename, output);
             return output;

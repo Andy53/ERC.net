@@ -7,11 +7,11 @@ namespace ERC_test_app
 {
     class Program
     {
-        public static ERC_Core core = new ERC_Core();
+        public static ErcCore core = new ErcCore();
 
         static void Main(string[] args)
         {
-            core.Set_Working_Directory(@"C:\Users\Andy\Desktop\");/*
+            core.SetWorkingDirectory(@"C:\Users\Andy\Desktop\");/*
             Console.WriteLine("create a pattern 1000 characters long: ");
             create_a_pattern();
             Console.WriteLine("Find offset in pattern (Ag9):");
@@ -29,11 +29,11 @@ namespace ERC_test_app
             Console.WriteLine("Generating byte array, skipping [ 0xA1, 0xB1, 0xC1, 0xD1 ]");
             output_byte_array();
             Console.WriteLine("Get thread Context:");
-            Get_Thread_Context();*/
+            Get_Thread_Context();
             Console.WriteLine("Find SEH Jumps:");
-            Find_SEH();/*
+            Find_SEH();*/
             Console.WriteLine("Generating egg hunters:");
-            egghunters();
+            egghunters();/*
             Console.WriteLine("Searching for Non repeating pattern");
             FindNRP();*/
             Console.ReadKey();
@@ -41,22 +41,22 @@ namespace ERC_test_app
 
         public static void create_a_pattern()
         {
-            var result = ERC.Utilities.Pattern_Tools.Pattern_Create(4000, core);
-            Console.WriteLine(result.Return_Value);
+            var result = ERC.Utilities.PatternTools.PatternCreate(4000, core);
+            Console.WriteLine(result.ReturnValue);
             Console.WriteLine(Environment.NewLine);
         }
 
         public static void find_pattern_offset()
         {
-            var result = ERC.Utilities.Pattern_Tools.Pattern_Offset("Ag9", core);
-            Console.WriteLine(result.Return_Value);
+            var result = ERC.Utilities.PatternTools.PatternOffset("Ag9", core);
+            Console.WriteLine(result.ReturnValue);
             Console.WriteLine(Environment.NewLine);
         }
 
         public static void List_All_Local_Processes()
         {
-            var test = Process_Info.List_Local_Processes(core);
-            foreach (Process process in test.Return_Value)
+            var test = ProcessInfo.ListLocalProcesses(core);
+            foreach (Process process in test.ReturnValue)
             {
                 Console.WriteLine("Name: {0} ID: {1}", process.ProcessName, process.Id);
             }
@@ -76,9 +76,9 @@ namespace ERC_test_app
                 }
             }
 
-            Process_Info info = new Process_Info(core, thisProcess);
-            var listy = info.Search_Memory(1, searchString: "anonymous");
-            foreach (KeyValuePair<IntPtr, string> s in listy.Return_Value)
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            var listy = info.SearchMemory(1, searchString: "anonymous");
+            foreach (KeyValuePair<IntPtr, string> s in listy.ReturnValue)
             {
                 Console.WriteLine("0x" + s.Key.ToString("x") + " Filepath: " + s.Value);
             }
@@ -91,15 +91,15 @@ namespace ERC_test_app
             instructions.Add("POP RBX");
             instructions.Add("PUSH RSP");
 
-            var asmResult = ERC.Utilities.Opcode_Assembler.Assemble_Opcodes(instructions, MachineType.x64, core);
-            Console.WriteLine(BitConverter.ToString(asmResult.Return_Value).Replace("-", ""));
+            var asmResult = ERC.Utilities.OpcodeAssembler.AssembleOpcodes(instructions, MachineType.x64, core);
+            Console.WriteLine(BitConverter.ToString(asmResult.ReturnValue).Replace("-", ""));
         }
 
         public static void disassemble_opcodes()
         {
             byte[] opcodes = new byte[] { 0xFF, 0xE4, 0x48, 0x31, 0xC0, 0x55, 0xC3 };
-            var result = ERC.Utilities.Opcode_Disassembler.Disassemble(opcodes, MachineType.x64, core);
-            Console.WriteLine(result.Return_Value + Environment.NewLine);
+            var result = ERC.Utilities.OpcodeDisassembler.Disassemble(opcodes, MachineType.x64, core);
+            Console.WriteLine(result.ReturnValue + Environment.NewLine);
         }
 
         public static void output_module_info()
@@ -115,14 +115,14 @@ namespace ERC_test_app
                 }
             }
 
-            Process_Info info = new Process_Info(core, thisProcess);
-            Console.WriteLine(Display_Output.Generate_Module_Info_Table(info));
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            Console.WriteLine(Display_Output.GenerateModuleInfoTable(info));
         }
 
         public static void output_byte_array()
         {
             byte[] unwantedBytes = new byte[] { 0xA1, 0xB1, 0xC1, 0xD1 };
-            var bytes = Display_Output.Generate_Byte_Array(unwantedBytes, core);
+            var bytes = Display_Output.GenerateByteArray(unwantedBytes, core);
             Console.WriteLine(BitConverter.ToString(bytes).Replace("-", " "));
         }
 
@@ -140,9 +140,9 @@ namespace ERC_test_app
                 }
             }
 
-            Process_Info info = new Process_Info(core, thisProcess);
-            for(int i = 0; i < info.Threads_Info.Count; i++){
-                info.Threads_Info[i].Get_Context();
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            for(int i = 0; i < info.ThreadsInfo.Count; i++){
+                info.ThreadsInfo[i].Get_Context();
                 Console.WriteLine("i = {0}", i);
             }
             
@@ -161,9 +161,9 @@ namespace ERC_test_app
                 }
             }
 
-            Process_Info info = new Process_Info(core, thisProcess);
-            var tester = Display_Output.Get_SEH_Jumps(info);
-            foreach(string s in tester.Return_Value)
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            var tester = Display_Output.GetSEHJumps(info);
+            foreach(string s in tester.ReturnValue)
             {
                 Console.WriteLine(s);
             }
@@ -171,7 +171,7 @@ namespace ERC_test_app
 
         public static void egghunters()
         {
-            var eggs = ERC.Display_Output.Generate_Egg_Hunters(core, "AAAA");
+            var eggs = ERC.Display_Output.GenerateEggHunters(core, "AAAA");
             Console.WriteLine(eggs);
         }
 
@@ -188,7 +188,7 @@ namespace ERC_test_app
                 }
             }
 
-            Process_Info info = new Process_Info(core, thisProcess);
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
             info.FindNRP();
         }
     }

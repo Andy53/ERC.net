@@ -8,7 +8,7 @@ namespace ERC
 {
     namespace Utilities
     {
-        public class Pattern_Tools
+        public class PatternTools
         {
             #region string Constants
             private const string uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -20,10 +20,10 @@ namespace ERC
             /// <summary>
             /// Creates a string of non repeating characters. Takes an integer as input for string length to return. Returns ERC_Result object
             /// </summary>
-            public static ERC_Result<string> Pattern_Create(int length, ERC_Core core, bool extended = false)
+            public static ErcResult<string> PatternCreate(int length, ErcCore core, bool extended = false)
             {
                 string digits = "0123456789";
-                ERC_Result<string> result = new ERC_Result<string>(core);
+                ErcResult<string> result = new ErcResult<string>(core);
 
                 if (extended == true)
                 {
@@ -31,7 +31,7 @@ namespace ERC
                     if(length > 66923)
                     {
                         result.Error = new ERCException("User input error: Pattern length must be less that 66923");
-                        result.Log_Event();
+                        result.LogEvent();
                         return result;
                     }
                 }
@@ -40,22 +40,22 @@ namespace ERC
                     if(length > 20277)
                     {
                         result.Error = new ERCException("User input error: Pattern length must be less that 20277. Add the extended flag to create larger strings.");
-                        result.Log_Event();
+                        result.LogEvent();
                         return result;
                     }
                 }
                 
-                result.Return_Value = "";
-                string Output_File = "";
-                if (core.Working_Directory != null)
+                result.ReturnValue = "";
+                string outputFile = "";
+                if (core.WorkingDirectory != null)
                 {
-                    Output_File = Get_Pattern_File_Name(core.Working_Directory, "create");
+                    outputFile = GetPatternFileName(core.WorkingDirectory, "create");
                 }
 
                 if (length < 1)
                 {
                     result.Error = new ERCException("User Input Error: Pattern length must be greate than 0.");
-                    result.Log_Event();
+                    result.LogEvent();
                     return result;
                 }
 
@@ -69,57 +69,57 @@ namespace ERC
                             char pos2 = lowercase[j];
                             char pos3 = digits[k];
 
-                            if (result.Return_Value.Length > length)
+                            if (result.ReturnValue.Length > length)
                             {
                                 result.Error = new ERCException("Procedural Error: Pattern string has exceeded the length supplied");
-                                result.Return_Value = "";
+                                result.ReturnValue = "";
                                 return result;
                             }
 
-                            if (result.Return_Value.Length == length)
+                            if (result.ReturnValue.Length == length)
                             {
-                                if (!string.IsNullOrEmpty(Output_File))
+                                if (!string.IsNullOrEmpty(outputFile))
                                 {
-                                    File.WriteAllText(Output_File, Pattern_Output_Builder(result.Return_Value, core));
+                                    File.WriteAllText(outputFile, PatternOutputBuilder(result.ReturnValue, core));
                                 }
                                 return result;
                             }
 
-                            if (result.Return_Value.Length < length - 2)
+                            if (result.ReturnValue.Length < length - 2)
                             {
-                                result.Return_Value += pos1;
-                                result.Return_Value += pos2;
-                                result.Return_Value += pos3;
-                                if (result.Return_Value.Length == length)
+                                result.ReturnValue += pos1;
+                                result.ReturnValue += pos2;
+                                result.ReturnValue += pos3;
+                                if (result.ReturnValue.Length == length)
                                 {
-                                    if (!string.IsNullOrEmpty(Output_File))
+                                    if (!string.IsNullOrEmpty(outputFile))
                                     {
-                                        File.WriteAllText(Output_File, Pattern_Output_Builder(result.Return_Value, core));
+                                        File.WriteAllText(outputFile, PatternOutputBuilder(result.ReturnValue, core));
                                     }
                                     return result;
                                 }
                             }
-                            else if (result.Return_Value.Length < length - 1)
+                            else if (result.ReturnValue.Length < length - 1)
                             {
-                                result.Return_Value += pos1;
-                                result.Return_Value += pos2;
-                                if (result.Return_Value.Length == length)
+                                result.ReturnValue += pos1;
+                                result.ReturnValue += pos2;
+                                if (result.ReturnValue.Length == length)
                                 {
-                                    if (!string.IsNullOrEmpty(Output_File))
+                                    if (!string.IsNullOrEmpty(outputFile))
                                     {
-                                        File.WriteAllText(Output_File, Pattern_Output_Builder(result.Return_Value, core));
+                                        File.WriteAllText(outputFile, PatternOutputBuilder(result.ReturnValue, core));
                                     }
                                     return result;
                                 }
                             }
-                            else if (result.Return_Value.Length < length)
+                            else if (result.ReturnValue.Length < length)
                             {
-                                result.Return_Value += pos1;
-                                if (result.Return_Value.Length == length)
+                                result.ReturnValue += pos1;
+                                if (result.ReturnValue.Length == length)
                                 {
-                                    if (!string.IsNullOrEmpty(Output_File))
+                                    if (!string.IsNullOrEmpty(outputFile))
                                     {
-                                        File.WriteAllText(Output_File, Pattern_Output_Builder(result.Return_Value, core));
+                                        File.WriteAllText(outputFile, PatternOutputBuilder(result.ReturnValue, core));
                                     }
                                     return result;
                                 }
@@ -128,45 +128,45 @@ namespace ERC
                     }
                 }
                 result.Error = new ERCException("An unknown error has occured. Function exited incorrectly. Function: ERC.Pattern_Tools.Pattern_Create");
-                result.Log_Event();
+                result.LogEvent();
                 return result;
             }
             #endregion
 
-            #region Pattern_Offset
+            #region Pattern Offset
             /// <summary>
             /// Takes a string of characters and returns the location of the first character in a pattern created by Pattern_Create. Returns ERC_Result object.
             /// </summary>
-            public static ERC_Result<int> Pattern_Offset(string pattern, ERC_Core core, bool extended = false)
+            public static ErcResult<int> PatternOffset(string pattern, ErcCore core, bool extended = false)
             {
                 string digits = "0123456789";
-                string pattern_full;
+                string patternFull;
                 if (extended == true)
                 {
                     digits += ": ,.;+=-_!&()#@'({})[]%";
-                    pattern_full = File.ReadAllText(core.Pattern_Extended_Path);
+                    patternFull = File.ReadAllText(core.PatternExtendedPath);
                 }
                 else
                 {
-                    pattern_full = File.ReadAllText(core.Pattern_Standard_Path);
+                    patternFull = File.ReadAllText(core.PatternStandardPath);
                 }
-                ERC_Result<int> result = new ERC_Result<int>(core);
+                ErcResult<int> result = new ErcResult<int>(core);
 
                 if (pattern.Length < 3)
                 {
                     result.Error = new ERCException("User Input Error: Pattern length must be 3 characters or longer.");
-                    result.Log_Event();
+                    result.LogEvent();
                     return result;
                 }
 
-                if (pattern_full.Contains(pattern))
+                if (patternFull.Contains(pattern))
                 {
-                    result.Return_Value = pattern_full.IndexOf(pattern);
+                    result.ReturnValue = patternFull.IndexOf(pattern);
                     return result;
                 }
                 
                 result.Error = new ERCException("Error: Pattern not found.");
-                result.Return_Value = -1;
+                result.ReturnValue = -1;
                 return result;
             }
             #endregion
@@ -176,64 +176,64 @@ namespace ERC
             /// Private function, should not be called directly. Identifies output files previously created by a the pattern_create and pattern_offset functions
             /// and identifies the last number used. Returns the next number to be used as a filename.
             /// </summary>
-            private static string Get_Pattern_File_Name(string directory, string calling_function)
+            private static string GetPatternFileName(string directory, string callingFunction)
             {
                 string result = "";
-                int file_number = 0;
-                char[] delimiter_chars = { '_', '.' };
+                int fileNumber = 0;
+                char[] delimiterChars = { '_', '.' };
 
                 DirectoryInfo d = new DirectoryInfo(directory);
-                FileInfo[] files = d.GetFiles("pattern_" + calling_function + "_*");
+                FileInfo[] files = d.GetFiles("pattern_" + callingFunction + "_*");
 
                 foreach (FileInfo f in files)
                 {
                     string file_number_string = Regex.Match(f.Name, @"\d+").Value;
-                    if (file_number < int.Parse(file_number_string))
+                    if (fileNumber < int.Parse(file_number_string))
                     {
-                        file_number = int.Parse(file_number_string);
+                        fileNumber = int.Parse(file_number_string);
                     }
                 }
 
-                file_number++;
-                result = directory + "pattern_" + calling_function + "_" + file_number.ToString() + ".txt";
+                fileNumber++;
+                result = directory + "pattern_" + callingFunction + "_" + fileNumber.ToString() + ".txt";
                 return result;
             }
 
             /// <summary>
             /// Private function, should not be called directly. Takes input from pattern_create and outputs in an easily readable format.
             /// </summary>
-            private static string Pattern_Output_Builder(string pattern, ERC_Core core)
+            private static string PatternOutputBuilder(string pattern, ErcCore core)
             {
                 byte[] bytes = Encoding.ASCII.GetBytes(pattern);
-                string hex_pattern = BitConverter.ToString(bytes);
-                string ascii_pattern = " ";
-                string[] hex_array = hex_pattern.Split('-');
+                string hexPattern = BitConverter.ToString(bytes);
+                string asciiPattern = " ";
+                string[] hexArray = hexPattern.Split('-');
 
-                for (int i = 1; i < hex_array.Length; i++)
+                for (int i = 1; i < hexArray.Length; i++)
                 {
-                    ascii_pattern += pattern[i];
+                    asciiPattern += pattern[i];
 
                     if (i % 88 == 0 && i > 0)
                     {
-                        ascii_pattern += "\"";
-                        ascii_pattern += Environment.NewLine;
-                        ascii_pattern += "\"";
+                        asciiPattern += "\"";
+                        asciiPattern += Environment.NewLine;
+                        asciiPattern += "\"";
                     }
                 }
 
-                hex_pattern = " ";
-                for (int i = 1; i < hex_array.Length; i++)
+                hexPattern = " ";
+                for (int i = 1; i < hexArray.Length; i++)
                 {
-                    hex_pattern += "\\x" + hex_array[i];
+                    hexPattern += "\\x" + hexArray[i];
 
                     if (i % 22 == 0 && i > 0)
                     {
-                        hex_pattern += Environment.NewLine;
+                        hexPattern += Environment.NewLine;
                     }
                 }
 
-                ascii_pattern = ascii_pattern.TrimStart(' ');
-                hex_pattern = hex_pattern.TrimStart(' ');
+                asciiPattern = asciiPattern.TrimStart(' ');
+                hexPattern = hexPattern.TrimStart(' ');
 
                 string output = "";
                 output += "------------------------------------------------------------------------------------------" + Environment.NewLine;
@@ -241,10 +241,10 @@ namespace ERC
                 output += "------------------------------------------------------------------------------------------" + Environment.NewLine;
                 output += Environment.NewLine;
                 output += "Ascii:" + Environment.NewLine;
-                output += "\"" + ascii_pattern + "\"" + Environment.NewLine;
+                output += "\"" + asciiPattern + "\"" + Environment.NewLine;
                 output += Environment.NewLine;
                 output += "Hexadecimal:" + Environment.NewLine;
-                output += hex_pattern;
+                output += hexPattern;
 
                 return output;
             }

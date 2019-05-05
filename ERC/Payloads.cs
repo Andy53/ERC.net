@@ -8,7 +8,7 @@ namespace ERC.Utilities
 {
     public static class Payloads
     {
-        public static byte[] Byte_Array = 
+        public static byte[] ByteArray = 
         {
             0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F,
             0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F,
@@ -29,9 +29,9 @@ namespace ERC.Utilities
         };
 
         #region Egg Hunters
-        public static string Default_Egg = "ERCD";
+        public static string DefaultEgg = "ERCD";
 
-        public static byte[] Egg_Hunter_1_64 =
+        public static byte[] EggHunter641 =
         {
             0x8C, 0xCB, 0x80, 0xFB, 0x23, 0x33, 0xD2, 0x66, 0x81, 0xCA, 0xFF, 0x0F, 0x33, 0xDB, 0x42, 0x52,
             0x53, 0x53, 0x53, 0x6A, 0x29, 0x58, 0xB3, 0xC0, 0x64, 0xFF, 0x13, 0x83, 0xC4, 0x0C, 0x5A, 0x3C,
@@ -39,19 +39,19 @@ namespace ERC.Utilities
             0xFF, 0xE7
         };
 
-        public static byte[] Egg_Hunter_2_64 =
+        public static byte[] EggHunter642 =
         {
             0x54, 0x59, 0x48, 0x83, 0xc1, 0xff, 0x48, 0xff, 0xc1, 0x81, 0x79, 0xfc, 0x45, 0x52, 0x43, 0x44,
             0x75, 0xf4, 0xff, 0xe1
         };
 
-        public static byte[] Egg_Hunter_1_32 =
+        public static byte[] EggHunter32 =
         {
             0x66, 0x81, 0xca, 0xff, 0x0f, 0x42, 0x52, 0x6a, 0x02, 0x58, 0xcd, 0x2e, 0x3c, 0x05, 0x5a, 0x74,
             0xef, 0xb8, 0x45, 0x52, 0x43, 0x44, 0x8b, 0xfa, 0xaf, 0x75, 0xea, 0xaf, 0x75, 0xe7, 0xff, 0xe7
         };
 
-        public static byte[] Egg_Hunter_WOW64 =
+        public static byte[] EggHunterWOW64 =
         {
             0x66, 0x8c, 0xcb, 0x80, 0xfb, 0x23, 0x75, 0x08, 0x31, 0xdb, 0x53, 0x53, 0x53, 0x53, 0xb3, 0xc0,
             0x66, 0x81, 0xca, 0xff, 0x0f, 0x42, 0x52, 0x80, 0xfb, 0xc0, 0x74, 0x19, 0x6a, 0x02, 0x58, 0xcd,
@@ -69,21 +69,21 @@ namespace ERC.Utilities
         /// <returns>Returns an array of all other possible bytes.</returns>
         public static byte[] Byte_Array_Constructor(byte[] unwantedBytes)
         {
-            byte[] bytes = new byte[Byte_Array.Length - unwantedBytes.Length];
+            byte[] bytes = new byte[ByteArray.Length - unwantedBytes.Length];
             int bytesCounter = 0;
-            for(int i = 0; i < Byte_Array.Length; i++)
+            for(int i = 0; i < ByteArray.Length; i++)
             {
                 bool addByte = true;
                 for(int j = 0; j < unwantedBytes.Length; j++)
                 {
-                    if(Byte_Array[i].Equals(unwantedBytes[j]))
+                    if(ByteArray[i].Equals(unwantedBytes[j]))
                     {
                         addByte = false;
                     }
                 }
                 if(addByte == true)
                 {
-                    bytes[bytesCounter] = Byte_Array[i];
+                    bytes[bytesCounter] = ByteArray[i];
                     bytesCounter++;
                 }
             }
@@ -92,10 +92,17 @@ namespace ERC.Utilities
         #endregion
 
         #region Egg Hunter Constructor
-        public static Dictionary<string, byte[]> Egg_Hunter_Constructor(string tag = null)
+        public static Dictionary<string, byte[]> EggHunterConstructor(string tag = null)
         {
-            Dictionary<string, byte[]> egg_hunters = new Dictionary<string, byte[]>();
-
+            Dictionary<string, byte[]> eggHunters = new Dictionary<string, byte[]>();
+            string eggHunter641Description = "64 Bit Egg Hunter 1:" + Environment.NewLine +
+                "Usage: To be used on 64 bit processes running on 64 bit systems only, not on 32 bit processes running on a 64 bit system." + Environment.NewLine;
+            string eggHunter642Description = "64 Bit Egg Hunter 2:" + Environment.NewLine +
+                "Usage: To be used on 64 bit processes running on 64 bit systems only, not on 32 bit processes running on a 64 bit system." + Environment.NewLine;
+            string eggHunter32Description = "32 Bit Egg Hunter:" + Environment.NewLine + 
+                "Usage: To be used on 32 bit systems only, not on 32 bit processes running on a 64 bit system." + Environment.NewLine;
+            string eggHunterWOW64Description = "WOW64 Egg Hunter:" + Environment.NewLine +
+                "Usage: To be used on 32 bit processes running on a 64 bit system. Can also be used on 32 bit systems." + Environment.NewLine;
             if (tag != null)
             {
                 if (tag.Length != 4)
@@ -106,50 +113,50 @@ namespace ERC.Utilities
 
             if (tag != null)
             {
-                byte[] bytes1 = new byte[Egg_Hunter_1_64.Length];
-                Array.Copy(Egg_Hunter_1_64, 0, bytes1, 0, 36);
+                byte[] bytes1 = new byte[EggHunter641.Length];
+                Array.Copy(EggHunter641, 0, bytes1, 0, 36);
                 bytes1[36] = (byte)tag[0];
                 bytes1[37] = (byte)tag[1];
                 bytes1[38] = (byte)tag[2];
                 bytes1[39] = (byte)tag[3];
-                Array.Copy(Egg_Hunter_1_64, 40, bytes1, 40, Egg_Hunter_1_64.Length - 40);
-                egg_hunters.Add("Egg_Hunter_1_64", bytes1);
+                Array.Copy(EggHunter641, 40, bytes1, 40, EggHunter641.Length - 40);
+                eggHunters.Add(eggHunter641Description, bytes1);//Change this to be a description of the egghunter and where to use it
 
-                byte[] bytes2 = new byte[Egg_Hunter_2_64.Length];
-                Array.Copy(Egg_Hunter_2_64, 0, bytes2, 0, 12);
+                byte[] bytes2 = new byte[EggHunter642.Length];
+                Array.Copy(EggHunter642, 0, bytes2, 0, 12);
                 bytes2[12] = (byte)tag[0];
                 bytes2[13] = (byte)tag[1];
                 bytes2[14] = (byte)tag[2];
                 bytes2[15] = (byte)tag[3];
-                Array.Copy(Egg_Hunter_2_64, 16, bytes2, 16, Egg_Hunter_2_64.Length - 16);
-                egg_hunters.Add("Egg_Hunter_2_64", bytes2);
+                Array.Copy(EggHunter642, 16, bytes2, 16, EggHunter642.Length - 16);
+                eggHunters.Add(eggHunter642Description, bytes2);//Change this to be a description of the egghunter and where to use it
 
-                byte[] bytes3 = new byte[Egg_Hunter_1_32.Length];
-                Array.Copy(Egg_Hunter_1_32, 0, bytes3, 0, 18);
+                byte[] bytes3 = new byte[EggHunter32.Length];
+                Array.Copy(EggHunter32, 0, bytes3, 0, 18);
                 bytes3[18] = (byte)tag[0];
                 bytes3[19] = (byte)tag[1];
                 bytes3[20] = (byte)tag[2];
                 bytes3[21] = (byte)tag[3];
-                Array.Copy(Egg_Hunter_1_32, 22, bytes3, 22, Egg_Hunter_1_32.Length - 22);
-                egg_hunters.Add("Egg_Hunter_1_32", bytes3);
+                Array.Copy(EggHunter32, 22, bytes3, 22, EggHunter32.Length - 22);
+                eggHunters.Add(eggHunter32Description, bytes3);//Change this to be a description of the egghunter and where to use it
 
-                byte[] bytes4 = new byte[Egg_Hunter_WOW64.Length];
-                Array.Copy(Egg_Hunter_WOW64, 0, bytes4, 0, 39);
+                byte[] bytes4 = new byte[EggHunterWOW64.Length];
+                Array.Copy(EggHunterWOW64, 0, bytes4, 0, 39);
                 bytes4[39] = (byte)tag[0];
                 bytes4[40] = (byte)tag[1];
                 bytes4[41] = (byte)tag[2];
                 bytes4[42] = (byte)tag[3];
-                Array.Copy(Egg_Hunter_WOW64, 43, bytes4, 43, Egg_Hunter_WOW64.Length - 43);
-                egg_hunters.Add("Egg_Hunter_WOW64", bytes4);
+                Array.Copy(EggHunterWOW64, 43, bytes4, 43, EggHunterWOW64.Length - 43);
+                eggHunters.Add(eggHunterWOW64Description, bytes4);//Change this to be a description of the egghunter and where to use it
             }
             else
             {
-                egg_hunters.Add("Egg_Hunter_1_64", Egg_Hunter_1_64);
-                egg_hunters.Add("Egg_Hunter_2_64", Egg_Hunter_2_64);
-                egg_hunters.Add("Egg_Hunter_1_32", Egg_Hunter_1_32);
-                egg_hunters.Add("Egg_Hunter_WOW64", Egg_Hunter_WOW64);
+                eggHunters.Add(eggHunter641Description, EggHunter641);
+                eggHunters.Add(eggHunter642Description, EggHunter642);
+                eggHunters.Add(eggHunter32Description, EggHunter32);
+                eggHunters.Add(eggHunterWOW64Description, EggHunterWOW64);
             }
-            return egg_hunters;
+            return eggHunters;
         }
         #endregion
 
@@ -159,7 +166,7 @@ namespace ERC.Utilities
         /// </summary>
         /// <param name="data">Byte array to be searched</param>
         /// <returns>Returns an array of integers containing the offsets of the instruction sets.</returns>
-        public static List<int> Pop_Pop_Ret(byte[] data)
+        public static List<int> PopPopRet(byte[] data)
         {
             List<int> locations = new List<int>();
             List<byte[]> assemblies = new List<byte[]>();
