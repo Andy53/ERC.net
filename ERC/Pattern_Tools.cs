@@ -6,18 +6,22 @@ using System.Text.RegularExpressions;
 
 namespace ERC.Utilities
 {
-    public class PatternTools
+    public static class PatternTools
     {
         #region string Constants
         private const string uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private const string lowercase = "abcdefghijklmnopqrstuvwxyz";
-            
+
         #endregion
 
         #region Pattern Create
         /// <summary>
-        /// Creates a string of non repeating characters. Takes an integer as input for string length to return. Returns ERC_Result object
+        /// Creates a string of non repeating characters.
         /// </summary>
+        /// <param name="length">The length of the pattern to be created as integer</param>
+        /// <param name="core">An ErcCore object</param>
+        /// <param name="extended">(Optional) bool specifying whether the extended character set should be used</param>
+        /// <returns>Returns an ErcResult string containing the generated pattern</returns>
         public static ErcResult<string> PatternCreate(int length, ErcCore core, bool extended = false)
         {
             string digits = "0123456789";
@@ -47,7 +51,7 @@ namespace ERC.Utilities
             string outputFile = "";
             if (core.WorkingDirectory != null)
             {
-                outputFile = GetPatternFileName(core.WorkingDirectory, "create");
+                outputFile = DisplayOutput.GetFilePath(core.WorkingDirectory, "pattern_", ".txt");
             }
 
             if (length < 1)
@@ -133,8 +137,12 @@ namespace ERC.Utilities
 
         #region Pattern Offset
         /// <summary>
-        /// Takes a string of characters and returns the location of the first character in a pattern created by Pattern_Create. Returns ERC_Result object.
+        /// Takes a string of characters and returns the location of the first character in a pattern created by Pattern_Create.
         /// </summary>
+        /// <param name="pattern">The pattern to be searched for.</param>
+        /// <param name="core">An ErcCore object</param>
+        /// <param name="extended">(Optional) bool specifying whether the extended character set should be used</param>
+        /// <returns>Returns an ErcResult int containing the offset of the supplied pattern within the generated pattern</returns>
         public static ErcResult<int> PatternOffset(string pattern, ErcCore core, bool extended = false)
         {
             string digits = "0123456789";
@@ -171,35 +179,11 @@ namespace ERC.Utilities
 
         #region Pattern Output
         /// <summary>
-        /// Private function, should not be called directly. Identifies output files previously created by a the pattern_create and pattern_offset functions
-        /// and identifies the last number used. Returns the next number to be used as a filename.
-        /// </summary>
-        private static string GetPatternFileName(string directory, string callingFunction)
-        {
-            string result = "";
-            int fileNumber = 0;
-            char[] delimiterChars = { '_', '.' };
-
-            DirectoryInfo d = new DirectoryInfo(directory);
-            FileInfo[] files = d.GetFiles("pattern_" + callingFunction + "_*");
-
-            foreach (FileInfo f in files)
-            {
-                string file_number_string = Regex.Match(f.Name, @"\d+").Value;
-                if (fileNumber < int.Parse(file_number_string))
-                {
-                    fileNumber = int.Parse(file_number_string);
-                }
-            }
-
-            fileNumber++;
-            result = directory + "pattern_" + callingFunction + "_" + fileNumber.ToString() + ".txt";
-            return result;
-        }
-
-        /// <summary>
         /// Private function, should not be called directly. Takes input from pattern_create and outputs in an easily readable format.
         /// </summary>
+        /// <param name="pattern">The pattern to be used</param>
+        /// <param name="core">An ErcCore object</param>
+        /// <returns>Returns a string containing the human readable output of the pattern create method.</returns>
         private static string PatternOutputBuilder(string pattern, ErcCore core)
         {
             byte[] bytes = Encoding.ASCII.GetBytes(pattern);

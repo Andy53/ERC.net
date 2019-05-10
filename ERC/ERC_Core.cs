@@ -8,14 +8,17 @@ using System.Xml;
 namespace ERC
 {
     #region ErcCore
+    /// <summary>
+    /// A single instance of this object should be instantiated at a minimum. It is used for storing global variables such as the working directory etc.
+    /// </summary>
     public class ErcCore
     {
         #region Class Variables
         public string ErcVersion { get; }
-        public string WorkingDirectory { get; set; }
+        public string WorkingDirectory { get; internal set; }
         public string Author { get; set; }
         private string ConfigPath { get; set; }
-        public string SystemErrorLogPath { get; set; }
+        public string SystemErrorLogPath { get; }
         public string PatternStandardPath { get; }
         public string PatternExtendedPath { get; }
         public Exception SystemError { get; set; }
@@ -247,6 +250,10 @@ namespace ERC
         #region Variable Setters
 
         #region SetWorkingDirectory
+        /// <summary>
+        /// Changes the working directory in both the XML file and associated ErcCore object
+        /// </summary>
+        /// <param name="path"></param>
         public void SetWorkingDirectory(string path)
         {
             if (Directory.Exists(path))
@@ -269,6 +276,10 @@ namespace ERC
         #endregion
 
         #region SetPatternStandardPath
+        /// <summary>
+        /// Sets the standard pattern file path. Any pattern can replace the standard pattern when searching however the new pattern must be written to a file and the file path set here.
+        /// </summary>
+        /// <param name="path">The filepath of the new standard pattern file</param>
         public void SetPatternStandardPath(string path)
         {
             if (Directory.Exists(path))
@@ -291,6 +302,10 @@ namespace ERC
         #endregion
 
         #region SetPatternExtendedPath
+        /// <summary>
+        /// Sets the extended pattern file path. Any pattern can replace the extended pattern when searching however the new pattern must be written to a file and the file path set here.
+        /// </summary>
+        /// <param name="path">The filepath of the new extended pattern file</param>
         public void SetPatternExtendedPath(string path)
         {
             if (Directory.Exists(path))
@@ -313,6 +328,10 @@ namespace ERC
         #endregion
 
         #region SetAuthor
+        /// <summary>
+        /// Sets the name of the author for use when outputing results to disk.
+        /// </summary>
+        /// <param name="author">String containing the name of the author</param>
         public void SetAuthor(string author)
         {
             XmlDocument xmldoc = new XmlDocument();
@@ -324,6 +343,10 @@ namespace ERC
         #endregion
 
         #region LogEvent
+        /// <summary>
+        /// Logs events to the error log path in the XML file. This file is only appended to and never replaced.
+        /// </summary>
+        /// <param name="e">The exception to log</param>
         public void LogEvent(Exception e)
         {
             using (StreamWriter sw = File.AppendText(SystemErrorLogPath))
@@ -338,6 +361,10 @@ namespace ERC
     #endregion
 
     #region ErcResult
+    /// <summary>
+    /// A basic object which contains a generic type and exception. 
+    /// </summary>
+    /// <typeparam name="T">A generic type</typeparam>
     public class ErcResult<T> : ErcCore
     {
         public T ReturnValue { get; set; }
@@ -349,11 +376,23 @@ namespace ERC
             ErrorLogFile = Path.Combine(WorkingDirectory + "ERC_Error_log_" + DateTime.Now.TimeOfDay.ToString().Replace(':', '-') + ".txt");
         }
 
+        public ErcResult(ErcCore core, string errorFile) : base(core)
+        {
+            ErrorLogFile = errorFile;
+        }
+
+        /// <summary>
+        /// Sets the error log file to a user specified filepath. Can be a different file for each instance of ErcResult
+        /// </summary>
+        /// <param name="path">The new error log filepath.</param>
         public void SetErrorFile(string path)
         {
             ErrorLogFile = path;
         }
 
+        /// <summary>
+        /// Logs an event to the ErrorLogFile value.
+        /// </summary>
         public void LogEvent()
         {
             using (StreamWriter sw = File.AppendText(ErrorLogFile))

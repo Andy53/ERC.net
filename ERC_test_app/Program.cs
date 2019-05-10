@@ -117,13 +117,13 @@ namespace ERC_test_app
             }
 
             ProcessInfo info = new ProcessInfo(core, thisProcess);
-            Console.WriteLine(Display_Output.GenerateModuleInfoTable(info));
+            Console.WriteLine(DisplayOutput.GenerateModuleInfoTable(info));
         }
 
         public static void output_byte_array()
         {
             byte[] unwantedBytes = new byte[] { 0xA1, 0xB1, 0xC1, 0xD1 };
-            var bytes = Display_Output.GenerateByteArray(unwantedBytes, core);
+            var bytes = DisplayOutput.GenerateByteArray(unwantedBytes, core);
             Console.WriteLine(BitConverter.ToString(bytes).Replace("-", " "));
         }
 
@@ -163,7 +163,7 @@ namespace ERC_test_app
             }
 
             ProcessInfo info = new ProcessInfo(core, thisProcess);
-            var tester = Display_Output.GetSEHJumps(info);
+            var tester = DisplayOutput.GetSEHJumps(info);
             foreach(string s in tester.ReturnValue)
             {
                 Console.WriteLine(s);
@@ -172,7 +172,7 @@ namespace ERC_test_app
 
         public static void egghunters()
         {
-            var eggs = ERC.Display_Output.GenerateEggHunters(core, "AAAA");
+            var eggs = ERC.DisplayOutput.GenerateEggHunters(core, "AAAA");
             Console.WriteLine(eggs);
         }
 

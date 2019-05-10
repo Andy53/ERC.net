@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ERC.Utilities
 {
@@ -63,9 +60,9 @@ namespace ERC.Utilities
 
         #region Byte Array Constructor
         /// <summary>
-        /// Creates an array of all possible byte values except those passed to the function. Takes a byte array of bytes to be excluded and  
+        /// Creates an array of all possible byte values except those passed to the function. 
         /// </summary>
-        /// <param name="unwantedBytes"></param>
+        /// <param name="unwantedBytes">Takes a byte array of bytes to be excluded</param>
         /// <returns>Returns an array of all other possible bytes.</returns>
         public static byte[] Byte_Array_Constructor(byte[] unwantedBytes)
         {
@@ -92,6 +89,11 @@ namespace ERC.Utilities
         #endregion
 
         #region Egg Hunter Constructor
+        /// <summary>
+        /// Generates a selection of EggHunter payloads. A custom tag can be specified, if no tag is specified EggHunters will search for the default tag (ERCD)
+        /// </summary>
+        /// <param name="tag">A custom tag which the egg hunters will search for.</param>
+        /// <returns>Returns a dictionary containing a list of EggHunters and string detailing them</returns>
         public static Dictionary<string, byte[]> EggHunterConstructor(string tag = null)
         {
             Dictionary<string, byte[]> eggHunters = new Dictionary<string, byte[]>();

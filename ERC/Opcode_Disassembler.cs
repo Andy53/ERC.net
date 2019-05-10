@@ -4,6 +4,10 @@ using System.Linq;
 
 namespace ERC.Utilities
 {
+    /// <summary>
+    /// OpcodeDisassembler class, can be declared and inherit from a ProcessInfo object to inherit the values of the current process or be called as 
+    /// a static function to disassemble opcodes.
+    /// </summary>
     public class OpcodeDisassembler : ProcessInfo
     {
         public OpcodeDisassembler(ProcessInfo parent) : base(parent)
@@ -14,8 +18,8 @@ namespace ERC.Utilities
         /// <summary>
         /// Disassembles opcodes into the associated instructions. Takes a byte array containing opcodes. 
         /// </summary>
-        /// <param name="opcodes"></param>
-        /// <returns>returns an ERC_Result containing associated instructions.</returns>
+        /// <param name="opcodes">The opcodes to be disassembled</param>
+        /// <returns>Returns an ERC_Result containing associated instructions.</returns>
         public ErcResult<string> Disassemble(byte[] opcodes)
         {
             ErcResult<string> result = new ErcResult<string>(ProcessCore);
@@ -72,8 +76,10 @@ namespace ERC.Utilities
         /// Disassembles opcodes into the associated instructions. Takes a byte array containing opcodes, a MachineType of I386 or x64, 
         /// an instance of the ERC_Core object and returns an ERC_Result containing associated instructions.
         /// </summary>
-        /// <param name="opcodes"></param>
-        /// <returns></returns>
+        /// <param name="opcodes">A byte array containing opcodes to be disassembled</param>
+        /// <param name="machineType">a ERC.MachineType of either I386 or x64</param>
+        /// <param name="core">An ErcCore object</param>
+        /// <returns>Returns an ERC_Result containing associated instructions.</returns>
         public static ErcResult<string> Disassemble(byte[] opcodes, MachineType machineType, ErcCore core)
         {
             ErcResult<string> result = new ErcResult<string>(core);
