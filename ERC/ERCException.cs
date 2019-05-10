@@ -3,6 +3,9 @@ using System.Runtime.Serialization;
 
 namespace ERC_Lib
 {
+    /// <summary>
+    /// Custom exception handler.
+    /// </summary>
     [Serializable]
     public class ERCException : Exception
     {

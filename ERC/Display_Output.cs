@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace ERC
 {
-    public static class Display_Output
+    public static class DisplayOutput
     {
         #region Display_Output_Functions
 
@@ -16,7 +16,11 @@ namespace ERC
         /// Identifies output files previously created by a the Display_Modules function
         /// and identifies the last number used. Returns the next number to be used as a filename.
         /// </summary>
-        public static string GetFilePath(string directory, string prefix, string extension)
+        /// <param name="directory">The directory to be used</param>
+        /// <param name="prefix">A prefix for the file name e.g. "modules_" or "Pattern_" etc</param>
+        /// <param name="extension">The file extension to be used e.g. ".txt" </param>
+        /// <returns>Returns a string containing the full file path to be used when writing output to disk</returns>
+        internal static string GetFilePath(string directory, string prefix, string extension)
         {
             string result = "";
             int fileNumber = 0;
@@ -44,7 +48,9 @@ namespace ERC
         /// <summary>
         /// Displays a list of all modules and associated information from a specific process. Can output to stdout, a file or both.
         /// </summary>
-        public static string DisplayModuleInfo(ProcessInfo info)
+        /// <param name="info">The ProcessInfo object of which the module information will be displayed</param>
+        /// <returns>Returns a string containing all module info from a specific process</returns>
+        internal static string DisplayModuleInfo(ProcessInfo info)
         {
             int ptrSegmentWidth = 16;
             int flagSegmentWidth = 10;
@@ -159,9 +165,9 @@ namespace ERC
 
         #region GenerateModuleInfoTable
         /// <summary>
-        /// Aquires filename and outputs all module data to the current working directory. Requires a Process_Info object to be passed as a parameter.
+        /// Aquires filename and writes out all module data to the current working directory. Requires a Process_Info object to be passed as a parameter.
         /// </summary>
-        /// <param name="info"></param>
+        /// <param name="info">The ProcessInfo object of which the module information will be displayed</param>
         /// <returns>Returns a formatted string of all results</returns>
         public static string GenerateModuleInfoTable(ProcessInfo info)
         {
@@ -178,7 +184,9 @@ namespace ERC
         /// Passing a list of module paths or names will exclude those modules from the search. 
         /// Similar to Search_All_Memory_PPR however provides output in an easily readable format.
         /// </summary>
-        /// <returns>Returns an ERC_Result containing a list of strings detailing the pointers, opcodes and base files of suitable instruction sets. </returns>
+        /// <param name="info">The ProcessInfo object which will be searched for POP POP RET instructions,</param>
+        /// <param name="excludes">Modules to be ignored when searching for the instruction sets.</param>
+        /// <returns>Returns an ErcResult containing a list of strings detailing the pointers, opcodes and base files of suitable instruction sets.</returns>
         public static ErcResult<List<string>> GetSEHJumps(ProcessInfo info, List<string> excludes = null)
         {
             ErcResult<List<string>> ret = new ErcResult<List<string>>(info.ProcessCore);
@@ -242,10 +250,16 @@ namespace ERC
         #endregion
 
         #region GenerateByteArray
+        /// <summary>
+        /// Generates an array of all possible bytes for use when identifying bad characters. Writes the output to disk in the working directory.
+        /// </summary>
+        /// <param name="unwantedBytes">An array of bytes to be excluded from the final byte array</param>
+        /// <param name="core">An ErcCore object</param>
+        /// <returns>Returns a byte array of all possible bytes.</returns>
         public static byte[] GenerateByteArray(byte[] unwantedBytes, ErcCore core)
         {
-            string byteFilename = Display_Output.GetFilePath(core.WorkingDirectory, "ByteArray_", ".dll");
-            byte[] byteArray = ERC.Utilities.Payloads.Byte_Array_Constructor(unwantedBytes);
+            string byteFilename = GetFilePath(core.WorkingDirectory, "ByteArray_", ".dll");
+            byte[] byteArray = Payloads.Byte_Array_Constructor(unwantedBytes);
             FileStream fs1 = new FileStream(byteFilename, FileMode.Create, FileAccess.Write);
             fs1.Write(byteArray, 0, byteArray.Length);
             fs1.Close();
@@ -284,13 +298,34 @@ namespace ERC
         #endregion
 
         #region GenerateEggHunters
-        public static string GenerateEggHunters(ErcCore core, string tag = null)
+        /// <summary>
+        /// Generates a collection of EggHunter payloads.
+        /// </summary>
+        /// <param name="core">(Optional) If an ErcCore object is provided the output will also be written out to the working directory </param>
+        /// <param name="tag">(Optional) If a tag is provided the payloads will be altered to search for that tag, the default tag is ERCD</param>
+        /// <returns>Returns a string containing all EggHunters </returns>
+        public static string GenerateEggHunters(ErcCore core = null, string tag = null)
         {
             var eggHunters = Payloads.EggHunterConstructor(tag);
-            string eggFilename = GetFilePath(core.WorkingDirectory, "Egg_Hunters_", ".txt");
+            string eggFilename = "";
+            if (core != null)
+            {
+                eggFilename = GetFilePath(core.WorkingDirectory, "Egg_Hunters_", ".txt");
+            }
+
+            string eggTag = "";
+            if(tag != null)
+            {
+                eggTag = tag;
+            }
+            else
+            {
+                eggTag = "ERCD";
+            }
+
             string outputString = "";
             outputString = "---------------------------------------------------------------------------------------" + Environment.NewLine;
-            outputString += "EggHunters generated at:" + DateTime.Now + Environment.NewLine;
+            outputString += "EggHunters generated at:" + DateTime.Now + " Tag: " + eggTag + Environment.NewLine;
             outputString += "---------------------------------------------------------------------------------------" + Environment.NewLine;
             outputString += Environment.NewLine;
             foreach(KeyValuePair<string, byte[]> k in eggHunters)
@@ -319,12 +354,22 @@ namespace ERC
                 CSharp += string.Join(Environment.NewLine, list) + Environment.NewLine + "}" + Environment.NewLine + Environment.NewLine;
                 outputString += CSharp;
             }
-            File.WriteAllText(eggFilename, outputString);
+            if(core != null)
+            {
+                File.WriteAllText(eggFilename, outputString);
+            }
             return outputString;
         }
         #endregion
 
         #region GenerateFindNRPTable
+        /// <summary>
+        /// Searches the memory of a process for a non repeating pattern.
+        /// </summary>
+        /// <param name="info">The ProcessInfo object of the process to be searched</param>
+        /// <param name="searchType">Integer specifiying the format of the string: 0 = search term is in bytes\n1 = search term is in unicode\n2 = search term is in ASCII\n3 = Search term is in UTF8\n4 = Search term is in UTF7\n5 = Search term is in UTF32</param>
+        /// <param name="extended">Whether the extended character range is to be used when searching for the non repeating pattern</param>
+        /// <returns>Returns a List of strings containing the locations the repeating pattern was identified</returns>
         public static List<string> GenerateFindNRPTable(ProcessInfo info, int searchType = 0, bool extended = false)
         {
             List<string> output = new List<string>();
@@ -349,14 +394,15 @@ namespace ERC
             for(int i = 0; i < fnrp.ReturnValue.Count; i++)
             {
                 string registerInfoText = "";
-                if(fnrp.ReturnValue[i].StringOffset > 0 && !fnrp.ReturnValue[i].Register.Contains("IP") && !fnrp.ReturnValue[i].Register.Contains("SP"))
+                if (fnrp.ReturnValue[i].StringOffset > 0 && !fnrp.ReturnValue[i].Register.Contains("IP") && !fnrp.ReturnValue[i].Register.Contains("SP")
+                    && !fnrp.ReturnValue[i].Register.Contains("SEH"))
                 {
                     registerInfoText += "Register " + fnrp.ReturnValue[i].Register + " points into pattern at position " + fnrp.ReturnValue[i].StringOffset;
                 }
-                else if(fnrp.ReturnValue[i].StringOffset > 0 && fnrp.ReturnValue[i].Register.Contains("SP"))
+                else if (fnrp.ReturnValue[i].StringOffset > 0 && fnrp.ReturnValue[i].Register.Contains("SP"))
                 {
                     registerInfoText += "Register " + fnrp.ReturnValue[i].Register + " points into pattern at position " + fnrp.ReturnValue[i].StringOffset;
-                    if(fnrp.ReturnValue[i].RegisterOffset > 0)
+                    if (fnrp.ReturnValue[i].RegisterOffset > 0)
                     {
                         registerInfoText += " at " + fnrp.ReturnValue[i].Register + " +" + fnrp.ReturnValue[i].RegisterOffset + " length of pattern found is " +
                             fnrp.ReturnValue[i].BufferSize + " characters";
@@ -366,9 +412,13 @@ namespace ERC
                         registerInfoText += " length of pattern found is " + fnrp.ReturnValue[i].BufferSize + " characters";
                     }
                 }
-                else if(fnrp.ReturnValue[i].StringOffset > 0 && fnrp.ReturnValue[i].Register.Contains("IP"))
+                else if (fnrp.ReturnValue[i].StringOffset > 0 && fnrp.ReturnValue[i].Register.Contains("IP"))
                 {
                     registerInfoText += "Register " + fnrp.ReturnValue[i].Register + "is overwritten with pattern at position " + fnrp.ReturnValue[i].StringOffset;
+                }
+                else if(fnrp.ReturnValue[i].StringOffset > 0 && fnrp.ReturnValue[i].Register.Contains("SEH"))
+                {
+                    registerInfoText += "SEH register overwritten at pattern position " + fnrp.ReturnValue[i].StringOffset;
                 }
                 output.Add(registerInfoText);
             }

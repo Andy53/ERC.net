@@ -2,7 +2,6 @@
 using ERC_Lib;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -14,29 +13,31 @@ namespace ERC
     public class ProcessInfo : ErcCore
     {
         #region Class_Variables
-        public string ProcessName { get; set; }
-        public string ProcessDescription { get; set; }
-        public string ProcessFilename { get; set; }
-        public int ProcessID { get; set; }
+        public string ProcessName { get; private set; }
+        public string ProcessDescription { get; private set; }
+        public string ProcessFilename { get; private set; }
+        public int ProcessID { get; private set; }
 
-        public IntPtr ProcessHandle { get; set; }
-        public Process ProcessCurrent { get; set; }
-        public MachineType ProcessMachineType { get; set; }
-        public Dictionary<string, IntPtr> ProcessModuleHandles = new Dictionary<string, IntPtr>();
-        public List<ModuleInfo> ModulesInfo = new List<ModuleInfo>();
-        public List<ThreadInfo> ThreadsInfo = new List<ThreadInfo>();
+        public IntPtr ProcessHandle { get; private set; }
+        public Process ProcessCurrent { get; private set; }
+        public MachineType ProcessMachineType { get; private set; }
+        private Dictionary<string, IntPtr> ProcessModuleHandles = new Dictionary<string, IntPtr>();
+        public  List<ModuleInfo> ModulesInfo = new List<ModuleInfo>();
+        public  List<ThreadInfo> ThreadsInfo = new List<ThreadInfo>();
 
-        public ErcCore ProcessCore;
-        public List<MEMORY_BASIC_INFORMATION32> ProcessMemoryBasicInfo32;
-        public List<MEMORY_BASIC_INFORMATION64> ProcessMemoryBasicInfo64;
+        internal ErcCore ProcessCore;
+        private List<MEMORY_BASIC_INFORMATION32> ProcessMemoryBasicInfo32;
+        private List<MEMORY_BASIC_INFORMATION64> ProcessMemoryBasicInfo64;
 
-        public const uint LIST_MODULES_ALL = 0x03;
+        private const uint LIST_MODULES_ALL = 0x03;
         #endregion
 
         #region Constructor
         /// <summary>
         /// Constructor for the Process_Info object, requires an ERC_Core object and a Process.
         /// </summary>
+        /// <param name="core">An ErcCore object</param>
+        /// <param name="process">The process to gather information from</param>
         public ProcessInfo(ErcCore core, Process process) : base(core)
         {
             ProcessCore = core;
@@ -110,6 +111,8 @@ namespace ERC
         /// <summary>
         /// Gets a list of running processes on the host and removes unusable processes (such as system processes etc)
         /// </summary>
+        /// <param name="core">An ErcCore object</param>
+        /// <returns>Returns an ErcResult containing a list of all supported processes</returns>
         public static ErcResult<Process[]> ListLocalProcesses(ErcCore core)
         {
             ErcResult<Process[]> result = new ErcResult<Process[]>(core);
@@ -150,7 +153,7 @@ namespace ERC
         /// Returns a list of files loaded by the current process as List<String>
         /// </summary>
         /// <returns>Returns an ErcResult containing a Dictionary of module names and the associated handles</returns>
-        private ErcResult<Dictionary<string, IntPtr>> GetProcessModules()
+        public ErcResult<Dictionary<string, IntPtr>> GetProcessModules()
         {
             IntPtr hProcess = ProcessHandle;
             ErcResult<Dictionary<string, IntPtr>> result = new ErcResult<Dictionary<string, IntPtr>>(ProcessCore);
@@ -205,6 +208,8 @@ namespace ERC
         /// <summary>
         /// Identifies if a process is 64bit or 32 bit, returns true for 64bit and false for 32bit.
         /// </summary>
+        /// <param name="process">The process to be used</param>
+        /// <returns>Returns true if the process is 64bit and false if it is not.</returns>
         public static bool Is64Bit(Process process)
         {
             bool isWow64;
@@ -227,7 +232,6 @@ namespace ERC
         /// <summary>
         /// Identifies memory regions occupied by the current process and populates the associated list with the Process_Info object.
         /// </summary>
-        /// <param name="process"></param>
         private void LocateMemoryRegions()
         {
             Process process = ProcessCurrent;
@@ -281,9 +285,9 @@ namespace ERC
 
         #region Search_Process_Memory
         /// <summary>
-        /// Private function called from Search_Memory. Searches memory regions populated by the process for specific strings. Takes a byte array as input to be searched for. 
+        /// Private function called from Search_Memory. Searches memory regions populated by the process for specific strings.
         /// </summary>
-        /// <param name="searchBytes"></param>
+        /// <param name="searchBytes"> Takes a byte array as input to be searched for</param>
         /// <returns>Returns a list of IntPtr for each instance found.</returns>
         private ErcResult<List<IntPtr>> SearchProcessMemory(byte[] searchBytes)
         {
@@ -435,6 +439,7 @@ namespace ERC
         /// Searches all memory associated with a given process and associated modules for POP X POP X RET instructions. 
         /// Passing a list of module paths or names will exclude those modules from the search. 
         /// </summary>
+        /// <param name="excludes">Takes a list of module names to be excluded from the search</param>
         /// <returns>Returns an ERC_Result containing a dictionary of pointers and the main module in which they were found</returns>
         public ErcResult<Dictionary<IntPtr, string>> SearchAllMemoryPPR(List<string> excludes = null)
         {
@@ -898,6 +903,32 @@ namespace ERC
                         }
                     }
                 }
+                for (int i = 0; i < ThreadsInfo.Count; i++)
+                {
+                    var pTeb = ThreadsInfo[i].PopulateTEB();
+                    if (pTeb.Error == null)
+                    {
+                        var sehChain = ThreadsInfo[i].BuildSehChain();
+                        if (sehChain.Error == null)
+                        {
+                            if (sehChain.ReturnValue.Count > 0)
+                            {
+                                for (int j = 0; j < sehChain.ReturnValue.Count; j++)
+                                {
+                                    RegisterInfo SEH = new RegisterInfo();
+                                    if (pattern.Contains(BitConverter.ToString(sehChain.ReturnValue[j])))
+                                    {
+                                        SEH.Register = "SEH" + i.ToString();
+                                        SEH.StringOffset = pattern.IndexOf(BitConverter.ToString(sehChain.ReturnValue[j]));
+                                        SEH.ThreadID = ThreadsInfo[i].ThreadID;
+                                        SEH.RegisterValue = (IntPtr)BitConverter.ToInt64(sehChain.ReturnValue[j], 0);
+                                        registers.Add(SEH);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
             else if(ProcessMachineType == MachineType.x64)
             {
@@ -1112,6 +1143,32 @@ namespace ERC
                             if (pattern.Contains(RIPValue))
                             {
                                 registers[i].StringOffset = pattern.IndexOf(RIPValue);
+                            }
+                        }
+                    }
+                }
+                for(int i = 0; i < ThreadsInfo.Count; i++)
+                {
+                    var pTeb = ThreadsInfo[i].PopulateTEB();
+                    if(pTeb.Error == null)
+                    {
+                        var sehChain = ThreadsInfo[i].BuildSehChain();
+                        if(sehChain.Error == null)
+                        {
+                            if(sehChain.ReturnValue.Count > 0)
+                            {
+                                for(int j = 0; j < sehChain.ReturnValue.Count; j++)
+                                {
+                                    RegisterInfo SEH = new RegisterInfo();
+                                    if (pattern.Contains(BitConverter.ToString(sehChain.ReturnValue[j])))
+                                    {
+                                        SEH.Register = "SEH" + i.ToString();
+                                        SEH.StringOffset = pattern.IndexOf(BitConverter.ToString(sehChain.ReturnValue[j]));
+                                        SEH.ThreadID = ThreadsInfo[i].ThreadID;
+                                        SEH.RegisterValue = (IntPtr)BitConverter.ToInt64(sehChain.ReturnValue[j], 0);
+                                        registers.Add(SEH);
+                                    }
+                                }
                             }
                         }
                     }

@@ -13,31 +13,31 @@ namespace ERC
     public class ModuleInfo
     {
         #region Class Variables
-        public string ModuleName { get; set; }
-        public string ModulePath { get; set; }
-        public string ModuleVersion { get; set; }
-        public string ModuleProduct { get; set; }
+        public string ModuleName { get; private set; }
+        public string ModulePath { get; private set; }
+        public string ModuleVersion { get; private set; }
+        public string ModuleProduct { get; private set; }
 
-        public IntPtr ModuleBase { get; set; }
-        public IntPtr ModuleEntry { get; set; }
-        public IntPtr ModuleImageBase { get; set; }
-        public int ModuleSize { get; set; }
+        public IntPtr ModuleBase { get; private set; }
+        public IntPtr ModuleEntry { get; private set; }
+        public IntPtr ModuleImageBase { get; private set; }
+        public int ModuleSize { get; private set; }
 
-        public bool ModuleASLR { get; set; }
-        public bool ModuleSafeSEH { get; set; }
-        public bool ModuleRebase { get; set; }
-        public bool ModuleNXCompat { get; set; }
-        public bool ModuleOsDll { get; set; }
-        public Process ModuleProcess { get; set; }
-        public ErcCore ModuleCore { get; set; }
+        public bool ModuleASLR { get; private set; }
+        public bool ModuleSafeSEH { get; private set; }
+        public bool ModuleRebase { get; private set; }
+        public bool ModuleNXCompat { get; private set; }
+        public bool ModuleOsDll { get; private set; }
+        public Process ModuleProcess { get; private set; }
+        public ErcCore ModuleCore { get; private set; }
 
-        public MachineType ModuleMachineType { get; set; }
-        public IMAGE_DOS_HEADER ImageDosHeader = new IMAGE_DOS_HEADER();
-        public IMAGE_FILE_HEADER ImageFileHeader = new IMAGE_FILE_HEADER();
-        public IMAGE_NT_HEADERS32 ImageNTHeaders32;
-        public IMAGE_NT_HEADERS64 ImageNTHeaders64;
-        public IMAGE_OPTIONAL_HEADER32 ImageOptionalHeader32;
-        public IMAGE_OPTIONAL_HEADER64 ImageOptionalHeader64;
+        public MachineType ModuleMachineType { get; private set; }
+        internal IMAGE_DOS_HEADER ImageDosHeader = new IMAGE_DOS_HEADER();
+        internal IMAGE_FILE_HEADER ImageFileHeader = new IMAGE_FILE_HEADER();
+        internal IMAGE_NT_HEADERS32 ImageNTHeaders32;
+        internal IMAGE_NT_HEADERS64 ImageNTHeaders64;
+        internal IMAGE_OPTIONAL_HEADER32 ImageOptionalHeader32;
+        internal IMAGE_OPTIONAL_HEADER64 ImageOptionalHeader64;
 
         public bool ModuleFailed = false;
         #endregion
@@ -46,10 +46,10 @@ namespace ERC
         /// <summary>
         /// Constructor for the ModuleInfo object. Takes (string)modules filepath (IntPtr)module handle (Process)Process from which the module is loaded
         /// </summary>
-        /// <param name="module"></param>
-        /// <param name="ptr"></param>
-        /// <param name="process"></param>
-        public unsafe ModuleInfo(string module, IntPtr ptr, Process process, ErcCore core)
+        /// <param name="module">Filepath of the module</param>
+        /// <param name="ptr">Handle to the module</param>
+        /// <param name="process">Process where the module is loaded</param>
+        internal unsafe ModuleInfo(string module, IntPtr ptr, Process process, ErcCore core)
         {
             try
             {

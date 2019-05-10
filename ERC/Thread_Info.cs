@@ -12,12 +12,12 @@ namespace ERC
     public class ThreadInfo
     {
         #region Variables
-        public   IntPtr ThreadHandle { get; private set; }
-        public   int ThreadID { get; private set; }
+        public IntPtr ThreadHandle { get; private set; }
+        public int ThreadID { get; private set; }
+        public CONTEXT32 Context32;
+        public CONTEXT64 Context64;
 
         internal bool ThreadFailed { get; private set; }
-        internal CONTEXT32 Context32;
-        internal CONTEXT64 Context64;
 
         private bool X64 { get; set; }
         private ProcessThread ThreadCurrent { get; set; }
@@ -65,6 +65,10 @@ namespace ERC
         #endregion
 
         #region Get Thread Context
+        /// <summary>
+        /// Gets the register values of a thread and populates the CONTEXT structs. Should only be used on a suspended thread, results on an active thread are unreliable.
+        /// </summary>
+        /// <returns>Returns an ErcResult, the return value can be ignored, the object should only be checked for error values</returns>
         public ErcResult<string> Get_Context()
         {
             ErcResult<string> result = new ErcResult<string>(ThreadCore);
@@ -418,6 +422,10 @@ namespace ERC
         #endregion
 
         #region Public Methods
+        /// <summary>
+        /// Gets the current SEH chain for the process.
+        /// </summary>
+        /// <returns>Returns a list of IntPtr containing the SEH chain</returns>
         public List<IntPtr> GetSehChain()
         {
             List<IntPtr> SehPtrs = new List<IntPtr>();
@@ -452,6 +460,19 @@ namespace ERC
                 }
             }
             return SehPtrs;
+        }
+
+        /// <summary>
+        /// Gets the Thread environment block of the current thread.
+        /// </summary>
+        /// <returns>Returns a TEB struct</returns>
+        public TEB GetTeb()
+        {
+            if (Teb.Equals(default(TEB)))
+            {
+                throw new Exception("Error: TEB structure for this thread has not yet been populated. Call PopulateTEB first");
+            }
+            return Teb;
         }
         #endregion
     }
