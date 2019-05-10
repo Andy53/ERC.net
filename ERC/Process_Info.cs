@@ -1,6 +1,8 @@
-﻿using ERC_Lib;
+﻿using ERC.Structures;
+using ERC_Lib;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -38,6 +40,7 @@ namespace ERC
         public ProcessInfo(ErcCore core, Process process) : base(core)
         {
             ProcessCore = core;
+
             if (Is64Bit(process))
             {
                 ProcessMachineType = MachineType.x64;
@@ -46,15 +49,16 @@ namespace ERC
             {
                 ProcessMachineType = MachineType.I386;
             }
+
             ProcessName = process.ProcessName;
             ProcessDescription = FileVersionInfo.GetVersionInfo(process.MainModule.FileName).FileDescription;
             ProcessFilename = FileVersionInfo.GetVersionInfo(process.MainModule.FileName).FileName;
             ProcessID = process.Id;
             ProcessCurrent = process;
             ProcessHandle = process.Handle;
-            ProcessModuleHandles = GetProcessModules().ReturnValue; 
-            
-            if(ProcessModuleHandles.Count == 0)
+            ProcessModuleHandles = GetProcessModules().ReturnValue;
+
+            if (ProcessModuleHandles.Count == 0)
             {
                 for(int i = 0; i < process.Modules.Count; i++) 
                 {
@@ -183,7 +187,6 @@ namespace ERC
                                 modules.Add(modName.ToString(), modhWnds[i]);
                             }
                         }
-
                     }
                 }
                 catch (Exception e)

@@ -2,6 +2,7 @@
 using ERC;
 using System.Diagnostics;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace ERC_test_app
 {
@@ -187,7 +188,6 @@ namespace ERC_test_app
                     thisProcess = process1;
                 }
             }
-
             ProcessInfo info = new ProcessInfo(core, thisProcess);
             info.FindNRP();
         }
