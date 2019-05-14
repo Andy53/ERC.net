@@ -41,4 +41,8 @@
     <NativeLibs Remove="ERCException.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <NativeLibs Remove="RopChainGenerator.cs" />
+  </ItemGroup>
+
 </Project>

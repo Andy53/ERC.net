@@ -3,13 +3,17 @@ using ERC_Lib;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-
+using System.Runtime.InteropServices;
 
 namespace ERC
 {
+    /// <summary>
+    /// Contains all information relating to a specific module.
+    /// </summary>
     public class ModuleInfo
     {
         #region Class Variables
@@ -38,6 +42,8 @@ namespace ERC
         internal IMAGE_NT_HEADERS64 ImageNTHeaders64;
         internal IMAGE_OPTIONAL_HEADER32 ImageOptionalHeader32;
         internal IMAGE_OPTIONAL_HEADER64 ImageOptionalHeader64;
+        List<IMAGE_LOAD_CONFIG_DIRECTORY32> ImageConfigDir32 = new List<IMAGE_LOAD_CONFIG_DIRECTORY32>();
+        List<IMAGE_LOAD_CONFIG_DIRECTORY64> ImageConfigDir64 = new List<IMAGE_LOAD_CONFIG_DIRECTORY64>();
 
         public bool ModuleFailed = false;
         #endregion
@@ -60,7 +66,7 @@ namespace ERC
 
                 FileInfo fileInfo = new FileInfo(ModulePath);
                 FileStream file = fileInfo.Open(FileMode.Open, FileAccess.Read, FileShare.Read);
-                Populate_Structs(file);
+                PopulateHeaderStructs(file);
 
                 if (!string.IsNullOrEmpty(FileVersionInfo.GetVersionInfo(module).FileVersion))
                 {
@@ -100,16 +106,8 @@ namespace ERC
                         {
                             ModuleNXCompat = false;
                         }
-
-                        if (bits[i] == true && i == 9)
-                        {
-                            ModuleSafeSEH = false;
-                        }
-                        else
-                        {
-                            ModuleSafeSEH = true;
-                        }
                     }
+                    PopulateConfigStructs();
                 }
                 else if (ModuleMachineType == MachineType.x64)
                 {
@@ -137,16 +135,8 @@ namespace ERC
                         {
                             ModuleNXCompat = false;
                         }
-
-                        if (bits[i] == true && i == 10)
-                        {
-                            ModuleSafeSEH = false;
-                        }
-                        else if (bits[i] == false && i == 10)
-                        {
-                            ModuleSafeSEH = true;
-                        }
                     }
+                    PopulateConfigStructs();
                 }
                 else
                 {
@@ -181,7 +171,7 @@ namespace ERC
             }
         }
 
-        private unsafe void Populate_Structs(FileStream fin)
+        private unsafe void PopulateHeaderStructs(FileStream fin)
         {
             byte[] Data = new byte[4096];
             int iRead = fin.Read(Data, 0, 4096);
@@ -210,7 +200,58 @@ namespace ERC
                     ImageOptionalHeader64 = inhs64->OptionalHeader;
                     ModuleImageBase = (IntPtr)inhs64->OptionalHeader.ImageBase;
                 }
+                else
+                {
+                    ModuleFailed = true;
+                }
             }
+        }
+
+        //needs additional work.
+        private void PopulateConfigStructs()
+        {
+            string path = Path.GetDirectoryName(ModulePath);
+            string name = Path.GetFileName(ModulePath);
+            Console.WriteLine("--------------------------------------------------------------------------------------------");
+            var modPtr = ErcCore.ImageLoad(name, path);
+            Console.WriteLine("ImageLoad Error: " + new Win32Exception(Marshal.GetLastWin32Error()).Message);
+
+            if (ModuleMachineType == MachineType.I386)
+            {
+                IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir = new IMAGE_LOAD_CONFIG_DIRECTORY32();
+                ImageConfigDir.Size = (uint)Marshal.SizeOf(ImageConfigDir);
+
+                var check = ErcCore.GetImageConfigInformation32(modPtr, ref ImageConfigDir);
+                Console.WriteLine("GetImageConfigInformation32: " + new Win32Exception(Marshal.GetLastWin32Error()).Message
+                + Environment.NewLine + Marshal.GetLastWin32Error() + Environment.NewLine);
+                Console.WriteLine("ImageConfigDir64.SEHandlerCount = {0}", ImageConfigDir.SEHandlerCount);
+                Console.WriteLine("ImageConfigDir64.SEHandlerTable = {0}", ImageConfigDir.SEHandlerTable);
+                Console.WriteLine("Check = {0}", check);
+                ImageConfigDir32.Add(ImageConfigDir);
+            }
+            else if (ModuleMachineType == MachineType.x64)
+            {
+                IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir = new IMAGE_LOAD_CONFIG_DIRECTORY64();
+                ImageConfigDir.Size = (uint)Marshal.SizeOf(ImageConfigDir);
+
+                var check = ErcCore.GetImageConfigInformation64(modPtr, ref ImageConfigDir);
+                Console.WriteLine("GetImageConfigInformation64: " + new Win32Exception(Marshal.GetLastWin32Error()).Message
+                + Environment.NewLine + Marshal.GetLastWin32Error() + Environment.NewLine);
+                Console.WriteLine("ImageConfigDir64.SEHandlerCount = {0}", ImageConfigDir.SEHandlerCount);
+                Console.WriteLine("ImageConfigDir64.SEHandlerTable = {0}", ImageConfigDir.SEHandlerTable);
+                Console.WriteLine("Check = {0}", check);
+                ImageConfigDir64.Add(ImageConfigDir);
+            }
+
+            Console.WriteLine("module path = {0}", ModulePath);
+            Console.WriteLine("ModPtr = {0}", modPtr);
+
+            int unusedBytes = 0;
+            ErcCore.GetImageUnusedHeaderBytes(modPtr, ref unusedBytes);
+            Console.WriteLine("Unused bytes = {0}", unusedBytes);
+            ErcCore.ImageLoad(name, path);
+            Console.WriteLine("GetImageUnusedHeaderBytes: " + new Win32Exception(Marshal.GetLastWin32Error()).Message);
+            Console.ReadKey();
         }
         #endregion
 
@@ -262,6 +303,36 @@ namespace ERC
             }
             return positions;
         }
-        #endregion 
+        #endregion
+
+        #region ToString
+        public override string ToString()
+        {
+            string ret = "";
+            ret += "Module Name        = " + ModuleName + Environment.NewLine;
+            ret += "Module Path        = " + ModulePath + Environment.NewLine;
+            ret += "Module Version     = " + ModuleVersion + Environment.NewLine;
+            ret += "Module Produce     = " + ModuleProduct + Environment.NewLine;
+            if (ModuleMachineType == MachineType.x64)
+            {
+                ret += "Module Handle      = " + "0x" + ModuleBase.ToString("x16") + Environment.NewLine;
+                ret += "Module Entrypoint  = " + "0x" + ModuleEntry.ToString("x16") + Environment.NewLine;
+                ret += "Module Image Base  = " + "0x" + ModuleImageBase.ToString("x16") + Environment.NewLine;
+            }
+            else
+            {
+                ret += "Module Handle      = " + "0x" + ModuleBase.ToString("x8") + Environment.NewLine;
+                ret += "Module Entrypoint  = " + "0x" + ModuleEntry.ToString("x8") + Environment.NewLine;
+                ret += "Module Image Base  = " + "0x" + ModuleImageBase.ToString("x8") + Environment.NewLine;
+            }
+            ret += "Module Size        = " + ModuleSize + Environment.NewLine;
+            ret += "Module ASLR        = " + ModuleASLR + Environment.NewLine;
+            ret += "Module SafeSEH     = " + ModuleSafeSEH + Environment.NewLine;
+            ret += "Module Rebase      = " + ModuleRebase + Environment.NewLine;
+            ret += "Module NXCompat    = " + ModuleNXCompat + Environment.NewLine;
+            ret += "Module OS DLL      = " + ModuleOsDll + Environment.NewLine;
+            return ret;
+        }
+        #endregion
     }
 }

@@ -63,14 +63,6 @@ namespace ERC
         [DllImport("ntdll.dll", SetLastError = true)]
         public static extern uint ZwQueryInformationThread(IntPtr hwnd, int i, ref Structures.ThreadBasicInformation threadinfo, 
             int length, IntPtr bytesread);
-            
-        [DllImport("NTDLL.DLL", SetLastError = true, EntryPoint = "NtQueryInformationProcess")]
-        public static extern int NtQueryInformationProcess32(IntPtr hProcess, Structures.PROCESSINFOCLASS pic,
-            ref Structures.PROCESS_BASIC_INFORMATION32 pbi, int cb, out int pSize);
-
-        [DllImport("NTDLL.DLL", SetLastError = true, EntryPoint = "NtQueryInformationProcess")]
-        public static extern int NtQueryInformationProcess64(IntPtr hProcess, Structures.PROCESSINFOCLASS pic,
-            ref Structures.PROCESS_BASIC_INFORMATION32 pbi, int cb, out int pSize);
 
         [DllImport("psapi.dll", SetLastError = true)]
         public static extern bool EnumProcessModulesEx(IntPtr hProcess,
@@ -80,6 +72,18 @@ namespace ERC
         [DllImport("psapi.dll", SetLastError = true)]
         public static extern uint GetModuleFileNameEx(IntPtr hProcess, IntPtr hModule, [Out] StringBuilder lpBaseName,
             [In] [MarshalAs(UnmanagedType.U4)] int nSize);
+
+        [DllImport("Imagehlp.dll", SetLastError = true)]
+        public static extern IntPtr ImageLoad(string DllName, string DllPath);
+
+        [DllImport("Imagehlp.dll", SetLastError = true, EntryPoint = "GetImageConfigInformation")]
+        public static extern bool GetImageConfigInformation32(IntPtr dllptr, ref Structures.IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir32);
+
+        [DllImport("Imagehlp.dll", SetLastError = true, EntryPoint = "GetImageConfigInformation")]
+        public static extern bool GetImageConfigInformation64(IntPtr dllptr, ref Structures.IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir64);
+
+        [DllImport("Imagehlp.dll", SetLastError = true)]
+        public static extern IntPtr GetImageUnusedHeaderBytes(IntPtr dllptr, ref int unusedBytes);
         #endregion
 
         #region Constructor
@@ -373,7 +377,7 @@ namespace ERC
 
         public ErcResult(ErcCore core) : base(core)
         {
-            ErrorLogFile = Path.Combine(WorkingDirectory + "ERC_Error_log_" + DateTime.Now.TimeOfDay.ToString().Replace(':', '-') + ".txt");
+            ErrorLogFile = core.SystemErrorLogPath;
         }
 
         public ErcResult(ErcCore core, string errorFile) : base(core)
@@ -399,6 +403,22 @@ namespace ERC
             {
                 sw.WriteLine(Error);
             }
+        }
+
+        public override string ToString()
+        {
+            string ret = "";
+            ret += "ErcResult Type = " + ReturnValue.GetType() + Environment.NewLine;
+            if (Error != null)
+            {
+                ret += "ErcResult.Error = " + Error.ToString() + Environment.NewLine;
+            }
+            else
+            {
+                ret += "ErcResult.Error = NULL" + Environment.NewLine;
+            }
+            ret += "ErcResult.ErrorLogFile = " + ErrorLogFile + Environment.NewLine;
+            return base.ToString();
         }
     }
     #endregion
@@ -491,7 +511,6 @@ namespace ERC
             [FieldOffset(84)] public uint SizeOfHeapCommit;
             [FieldOffset(88)] public uint LoaderFlags;
             [FieldOffset(92)] public uint NumberOfRvaAndSizes;
-            //[FieldOffset(96)] public IMAGE_DATA_DIRECTORY[] DataDirectory;
         }
 
         [StructLayout(LayoutKind.Explicit)]
@@ -526,8 +545,110 @@ namespace ERC
             [FieldOffset(96)] public ulong SizeOfHeapCommit;
             [FieldOffset(102)] public uint LoaderFlags;
             [FieldOffset(106)] public uint NumberOfRvaAndSizes;
-            //[FieldOffset(110)] public IMAGE_DATA_DIRECTORY[] DataDirectory;
         }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct IMAGE_LOAD_CONFIG_DIRECTORY32
+        {
+            public uint Size;
+            public uint TimeDateStamp;
+            public ushort MajorVersion;
+            public ushort MinorVersion;
+            public uint GlobalFlagsClear;
+            public uint GlobalFlagsSet;
+            public uint CriticalSectionDefaultTimeout;
+            public uint DeCommitFreeBlockThreshold;
+            public uint DeCommitTotalFreeThreshold;
+            public uint LockPrefixTable;
+            public uint MaximumAllocationSize;
+            public uint VirtualMemoryThreshold;
+            public uint ProcessHeapFlags;
+            public uint ProcessAffinityMask;
+            public ushort CSDVersion;
+            public ushort DependentLoadFlags;
+            public uint EditList;
+            public uint SecurityCookie;
+            public uint SEHandlerTable;
+            public uint SEHandlerCount;
+            public uint GuardCFCheckFunctionPointer;
+            public uint GuardCFDispatchFunctionPointer;
+            public uint GuardCFFunctionTable;
+            public uint GuardCFFunctionCount;
+            public uint GuardFlags;
+            public IMAGE_LOAD_CONFIG_CODE_INTEGRITY CodeIntegrity;
+            public uint GuardAddressTakenIatEntryTable;
+            public uint GuardAddressTakenIatEntryCount;
+            public uint GuardLongJumpTargetTable;
+            public uint GuardLongJumpTargetCount;
+            public uint DynamicValueRelocTable;
+            public uint CHPEMetadataPointer;
+            public uint GuardRFFailureRoutine;
+            public uint GuardRFFailureRoutineFunctionPointer;
+            public uint DynamicValueRelocTableOffset;
+            public ushort DynamicValueRelocTableSection;
+            public ushort Reserved2;
+            public uint GuardRFVerifyStackPointerFunctionPointer;
+            public uint HotPatchTableOffset;
+            public uint Reserved3;
+            public uint EnclaveConfigurationPointer;
+            public uint VolatileMetadataPointer;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct IMAGE_LOAD_CONFIG_DIRECTORY64
+        {
+            public uint Size;
+            public uint TimeDateStamp;
+            public ushort MajorVersion;
+            public ushort MinorVersion;
+            public uint GlobalFlagsClear;
+            public uint GlobalFlagsSet;
+            public uint CriticalSectionDefaultTimeout;
+            public ulong DeCommitFreeBlockThreshold;
+            public ulong DeCommitTotalFreeThreshold;
+            public ulong LockPrefixTable;
+            public ulong MaximumAllocationSize;
+            public ulong VirtualMemoryThreshold;
+            public ulong ProcessAffinityMask;
+            public uint ProcessHeapFlags;
+            public ushort CSDVersion;
+            public ushort DependentLoadFlags;
+            public ulong EditList;
+            public ulong SecurityCookie;
+            public ulong SEHandlerTable;
+            public ulong SEHandlerCount;
+            public ulong GuardCFCheckFunctionPointer;
+            public ulong GuardCFDispatchFunctionPointer;
+            public ulong GuardCFFunctionTable;
+            public ulong GuardCFFunctionCount;
+            public uint GuardFlags;
+            public IMAGE_LOAD_CONFIG_CODE_INTEGRITY CodeIntegrity;
+            public ulong GuardAddressTakenIatEntryTable;
+            public ulong GuardAddressTakenIatEntryCount;
+            public ulong GuardLongJumpTargetTable;
+            public ulong GuardLongJumpTargetCount;
+            public ulong DynamicValueRelocTable;
+            public ulong CHPEMetadataPointer;
+            public ulong GuardRFFailureRoutine;
+            public ulong GuardRFFailureRoutineFunctionPointer;
+            public uint DynamicValueRelocTableOffset;
+            public ushort DynamicValueRelocTableSection;
+            public ushort Reserved2;
+            public ulong GuardRFVerifyStackPointerFunctionPointer;
+            public uint HotPatchTableOffset;
+            public uint Reserved3;
+            public ulong EnclaveConfigurationPointer;
+            public ulong VolatileMetadataPointer;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+        {
+            public ushort Flags;
+            public ushort Catalog;
+            public uint CatalogOffset;
+            public uint Reserved;
+        };
         #endregion
 
         #region Process Memory Information
@@ -860,83 +981,7 @@ namespace ERC
         #endregion
 
         #region PEB
-        public enum PROCESSINFOCLASS : int
-        {
-            ProcessBasicInformation = 0, // 0, q: PROCESS_BASIC_INFORMATION, PROCESS_EXTENDED_BASIC_INFORMATION
-            ProcessQuotaLimits, // qs: QUOTA_LIMITS, QUOTA_LIMITS_EX
-            ProcessIoCounters, // q: IO_COUNTERS
-            ProcessVmCounters, // q: VM_COUNTERS, VM_COUNTERS_EX
-            ProcessTimes, // q: KERNEL_USER_TIMES
-            ProcessBasePriority, // s: KPRIORITY
-            ProcessRaisePriority, // s: ULONG
-            ProcessDebugPort, // q: HANDLE
-            ProcessExceptionPort, // s: HANDLE
-            ProcessAccessToken, // s: PROCESS_ACCESS_TOKEN
-            ProcessLdtInformation, // 10
-            ProcessLdtSize,
-            ProcessDefaultHardErrorMode, // qs: ULONG
-            ProcessIoPortHandlers, // (kernel-mode only)
-            ProcessPooledUsageAndLimits, // q: POOLED_USAGE_AND_LIMITS
-            ProcessWorkingSetWatch, // q: PROCESS_WS_WATCH_INFORMATION[]; s: void
-            ProcessUserModeIOPL,
-            ProcessEnableAlignmentFaultFixup, // s: BOOLEAN
-            ProcessPriorityClass, // qs: PROCESS_PRIORITY_CLASS
-            ProcessWx86Information,
-            ProcessHandleCount, // 20, q: ULONG, PROCESS_HANDLE_INFORMATION
-            ProcessAffinityMask, // s: KAFFINITY
-            ProcessPriorityBoost, // qs: ULONG
-            ProcessDeviceMap, // qs: PROCESS_DEVICEMAP_INFORMATION, PROCESS_DEVICEMAP_INFORMATION_EX
-            ProcessSessionInformation, // q: PROCESS_SESSION_INFORMATION
-            ProcessForegroundInformation, // s: PROCESS_FOREGROUND_BACKGROUND
-            ProcessWow64Information, // q: ULONG_PTR
-            ProcessImageFileName, // q: UNICODE_STRING
-            ProcessLUIDDeviceMapsEnabled, // q: ULONG
-            ProcessBreakOnTermination, // qs: ULONG
-            ProcessDebugObjectHandle, // 30, q: HANDLE
-            ProcessDebugFlags, // qs: ULONG
-            ProcessHandleTracing, // q: PROCESS_HANDLE_TRACING_QUERY; s: size 0 disables, otherwise enables
-            ProcessIoPriority, // qs: ULONG
-            ProcessExecuteFlags, // qs: ULONG
-            ProcessResourceManagement,
-            ProcessCookie, // q: ULONG
-            ProcessImageInformation, // q: SECTION_IMAGE_INFORMATION
-            ProcessCycleTime, // q: PROCESS_CYCLE_TIME_INFORMATION
-            ProcessPagePriority, // q: ULONG
-            ProcessInstrumentationCallback, // 40
-            ProcessThreadStackAllocation, // s: PROCESS_STACK_ALLOCATION_INFORMATION, PROCESS_STACK_ALLOCATION_INFORMATION_EX
-            ProcessWorkingSetWatchEx, // q: PROCESS_WS_WATCH_INFORMATION_EX[]
-            ProcessImageFileNameWin32, // q: UNICODE_STRING
-            ProcessImageFileMapping, // q: HANDLE (input)
-            ProcessAffinityUpdateMode, // qs: PROCESS_AFFINITY_UPDATE_MODE
-            ProcessMemoryAllocationMode, // qs: PROCESS_MEMORY_ALLOCATION_MODE
-            ProcessGroupInformation, // q: USHORT[]
-            ProcessTokenVirtualizationEnabled, // s: ULONG
-            ProcessConsoleHostProcess, // q: ULONG_PTR
-            ProcessWindowInformation, // 50, q: PROCESS_WINDOW_INFORMATION
-            ProcessHandleInformation, // q: PROCESS_HANDLE_SNAPSHOT_INFORMATION // since WIN8
-            ProcessMitigationPolicy, // s: PROCESS_MITIGATION_POLICY_INFORMATION
-            ProcessDynamicFunctionTableInformation,
-            ProcessHandleCheckingMode,
-            ProcessKeepAliveCount, // q: PROCESS_KEEPALIVE_COUNT_INFORMATION
-            ProcessRevokeFileHandles, // s: PROCESS_REVOKE_FILE_HANDLES_INFORMATION
-            MaxProcessInfoClass
-        };
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public struct PROCESS_BASIC_INFORMATION32
-        {
-            public IntPtr ExitStatus;
-            public IntPtr PebBaseAddress;
-            public IntPtr AffinityMask;
-            public IntPtr BasePriority;
-            public UIntPtr UniqueProcessId;
-            public IntPtr InheritedFromUniqueProcessId;
-
-            public int Size
-            {
-                get { return Marshal.SizeOf(typeof(PROCESS_BASIC_INFORMATION32)); }
-            }
-        }
+        
         #endregion
     }
     #endregion
