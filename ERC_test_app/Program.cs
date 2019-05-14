@@ -12,7 +12,7 @@ namespace ERC_test_app
 
         static void Main(string[] args)
         {
-            core.SetWorkingDirectory(@"C:\Users\Andy\Desktop\");
+            core.SetWorkingDirectory(@"C:\Users\Andy\Desktop\");/*
             Console.WriteLine("create a pattern 1000 characters long: ");
             create_a_pattern();
             Console.WriteLine("Find offset in pattern (Ag9):");
@@ -20,9 +20,9 @@ namespace ERC_test_app
             Console.WriteLine("List all local processes: ");
             List_All_Local_Processes();
             Console.WriteLine("Search Process Memory (notepad): ");
-            Search_Process_Memory();
+            Search_Process_Memory();*/
             Console.WriteLine("Assembling opcodes:");
-            assembling_opcodes();
+            assembling_opcodes();/*
             Console.WriteLine("Disassembling Opcodes:");
             disassemble_opcodes();
             Console.WriteLine("Outputting module info");
@@ -36,7 +36,7 @@ namespace ERC_test_app
             Console.WriteLine("Generating egg hunters:");
             egghunters();
             Console.WriteLine("Searching for Non repeating pattern");
-            FindNRP();
+            FindNRP();*/
             Console.ReadKey();
         }
 
@@ -88,18 +88,18 @@ namespace ERC_test_app
         public static void assembling_opcodes()
         {
             List<string> instructions = new List<string>();
-            instructions.Add("POP RAX");
-            instructions.Add("POP RBX");
-            instructions.Add("PUSH RSP");
+            instructions.Add("PUSH ESI");
+            
+            instructions.Add("ret");
 
-            var asmResult = ERC.Utilities.OpcodeAssembler.AssembleOpcodes(instructions, MachineType.x64, core);
+            var asmResult = ERC.Utilities.OpcodeAssembler.AssembleOpcodes(instructions, MachineType.I386);
             Console.WriteLine(BitConverter.ToString(asmResult.ReturnValue).Replace("-", ""));
         }
 
         public static void disassemble_opcodes()
         {
             byte[] opcodes = new byte[] { 0xFF, 0xE4, 0x48, 0x31, 0xC0, 0x55, 0xC3 };
-            var result = ERC.Utilities.OpcodeDisassembler.Disassemble(opcodes, MachineType.x64, core);
+            var result = ERC.Utilities.OpcodeDisassembler.Disassemble(opcodes, MachineType.x64);
             Console.WriteLine(result.ReturnValue + Environment.NewLine);
         }
 

@@ -1,0 +1,861 @@
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 226
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 107
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 226
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 107
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 226
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 107
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 235
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 223
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 107
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 223
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 107
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 220
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 107
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 220
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 107
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 230
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 221
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 107
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 221
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 107
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 232
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 222
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 107
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 222
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 107
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 234
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 222
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 107
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 222
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 107
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.InvalidCastException: Specified cast is not valid.
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 237
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 136
+System.ArgumentException: The specified object must not be an instance of a generic type.
+Parameter name: structure
+   at System.Runtime.InteropServices.Marshal.StructureToPtr(Object structure, IntPtr ptr, Boolean fDeleteOld)
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 224
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 110
+System.ArgumentException: The specified object must not be an instance of a generic type.
+Parameter name: structure
+   at System.Runtime.InteropServices.Marshal.StructureToPtr(Object structure, IntPtr ptr, Boolean fDeleteOld)
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 224
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 110
+System.ArgumentException: The specified object must not be an instance of a generic type.
+Parameter name: structure
+   at System.Runtime.InteropServices.Marshal.StructureToPtr(Object structure, IntPtr ptr, Boolean fDeleteOld)
+   at ERC.ModuleInfo.PopulateConfigStructs() in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 224
+   at ERC.ModuleInfo..ctor(String module, IntPtr ptr, Process process, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Module_Info.cs:line 110
+Reloaded.Assembler.Definitions.FasmException: Failed to assemble FASM Mnemonics: Error name: IllegalInstruction, Line Number: 6, Result: Error
+   at Reloaded.Assembler.Assembler.Assemble(String mnemonics, UInt16 passLimit)
+   at ERC.Utilities.OpcodeAssembler.AssembleOpcodes(List`1 instructions, MachineType machineType, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Opcode_Assembler.cs:line 88
+Reloaded.Assembler.Definitions.FasmException: Failed to assemble FASM Mnemonics: Error name: IllegalInstruction, Line Number: 6, Result: Error
+   at Reloaded.Assembler.Assembler.Assemble(String mnemonics, UInt16 passLimit)
+   at ERC.Utilities.OpcodeAssembler.AssembleOpcodes(List`1 instructions, MachineType machineType, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Opcode_Assembler.cs:line 88
+Reloaded.Assembler.Definitions.FasmException: Failed to assemble FASM Mnemonics: Error name: IllegalInstruction, Line Number: 6, Result: Error
+   at Reloaded.Assembler.Assembler.Assemble(String mnemonics, UInt16 passLimit)
+   at ERC.Utilities.OpcodeAssembler.AssembleOpcodes(List`1 instructions, MachineType machineType, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Opcode_Assembler.cs:line 88
+Reloaded.Assembler.Definitions.FasmException: Failed to assemble FASM Mnemonics: Error name: IllegalInstruction, Line Number: 6, Result: Error
+   at Reloaded.Assembler.Assembler.Assemble(String mnemonics, UInt16 passLimit)
+   at ERC.Utilities.OpcodeAssembler.AssembleOpcodes(List`1 instructions, MachineType machineType, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Opcode_Assembler.cs:line 88
+Reloaded.Assembler.Definitions.FasmException: Failed to assemble FASM Mnemonics: Error name: IllegalInstruction, Line Number: 6, Result: Error
+   at Reloaded.Assembler.Assembler.Assemble(String mnemonics, UInt16 passLimit)
+   at ERC.Utilities.OpcodeAssembler.AssembleOpcodes(List`1 instructions, MachineType machineType, ErcCore core) in D:\Source\Repos\ERC_net\ERC.net\ERC\Opcode_Assembler.cs:line 88
+Reloaded.Assembler.Definitions.FasmException: Failed to assemble FASM Mnemonics: Error name: IllegalInstruction, Line Number: 6, Result: Error
+   at Reloaded.Assembler.Assembler.Assemble(String mnemonics, UInt16 passLimit)
+   at ERC.Utilities.OpcodeAssembler.AssembleOpcodes(List`1 instructions, MachineType machineType) in D:\Source\Repos\ERC_net\ERC.net\ERC\Opcode_Assembler.cs:line 88
+Reloaded.Assembler.Definitions.FasmException: Failed to assemble FASM Mnemonics: Error name: IllegalInstruction, Line Number: 6, Result: Error
+   at Reloaded.Assembler.Assembler.Assemble(String mnemonics, UInt16 passLimit)
+   at ERC.Utilities.OpcodeAssembler.AssembleOpcodes(List`1 instructions, MachineType machineType) in D:\Source\Repos\ERC_net\ERC.net\ERC\Opcode_Assembler.cs:line 88
+Reloaded.Assembler.Definitions.FasmException: Failed to assemble FASM Mnemonics: Error name: IllegalInstruction, Line Number: 6, Result: Error
+   at Reloaded.Assembler.Assembler.Assemble(String mnemonics, UInt16 passLimit)
+   at ERC.Utilities.OpcodeAssembler.AssembleOpcodes(List`1 instructions, MachineType machineType) in D:\Source\Repos\ERC_net\ERC.net\ERC\Opcode_Assembler.cs:line 88
+Reloaded.Assembler.Definitions.FasmException: Failed to assemble FASM Mnemonics: Error name: IllegalInstruction, Line Number: 6, Result: Error
+   at Reloaded.Assembler.Assembler.Assemble(String mnemonics, UInt16 passLimit)
+   at ERC.Utilities.OpcodeAssembler.AssembleOpcodes(List`1 instructions, MachineType machineType) in D:\Source\Repos\ERC_net\ERC.net\ERC\Opcode_Assembler.cs:line 88
+Reloaded.Assembler.Definitions.FasmException: Failed to assemble FASM Mnemonics: Error name: IllegalInstruction, Line Number: 2, Result: Error
+   at Reloaded.Assembler.Assembler.Assemble(String mnemonics, UInt16 passLimit)
+   at ERC.Utilities.OpcodeAssembler.AssembleOpcodes(List`1 instructions, MachineType machineType) in D:\Source\Repos\ERC_net\ERC.net\ERC\Opcode_Assembler.cs:line 88
+Reloaded.Assembler.Definitions.FasmException: Failed to assemble FASM Mnemonics: Error name: IllegalInstruction, Line Number: 2, Result: Error
+   at Reloaded.Assembler.Assembler.Assemble(String mnemonics, UInt16 passLimit)
+   at ERC.Utilities.OpcodeAssembler.AssembleOpcodes(List`1 instructions, MachineType machineType) in D:\Source\Repos\ERC_net\ERC.net\ERC\Opcode_Assembler.cs:line 88

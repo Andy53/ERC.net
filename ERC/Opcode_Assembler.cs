@@ -63,9 +63,9 @@ namespace ERC.Utilities
         /// <param name="machineType">a ERC.MachineType of either I386 or x64</param>
         /// <param name="core">An ErcCore object</param>
         /// <returns>Returns an ERC_Result byte array containing the assembled instructions</returns>
-        public static ErcResult<byte[]> AssembleOpcodes(List<string> instructions, MachineType machineType, ErcCore core)
+        public static ErcResult<byte[]> AssembleOpcodes(List<string> instructions, MachineType machineType)
         {
-            ErcResult<byte[]> result = new ErcResult<byte[]>(core);
+            ErcResult<byte[]> result = new ErcResult<byte[]>(new ErcCore());
             List<string> mnemonics = new List<string>();
             if (machineType == MachineType.I386)
             {

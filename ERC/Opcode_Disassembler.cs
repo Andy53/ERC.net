@@ -80,9 +80,9 @@ namespace ERC.Utilities
         /// <param name="machineType">a ERC.MachineType of either I386 or x64</param>
         /// <param name="core">An ErcCore object</param>
         /// <returns>Returns an ERC_Result containing associated instructions.</returns>
-        public static ErcResult<string> Disassemble(byte[] opcodes, MachineType machineType, ErcCore core)
+        public static ErcResult<string> Disassemble(byte[] opcodes, MachineType machineType)
         {
-            ErcResult<string> result = new ErcResult<string>(core);
+            ErcResult<string> result = new ErcResult<string>(new ErcCore());
             SharpDisasm.Disassembler.Translator.IncludeAddress = true;
             SharpDisasm.Disassembler.Translator.IncludeBinary = true;
             SharpDisasm.Disassembler disasm;

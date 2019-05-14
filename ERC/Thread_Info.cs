@@ -19,7 +19,7 @@ namespace ERC
 
         internal bool ThreadFailed { get; private set; }
 
-        private bool X64 { get; set; }
+        private MachineType X64 { get; set; }
         private ProcessThread ThreadCurrent { get; set; }
         private ProcessInfo ThreadProcess { get; set; }
         private ErcCore ThreadCore { get; set; }
@@ -38,7 +38,11 @@ namespace ERC
 
             if (process.ProcessMachineType == MachineType.x64)
             {
-                X64 = true;
+                X64 = MachineType.x64;
+            }
+            else if(process.ProcessMachineType == MachineType.I386)
+            {
+                X64 = MachineType.I386;
             }
 
             try
@@ -73,7 +77,7 @@ namespace ERC
         {
             ErcResult<string> result = new ErcResult<string>(ThreadCore);
             
-            if(X64 == true)
+            if(X64 == MachineType.x64)
             {
                 Context64 = new CONTEXT64();
                 Context64.ContextFlags = CONTEXT_FLAGS.CONTEXT_ALL;
@@ -98,7 +102,7 @@ namespace ERC
                     result.LogEvent(e);
                 }
             }
-            else if(Environment.Is64BitProcess == true && X64 == false)
+            else if(Environment.Is64BitProcess == true && X64 != MachineType.x64)
             {
                 Context32 = new CONTEXT32();
                 Context32.ContextFlags = CONTEXT_FLAGS.CONTEXT_ALL;
@@ -171,7 +175,7 @@ namespace ERC
 
             byte[] tebBytes;
             int ret = 0;
-            if(X64 == true)
+            if(X64 == MachineType.x64)
             {
                 tebBytes = new byte[0x16A0];
                 ErcCore.ReadProcessMemory(ThreadProcess.ProcessHandle, ThreadBasicInfo.TebBaseAdress, tebBytes, 0x16A0, out ret);
@@ -192,7 +196,7 @@ namespace ERC
                 return returnString;
             }
 
-            if (X64 == true)
+            if (X64 == MachineType.x64)
             {
                 PopulateTEBStruct64(tebBytes);
             }
@@ -357,7 +361,7 @@ namespace ERC
             byte[] sehFinal;
 
             int arraySize = 0;
-            if(X64 == true)
+            if(X64 == MachineType.x64)
             {
                 arraySize = 8;
                 sehEntry = new byte[arraySize];
@@ -382,7 +386,7 @@ namespace ERC
                 byte[] reversedSehEntry = new byte[arraySize];
                 int ret = 0;
 
-                if(X64 == true)
+                if(X64 == MachineType.x64)
                 {
                     ret = ErcCore.ReadProcessMemory(ThreadProcess.ProcessHandle, (IntPtr)BitConverter.ToInt64(sehEntry, 0), sehEntry, arraySize, out int retInt);
                 }
@@ -421,7 +425,7 @@ namespace ERC
 
         #endregion
 
-        #region Public Methods
+        #region Accessors
         /// <summary>
         /// Gets the current SEH chain for the process.
         /// </summary>
@@ -445,7 +449,7 @@ namespace ERC
                 throw new Exception("Error: No SEH chain has been generated yet. An SEH chain will not be generated until a crash occurs.");
             }
 
-            if(X64 == true)
+            if(X64 == MachineType.x64)
             {
                 for (int i = 0; i < SehChain.Count; i++)
                 {
@@ -473,6 +477,52 @@ namespace ERC
                 throw new Exception("Error: TEB structure for this thread has not yet been populated. Call PopulateTEB first");
             }
             return Teb;
+        }
+
+        /// <summary>
+        /// Gets information specific to the current thread and returns it as a string.
+        /// </summary>
+        /// <returns>Returns a string</returns>
+        public override string ToString()
+        {
+            string ret = "";
+            if(X64 == MachineType.x64)
+            {
+                ret += "Thread Handle = " + "0x" + ThreadHandle.ToString("x16") + Environment.NewLine;
+            }
+            else
+            {
+                ret += "Thread Handle = " + "0x" + ThreadHandle.ToString("x8") + Environment.NewLine;
+            }
+            ret += "Thread ID = " + ThreadID + Environment.NewLine;
+            ret += "Thread is running in a 64 bit process = " + X64 + Environment.NewLine;
+            ret += "Thread Parent Process = " + ThreadProcess.ProcessName;
+            if(!Context32.Equals(default(CONTEXT32)) && X64 == MachineType.I386)
+            {
+                ret += "Thread Context32: Populated" + Environment.NewLine;
+            }
+            else if(!Context64.Equals(default(CONTEXT64)) && X64 == MachineType.x64)
+            {
+                ret += "Thread Context64: Populated" + Environment.NewLine;
+            }
+            else if(X64 == MachineType.x64)
+            {
+                ret += "Thread Context64: Unpopulated" + Environment.NewLine;
+            }
+            else
+            {
+                ret += "Thread Context32: Unpopulated" + Environment.NewLine;
+            }
+
+            if (!Teb.Equals(default(TEB)))
+            {
+                ret += "Thread TEB: Populated" + Environment.NewLine;
+            }
+            else
+            {
+                ret += "Thread TEB: Unpopulated" + Environment.NewLine;
+            }
+            return ret;
         }
         #endregion
     }
