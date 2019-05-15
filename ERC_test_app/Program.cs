@@ -3,7 +3,7 @@ using ERC;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using ERC_Lib;
+using ERC.Utilities;
 
 namespace ERC_test_app
 {
@@ -91,16 +91,16 @@ namespace ERC_test_app
         public static void assembling_opcodes()
         {
             List<string> instructions = new List<string>();
-            instructions.Add("PUSH EAX");
-            instructions.Add("PUSH EBX");
-            instructions.Add("PUSH ECX");
-            instructions.Add("PUSH EDX");
-            instructions.Add("PUSH EDI");
-            instructions.Add("PUSH ESI");
-            instructions.Add("Jmp ESP");
-            instructions.Add("Call ESP");
+            instructions.Add("POP EAX");
+            instructions.Add("POP EBX");
+            instructions.Add("POP ECX");
+            instructions.Add("POP EDX");
+            instructions.Add("POP ESP");
+            instructions.Add("POP EBP");
+            instructions.Add("POP ESI");
+            instructions.Add("POP EDI");
 
-            foreach(string s in instructions)
+            foreach (string s in instructions)
             {
                 List<string> strings = new List<string>();
                 strings.Add(s);
@@ -219,7 +219,8 @@ namespace ERC_test_app
                 }
             }
             ProcessInfo info = new ProcessInfo(core, thisProcess);
-            RopChainGenerator.GenerateRopChain32(info);
+            RopChainGenerator RCG = new RopChainGenerator();
+            RCG.GenerateRopChain32(info);
         }
     }
 }

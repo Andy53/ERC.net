@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace ERC_Lib
+namespace ERC
 {
     /// <summary>
     /// Custom exception handler.
