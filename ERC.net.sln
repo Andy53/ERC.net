@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERC_test_app", "ERC_test_app\ERC_test_app.csproj", "{AB6BD48F-ED8E-4F7C-9561-C5938D32023F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERC_Lib", "ERC\ERC_Lib.csproj", "{AAAB1A0D-9E32-41F9-B0D0-ADA79D52C164}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERC.Net", "ERC\ERC.Net.csproj", "{AAAB1A0D-9E32-41F9-B0D0-ADA79D52C164}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
