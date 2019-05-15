@@ -3,6 +3,7 @@ using ERC;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using ERC_Lib;
 
 namespace ERC_test_app
 {
@@ -37,6 +38,8 @@ namespace ERC_test_app
             egghunters();
             Console.WriteLine("Searching for Non repeating pattern");
             FindNRP();*/
+            Console.WriteLine("Generate RopChain 32");
+            GenerateRopChain();
             Console.ReadKey();
         }
 
@@ -88,12 +91,23 @@ namespace ERC_test_app
         public static void assembling_opcodes()
         {
             List<string> instructions = new List<string>();
+            instructions.Add("PUSH EAX");
+            instructions.Add("PUSH EBX");
+            instructions.Add("PUSH ECX");
+            instructions.Add("PUSH EDX");
+            instructions.Add("PUSH EDI");
             instructions.Add("PUSH ESI");
-            
-            instructions.Add("ret");
+            instructions.Add("Jmp ESP");
+            instructions.Add("Call ESP");
 
-            var asmResult = ERC.Utilities.OpcodeAssembler.AssembleOpcodes(instructions, MachineType.I386);
-            Console.WriteLine(BitConverter.ToString(asmResult.ReturnValue).Replace("-", ""));
+            foreach(string s in instructions)
+            {
+                List<string> strings = new List<string>();
+                strings.Add(s);
+                var asmResult = ERC.Utilities.OpcodeAssembler.AssembleOpcodes(strings, MachineType.I386);
+                Console.WriteLine(s + " = " + BitConverter.ToString(asmResult.ReturnValue).Replace("-", ""));
+            }
+            
         }
 
         public static void disassemble_opcodes()
@@ -190,6 +204,22 @@ namespace ERC_test_app
             }
             ProcessInfo info = new ProcessInfo(core, thisProcess);
             info.FindNRP();
+        }
+
+        public static void GenerateRopChain()
+        {
+            //ensure notepad is open before running this function.
+            Process[] processes = Process.GetProcesses();
+            Process thisProcess = null;
+            foreach (Process process1 in processes)
+            {
+                if (process1.ProcessName.Contains("notepad"))//"Kolibri"))//"x64dbg"))//
+                {
+                    thisProcess = process1;
+                }
+            }
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            RopChainGenerator.GenerateRopChain32(info);
         }
     }
 }

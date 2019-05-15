@@ -107,7 +107,7 @@ namespace ERC
                             ModuleNXCompat = false;
                         }
                     }
-                    PopulateConfigStructs();
+                    //PopulateConfigStructs();
                 }
                 else if (ModuleMachineType == MachineType.x64)
                 {
@@ -136,7 +136,7 @@ namespace ERC
                             ModuleNXCompat = false;
                         }
                     }
-                    PopulateConfigStructs();
+                    //PopulateConfigStructs();
                 }
                 else
                 {
@@ -251,7 +251,7 @@ namespace ERC
             Console.WriteLine("Unused bytes = {0}", unusedBytes);
             ErcCore.ImageLoad(name, path);
             Console.WriteLine("GetImageUnusedHeaderBytes: " + new Win32Exception(Marshal.GetLastWin32Error()).Message);
-            Console.ReadKey();
+            //Console.ReadKey();
         }
         #endregion
 

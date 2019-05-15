@@ -27,7 +27,7 @@ namespace ERC
 
         #region DLL Imports
         [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
+        public static extern IntPtr OpenProcess(Structures.ProcessAccessFlags dwDesiredAccess, bool bInheritHandle, int dwProcessId);
 
         [DllImport("kernel32.dll", SetLastError = true, CallingConvention = CallingConvention.StdCall)]
         public static extern int ReadProcessMemory(IntPtr Handle, IntPtr Address, [Out] byte[] Arr, int Size, out int BytesRead);
@@ -49,7 +49,7 @@ namespace ERC
         public static extern bool GetThreadContext32(IntPtr hThread, ref Structures.CONTEXT32 lpContext);
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern bool Wow64GetThreadContext(IntPtr thread, ref Structures.CONTEXT32 lpContext);
+        public static extern bool Wow64GetThreadContext(IntPtr hthread, ref Structures.CONTEXT32 lpContext);
 
         [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "GetThreadContext")]
         public static extern bool GetThreadContext64(IntPtr hThread, ref Structures.CONTEXT64 lpContext);
@@ -59,7 +59,10 @@ namespace ERC
 
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern bool CloseHandle(IntPtr hObject);
-        
+
+        [DllImport("kernel32", CharSet = CharSet.Ansi, ExactSpelling = true, SetLastError = true)]
+        static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
+
         [DllImport("ntdll.dll", SetLastError = true)]
         public static extern uint ZwQueryInformationThread(IntPtr hwnd, int i, ref Structures.ThreadBasicInformation threadinfo, 
             int length, IntPtr bytesread);
@@ -705,6 +708,24 @@ namespace ERC
             public int Protect;
             public TypeEnum Type;
             public int __alignment2;
+        }
+
+        [Flags]
+        public enum ProcessAccessFlags : uint
+        {
+            All = 0x001F0FFF,
+            Terminate = 0x00000001,
+            CreateThread = 0x00000002,
+            VirtualMemoryOperation = 0x00000008,
+            VirtualMemoryRead = 0x00000010,
+            VirtualMemoryWrite = 0x00000020,
+            DuplicateHandle = 0x00000040,
+            CreateProcess = 0x000000080,
+            SetQuota = 0x00000100,
+            SetInformation = 0x00000200,
+            QueryInformation = 0x00000400,
+            QueryLimitedInformation = 0x00001000,
+            Synchronize = 0x00100000
         }
         #endregion
 
