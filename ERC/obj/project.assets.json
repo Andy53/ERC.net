@@ -308,9 +308,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC_Lib.csproj",
-      "projectName": "ERC_Lib",
-      "projectPath": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC_Lib.csproj",
+      "projectUniqueName": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC.Net.csproj",
+      "projectName": "ERC.Net",
+      "projectPath": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC.Net.csproj",
       "packagesPath": "C:\\Users\\Andy\\.nuget\\packages\\",
       "outputPath": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\obj\\",
       "projectStyle": "PackageReference",
