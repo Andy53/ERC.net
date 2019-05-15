@@ -21,9 +21,9 @@ namespace ERC_test_app
             Console.WriteLine("List all local processes: ");
             List_All_Local_Processes();
             Console.WriteLine("Search Process Memory (notepad): ");
-            Search_Process_Memory();*/
+            Search_Process_Memory();
             Console.WriteLine("Assembling opcodes:");
-            assembling_opcodes();/*
+            assembling_opcodes();
             Console.WriteLine("Disassembling Opcodes:");
             disassemble_opcodes();
             Console.WriteLine("Outputting module info");
@@ -91,14 +91,8 @@ namespace ERC_test_app
         public static void assembling_opcodes()
         {
             List<string> instructions = new List<string>();
-            instructions.Add("POP EAX");
-            instructions.Add("POP EBX");
-            instructions.Add("POP ECX");
-            instructions.Add("POP EDX");
-            instructions.Add("POP ESP");
-            instructions.Add("POP EBP");
-            instructions.Add("POP ESI");
-            instructions.Add("POP EDI");
+            instructions.Add("PUSHAD");
+
 
             foreach (string s in instructions)
             {
@@ -124,7 +118,7 @@ namespace ERC_test_app
             Process thisProcess = null;
             foreach (Process process1 in processes)
             {
-                if (process1.ProcessName.Contains("notepad"))//"KMFtp"))//"x64dbg"))//
+                if (process1.ProcessName.Contains("Kolibri"))//"x64dbg"))//"notepad"))//
                 {
                     thisProcess = process1;
                 }
@@ -186,7 +180,7 @@ namespace ERC_test_app
 
         public static void egghunters()
         {
-            var eggs = ERC.DisplayOutput.GenerateEggHunters(core, "AAAA");
+            var eggs = DisplayOutput.GenerateEggHunters(core, "AAAA");
             Console.WriteLine(eggs);
         }
 

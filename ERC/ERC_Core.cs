@@ -4,6 +4,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Xml;
+using System.ComponentModel;
 
 namespace ERC
 {
@@ -463,11 +464,18 @@ namespace ERC
 
     public enum MachineType
     {
+        [Description("Native")]
         Native = 0,
+        [Description("I386")]
         I386 = 0x014c,
+        [Description("Itanium")]
         Itanium = 0x0200,
+        [Description("x64")]
         x64 = 0x8664,
+        [Description("Error")]
         error = -1
+        
+
     }
 
     namespace Structures
