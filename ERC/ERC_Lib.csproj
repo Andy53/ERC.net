@@ -45,4 +45,8 @@
     <NativeLibs Remove="RopChainGenerator.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <NativeLibs Remove="WinApi.cs" />
+  </ItemGroup>
+
 </Project>

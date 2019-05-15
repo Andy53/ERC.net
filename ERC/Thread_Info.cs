@@ -102,7 +102,7 @@ namespace ERC
                     result.LogEvent(e);
                 }
             }
-            else if(Environment.Is64BitProcess == true && X64 != MachineType.x64)
+            else if(Environment.Is64BitOperatingSystem == true && X64 != MachineType.x64)
             {
                 Context32 = new CONTEXT32();
                 Context32.ContextFlags = CONTEXT_FLAGS.CONTEXT_ALL;
