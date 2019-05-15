@@ -97,7 +97,7 @@
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
-      "ERC_Lib/1.0.0": {
+      "ERC.Net/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.7.2",
         "dependencies": {
@@ -105,10 +105,10 @@
           "SharpDisasm": "1.1.11"
         },
         "compile": {
-          "bin/placeholder/ERC_Lib.dll": {}
+          "bin/placeholder/ERC.Net.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ERC_Lib.dll": {}
+          "bin/placeholder/ERC.Net.dll": {}
         }
       }
     },
@@ -208,7 +208,7 @@
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
-      "ERC_Lib/1.0.0": {
+      "ERC.Net/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.7.2",
         "dependencies": {
@@ -216,10 +216,10 @@
           "SharpDisasm": "1.1.11"
         },
         "compile": {
-          "bin/placeholder/ERC_Lib.dll": {}
+          "bin/placeholder/ERC.Net.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ERC_Lib.dll": {}
+          "bin/placeholder/ERC.Net.dll": {}
         }
       }
     }
@@ -419,15 +419,15 @@
         "version.txt"
       ]
     },
-    "ERC_Lib/1.0.0": {
+    "ERC.Net/1.0.0": {
       "type": "project",
-      "path": "../ERC/ERC_Lib.csproj",
-      "msbuildProject": "../ERC/ERC_Lib.csproj"
+      "path": "../ERC/ERC.Net.csproj",
+      "msbuildProject": "../ERC/ERC.Net.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
-      "ERC_Lib >= 1.0.0",
+      "ERC.Net >= 1.0.0",
       "SharpDisasm >= 1.1.11"
     ]
   },
@@ -461,8 +461,8 @@
       "frameworks": {
         "net472": {
           "projectReferences": {
-            "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC_Lib.csproj": {
-              "projectPath": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC_Lib.csproj"
+            "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC.Net.csproj": {
+              "projectPath": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC.Net.csproj"
             }
           }
         }
