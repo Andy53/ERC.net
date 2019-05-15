@@ -18,7 +18,7 @@ namespace ERC
         public string WorkingDirectory { get; internal set; }
         public string Author { get; set; }
         private string ConfigPath { get; set; }
-        public string SystemErrorLogPath { get; }
+        public string SystemErrorLogPath { get; set; }
         public string PatternStandardPath { get; }
         public string PatternExtendedPath { get; }
         public Exception SystemError { get; set; }
@@ -60,7 +60,7 @@ namespace ERC
         [DllImport("kernel32.dll", SetLastError = true)]
         internal static extern bool CloseHandle(IntPtr hObject);
 
-        [DllImport("kernel32", CharSet = CharSet.Ansi, ExactSpelling = true, SetLastError = true)]
+        [DllImport("kernel32.dll", CharSet = CharSet.Ansi, ExactSpelling = true, SetLastError = true)]
         internal static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
 
         [DllImport("ntdll.dll", SetLastError = true)]
@@ -349,6 +349,49 @@ namespace ERC
         }
         #endregion
 
+        #region SetSystemErrorLogFile
+        /// <summary>
+        /// Sets the error log file to a user specified filepath. 
+        /// </summary>
+        /// <param name="path">The new error log filepath.</param>
+        public void SetErrorFile(string path)
+        {
+            if (File.Exists(path))
+            {
+                SystemErrorLogPath = path;
+                XmlDocument xmldoc = new XmlDocument();
+                xmldoc.Load(ConfigPath);
+                var singleNode = xmldoc.DocumentElement.SelectSingleNode("//Error_Log_File");
+                singleNode.InnerText = path;
+                xmldoc.Save(ConfigPath);
+            } 
+            else if (Directory.Exists(Path.GetDirectoryName(path)))
+            {
+                if (!path.EndsWith("\\"))
+                {
+                    path += "\\";
+                }
+                path += "System_Error.LOG";
+                File.Create(path);
+                XmlDocument xmldoc = new XmlDocument();
+                xmldoc.Load(ConfigPath);
+                var singleNode = xmldoc.DocumentElement.SelectSingleNode("//Error_Log_File");
+                singleNode.InnerText = path;
+                xmldoc.Save(ConfigPath);
+            }
+            else
+            {
+                File.Create(WorkingDirectory + "System_Error.LOG");
+                XmlDocument xmldoc = new XmlDocument();
+                xmldoc.Load(ConfigPath);
+                var singleNode = xmldoc.DocumentElement.SelectSingleNode("//Error_Log_File");
+                singleNode.InnerText = path;
+                xmldoc.Save(ConfigPath);
+                SystemErrorLogPath = path;
+            }
+        }
+        #endregion
+
         #region LogEvent
         /// <summary>
         /// Logs events to the error log path in the XML file. This file is only appended to and never replaced.
@@ -376,25 +419,15 @@ namespace ERC
     {
         public T ReturnValue { get; set; }
         public Exception Error { get; set; }
-        public string ErrorLogFile { get; set; }
 
         public ErcResult(ErcCore core) : base(core)
         {
-            ErrorLogFile = core.SystemErrorLogPath;
+            SystemErrorLogPath = core.SystemErrorLogPath;
         }
 
         public ErcResult(ErcCore core, string errorFile) : base(core)
         {
-            ErrorLogFile = errorFile;
-        }
-
-        /// <summary>
-        /// Sets the error log file to a user specified filepath. Can be a different file for each instance of ErcResult
-        /// </summary>
-        /// <param name="path">The new error log filepath.</param>
-        public void SetErrorFile(string path)
-        {
-            ErrorLogFile = path;
+            SystemErrorLogPath = errorFile;
         }
 
         /// <summary>
@@ -402,7 +435,7 @@ namespace ERC
         /// </summary>
         public void LogEvent()
         {
-            using (StreamWriter sw = File.AppendText(ErrorLogFile))
+            using (StreamWriter sw = File.AppendText(base.SystemErrorLogPath))
             {
                 sw.WriteLine(Error);
             }
@@ -420,7 +453,7 @@ namespace ERC
             {
                 ret += "ErcResult.Error = NULL" + Environment.NewLine;
             }
-            ret += "ErcResult.ErrorLogFile = " + ErrorLogFile + Environment.NewLine;
+            ret += "ErcResult.ErrorLogFile = " + SystemErrorLogPath + Environment.NewLine;
             return base.ToString();
         }
     }

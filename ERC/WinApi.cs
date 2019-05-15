@@ -1,5 +1,4 @@
-﻿using ERC;
-using ERC.Structures;
+﻿using ERC.Structures;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERC_Lib
+namespace ERC.Utilities
 {
     /// <summary>
     /// Contains C# wrappers for functions within the Windows API.
