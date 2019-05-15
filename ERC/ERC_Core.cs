@@ -27,66 +27,66 @@ namespace ERC
 
         #region DLL Imports
         [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern IntPtr OpenProcess(Structures.ProcessAccessFlags dwDesiredAccess, bool bInheritHandle, int dwProcessId);
+        internal static extern IntPtr OpenProcess(Structures.ProcessAccessFlags dwDesiredAccess, bool bInheritHandle, int dwProcessId);
 
         [DllImport("kernel32.dll", SetLastError = true, CallingConvention = CallingConvention.StdCall)]
-        public static extern int ReadProcessMemory(IntPtr Handle, IntPtr Address, [Out] byte[] Arr, int Size, out int BytesRead);
+        internal static extern int ReadProcessMemory(IntPtr Handle, IntPtr Address, [Out] byte[] Arr, int Size, out int BytesRead);
 
         [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "VirtualQueryEx")]
-        public static extern int VirtualQueryEx32(IntPtr hProcess, IntPtr lpAddress, out Structures.MEMORY_BASIC_INFORMATION32 lpBuffer, uint dwLength);
+        internal static extern int VirtualQueryEx32(IntPtr hProcess, IntPtr lpAddress, out Structures.MEMORY_BASIC_INFORMATION32 lpBuffer, uint dwLength);
 
         [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "VirtualQueryEx")]
-        public static extern int VirtualQueryEx64(IntPtr hProcess, IntPtr lpAddress, out Structures.MEMORY_BASIC_INFORMATION64 lpBuffer, uint dwLength);
+        internal static extern int VirtualQueryEx64(IntPtr hProcess, IntPtr lpAddress, out Structures.MEMORY_BASIC_INFORMATION64 lpBuffer, uint dwLength);
 
         [DllImport("kernel32.dll", SetLastError = true, CallingConvention = CallingConvention.Winapi)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool IsWow64Process([In] IntPtr process, [Out] out bool wow64Process);
+        internal static extern bool IsWow64Process([In] IntPtr process, [Out] out bool wow64Process);
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern IntPtr OpenThread(Structures.ThreadAccess dwDesiredAccess, bool bInheritHandle, uint dwThreadId);
+        internal static extern IntPtr OpenThread(Structures.ThreadAccess dwDesiredAccess, bool bInheritHandle, uint dwThreadId);
 
         [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "GetThreadContext")]
-        public static extern bool GetThreadContext32(IntPtr hThread, ref Structures.CONTEXT32 lpContext);
+        internal static extern bool GetThreadContext32(IntPtr hThread, ref Structures.CONTEXT32 lpContext);
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern bool Wow64GetThreadContext(IntPtr hthread, ref Structures.CONTEXT32 lpContext);
+        internal static extern bool Wow64GetThreadContext(IntPtr hthread, ref Structures.CONTEXT32 lpContext);
 
         [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "GetThreadContext")]
-        public static extern bool GetThreadContext64(IntPtr hThread, ref Structures.CONTEXT64 lpContext);
+        internal static extern bool GetThreadContext64(IntPtr hThread, ref Structures.CONTEXT64 lpContext);
 
         [DllImport("kernel32.dll", SetLastError= true)]
-        public static extern int SuspendThread(IntPtr hThread);
+        internal static extern int SuspendThread(IntPtr hThread);
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern bool CloseHandle(IntPtr hObject);
+        internal static extern bool CloseHandle(IntPtr hObject);
 
         [DllImport("kernel32", CharSet = CharSet.Ansi, ExactSpelling = true, SetLastError = true)]
-        static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
+        internal static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
 
         [DllImport("ntdll.dll", SetLastError = true)]
-        public static extern uint ZwQueryInformationThread(IntPtr hwnd, int i, ref Structures.ThreadBasicInformation threadinfo, 
+        internal static extern uint ZwQueryInformationThread(IntPtr hwnd, int i, ref Structures.ThreadBasicInformation threadinfo, 
             int length, IntPtr bytesread);
 
         [DllImport("psapi.dll", SetLastError = true)]
-        public static extern bool EnumProcessModulesEx(IntPtr hProcess,
+        internal static extern bool EnumProcessModulesEx(IntPtr hProcess,
             [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.U4)] [In][Out] IntPtr[] lphModule,
             int cb, [MarshalAs(UnmanagedType.U4)] out int lpcbNeeded, uint dwFilterFlag);
 
         [DllImport("psapi.dll", SetLastError = true)]
-        public static extern uint GetModuleFileNameEx(IntPtr hProcess, IntPtr hModule, [Out] StringBuilder lpBaseName,
+        internal static extern uint GetModuleFileNameEx(IntPtr hProcess, IntPtr hModule, [Out] StringBuilder lpBaseName,
             [In] [MarshalAs(UnmanagedType.U4)] int nSize);
 
         [DllImport("Imagehlp.dll", SetLastError = true)]
-        public static extern IntPtr ImageLoad(string DllName, string DllPath);
+        internal static extern IntPtr ImageLoad(string DllName, string DllPath);
 
         [DllImport("Imagehlp.dll", SetLastError = true, EntryPoint = "GetImageConfigInformation")]
-        public static extern bool GetImageConfigInformation32(IntPtr dllptr, ref Structures.IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir32);
+        internal static extern bool GetImageConfigInformation32(IntPtr dllptr, ref Structures.IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir32);
 
         [DllImport("Imagehlp.dll", SetLastError = true, EntryPoint = "GetImageConfigInformation")]
-        public static extern bool GetImageConfigInformation64(IntPtr dllptr, ref Structures.IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir64);
+        internal static extern bool GetImageConfigInformation64(IntPtr dllptr, ref Structures.IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir64);
 
         [DllImport("Imagehlp.dll", SetLastError = true)]
-        public static extern IntPtr GetImageUnusedHeaderBytes(IntPtr dllptr, ref int unusedBytes);
+        internal static extern IntPtr GetImageUnusedHeaderBytes(IntPtr dllptr, ref int unusedBytes);
         #endregion
 
         #region Constructor
