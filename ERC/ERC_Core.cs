@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Xml;
 using System.ComponentModel;
+using ERC.Structures;
 
 namespace ERC
 {
@@ -28,32 +29,32 @@ namespace ERC
 
         #region DLL Imports
         [DllImport("kernel32.dll", SetLastError = true)]
-        internal static extern IntPtr OpenProcess(Structures.ProcessAccessFlags dwDesiredAccess, bool bInheritHandle, int dwProcessId);
+        internal static extern IntPtr OpenProcess(ProcessAccessFlags dwDesiredAccess, bool bInheritHandle, int dwProcessId);
 
         [DllImport("kernel32.dll", SetLastError = true, CallingConvention = CallingConvention.StdCall)]
         internal static extern int ReadProcessMemory(IntPtr Handle, IntPtr Address, [Out] byte[] Arr, int Size, out int BytesRead);
 
         [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "VirtualQueryEx")]
-        internal static extern int VirtualQueryEx32(IntPtr hProcess, IntPtr lpAddress, out Structures.MEMORY_BASIC_INFORMATION32 lpBuffer, uint dwLength);
+        internal static extern int VirtualQueryEx32(IntPtr hProcess, IntPtr lpAddress, out MEMORY_BASIC_INFORMATION32 lpBuffer, uint dwLength);
 
         [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "VirtualQueryEx")]
-        internal static extern int VirtualQueryEx64(IntPtr hProcess, IntPtr lpAddress, out Structures.MEMORY_BASIC_INFORMATION64 lpBuffer, uint dwLength);
+        internal static extern int VirtualQueryEx64(IntPtr hProcess, IntPtr lpAddress, out MEMORY_BASIC_INFORMATION64 lpBuffer, uint dwLength);
 
         [DllImport("kernel32.dll", SetLastError = true, CallingConvention = CallingConvention.Winapi)]
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool IsWow64Process([In] IntPtr process, [Out] out bool wow64Process);
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        internal static extern IntPtr OpenThread(Structures.ThreadAccess dwDesiredAccess, bool bInheritHandle, uint dwThreadId);
+        internal static extern IntPtr OpenThread(ThreadAccess dwDesiredAccess, bool bInheritHandle, uint dwThreadId);
 
         [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "GetThreadContext")]
-        internal static extern bool GetThreadContext32(IntPtr hThread, ref Structures.CONTEXT32 lpContext);
+        internal static extern bool GetThreadContext32(IntPtr hThread, ref CONTEXT32 lpContext);
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        internal static extern bool Wow64GetThreadContext(IntPtr hthread, ref Structures.CONTEXT32 lpContext);
+        internal static extern bool Wow64GetThreadContext(IntPtr hthread, ref CONTEXT32 lpContext);
 
         [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "GetThreadContext")]
-        internal static extern bool GetThreadContext64(IntPtr hThread, ref Structures.CONTEXT64 lpContext);
+        internal static extern bool GetThreadContext64(IntPtr hThread, ref CONTEXT64 lpContext);
 
         [DllImport("kernel32.dll", SetLastError= true)]
         internal static extern int SuspendThread(IntPtr hThread);
@@ -65,7 +66,7 @@ namespace ERC
         internal static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
 
         [DllImport("ntdll.dll", SetLastError = true)]
-        internal static extern uint ZwQueryInformationThread(IntPtr hwnd, int i, ref Structures.ThreadBasicInformation threadinfo, 
+        internal static extern uint ZwQueryInformationThread(IntPtr hwnd, int i, ref ThreadBasicInformation threadinfo, 
             int length, IntPtr bytesread);
 
         [DllImport("psapi.dll", SetLastError = true)]
@@ -81,13 +82,19 @@ namespace ERC
         internal static extern IntPtr ImageLoad(string DllName, string DllPath);
 
         [DllImport("Imagehlp.dll", SetLastError = true, EntryPoint = "GetImageConfigInformation")]
-        internal static extern bool GetImageConfigInformation32(IntPtr dllptr, ref Structures.IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir32);
+        internal static extern bool GetImageConfigInformation32(IntPtr dllptr, ref IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir32);
 
         [DllImport("Imagehlp.dll", SetLastError = true, EntryPoint = "GetImageConfigInformation")]
-        internal static extern bool GetImageConfigInformation64(IntPtr dllptr, ref Structures.IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir64);
+        internal static extern bool GetImageConfigInformation64(IntPtr dllptr, ref IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir64);
+
+        [DllImport("Imagehlp.dll", SetLastError = true, EntryPoint = "GetImageConfigInformation")]
+        internal static extern bool GetImageConfigInformation32(ref LOADED_IMAGE loadedImage, ref IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir32);
+
+        [DllImport("Imagehlp.dll", SetLastError = true, EntryPoint = "GetImageConfigInformation")]
+        internal static extern bool GetImageConfigInformation64(ref LOADED_IMAGE loadedImage, ref IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir64);
 
         [DllImport("Imagehlp.dll", SetLastError = true)]
-        internal static extern IntPtr GetImageUnusedHeaderBytes(IntPtr dllptr, ref int unusedBytes);
+        internal static extern int MapAndLoad(string ImageName, string DllPath, out LOADED_IMAGE loadedImage, bool Dll, bool readOnly);
         #endregion
 
         #region Constructor
@@ -693,6 +700,30 @@ namespace ERC
             public uint CatalogOffset;
             public uint Reserved;
         };
+
+        public struct LOADED_IMAGE
+        {
+            public IntPtr ModuleName;
+            public IntPtr hFile;
+            public IntPtr MappedAddress;
+            public IntPtr FileHeader;
+            public IntPtr LastRvaSection;
+            public uint NumberOfSections;
+            public IntPtr Sections;
+            public uint Characteristics;
+            public bool fSystemImage;
+            public bool fDOSImage;
+            public bool fReadOnly;
+            public byte Version;
+            public LIST_ENTRY Links;
+            public uint SizeOfImage;
+        }
+
+        public struct LIST_ENTRY
+        {
+            public IntPtr Flink;
+            public IntPtr Blink;
+        }
         #endregion
 
         #region Process Memory Information

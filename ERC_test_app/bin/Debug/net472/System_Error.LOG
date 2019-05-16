@@ -916,3 +916,7 @@ ERC.ERCException: The specified module could not be found
 ERC.ERCException: ReadProcessMemory Error: Only part of a ReadProcessMemory or WriteProcessMemory request was completed
 ERC.ERCException: ReadProcessMemory Error: Only part of a ReadProcessMemory or WriteProcessMemory request was completed
 ERC.ERCException: ReadProcessMemory Error: Only part of a ReadProcessMemory or WriteProcessMemory request was completed
+ERC.ERCException: The specified module could not be found
+ERC.ERCException: The specified module could not be found
+ERC.ERCException: The specified module could not be found
+ERC.ERCException: The specified module could not be found
