@@ -37,12 +37,12 @@ namespace ERC
         public MachineType ModuleMachineType { get; private set; }
         internal IMAGE_DOS_HEADER ImageDosHeader = new IMAGE_DOS_HEADER();
         internal IMAGE_FILE_HEADER ImageFileHeader = new IMAGE_FILE_HEADER();
-        internal IMAGE_NT_HEADERS32 ImageNTHeaders32;
-        internal IMAGE_NT_HEADERS64 ImageNTHeaders64;
-        internal IMAGE_OPTIONAL_HEADER32 ImageOptionalHeader32;
-        internal IMAGE_OPTIONAL_HEADER64 ImageOptionalHeader64;
-        internal IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir32;
-        internal IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir64;
+        internal IMAGE_NT_HEADERS32 ImageNTHeaders32 { get; private set; }
+        internal IMAGE_NT_HEADERS64 ImageNTHeaders64 { get; private set; }
+        internal IMAGE_OPTIONAL_HEADER32 ImageOptionalHeader32 { get; private set; }
+        internal IMAGE_OPTIONAL_HEADER64 ImageOptionalHeader64 { get; private set; }
+        internal IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir32 { get; private set; }
+        internal IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir64 { get; private set; }
         internal LOADED_IMAGE loadedImage = new LOADED_IMAGE();
 
         public bool ModuleFailed = false;
@@ -63,6 +63,7 @@ namespace ERC
                 ModuleProcess = process;
                 ModuleName = FileVersionInfo.GetVersionInfo(module).InternalName;
                 ModulePath = FileVersionInfo.GetVersionInfo(module).FileName;
+                ModuleBase = ptr;
 
                 FileInfo fileInfo = new FileInfo(ModulePath);
                 FileStream file = fileInfo.Open(FileMode.Open, FileAccess.Read, FileShare.Read);
@@ -78,8 +79,7 @@ namespace ERC
                 }
 
                 ModuleProduct = FileVersionInfo.GetVersionInfo(module).ProductName;
-                ModuleBase = ptr;
-
+                
                 if (ModuleMachineType == MachineType.I386)
                 {
                     ModuleEntry = (IntPtr)ImageOptionalHeader32.AddressOfEntryPoint;
@@ -107,7 +107,17 @@ namespace ERC
                             ModuleNXCompat = false;
                         }
                     }
-                    PopulateConfigStructs(true);
+
+                    PopulateConfigStruct();
+
+                    if (ImageConfigDir32.SEHandlerCount == 0 && ImageConfigDir32.SEHandlerTable == 0)
+                    {
+                        ModuleSafeSEH = false;
+                    }
+                    else
+                    {
+                        ModuleSafeSEH = true;
+                    }
                 }
                 else if (ModuleMachineType == MachineType.x64)
                 {
@@ -136,7 +146,17 @@ namespace ERC
                             ModuleNXCompat = false;
                         }
                     }
-                    PopulateConfigStructs(true);
+                   
+                    PopulateConfigStruct();
+                    
+                    if(ImageConfigDir64.SEHandlerCount == 0 && ImageConfigDir64.SEHandlerTable == 0)
+                    {
+                        ModuleSafeSEH = false;
+                    }
+                    else
+                    {
+                        ModuleSafeSEH = true;
+                    }
                 }
                 else
                 {
@@ -192,6 +212,21 @@ namespace ERC
                     ModuleMachineType = (MachineType)inhs32->FileHeader.Machine;
                     ImageOptionalHeader32 = inhs32->OptionalHeader;
                     ModuleImageBase = (IntPtr)inhs32->OptionalHeader.ImageBase;
+
+                    ImageNTHeaders32 = new IMAGE_NT_HEADERS32
+                    {
+                        Signature = inhs32->Signature,
+                        FileHeader = inhs32->FileHeader,
+                        OptionalHeader = inhs32->OptionalHeader
+                    };
+                    
+                    byte[] bytes = new byte[256];
+                    var ret = ErcCore.ReadProcessMemory(ModuleProcess.Handle,
+                        (IntPtr)((uint)ModuleBase + ImageOptionalHeader32.LoadConfigTable.VirtualAddress), bytes, 256, out int BytesRead);
+                    if (BitConverter.ToUInt32(bytes, 58) > 0 || BitConverter.ToUInt32(bytes, 62) > 0)
+                    {
+                        ModuleSafeSEH = true;
+                    }
                 }
                 else if (ModuleMachineType == MachineType.x64)
                 {
@@ -199,6 +234,21 @@ namespace ERC
                     ImageFileHeader = inhs64->FileHeader;
                     ImageOptionalHeader64 = inhs64->OptionalHeader;
                     ModuleImageBase = (IntPtr)inhs64->OptionalHeader.ImageBase;
+
+                    ImageNTHeaders64 = new IMAGE_NT_HEADERS64
+                    {
+                        Signature = inhs64->Signature,
+                        FileHeader = inhs64->FileHeader,
+                        OptionalHeader = inhs64->OptionalHeader
+                    };
+
+                    byte[] bytes = new byte[256];
+                    var ret = ErcCore.ReadProcessMemory(ModuleProcess.Handle,
+                        (IntPtr)((long)ModuleBase + (long)ImageOptionalHeader64.LoadConfigTable.VirtualAddress), bytes, 256, out int BytesRead);
+                    if (BitConverter.ToUInt64(bytes, 88) > 0 || BitConverter.ToUInt64(bytes, 96) > 0)
+                    {
+                        ModuleSafeSEH = true;
+                    }
                 }
                 else
                 {
@@ -207,93 +257,32 @@ namespace ERC
             }
         }
 
-        //needs additional work.
-        private void PopulateConfigStructs()
-        {
-            string path = Path.GetDirectoryName(ModulePath);
-            string name = Path.GetFileName(ModulePath);
-            Console.WriteLine("--------------------------------------------------------------------------------------------");
-            var modPtr = ErcCore.ImageLoad(name, path);
-            Console.WriteLine("ImageLoad Error: " + new Win32Exception(Marshal.GetLastWin32Error()).Message);
-
-            if (ModuleMachineType == MachineType.I386)
-            {
-                IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir = new IMAGE_LOAD_CONFIG_DIRECTORY32();
-                ImageConfigDir.Size = (uint)Marshal.SizeOf(ImageConfigDir);
-
-                var check = ErcCore.GetImageConfigInformation32(modPtr, ref ImageConfigDir);
-                Console.WriteLine("GetImageConfigInformation32: " + new Win32Exception(Marshal.GetLastWin32Error()).Message
-                + Environment.NewLine + Marshal.GetLastWin32Error() + Environment.NewLine);
-                Console.WriteLine("ImageConfigDir64.SEHandlerCount = {0}", ImageConfigDir.SEHandlerCount);
-                Console.WriteLine("ImageConfigDir64.SEHandlerTable = {0}", ImageConfigDir.SEHandlerTable);
-                Console.WriteLine("Check = {0}", check);
-
-            }
-            else if (ModuleMachineType == MachineType.x64)
-            {
-                IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir = new IMAGE_LOAD_CONFIG_DIRECTORY64();
-                ImageConfigDir.Size = (uint)Marshal.SizeOf(ImageConfigDir);
-
-                var check = ErcCore.GetImageConfigInformation64(modPtr, ref ImageConfigDir);
-                Console.WriteLine("GetImageConfigInformation64: " + new Win32Exception(Marshal.GetLastWin32Error()).Message
-                + Environment.NewLine + Marshal.GetLastWin32Error() + Environment.NewLine);
-                Console.WriteLine("ImageConfigDir64.SEHandlerCount = {0}", ImageConfigDir.SEHandlerCount);
-                Console.WriteLine("ImageConfigDir64.SEHandlerTable = {0}", ImageConfigDir.SEHandlerTable);
-                Console.WriteLine("Check = {0}", check);
-
-            }
-
-            Console.WriteLine("module path = {0}", ModulePath);
-            Console.WriteLine("ModPtr = {0}", modPtr);
-
-            int unusedBytes = 0;
-            
-            //Console.ReadKey();
-        }
-
-        private void PopulateConfigStructs(bool MapAndLoad)
+        private void PopulateConfigStruct()
         {
             string path = Path.GetDirectoryName(ModulePath);
             string name = Path.GetFileName(ModulePath);
             
             bool dll = true;
-            if(Path.GetExtension(ModulePath) != ".Dll")
+
+            
+            if(Path.GetExtension(ModulePath) != ".dll" && Path.GetExtension(ModulePath) != ".DLL")
             {
                 dll = false;
             }
 
-            Console.WriteLine("--------------------------------------------------------------------------------------------");
-            var modPtr = ErcCore.MapAndLoad(name, path, out loadedImage, dll, true);
-            Console.WriteLine("MapAndLoad Error: " + new Win32Exception(Marshal.GetLastWin32Error()).Message);
+            var MaLRet = ErcCore.MapAndLoad(name, path, out loadedImage, dll, true);
+            var modPtr = ErcCore.ImageLoad(name, path);
 
             if (ModuleMachineType == MachineType.I386)
             {
-                ImageConfigDir32.Size = (uint)Marshal.SizeOf(ImageConfigDir32);
-
-                var check = ErcCore.GetImageConfigInformation32(ref loadedImage, ref ImageConfigDir32);
-                Console.WriteLine("GetImageConfigInformation32: " + new Win32Exception(Marshal.GetLastWin32Error()).Message
-                + Environment.NewLine + Marshal.GetLastWin32Error() + Environment.NewLine);
-                Console.WriteLine("ImageConfigDir64.SEHandlerCount = {0}", ImageConfigDir32.SEHandlerCount);
-                Console.WriteLine("ImageConfigDir64.SEHandlerTable = {0}", ImageConfigDir32.SEHandlerTable);
-                Console.WriteLine("Check = {0}", check);
+                IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir = new IMAGE_LOAD_CONFIG_DIRECTORY32();
+                var check = ErcCore.GetImageConfigInformation32(ref loadedImage, ref ImageConfigDir);
             }
             else if (ModuleMachineType == MachineType.x64)
             {
-                ImageConfigDir64.Size = (uint)Marshal.SizeOf(ImageConfigDir64);
-
-                var check = ErcCore.GetImageConfigInformation64(ref loadedImage, ref ImageConfigDir64);
-                Console.WriteLine("GetImageConfigInformation64: " + new Win32Exception(Marshal.GetLastWin32Error()).Message
-                + Environment.NewLine + Marshal.GetLastWin32Error() + Environment.NewLine);
-                Console.WriteLine("ImageConfigDir64.SEHandlerCount = {0}", ImageConfigDir64.SEHandlerCount);
-                Console.WriteLine("ImageConfigDir64.SEHandlerTable = {0}", ImageConfigDir64.SEHandlerTable);
-                Console.WriteLine("Check = {0}", check);
+                IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir = new IMAGE_LOAD_CONFIG_DIRECTORY64();
+                var check = ErcCore.GetImageConfigInformation64(ref loadedImage, ref ImageConfigDir);
             }
-
-            Console.WriteLine("module path = {0}", ModulePath);
-            Console.WriteLine("ModPtr = {0}", modPtr);
-            Console.WriteLine("LoadedImage module name = {0}", Marshal.PtrToStringAnsi(loadedImage.ModuleName));
-
-            Console.ReadKey();
         }
         #endregion
 

@@ -219,31 +219,31 @@ namespace ERC
         private void PopulateTEBStruct32(byte[] tebBytes)
         {
             Teb = new TEB();
-            Teb.CurrentSehFrame = (IntPtr)BitConverter.ToInt64(tebBytes, 0x0);
-            Teb.TopOfStack = (IntPtr)BitConverter.ToInt64(tebBytes, 0x4);
-            Teb.BottomOfStack = (IntPtr)BitConverter.ToInt64(tebBytes, 0x8);
-            Teb.SubSystemTeb = (IntPtr)BitConverter.ToInt64(tebBytes, 0xC);
-            Teb.FiberData = (IntPtr)BitConverter.ToInt64(tebBytes, 0x10);
-            Teb.ArbitraryDataSlot = (IntPtr)BitConverter.ToInt64(tebBytes, 0x14);
-            Teb.Teb = (IntPtr)BitConverter.ToInt64(tebBytes, 0x18);
-            Teb.EnvironmentPointer = (IntPtr)BitConverter.ToInt64(tebBytes, 0x1C);
-            Teb.Identifiers.ProcessId = (IntPtr)BitConverter.ToInt64(tebBytes, 0x20);
-            Teb.Identifiers.ThreadId = (IntPtr)BitConverter.ToInt64(tebBytes, 0x24);
-            Teb.RpcHandle = (IntPtr)BitConverter.ToInt64(tebBytes, 0x28);
-            Teb.Tls = (IntPtr)BitConverter.ToInt64(tebBytes, 0x2C);
-            Teb.Peb = (IntPtr)BitConverter.ToInt64(tebBytes, 0x30);
+            Teb.CurrentSehFrame = (IntPtr)BitConverter.ToInt32(tebBytes, 0x0);
+            Teb.TopOfStack = (IntPtr)BitConverter.ToInt32(tebBytes, 0x4);
+            Teb.BottomOfStack = (IntPtr)BitConverter.ToInt32(tebBytes, 0x8);
+            Teb.SubSystemTeb = (IntPtr)BitConverter.ToInt32(tebBytes, 0xC);
+            Teb.FiberData = (IntPtr)BitConverter.ToInt32(tebBytes, 0x10);
+            Teb.ArbitraryDataSlot = (IntPtr)BitConverter.ToInt32(tebBytes, 0x14);
+            Teb.Teb = (IntPtr)BitConverter.ToInt32(tebBytes, 0x18);
+            Teb.EnvironmentPointer = (IntPtr)BitConverter.ToInt32(tebBytes, 0x1C);
+            Teb.Identifiers.ProcessId = (IntPtr)BitConverter.ToInt32(tebBytes, 0x20);
+            Teb.Identifiers.ThreadId = (IntPtr)BitConverter.ToInt32(tebBytes, 0x24);
+            Teb.RpcHandle = (IntPtr)BitConverter.ToInt32(tebBytes, 0x28);
+            Teb.Tls = (IntPtr)BitConverter.ToInt32(tebBytes, 0x2C);
+            Teb.Peb = (IntPtr)BitConverter.ToInt32(tebBytes, 0x30);
             Teb.LastErrorNumber = BitConverter.ToInt32(tebBytes, 0x34);
             Teb.CriticalSectionsCount = BitConverter.ToInt32(tebBytes, 0x38);
-            Teb.CsrClientThread = (IntPtr)BitConverter.ToInt64(tebBytes, 0x3C);
-            Teb.Win32ThreadInfo = (IntPtr)BitConverter.ToInt64(tebBytes, 0x40);
+            Teb.CsrClientThread = (IntPtr)BitConverter.ToInt32(tebBytes, 0x3C);
+            Teb.Win32ThreadInfo = (IntPtr)BitConverter.ToInt32(tebBytes, 0x40);
             Teb.Win32ClientInfo = new byte[4];
             Array.Copy(tebBytes, 0x44, Teb.Win32ClientInfo, 0, 4);
-            Teb.WoW64Reserved = (IntPtr)BitConverter.ToInt64(tebBytes, 0xC0);
-            Teb.CurrentLocale = (IntPtr)BitConverter.ToInt64(tebBytes, 0xC4);
-            Teb.FpSoftwareStatusRegister = (IntPtr)BitConverter.ToInt64(tebBytes, 0xC8);
+            Teb.WoW64Reserved = (IntPtr)BitConverter.ToInt32(tebBytes, 0xC0);
+            Teb.CurrentLocale = (IntPtr)BitConverter.ToInt32(tebBytes, 0xC4);
+            Teb.FpSoftwareStatusRegister = (IntPtr)BitConverter.ToInt32(tebBytes, 0xC8);
             Teb.SystemReserved1 = new byte[216];
             Array.Copy(tebBytes, 0xCC, Teb.SystemReserved1, 0, 216);
-            Teb.ExceptionCode = (IntPtr)BitConverter.ToInt64(tebBytes, 0x1A4);
+            Teb.ExceptionCode = (IntPtr)BitConverter.ToInt32(tebBytes, 0x1A4);
             Teb.ActivationContextStack = new byte[4];
             Array.Copy(tebBytes, 0x1A8, Teb.ActivationContextStack, 0, 4);
             Teb.SpareBytes = new byte[24];
@@ -252,15 +252,15 @@ namespace ERC
             Array.Copy(tebBytes, 0x1D4, Teb.SystemReserved2, 0, 40);
             Teb.GdiTebBatch = new byte[1248];
             Array.Copy(tebBytes, 0x1FC, Teb.GdiTebBatch, 0, 1248);
-            Teb.GdiRegion = (IntPtr)BitConverter.ToInt64(tebBytes, 0x6DC);
-            Teb.GdiPen = (IntPtr)BitConverter.ToInt64(tebBytes, 0x6E0);
-            Teb.GdiBrush = (IntPtr)BitConverter.ToInt64(tebBytes, 0x6E4);
+            Teb.GdiRegion = (IntPtr)BitConverter.ToInt32(tebBytes, 0x6DC);
+            Teb.GdiPen = (IntPtr)BitConverter.ToInt32(tebBytes, 0x6E0);
+            Teb.GdiBrush = (IntPtr)BitConverter.ToInt32(tebBytes, 0x6E4);
             Teb.RealProcessId = BitConverter.ToInt32(tebBytes, 0x6E8);
             Teb.RealThreadId = BitConverter.ToInt32(tebBytes, 0x6EC);
-            Teb.GdiCachedProcessHandle = (IntPtr)BitConverter.ToInt64(tebBytes, 0x6F0);
-            Teb.GdiClientProcessId = (IntPtr)BitConverter.ToInt64(tebBytes, 0x6F4);
-            Teb.GdiClientThreadId = (IntPtr)BitConverter.ToInt64(tebBytes, 0x6F8);
-            Teb.GdiThreadLocalInfo = (IntPtr)BitConverter.ToInt64(tebBytes, 0x6FC);
+            Teb.GdiCachedProcessHandle = (IntPtr)BitConverter.ToInt32(tebBytes, 0x6F0);
+            Teb.GdiClientProcessId = (IntPtr)BitConverter.ToInt32(tebBytes, 0x6F4);
+            Teb.GdiClientThreadId = (IntPtr)BitConverter.ToInt32(tebBytes, 0x6F8);
+            Teb.GdiThreadLocalInfo = (IntPtr)BitConverter.ToInt32(tebBytes, 0x6FC);
             Teb.UserReserved1 = new byte[20];
             Array.Copy(tebBytes, 0x700, Teb.UserReserved1, 0, 20);
             Teb.GlReserved1 = new byte[1248];
@@ -268,13 +268,13 @@ namespace ERC
             Teb.LastStatusValue = BitConverter.ToInt32(tebBytes, 0xBF4);
             Teb.StaticUnicodeString = new byte[214];
             Array.Copy(tebBytes, 0xBF8, Teb.StaticUnicodeString, 0, 214);
-            Teb.DeallocationStack = (IntPtr)BitConverter.ToInt64(tebBytes, 0xE0C);
+            Teb.DeallocationStack = (IntPtr)BitConverter.ToInt32(tebBytes, 0xE0C);
             Teb.TlsSlots = new byte[100];
             Array.Copy(tebBytes, 0xE10, Teb.TlsSlots, 0, 100);
-            Teb.TlsLinks = BitConverter.ToInt64(tebBytes, 0xF10);
-            Teb.Vdm = (IntPtr)BitConverter.ToInt64(tebBytes, 0xF18);
-            Teb.RpcReserved = (IntPtr)BitConverter.ToInt64(tebBytes, 0xF1C);
-            Teb.ThreadErrorMode = (IntPtr)BitConverter.ToInt64(tebBytes, 0xF28);
+            Teb.TlsLinks = BitConverter.ToInt32(tebBytes, 0xF10);
+            Teb.Vdm = (IntPtr)BitConverter.ToInt32(tebBytes, 0xF18);
+            Teb.RpcReserved = (IntPtr)BitConverter.ToInt32(tebBytes, 0xF1C);
+            Teb.ThreadErrorMode = (IntPtr)BitConverter.ToInt32(tebBytes, 0xF28);
         }
 
         private void PopulateTEBStruct64(byte[] tebBytes)
@@ -498,28 +498,28 @@ namespace ERC
             ret += "Thread Parent Process = " + ThreadProcess.ProcessName;
             if(!Context32.Equals(default(CONTEXT32)) && X64 == MachineType.I386)
             {
-                ret += "Thread Context32: Populated" + Environment.NewLine;
+                ret += "Thread Context32 = Populated" + Environment.NewLine;
             }
             else if(!Context64.Equals(default(CONTEXT64)) && X64 == MachineType.x64)
             {
-                ret += "Thread Context64: Populated" + Environment.NewLine;
+                ret += "Thread Context64 = Populated" + Environment.NewLine;
             }
             else if(X64 == MachineType.x64)
             {
-                ret += "Thread Context64: Unpopulated" + Environment.NewLine;
+                ret += "Thread Context64 = Unpopulated" + Environment.NewLine;
             }
             else
             {
-                ret += "Thread Context32: Unpopulated" + Environment.NewLine;
+                ret += "Thread Context32 = Unpopulated" + Environment.NewLine;
             }
 
             if (!Teb.Equals(default(TEB)))
             {
-                ret += "Thread TEB: Populated" + Environment.NewLine;
+                ret += "Thread TEB = Populated" + Environment.NewLine;
             }
             else
             {
-                ret += "Thread TEB: Unpopulated" + Environment.NewLine;
+                ret += "Thread TEB = Unpopulated" + Environment.NewLine;
             }
             return ret;
         }

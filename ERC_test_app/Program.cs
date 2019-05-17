@@ -25,9 +25,9 @@ namespace ERC_test_app
             Console.WriteLine("Assembling opcodes:");
             assembling_opcodes();
             Console.WriteLine("Disassembling Opcodes:");
-            disassemble_opcodes();
+            disassemble_opcodes();*/
             Console.WriteLine("Outputting module info");
-            output_module_info();
+            output_module_info();/*
             Console.WriteLine("Generating byte array, skipping [ 0xA1, 0xB1, 0xC1, 0xD1 ]");
             output_byte_array();
             Console.WriteLine("Get thread Context:");
@@ -37,9 +37,9 @@ namespace ERC_test_app
             Console.WriteLine("Generating egg hunters:");
             egghunters();
             Console.WriteLine("Searching for Non repeating pattern");
-            FindNRP();*/
+            FindNRP();
             Console.WriteLine("Generate RopChain 32");
-            GenerateRopChain();
+            GenerateRopChain();*/
             Console.ReadKey();
         }
 
@@ -125,6 +125,7 @@ namespace ERC_test_app
             }
 
             ProcessInfo info = new ProcessInfo(core, thisProcess);
+            Console.WriteLine("Here");
             Console.WriteLine(DisplayOutput.GenerateModuleInfoTable(info));
         }
 
