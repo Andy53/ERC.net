@@ -82,10 +82,10 @@ namespace ERC
         internal static extern IntPtr ImageLoad(string DllName, string DllPath);
 
         [DllImport("Imagehlp.dll", SetLastError = true, EntryPoint = "GetImageConfigInformation")]
-        internal static extern bool GetImageConfigInformation32(IntPtr dllptr, ref IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir32);
+        internal static extern bool GetImageConfigInformation32(IntPtr dllptr, out IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir32);
 
         [DllImport("Imagehlp.dll", SetLastError = true, EntryPoint = "GetImageConfigInformation")]
-        internal static extern bool GetImageConfigInformation64(IntPtr dllptr, ref IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir64);
+        internal static extern bool GetImageConfigInformation64(IntPtr dllptr, out IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir64);
 
         [DllImport("Imagehlp.dll", SetLastError = true, EntryPoint = "GetImageConfigInformation")]
         internal static extern bool GetImageConfigInformation32(ref LOADED_IMAGE loadedImage, ref IMAGE_LOAD_CONFIG_DIRECTORY32 ImageConfigDir32);
@@ -532,7 +532,7 @@ namespace ERC
         [StructLayout(LayoutKind.Explicit)]
         public struct IMAGE_OPTIONAL_HEADER32
         {
-            [FieldOffset(0)] public ushort Magic;
+            [FieldOffset(0)] public MagicType Magic;
             [FieldOffset(2)] public byte MajorLinkerVersion;
             [FieldOffset(3)] public byte MinorLinkerVersion;
             [FieldOffset(4)] public uint SizeOfCode;
@@ -554,7 +554,7 @@ namespace ERC
             [FieldOffset(56)] public uint SizeOfImage;
             [FieldOffset(60)] public uint SizeOfHeaders;
             [FieldOffset(64)] public uint CheckSum;
-            [FieldOffset(68)] public ushort Subsystem;
+            [FieldOffset(68)] public SubSystemType Subsystem;
             [FieldOffset(70)] public ushort DllCharacteristics;
             [FieldOffset(72)] public uint SizeOfStackReserve;
             [FieldOffset(76)] public uint SizeOfStackCommit;
@@ -562,12 +562,28 @@ namespace ERC
             [FieldOffset(84)] public uint SizeOfHeapCommit;
             [FieldOffset(88)] public uint LoaderFlags;
             [FieldOffset(92)] public uint NumberOfRvaAndSizes;
+            [FieldOffset(96)] public IMAGE_DATA_DIRECTORY ExportTable;
+            [FieldOffset(104)] public IMAGE_DATA_DIRECTORY ImportTable;
+            [FieldOffset(112)] public IMAGE_DATA_DIRECTORY ResourceTable;
+            [FieldOffset(120)] public IMAGE_DATA_DIRECTORY ExceptionTable;
+            [FieldOffset(128)] public IMAGE_DATA_DIRECTORY CertificateTable;
+            [FieldOffset(136)] public IMAGE_DATA_DIRECTORY BaseRelocationTable;
+            [FieldOffset(144)] public IMAGE_DATA_DIRECTORY Debug;
+            [FieldOffset(152)] public IMAGE_DATA_DIRECTORY Architecture;
+            [FieldOffset(160)] public IMAGE_DATA_DIRECTORY GlobalPtr;
+            [FieldOffset(168)] public IMAGE_DATA_DIRECTORY TLSTable;
+            [FieldOffset(176)] public IMAGE_DATA_DIRECTORY LoadConfigTable;
+            [FieldOffset(184)] public IMAGE_DATA_DIRECTORY BoundImport;
+            [FieldOffset(192)] public IMAGE_DATA_DIRECTORY IAT;
+            [FieldOffset(200)] public IMAGE_DATA_DIRECTORY DelayImportDescriptor;
+            [FieldOffset(208)] public IMAGE_DATA_DIRECTORY CLRRuntimeHeader;
+            [FieldOffset(216)] public IMAGE_DATA_DIRECTORY Reserved;
         }
 
         [StructLayout(LayoutKind.Explicit)]
         public struct IMAGE_OPTIONAL_HEADER64
         {
-            [FieldOffset(0)] public ushort Magic;
+            [FieldOffset(0)] public MagicType Magic;
             [FieldOffset(2)] public byte MajorLinkerVersion;
             [FieldOffset(3)] public byte MinorLinkerVersion;
             [FieldOffset(4)] public uint SizeOfCode;
@@ -588,14 +604,51 @@ namespace ERC
             [FieldOffset(56)] public uint SizeOfImage;
             [FieldOffset(60)] public uint SizeOfHeaders;
             [FieldOffset(64)] public uint CheckSum;
-            [FieldOffset(68)] public ushort Subsystem;
+            [FieldOffset(68)] public SubSystemType Subsystem;
             [FieldOffset(70)] public ushort DllCharacteristics;
             [FieldOffset(72)] public ulong SizeOfStackReserve;
             [FieldOffset(80)] public ulong SizeOfStackCommit;
             [FieldOffset(88)] public ulong SizeOfHeapReserve;
             [FieldOffset(96)] public ulong SizeOfHeapCommit;
-            [FieldOffset(102)] public uint LoaderFlags;
-            [FieldOffset(106)] public uint NumberOfRvaAndSizes;
+            [FieldOffset(104)] public uint LoaderFlags;
+            [FieldOffset(108)] public uint NumberOfRvaAndSizes;
+            [FieldOffset(112)] public IMAGE_DATA_DIRECTORY ExportTable;
+            [FieldOffset(120)] public IMAGE_DATA_DIRECTORY ImportTable;
+            [FieldOffset(128)] public IMAGE_DATA_DIRECTORY ResourceTable;
+            [FieldOffset(136)] public IMAGE_DATA_DIRECTORY ExceptionTable;
+            [FieldOffset(144)] public IMAGE_DATA_DIRECTORY CertificateTable;
+            [FieldOffset(152)] public IMAGE_DATA_DIRECTORY BaseRelocationTable;
+            [FieldOffset(160)] public IMAGE_DATA_DIRECTORY Debug;
+            [FieldOffset(168)] public IMAGE_DATA_DIRECTORY Architecture;
+            [FieldOffset(176)] public IMAGE_DATA_DIRECTORY GlobalPtr;
+            [FieldOffset(184)] public IMAGE_DATA_DIRECTORY TLSTable;
+            [FieldOffset(192)] public IMAGE_DATA_DIRECTORY LoadConfigTable;
+            [FieldOffset(200)] public IMAGE_DATA_DIRECTORY BoundImport;
+            [FieldOffset(208)] public IMAGE_DATA_DIRECTORY IAT;
+            [FieldOffset(216)] public IMAGE_DATA_DIRECTORY DelayImportDescriptor;
+            [FieldOffset(224)] public IMAGE_DATA_DIRECTORY CLRRuntimeHeader;
+            [FieldOffset(232)] public IMAGE_DATA_DIRECTORY Reserved;
+        }
+
+        public enum MagicType : ushort
+        {
+            IMAGE_NT_OPTIONAL_HDR32_MAGIC = 0x10b,
+            IMAGE_NT_OPTIONAL_HDR64_MAGIC = 0x20b
+        }
+        public enum SubSystemType : ushort
+        {
+            IMAGE_SUBSYSTEM_UNKNOWN = 0,
+            IMAGE_SUBSYSTEM_NATIVE = 1,
+            IMAGE_SUBSYSTEM_WINDOWS_GUI = 2,
+            IMAGE_SUBSYSTEM_WINDOWS_CUI = 3,
+            IMAGE_SUBSYSTEM_POSIX_CUI = 7,
+            IMAGE_SUBSYSTEM_WINDOWS_CE_GUI = 9,
+            IMAGE_SUBSYSTEM_EFI_APPLICATION = 10,
+            IMAGE_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER = 11,
+            IMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER = 12,
+            IMAGE_SUBSYSTEM_EFI_ROM = 13,
+            IMAGE_SUBSYSTEM_XBOX = 14
+
         }
 
         [StructLayout(LayoutKind.Sequential)]

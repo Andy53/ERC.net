@@ -177,7 +177,7 @@ namespace ERC.Utilities
 
         public ErcResult<string> GenerateRopChain32(ProcessInfo info, List<string> excludes = null)
         {
-            ErcResult<string> RopChain = new ErcResult<string>(new ErcCore());
+            ErcResult<string> RopChain = new ErcResult<string>(info.ProcessCore);
 
             Console.WriteLine("Starting GetApiAddresses...");
             var watch = System.Diagnostics.Stopwatch.StartNew();
@@ -185,7 +185,7 @@ namespace ERC.Utilities
             var ret1 = GetApiAddresses(info);
             if(ret1.Error != null && ApiAddresses.Count <= 0)
             {
-                ErcResult<string> failed = new ErcResult<string>(new ErcCore());
+                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret1.Error;
                 return failed;
@@ -199,7 +199,7 @@ namespace ERC.Utilities
             if (ret1.Error != null && RopNops.Count <= 0)
             {
                 Console.WriteLine("An Error has occured: ", ret2.Error);
-                ErcResult<string> failed = new ErcResult<string>(new ErcCore());
+                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret1.Error;
                 return failed;
@@ -223,7 +223,7 @@ namespace ERC.Utilities
         #region GetApiAddresses
         private ErcResult<int> GetApiAddresses(ProcessInfo info)
         {
-            ErcResult<int> returnVar = new ErcResult<int>(new ErcCore());
+            ErcResult<int> returnVar = new ErcResult<int>(info.ProcessCore);
             returnVar.ReturnValue = 0;
 
             IntPtr hModule = IntPtr.Zero;
@@ -290,7 +290,7 @@ namespace ERC.Utilities
         #region GetRopNops
         private ErcResult<List<IntPtr>> GetRopNops(ProcessInfo info, List<string> excludes = null)
         {
-            ErcResult<List<IntPtr>> ropNopsResult = new ErcResult<List<IntPtr>>(new ErcCore());
+            ErcResult<List<IntPtr>> ropNopsResult = new ErcResult<List<IntPtr>>(info.ProcessCore);
             ropNopsResult.ReturnValue = new List<IntPtr>();
             byte[] ropNop = new byte[] { 0xC3 };
             var ropPtrs = info.SearchMemory(0, ropNop, excludes: excludes);
@@ -308,7 +308,7 @@ namespace ERC.Utilities
 
         private ErcResult<List<IntPtr>> GetRopNops(ProcessInfo info)
         {
-            ErcResult<List<IntPtr>> ropNopsResult = new ErcResult<List<IntPtr>>(new ErcCore());
+            ErcResult<List<IntPtr>> ropNopsResult = new ErcResult<List<IntPtr>>(info.ProcessCore);
             ropNopsResult.ReturnValue = new List<IntPtr>();
             byte[] ropNop = new byte[] { 0xC3 };
             var ropPtrs = info.SearchMemory(0, ropNop);
@@ -328,7 +328,7 @@ namespace ERC.Utilities
         #region PopulateOpcodes
         private ErcResult<int> PopulateOpcodes(ProcessInfo info)
         {
-            ErcResult<int> ret = new ErcResult<int>(new ErcCore());
+            ErcResult<int> ret = new ErcResult<int>(info.ProcessCore);
 
             for(int i = 0; i < RopNops.Count; i++)
             {
@@ -340,7 +340,7 @@ namespace ERC.Utilities
                     ret.Error = new ERCException("ReadProcessMemory Error: " + new Win32Exception(Marshal.GetLastWin32Error()).Message);
                     ret.LogEvent();
                 }
-                var ret1 = ParseByteArrayForRopCodes(bytes, info.ProcessMachineType);
+                var ret1 = ParseByteArrayForRopCodes(bytes, info);
                 if(ret1.Error != null)
                 {
                     ret.Error = ret1.Error;
@@ -351,11 +351,11 @@ namespace ERC.Utilities
         }
         #endregion
 
-        private ErcResult<int> ParseByteArrayForRopCodes(byte[] bytes, MachineType machineType)
+        private ErcResult<int> ParseByteArrayForRopCodes(byte[] bytes, ProcessInfo info)
         {
             Console.WriteLine("Inside ParseByteArrayForRopCodes...");
-            ErcResult<int> ret = new ErcResult<int>(new ErcCore());
-            if(machineType == MachineType.I386)
+            ErcResult<int> ret = new ErcResult<int>(info.ProcessCore);
+            if(info.ProcessMachineType == MachineType.I386)
             {
                 for (int i = bytes.Length - 1; i >= 0; i--)
                 {
@@ -367,7 +367,7 @@ namespace ERC.Utilities
                     }
                 }
             }
-            else if(machineType == MachineType.x64)
+            else if(info.ProcessMachineType == MachineType.x64)
             {
                 Console.WriteLine("Inside ParseByteArrayForRopCodes.x64");
                 for (int i = bytes.Length - 1; i >= 0; i--)
@@ -383,7 +383,7 @@ namespace ERC.Utilities
             }
             else
             {
-                ret.Error = new ERCException("Error: Invlaid machine type provided. Cannot continue. Error thrown during RopChainGenerator.ParseByteArrayForRopCodes with MachineType: " + machineType.ToString());
+                ret.Error = new ERCException("Error: Invlaid machine type provided. Cannot continue. Error thrown during RopChainGenerator.ParseByteArrayForRopCodes with MachineType: " + info.ProcessMachineType.ToString());
                 ret.LogEvent();
                 return ret;
             }
@@ -392,7 +392,7 @@ namespace ERC.Utilities
 
         private ErcResult<Dictionary<byte[], string>> GenerateVirtualProtectChain(ProcessInfo info)
         {
-            ErcResult<Dictionary<byte[], string>> VirtualProtectChain = new ErcResult<Dictionary<byte[], string>>(new ErcCore());
+            ErcResult<Dictionary<byte[], string>> VirtualProtectChain = new ErcResult<Dictionary<byte[], string>>(info.ProcessCore);
             return VirtualProtectChain;
         }
     }

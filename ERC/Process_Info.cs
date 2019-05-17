@@ -1,6 +1,7 @@
 ﻿using ERC.Structures;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace ERC
         #region Class_Variables
         public string ProcessName { get; private set; }
         public string ProcessDescription { get; private set; }
-        public string ProcessFilename { get; private set; }
+        public string ProcessPath { get; private set; }
         public int ProcessID { get; private set; }
 
         public IntPtr ProcessHandle { get; private set; }
@@ -52,7 +53,7 @@ namespace ERC
 
             ProcessName = process.ProcessName;
             ProcessDescription = FileVersionInfo.GetVersionInfo(process.MainModule.FileName).FileDescription;
-            ProcessFilename = FileVersionInfo.GetVersionInfo(process.MainModule.FileName).FileName;
+            ProcessPath = FileVersionInfo.GetVersionInfo(process.MainModule.FileName).FileName;
             ProcessID = process.Id;
             ProcessCurrent = process;
             ProcessHandle = process.Handle;
@@ -88,7 +89,7 @@ namespace ERC
         {
             ProcessName = parent.ProcessName;
             ProcessDescription = parent.ProcessDescription;
-            ProcessFilename = parent.ProcessFilename;
+            ProcessPath = parent.ProcessPath;
             ProcessID = parent.ProcessID;
 
             ProcessHandle = parent.ProcessHandle;
@@ -233,6 +234,7 @@ namespace ERC
         /// </summary>
         private void LocateMemoryRegions()
         {
+            
             Process process = ProcessCurrent;
             if (ProcessMachineType == MachineType.I386)
             {
@@ -247,7 +249,7 @@ namespace ERC
                     if (address == (long)m.BaseAddress + (long)m.RegionSize)
                         break;
                     address = (long)m.BaseAddress + (long)m.RegionSize;
-                    if (m.State == StateEnum.MEM_COMMIT)
+                    if (m.State == StateEnum.MEM_COMMIT && (m.Type == TypeEnum.MEM_MAPPED || m.Type == TypeEnum.MEM_PRIVATE))
                     {
                         ProcessMemoryBasicInfo32.Add(m);
                     }
@@ -277,6 +279,7 @@ namespace ERC
             {
                 throw new ERCException("Machine type is invalid");
             }
+            Console.WriteLine("Here LoacteMemoryRegions");
         }
         #endregion
 
@@ -465,7 +468,7 @@ namespace ERC
                                 {
                                     if (!ptrs.ReturnValue.ContainsKey((IntPtr)((ulong)pprs[k] + (ulong)ProcessMemoryBasicInfo32[i].BaseAddress)))
                                     {
-                                        ptrs.ReturnValue.Add((IntPtr)((ulong)pprs[k] + (ulong)ProcessMemoryBasicInfo32[i].BaseAddress), ProcessFilename);
+                                        ptrs.ReturnValue.Add((IntPtr)((ulong)pprs[k] + (ulong)ProcessMemoryBasicInfo32[i].BaseAddress), ProcessPath);
                                     }
                                 }
                             }
@@ -486,7 +489,7 @@ namespace ERC
                             {
                                 if (!ptrs.ReturnValue.ContainsKey((IntPtr)((ulong)pprs[k] + (ulong)ProcessMemoryBasicInfo32[i].BaseAddress)))
                                 {
-                                    ptrs.ReturnValue.Add((IntPtr)((ulong)pprs[k] + (ulong)ProcessMemoryBasicInfo32[i].BaseAddress), ProcessFilename);
+                                    ptrs.ReturnValue.Add((IntPtr)((ulong)pprs[k] + (ulong)ProcessMemoryBasicInfo32[i].BaseAddress), ProcessPath);
                                 }
                             }
                         }
@@ -515,7 +518,7 @@ namespace ERC
                                 {
                                     if (!ptrs.ReturnValue.ContainsKey((IntPtr)((ulong)pprs[k] + ProcessMemoryBasicInfo64[i].BaseAddress)))
                                     {
-                                        ptrs.ReturnValue.Add((IntPtr)((ulong)pprs[k] + ProcessMemoryBasicInfo64[i].BaseAddress), ProcessFilename);
+                                        ptrs.ReturnValue.Add((IntPtr)((ulong)pprs[k] + ProcessMemoryBasicInfo64[i].BaseAddress), ProcessPath);
                                     }
                                 }
                             }
@@ -536,7 +539,7 @@ namespace ERC
                             {
                                 if (!ptrs.ReturnValue.ContainsKey((IntPtr)((ulong)pprs[k] + ProcessMemoryBasicInfo64[i].BaseAddress)))
                                 {
-                                    ptrs.ReturnValue.Add((IntPtr)((ulong)pprs[k] + ProcessMemoryBasicInfo64[i].BaseAddress), ProcessFilename);
+                                    ptrs.ReturnValue.Add((IntPtr)((ulong)pprs[k] + ProcessMemoryBasicInfo64[i].BaseAddress), ProcessPath);
                                 }
                             }
                         }
@@ -639,7 +642,7 @@ namespace ERC
             {
                 if (!resultAddresses.ReturnValue.ContainsKey(processPtrs.ReturnValue[i]))
                 {
-                    resultAddresses.ReturnValue.Add(processPtrs.ReturnValue[i], ProcessFilename);
+                    resultAddresses.ReturnValue.Add(processPtrs.ReturnValue[i], ProcessPath);
                 }
             }
 
@@ -1278,6 +1281,83 @@ namespace ERC
 
             return len;
         }
+
+        #endregion
+
+        #region Accessors
+
+        #region ToString
+        public override string ToString()
+        {
+            string ret = "";
+            ret += "Process Name = " + ProcessName + Environment.NewLine;
+            ret += "Process Description = " + ProcessDescription + Environment.NewLine;
+            ret += "Process Path = " + ProcessPath + Environment.NewLine;
+            ret += "Process ID = " + ProcessID + Environment.NewLine;
+            if(ProcessMachineType == MachineType.I386)
+            {
+                ret += "Process Handle = 0x" + ProcessHandle.ToString("X8");
+            }
+            else
+            {
+                ret += "Process Handle = 0x" + ProcessHandle.ToString("X16");
+            }
+            ret += "Process Machine Type = " + ProcessMachineType.ToString() + Environment.NewLine;
+
+            return ret;
+        }
+        #endregion
+
+        #region Get Modules Handles
+        public ErcResult<Dictionary<string, IntPtr>> GetModuleHandles()
+        {
+            ErcResult<Dictionary<string, IntPtr>> ret = new ErcResult<Dictionary<string, IntPtr>>(ProcessCore);
+            if (ProcessModuleHandles.Count > 0)
+            {
+                ret.ReturnValue = ProcessModuleHandles;
+                return ret;
+            }
+            else
+            {
+                ret.Error = new ERCException("Error: An unknown eroor has occured whilst populating the modules list for this process. Check the error log for more detailed information.");
+                return ret;
+            }
+        }
+        #endregion
+
+        #region Get Module Information
+        public ErcResult<List<ModuleInfo>> GetProcessModuleInformation()
+        {
+            ErcResult<List<ModuleInfo>> ret = new ErcResult<List<ModuleInfo>>(ProcessCore);
+            if(ModulesInfo.Count > 0)
+            {
+                ret.ReturnValue = ModulesInfo;
+                return ret;
+            }
+            else
+            {
+                ret.Error = new ERCException("Error: An unknown eroor has occured whilst populating the modules list for this process. Check the error log for more detailed information.");
+                return ret;
+            }
+        }
+        #endregion
+
+        #region Get Thread Information
+        public ErcResult<List<ThreadInfo>> GetProcessThreadInformation()
+        {
+            ErcResult<List<ThreadInfo>> ret = new ErcResult<List<ThreadInfo>>(ProcessCore);
+            if (ThreadsInfo.Count > 0)
+            {
+                ret.ReturnValue = ThreadsInfo;
+                return ret;
+            }
+            else
+            {
+                ret.Error = new ERCException("Error: An unknown eroor has occured whilst populating the threads list for this process. Check the error log for more detailed information.");
+                return ret;
+            }
+        }
+        #endregion
 
         #endregion
     }

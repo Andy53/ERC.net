@@ -11,10 +11,10 @@ D:\Source\Repos\ERC_net\ERC.net\ERC\bin\Debug\net472\System.Buffers.dll
 D:\Source\Repos\ERC_net\ERC.net\ERC\bin\Debug\net472\System.Memory.dll
 D:\Source\Repos\ERC_net\ERC.net\ERC\bin\Debug\net472\System.Numerics.Vectors.dll
 D:\Source\Repos\ERC_net\ERC.net\ERC\bin\Debug\net472\System.Runtime.CompilerServices.Unsafe.dll
-D:\Source\Repos\ERC_net\ERC.net\ERC\obj\Debug\net472\ERC.Net.csprojAssemblyReference.cache
 D:\Source\Repos\ERC_net\ERC.net\ERC\obj\Debug\net472\ERC.Net.csproj.CoreCompileInputs.cache
 D:\Source\Repos\ERC_net\ERC.net\ERC\obj\Debug\net472\ERC.Net.AssemblyInfoInputs.cache
 D:\Source\Repos\ERC_net\ERC.net\ERC\obj\Debug\net472\ERC.Net.AssemblyInfo.cs
 D:\Source\Repos\ERC_net\ERC.net\ERC\obj\Debug\net472\ERC.Net.csproj.CopyComplete
 D:\Source\Repos\ERC_net\ERC.net\ERC\obj\Debug\net472\ERC.Net.dll
 D:\Source\Repos\ERC_net\ERC.net\ERC\obj\Debug\net472\ERC.Net.pdb
+D:\Source\Repos\ERC_net\ERC.net\ERC\obj\Debug\net472\ERC.Net.csprojAssemblyReference.cache
