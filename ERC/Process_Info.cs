@@ -291,7 +291,7 @@ namespace ERC
         /// </summary>
         /// <param name="searchBytes"> Takes a byte array as input to be searched for</param>
         /// <returns>Returns a list of IntPtr for each instance found.</returns>
-        private ErcResult<List<IntPtr>> SearchProcessMemory(byte[] searchBytes)
+        internal ErcResult<List<IntPtr>> SearchProcessMemory(byte[] searchBytes)
         {
             ErcResult<List<IntPtr>> resultAddresses = new ErcResult<List<IntPtr>>(ProcessCore);
 
