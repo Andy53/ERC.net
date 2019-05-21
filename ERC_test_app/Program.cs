@@ -25,9 +25,9 @@ namespace ERC_test_app
             Console.WriteLine("Assembling opcodes:");
             assembling_opcodes();
             Console.WriteLine("Disassembling Opcodes:");
-            disassemble_opcodes();*/
+            disassemble_opcodes();
             Console.WriteLine("Outputting module info");
-            output_module_info();/*
+            output_module_info();
             Console.WriteLine("Generating byte array, skipping [ 0xA1, 0xB1, 0xC1, 0xD1 ]");
             output_byte_array();
             Console.WriteLine("Get thread Context:");
@@ -37,9 +37,9 @@ namespace ERC_test_app
             Console.WriteLine("Generating egg hunters:");
             egghunters();
             Console.WriteLine("Searching for Non repeating pattern");
-            FindNRP();
+            FindNRP();*/
             Console.WriteLine("Generate RopChain 32");
-            GenerateRopChain();*/
+            GenerateRopChain();
             Console.ReadKey();
         }
 
@@ -91,8 +91,30 @@ namespace ERC_test_app
         public static void assembling_opcodes()
         {
             List<string> instructions = new List<string>();
-            instructions.Add("PUSHAD");
-
+            instructions.Add("add eax, [ eax + 9 ]");
+            instructions.Add("add ebx, [ eax + 9 ]");
+            instructions.Add("add ecx, [ eax + 9 ]");
+            instructions.Add("add edx, [ eax + 9 ]");
+            instructions.Add("add esp, [ eax + 9 ]");
+            instructions.Add("add ebp, [ eax + 9 ]");
+            instructions.Add("add esi, [ eax + 9 ]");
+            instructions.Add("add edi, [ eax + 9 ]");
+            instructions.Add("sub eax, [ edx + 9 ]");
+            instructions.Add("sub ebx, [ edx + 9 ]");
+            instructions.Add("sub ecx, [ edx + 9 ]");
+            instructions.Add("sub edx, [ edx + 9 ]");
+            instructions.Add("sub esp, [ edx + 9 ]");
+            instructions.Add("sub ebp, [ edx + 9 ]");
+            instructions.Add("sub esi, [ edx + 9 ]");
+            instructions.Add("sub edi, [ edx + 9 ]");
+            instructions.Add("mov eax, [ edx + 9 ]");
+            instructions.Add("mov ebx, [ edx + 9 ]");
+            instructions.Add("mov ecx, [ edx + 9 ]");
+            instructions.Add("mov edx, [ edx + 9 ]");
+            instructions.Add("mov esp, [ edx + 9 ]");
+            instructions.Add("mov ebp, [ edx + 9 ]");
+            instructions.Add("mov esi, [ edx + 9 ]");
+            instructions.Add("mov edi, [ edx + 9 ]");
 
             foreach (string s in instructions)
             {
@@ -214,8 +236,8 @@ namespace ERC_test_app
                 }
             }
             ProcessInfo info = new ProcessInfo(core, thisProcess);
-            RopChainGenerator RCG = new RopChainGenerator();
-            RCG.GenerateRopChain32(info);
+            RopChainGenerator RCG = new RopChainGenerator(info);
+            RCG.GenerateRopChain32(IntPtr.Zero, 1000);
         }
     }
 }
