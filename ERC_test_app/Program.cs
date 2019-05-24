@@ -92,29 +92,6 @@ namespace ERC_test_app
         {
             List<string> instructions = new List<string>();
             instructions.Add("add eax, [ eax + 9 ]");
-            instructions.Add("add ebx, [ eax + 9 ]");
-            instructions.Add("add ecx, [ eax + 9 ]");
-            instructions.Add("add edx, [ eax + 9 ]");
-            instructions.Add("add esp, [ eax + 9 ]");
-            instructions.Add("add ebp, [ eax + 9 ]");
-            instructions.Add("add esi, [ eax + 9 ]");
-            instructions.Add("add edi, [ eax + 9 ]");
-            instructions.Add("sub eax, [ edx + 9 ]");
-            instructions.Add("sub ebx, [ edx + 9 ]");
-            instructions.Add("sub ecx, [ edx + 9 ]");
-            instructions.Add("sub edx, [ edx + 9 ]");
-            instructions.Add("sub esp, [ edx + 9 ]");
-            instructions.Add("sub ebp, [ edx + 9 ]");
-            instructions.Add("sub esi, [ edx + 9 ]");
-            instructions.Add("sub edi, [ edx + 9 ]");
-            instructions.Add("mov eax, [ edx + 9 ]");
-            instructions.Add("mov ebx, [ edx + 9 ]");
-            instructions.Add("mov ecx, [ edx + 9 ]");
-            instructions.Add("mov edx, [ edx + 9 ]");
-            instructions.Add("mov esp, [ edx + 9 ]");
-            instructions.Add("mov ebp, [ edx + 9 ]");
-            instructions.Add("mov esi, [ edx + 9 ]");
-            instructions.Add("mov edi, [ edx + 9 ]");
 
             foreach (string s in instructions)
             {
@@ -128,7 +105,7 @@ namespace ERC_test_app
 
         public static void disassemble_opcodes()
         {
-            byte[] opcodes = new byte[] { 0xFF, 0xE4, 0x48, 0x31, 0xC0, 0x55, 0xC3 };
+            byte[] opcodes = new byte[] { 0x60, 0xFF, 0xE4, 0x48, 0x31, 0xC0, 0x55, 0xC3 };
             var result = ERC.Utilities.OpcodeDisassembler.Disassemble(opcodes, MachineType.x64);
             Console.WriteLine(result.ReturnValue + Environment.NewLine);
         }

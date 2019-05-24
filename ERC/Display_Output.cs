@@ -438,6 +438,7 @@ namespace ERC
             string filePath = GetFilePath(info.WorkingDirectory, "gadgets_", ".txt");
             string totalGadgetsPath = GetFilePath(info.WorkingDirectory, "total_gadgest_", ".txt");
             string curatedGadgetsPath = GetFilePath(info.WorkingDirectory, "curated_gadgest_", ".txt");
+            string ropChainPath = GetFilePath(info.WorkingDirectory, "rop_chain_", ".txt");
 
             output += "-------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
             if (info.Author != "No_Author_Set")
@@ -451,674 +452,592 @@ namespace ERC
 
             if (info.ProcessMachineType == MachineType.I386)
             {
-                using (StreamWriter w = File.CreateText(filePath))
+                totalGadgets.Add("pushEax: ");
+                curatedGadgets.Add("pushEax: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEax)
                 {
-                    w.Write(output + "pushEax total = " + rcg.x86Opcodes.pushEax.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("pushEax: ");
-                    curatedGadgets.Add("pushEax: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEax)
+                    if(k.Value.Contains("push eax") && k.Value.Contains("ret"))
                     {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if(k.Value.Contains("push eax") && k.Value.Contains("ret"))
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if(!k.Value.Any(char.IsDigit))
                         {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if(!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
                         }
+                    }
                         
-                    }
-                    w.Write("pushEbx total = " + rcg.x86Opcodes.pushEbx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("pushEbx: ");
-                    curatedGadgets.Add("pushEbx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEbx)
+                }
+                totalGadgets.Add("pushEbx: ");
+                curatedGadgets.Add("pushEbx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEbx)
+                {
+                    if (k.Value.Contains("push ebx") && k.Value.Contains("ret"))
                     {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("push ebx") && k.Value.Contains("ret"))
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
                         {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("pushEcx total = " + rcg.x86Opcodes.pushEcx.Count + ":" + Environment.NewLine);
-                    totalGadgets.Add("pushEcx: ");
-                    curatedGadgets.Add("pushEcx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEcx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("push ecx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("pushEdx total = " + rcg.x86Opcodes.pushEdx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("pushEdx: ");
-                    curatedGadgets.Add("pushEdx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEdx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("push edx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("pushEsp total = " + rcg.x86Opcodes.pushEsp.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("pushEsp: ");
-                    curatedGadgets.Add("pushEsp: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEsp)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("push esp") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("pushEbp total = " + rcg.x86Opcodes.pushEbp.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("pushEbp: ");
-                    curatedGadgets.Add("pushEbp: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEbp)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("push ebp") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("pushEsi total = " + rcg.x86Opcodes.pushEsi.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("pushEsi: ");
-                    curatedGadgets.Add("pushEsi: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEsi)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("push esi") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("pushEdi total = " + rcg.x86Opcodes.pushEdi.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("pushEdi: ");
-                    curatedGadgets.Add("pushEdi: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEdi)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("push edi") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("JmpEsp total = " + rcg.x86Opcodes.jmpEsp.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("JmpEsp: ");
-                    curatedGadgets.Add("JmpEsp: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.jmpEsp)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("jmp esp"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("CallEsp total = " + rcg.x86Opcodes.callEsp.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("CallEsp: ");
-                    curatedGadgets.Add("CallEsp: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.callEsp)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("call esp"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("xorEax total = " + rcg.x86Opcodes.xorEax.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("xorEax: ");
-                    curatedGadgets.Add("xorEax: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.xorEax)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("xor eax") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("XorEbx total = " + rcg.x86Opcodes.xorEbx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("xorEbx: ");
-                    curatedGadgets.Add("xorEbx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.xorEbx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("xor ebx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("XorEcx total = " + rcg.x86Opcodes.xorEcx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("xorEcx: ");
-                    curatedGadgets.Add("xorEcx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.xorEcx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("xor ecx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("XorEdx total = " + rcg.x86Opcodes.xorEdx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("xorEdx: ");
-                    curatedGadgets.Add("xorEdx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.xorEdx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("xor edx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("XorEsi total = " + rcg.x86Opcodes.xorEsi.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("xorEsi: ");
-                    curatedGadgets.Add("xorEsi: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.xorEsi)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("xor esi") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("xorEdi total = " + rcg.x86Opcodes.xorEdi.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("xorEdi: ");
-                    curatedGadgets.Add("xorEdi: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.xorEdi)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("xor edi") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("popEax total = " + rcg.x86Opcodes.popEax.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("popEax: ");
-                    curatedGadgets.Add("popEax: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEax)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("pop eax") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("popEbx total = " + rcg.x86Opcodes.popEbx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("popEbx: ");
-                    curatedGadgets.Add("popEbx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEbx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("pop ebx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("popEcx total = " + rcg.x86Opcodes.popEcx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("popEcx: ");
-                    curatedGadgets.Add("popEcx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEcx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("pop ecx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("popEdx total = " + rcg.x86Opcodes.popEdx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("popEdx: ");
-                    curatedGadgets.Add("popEdx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEdx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("pop edx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("popEsp total = " + rcg.x86Opcodes.popEsp.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("popEsp: ");
-                    curatedGadgets.Add("popEsp: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEsp)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("pop esp") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("popEbp total = " + rcg.x86Opcodes.popEbp.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("popEbp: ");
-                    curatedGadgets.Add("popEbp: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEbp)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("pop ebp") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("popEsi total = " + rcg.x86Opcodes.popEsi.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("popEsi: ");
-                    curatedGadgets.Add("popEsi: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEsi)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("pop esi") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("popEdi total = " + rcg.x86Opcodes.popEdi.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("popEdi: ");
-                    curatedGadgets.Add("popEdi: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEdi)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("pop edo") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write("pushad total = " + rcg.x86Opcodes.pushad.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("pushad: ");
-                    curatedGadgets.Add("pushad: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushad)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("pushad") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "incEax total = " + rcg.x86Opcodes.incEax.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("incEax: ");
-                    curatedGadgets.Add("incEax: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEax)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("inc eax") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "decEax total = " + rcg.x86Opcodes.decEax.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("decEax: ");
-                    curatedGadgets.Add("decEax: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEax)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("dec eax") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "incEbx total = " + rcg.x86Opcodes.incEbx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("incEbx: ");
-                    curatedGadgets.Add("incEbx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEbx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("inc ebx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "decEbx total = " + rcg.x86Opcodes.decEbx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("decEbx: ");
-                    curatedGadgets.Add("decEbx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEbx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("dec ebx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "incEcx total = " + rcg.x86Opcodes.incEcx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("incEcx: ");
-                    curatedGadgets.Add("incEcx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEcx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("inc ecx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "decEcx total = " + rcg.x86Opcodes.decEcx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("decEcx: ");
-                    curatedGadgets.Add("decEcx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEcx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("dec ecx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "incEdx total = " + rcg.x86Opcodes.incEdx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("incEdx: ");
-                    curatedGadgets.Add("incEdx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEdx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("inc edx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "decEdx total = " + rcg.x86Opcodes.decEdx.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("decEdx: ");
-                    curatedGadgets.Add("decEdx: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEdx)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("dec edx") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "incEbp total = " + rcg.x86Opcodes.incEbp.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("incEbp: ");
-                    curatedGadgets.Add("incEbp: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEbp)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("inc ebp") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-
-                    }
-                    w.Write(output + "decEbp total = " + rcg.x86Opcodes.decEbp.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("decEbp: ");
-                    curatedGadgets.Add("decEbp: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEbp)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("dec ebp") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "incEsp total = " + rcg.x86Opcodes.incEsp.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("incEsp: ");
-                    curatedGadgets.Add("incEsp: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEsp)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("inc esp") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "decEsp total = " + rcg.x86Opcodes.decEsp.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("decEsp: ");
-                    curatedGadgets.Add("decEsp: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEsp)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("dec esp") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "incEsi total = " + rcg.x86Opcodes.incEsi.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("incEsi: ");
-                    curatedGadgets.Add("incEsi: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEsi)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("inc esi") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "decEsi total = " + rcg.x86Opcodes.decEsi.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("decEsi: ");
-                    curatedGadgets.Add("decEsi: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEsi)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("dec esi") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "incEdi total = " + rcg.x86Opcodes.incEdi.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("incEdi: ");
-                    curatedGadgets.Add("incEdi: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEdi)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("inc edi") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "decEdi total = " + rcg.x86Opcodes.decEdi.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("decEdi: ");
-                    curatedGadgets.Add("decEdi: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEdi)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("dec edi") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "Add total = " + rcg.x86Opcodes.add.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("Add: ");
-                    curatedGadgets.Add("Add: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.add)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("add") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "Sub total = " + rcg.x86Opcodes.sub.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("Sub: ");
-                    curatedGadgets.Add("Sub: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.sub)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("sub") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
-                        }
-                    }
-                    w.Write(output + "Mov total = " + rcg.x86Opcodes.mov.Count + ": " + Environment.NewLine);
-                    totalGadgets.Add("Mov: ");
-                    curatedGadgets.Add("Mov: ");
-                    foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.mov)
-                    {
-                        w.Write("0x" + k.Key.ToString("X8") + " | " + k.Value + Environment.NewLine);
-                        if (k.Value.Contains("mov") && k.Value.Contains("ret"))
-                        {
-                            totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            if (!k.Value.Any(char.IsDigit))
-                            {
-                                curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
-                            }
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
                         }
                     }
                 }
-                File.WriteAllLines(totalGadgetsPath, totalGadgets);
-                File.WriteAllLines(curatedGadgetsPath, curatedGadgets);
+                totalGadgets.Add("pushEcx: ");
+                curatedGadgets.Add("pushEcx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEcx)
+                {
+                    if (k.Value.Contains("push ecx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("pushEdx: ");
+                curatedGadgets.Add("pushEdx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEdx)
+                {
+                    if (k.Value.Contains("push edx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("pushEsp: ");
+                curatedGadgets.Add("pushEsp: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEsp)
+                {
+                    if (k.Value.Contains("push esp") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("pushEbp: ");
+                curatedGadgets.Add("pushEbp: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEbp)
+                {
+                    if (k.Value.Contains("push ebp") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("pushEsi: ");
+                curatedGadgets.Add("pushEsi: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEsi)
+                {
+                    if (k.Value.Contains("push esi") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("pushEdi: ");
+                curatedGadgets.Add("pushEdi: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushEdi)
+                {
+                    if (k.Value.Contains("push edi") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("JmpEsp: ");
+                curatedGadgets.Add("JmpEsp: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.jmpEsp)
+                {
+                    if (k.Value.Contains("jmp esp"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("CallEsp: ");
+                curatedGadgets.Add("CallEsp: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.callEsp)
+                {
+                    if (k.Value.Contains("call esp"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("xorEax: ");
+                curatedGadgets.Add("xorEax: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.xorEax)
+                {
+                    if (k.Value.Contains("xor eax") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("xorEbx: ");
+                curatedGadgets.Add("xorEbx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.xorEbx)
+                {
+                    if (k.Value.Contains("xor ebx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("xorEcx: ");
+                curatedGadgets.Add("xorEcx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.xorEcx)
+                {
+                    if (k.Value.Contains("xor ecx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("xorEdx: ");
+                curatedGadgets.Add("xorEdx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.xorEdx)
+                {
+                    if (k.Value.Contains("xor edx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("xorEsi: ");
+                curatedGadgets.Add("xorEsi: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.xorEsi)
+                {
+                    if (k.Value.Contains("xor esi") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("xorEdi: ");
+                curatedGadgets.Add("xorEdi: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.xorEdi)
+                {
+                    if (k.Value.Contains("xor edi") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("popEax: ");
+                curatedGadgets.Add("popEax: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEax)
+                {
+                    if (k.Value.Contains("pop eax") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("popEbx: ");
+                curatedGadgets.Add("popEbx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEbx)
+                {
+                    if (k.Value.Contains("pop ebx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("popEcx: ");
+                curatedGadgets.Add("popEcx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEcx)
+                {
+                    if (k.Value.Contains("pop ecx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("popEdx: ");
+                curatedGadgets.Add("popEdx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEdx)
+                {
+                    if (k.Value.Contains("pop edx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("popEsp: ");
+                curatedGadgets.Add("popEsp: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEsp)
+                {
+                    if (k.Value.Contains("pop esp") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("popEbp: ");
+                curatedGadgets.Add("popEbp: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEbp)
+                {
+                    if (k.Value.Contains("pop ebp") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("popEsi: ");
+                curatedGadgets.Add("popEsi: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEsi)
+                {
+                    if (k.Value.Contains("pop esi") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("popEdi: ");
+                curatedGadgets.Add("popEdi: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.popEdi)
+                {
+                    if (k.Value.Contains("pop edo") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("pushad: ");
+                curatedGadgets.Add("pushad: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.pushad)
+                {
+                    if (k.Value.Contains("pushad") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("incEax: ");
+                curatedGadgets.Add("incEax: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEax)
+                {
+                    if (k.Value.Contains("inc eax") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("decEax: ");
+                curatedGadgets.Add("decEax: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEax)
+                {
+                    if (k.Value.Contains("dec eax") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("incEbx: ");
+                curatedGadgets.Add("incEbx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEbx)
+                {
+                    if (k.Value.Contains("inc ebx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("decEbx: ");
+                curatedGadgets.Add("decEbx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEbx)
+                {
+                    if (k.Value.Contains("dec ebx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("incEcx: ");
+                curatedGadgets.Add("incEcx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEcx)
+                {
+                    if (k.Value.Contains("inc ecx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("decEcx: ");
+                curatedGadgets.Add("decEcx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEcx)
+                {
+                    if (k.Value.Contains("dec ecx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("incEdx: ");
+                curatedGadgets.Add("incEdx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEdx)
+                {
+                    if (k.Value.Contains("inc edx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("decEdx: ");
+                curatedGadgets.Add("decEdx: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEdx)
+                {
+                    if (k.Value.Contains("dec edx") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("incEbp: ");
+                curatedGadgets.Add("incEbp: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEbp)
+                {
+                    if (k.Value.Contains("inc ebp") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+
+                }
+                totalGadgets.Add("decEbp: ");
+                curatedGadgets.Add("decEbp: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEbp)
+                {
+                    if (k.Value.Contains("dec ebp") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("incEsp: ");
+                curatedGadgets.Add("incEsp: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEsp)
+                {
+                    if (k.Value.Contains("inc esp") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("decEsp: ");
+                curatedGadgets.Add("decEsp: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEsp)
+                {
+                    if (k.Value.Contains("dec esp") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("incEsi: ");
+                curatedGadgets.Add("incEsi: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEsi)
+                {
+                    if (k.Value.Contains("inc esi") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("decEsi: ");
+                curatedGadgets.Add("decEsi: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEsi)
+                {
+                    if (k.Value.Contains("dec esi") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("incEdi: ");
+                curatedGadgets.Add("incEdi: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.incEdi)
+                {
+                    if (k.Value.Contains("inc edi") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("decEdi: ");
+                curatedGadgets.Add("decEdi: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.decEdi)
+                {
+                    if (k.Value.Contains("dec edi") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("Add: ");
+                curatedGadgets.Add("Add: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.add)
+                {
+                    if (k.Value.Contains("add") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("Sub: ");
+                curatedGadgets.Add("Sub: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.sub)
+                {
+                    if (k.Value.Contains("sub") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
+                totalGadgets.Add("Mov: ");
+                curatedGadgets.Add("Mov: ");
+                foreach (KeyValuePair<IntPtr, string> k in rcg.x86Opcodes.mov)
+                {
+                    if (k.Value.Contains("mov") && k.Value.Contains("ret"))
+                    {
+                        totalGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        if (!k.Value.Any(char.IsDigit))
+                        {
+                            curatedGadgets.Add("0x" + k.Key.ToString("X8") + " | " + k.Value);
+                        }
+                    }
+                }
             }
+            File.WriteAllLines(totalGadgetsPath, totalGadgets);
+            File.WriteAllLines(curatedGadgetsPath, curatedGadgets);
+
+
+            List<string> ropChain = new List<string>();
+            foreach(Tuple<byte[], string> k in rcg.VirtualAllocChain)
+            {
+                ropChain.Add(BitConverter.ToString(k.Item1).Replace("-", "\\x") + " | " + k.Item2);
+            }
+            File.WriteAllLines(ropChainPath, ropChain);
+ 
             return totalGadgets;
         }
 
