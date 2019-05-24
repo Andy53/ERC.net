@@ -42,7 +42,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <NativeLibs Remove="RopChainGenerator.cs" />
+    <NativeLibs Remove="RopChainGenerator32.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeLibs Remove="RopChainGenerator64.cs" />
   </ItemGroup>
 
 </Project>

@@ -347,7 +347,7 @@ namespace ERC
                         long index = 0;
                         do
                         {
-                            byte[] buffer1Partial = new byte[buffer.Length - pos];
+                           byte[] buffer1Partial = new byte[buffer.Length - pos];
                             Array.Copy(buffer, pos, buffer1Partial, 0, buffer.Length - pos);
                             index = ByteIndexOf(buffer1Partial, searchBytes);
 
