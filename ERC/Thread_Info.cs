@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace ERC
 {
@@ -344,7 +346,7 @@ namespace ERC
             ErcResult<List<byte[]>> sehList = new ErcResult<List<byte[]>>(ThreadCore);
             sehList.ReturnValue = new List<byte[]>();
 
-            if(Teb.Equals(default(TEB)))
+            if (Teb.Equals(default(TEB)))
             {
                 sehList.Error = new Exception("Error: TEB structure for this thread has not yet been populated. Call PopulateTEB first");
                 return sehList;
@@ -380,9 +382,13 @@ namespace ERC
                 sehFinal[i] = 0xFF;
             }
 
+            byte[] prevSEH = new byte[] { 0xFF };
+            string pattern_standard = File.ReadAllText(ThreadCore.PatternStandardPath);
+            string pattern_extended = File.ReadAllText(ThreadCore.PatternExtendedPath);
             while (!sehEntry.SequenceEqual(sehFinal))
             {
                 byte[] reversedSehEntry = new byte[arraySize];
+                
                 int ret = 0;
 
                 if(X64 == MachineType.x64)
@@ -409,15 +415,58 @@ namespace ERC
                 {
                     reversedSehEntry[i] = sehEntry[i];
                 }
-                Array.Reverse(reversedSehEntry, 0, reversedSehEntry.Length);
 
-                if (!sehEntry.SequenceEqual(sehFinal))
+                Array.Reverse(reversedSehEntry, 0, reversedSehEntry.Length);
+                if (prevSEH.SequenceEqual(reversedSehEntry))
+                {
+                    sehEntry = new byte[sehFinal.Length];
+                    Array.Copy(sehFinal, 0, sehEntry, 0, sehFinal.Length);
+                }
+                else if (!sehEntry.SequenceEqual(sehFinal) && !sehList.ReturnValue.Contains(reversedSehEntry))
                 {
                     sehList.ReturnValue.Add(reversedSehEntry);
                 }
-            }
-            SehChain = new List<byte[]>(sehList.ReturnValue);
 
+                if (pattern_standard.Contains(Encoding.Unicode.GetString(reversedSehEntry)) ||
+                    pattern_extended.Contains(Encoding.Unicode.GetString(reversedSehEntry)))
+                {
+                    sehEntry = new byte[sehFinal.Length];
+                    Array.Copy(sehFinal, 0, sehEntry, 0, sehFinal.Length);
+                }
+
+                if (pattern_standard.Contains(Encoding.ASCII.GetString(reversedSehEntry)) ||
+                    pattern_extended.Contains(Encoding.ASCII.GetString(reversedSehEntry)))
+                {
+                    sehEntry = new byte[sehFinal.Length];
+                    Array.Copy(sehFinal, 0, sehEntry, 0, sehFinal.Length);
+                }
+
+                if (pattern_standard.Contains(Encoding.UTF32.GetString(reversedSehEntry)) ||
+                    pattern_extended.Contains(Encoding.UTF32.GetString(reversedSehEntry)))
+                {
+                    sehEntry = new byte[sehFinal.Length];
+                    Array.Copy(sehFinal, 0, sehEntry, 0, sehFinal.Length);
+                }
+
+                if (pattern_standard.Contains(Encoding.UTF7.GetString(reversedSehEntry)) ||
+                    pattern_extended.Contains(Encoding.UTF7.GetString(reversedSehEntry)))
+                {
+                    sehEntry = new byte[sehFinal.Length];
+                    Array.Copy(sehFinal, 0, sehEntry, 0, sehFinal.Length);
+                }
+
+                if (pattern_standard.Contains(Encoding.UTF8.GetString(reversedSehEntry)) ||
+                    pattern_extended.Contains(Encoding.UTF8.GetString(reversedSehEntry)))
+                {
+                    sehEntry = new byte[sehFinal.Length];
+                    Array.Copy(sehFinal, 0, sehEntry, 0, sehFinal.Length);
+                }
+
+                prevSEH = new byte[reversedSehEntry.Length];
+                Array.Copy(reversedSehEntry, 0, prevSEH, 0, reversedSehEntry.Length);
+            }
+
+            SehChain = new List<byte[]>(sehList.ReturnValue.ToList());
             return sehList;
         }
         #endregion

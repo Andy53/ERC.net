@@ -427,6 +427,15 @@ namespace ERC
         #endregion
 
         #endregion
+
+        #region X64toX32PointerModifier
+        internal static byte[] X64toX32PointerModifier(byte[] ptr64)
+        {
+            byte[] ptr32 = new byte[4];
+            Array.Copy(ptr64, 0, ptr32, 0, 4);
+            return ptr32;
+        }
+        #endregion
     }
     #endregion
 
@@ -493,8 +502,6 @@ namespace ERC
         x64 = 0x8664,
         [Description("Error")]
         error = -1
-        
-
     }
 
     namespace Structures

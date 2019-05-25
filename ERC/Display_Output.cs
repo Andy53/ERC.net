@@ -10,7 +10,6 @@ namespace ERC
 {
     public static class DisplayOutput
     {
-        #region Display_Output_Functions
 
         #region GetFilePath
         /// <summary>
@@ -399,6 +398,7 @@ namespace ERC
                     && !fnrp.ReturnValue[i].Register.Contains("SEH"))
                 {
                     registerInfoText += "Register " + fnrp.ReturnValue[i].Register + " points into pattern at position " + fnrp.ReturnValue[i].StringOffset;
+                    output.Add(registerInfoText);
                 }
                 else if (fnrp.ReturnValue[i].StringOffset > 0 && fnrp.ReturnValue[i].Register.Contains("SP"))
                 {
@@ -407,29 +407,35 @@ namespace ERC
                     {
                         registerInfoText += " at " + fnrp.ReturnValue[i].Register + " +" + fnrp.ReturnValue[i].RegisterOffset + " length of pattern found is " +
                             fnrp.ReturnValue[i].BufferSize + " characters";
+                        output.Add(registerInfoText);
                     }
                     else
                     {
                         registerInfoText += " length of pattern found is " + fnrp.ReturnValue[i].BufferSize + " characters";
+                        output.Add(registerInfoText);
                     }
                 }
                 else if (fnrp.ReturnValue[i].StringOffset > 0 && fnrp.ReturnValue[i].Register.Contains("IP"))
                 {
-                    registerInfoText += "Register " + fnrp.ReturnValue[i].Register + "is overwritten with pattern at position " + fnrp.ReturnValue[i].StringOffset;
+                    registerInfoText += "Register " + fnrp.ReturnValue[i].Register + " is overwritten with pattern at position " + fnrp.ReturnValue[i].StringOffset;
+                    output.Add(registerInfoText);
                 }
                 else if (fnrp.ReturnValue[i].StringOffset > 0 && fnrp.ReturnValue[i].Register.Contains("SEH"))
                 {
                     registerInfoText += "SEH register overwritten at pattern position " + fnrp.ReturnValue[i].StringOffset;
+                    output.Add(registerInfoText);
                 }
-                output.Add(registerInfoText);
+                if (fnrp.ReturnValue[i].Register.Contains("SEH"))
+                {
+                    Console.WriteLine("In seh if");
+                }
             }
             File.WriteAllLines(fnrpFilename, output);
             return output;
         }
         #endregion
 
-        #endregion
-
+        #region RopChainGadgets
         public static List<string> RopChainGadgets(RopChainGenerator rcg, ProcessInfo info)
         {
             string output = "";
@@ -1040,6 +1046,6 @@ namespace ERC
  
             return totalGadgets;
         }
-
+        #endregion
     }
 }
