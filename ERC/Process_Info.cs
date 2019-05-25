@@ -279,7 +279,6 @@ namespace ERC
             {
                 throw new ERCException("Machine type is invalid");
             }
-            Console.WriteLine("Here LoacteMemoryRegions");
         }
         #endregion
 
@@ -825,41 +824,38 @@ namespace ERC
                             {
                                 if (memoryString.Contains(nrps[k]))
                                 {
-                                    if(length == 0)
-                                    {
-                                        registers[i].StringOffset = pattern.IndexOf(nrps[k]);
+                                    registers[i].StringOffset = pattern.IndexOf(nrps[k]);
 
-                                        //Check to see if previous characters match
-                                        int index = memoryString.IndexOf(nrps[k]);
-                                        registers[i].RegisterOffset = index;
-                                        if (index >= 2)
+                                    //Check to see if previous characters match
+                                    int index = memoryString.IndexOf(nrps[k]);
+                                    registers[i].RegisterOffset = index;
+                                    if (index >= 2)
+                                    {
+                                        char pos3 = memoryString[index - 1];
+                                        char pos2 = memoryString[index - 2];
+                                        char pos1 = memoryString[index - 3];
+                                        if (k > 0 && nrps[k - 1][2] == pos3)
                                         {
-                                            char pos3 = memoryString[index - 1];
-                                            char pos2 = memoryString[index - 2];
-                                            char pos1 = memoryString[index - 3];
-                                            if (k > 0 && nrps[k - 1][2] == pos3)
+                                            registers[i].StringOffset--;
+                                            registers[i].RegisterOffset--;
+                                            if (nrps[k - 1][1] == pos2)
                                             {
                                                 registers[i].StringOffset--;
                                                 registers[i].RegisterOffset--;
-                                                if (nrps[k - 1][1] == pos2)
+                                                if (nrps[k - 1][0] == pos1)
                                                 {
                                                     registers[i].StringOffset--;
                                                     registers[i].RegisterOffset--;
-                                                    if (nrps[k - 1][0] == pos1)
-                                                    {
-                                                        registers[i].StringOffset--;
-                                                        registers[i].RegisterOffset--;
-                                                    }
                                                 }
                                             }
                                         }
-                                        else if (index == 1)
+                                    }
+                                    else if (index == 1)
+                                    {
+                                        char pos3 = memoryString[index - 1];
+                                        if (nrps[k - 1][2] == pos3 && k > 0)
                                         {
-                                            char pos3 = memoryString[index - 1];
-                                            if (nrps[k - 1][2] == pos3 && k > 0)
-                                            {
-                                                registers[i].RegisterOffset--;
-                                            }
+                                            registers[i].RegisterOffset--;
                                         }
                                     }
                                     length += 3;
@@ -871,33 +867,34 @@ namespace ERC
                                 }
                             }
                         }
-                        else if (registers[i].Register != "EIP")
+                        else if (registers[i].Register == "EIP")
                         {
                             string EIPValue = "";
                             switch (searchType)
                             {
                                 case 0:
-                                    EIPValue = Encoding.Default.GetString(BitConverter.GetBytes((ulong)registers[i].RegisterValue));
+                                    EIPValue = Encoding.Default.GetString(BitConverter.GetBytes((uint)registers[i].RegisterValue));
                                     break;
                                 case 1:
-                                    EIPValue = Encoding.Unicode.GetString(BitConverter.GetBytes((ulong)registers[i].RegisterValue));
+                                    EIPValue = Encoding.Unicode.GetString(BitConverter.GetBytes((uint)registers[i].RegisterValue));
                                     break;
                                 case 2:
-                                    EIPValue = Encoding.ASCII.GetString(BitConverter.GetBytes((ulong)registers[i].RegisterValue));
+                                    EIPValue = Encoding.ASCII.GetString(BitConverter.GetBytes((uint)registers[i].RegisterValue));
                                     break;
                                 case 3:
-                                    EIPValue = Encoding.UTF8.GetString(BitConverter.GetBytes((ulong)registers[i].RegisterValue));
+                                    EIPValue = Encoding.UTF8.GetString(BitConverter.GetBytes((uint)registers[i].RegisterValue));
                                     break;
                                 case 4:
-                                    EIPValue = Encoding.UTF7.GetString(BitConverter.GetBytes((ulong)registers[i].RegisterValue));
+                                    EIPValue = Encoding.UTF7.GetString(BitConverter.GetBytes((uint)registers[i].RegisterValue));
                                     break;
                                 case 5:
-                                    EIPValue = Encoding.UTF32.GetString(BitConverter.GetBytes((ulong)registers[i].RegisterValue));
+                                    EIPValue = Encoding.UTF32.GetString(BitConverter.GetBytes((uint)registers[i].RegisterValue));
                                     break;
                                 default:
-                                    EIPValue = Encoding.Default.GetString(BitConverter.GetBytes((ulong)registers[i].RegisterValue));
+                                    EIPValue = Encoding.Default.GetString(BitConverter.GetBytes((uint)registers[i].RegisterValue));
                                     break;
                             }
+                            EIPValue = EIPValue.TrimEnd(null);
                             if (pattern.Contains(EIPValue))
                             {
                                 registers[i].StringOffset = pattern.IndexOf(EIPValue);
@@ -917,13 +914,41 @@ namespace ERC
                             {
                                 for (int j = 0; j < sehChain.ReturnValue.Count; j++)
                                 {
+                                    string SEHValue = "";
+                                    switch (searchType)
+                                    {
+                                        case 0:
+                                            SEHValue = Encoding.Default.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                        case 1:
+                                            SEHValue = Encoding.Unicode.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                        case 2:
+                                            SEHValue = Encoding.ASCII.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                        case 3:
+                                            SEHValue = Encoding.UTF8.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                        case 4:
+                                            SEHValue = Encoding.UTF7.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                        case 5:
+                                            SEHValue = Encoding.UTF32.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                        default:
+                                            SEHValue = Encoding.Default.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                    }
+                                    char[] sehArray = SEHValue.ToCharArray();
+                                    Array.Reverse(sehArray);
+                                    SEHValue = new string(sehArray);
                                     RegisterInfo SEH = new RegisterInfo();
-                                    if (pattern.Contains(BitConverter.ToString(sehChain.ReturnValue[j])))
+                                    if (pattern.Contains(SEHValue))
                                     {
                                         SEH.Register = "SEH" + i.ToString();
-                                        SEH.StringOffset = pattern.IndexOf(BitConverter.ToString(sehChain.ReturnValue[j]));
+                                        SEH.StringOffset = pattern.IndexOf(SEHValue);
                                         SEH.ThreadID = ThreadsInfo[i].ThreadID;
-                                        SEH.RegisterValue = (IntPtr)BitConverter.ToInt64(sehChain.ReturnValue[j], 0);
+                                        SEH.RegisterValue = (IntPtr)BitConverter.ToInt32(sehChain.ReturnValue[j], 0);
                                         registers.Add(SEH);
                                     }
                                 }
@@ -1142,6 +1167,9 @@ namespace ERC
                                     RIPValue = Encoding.Default.GetString(BitConverter.GetBytes((ulong)registers[i].RegisterValue));
                                     break;
                             }
+                            char[] ripArray = RIPValue.ToCharArray();
+                            Array.Reverse(ripArray);
+                            RIPValue = new string(ripArray);
                             if (pattern.Contains(RIPValue))
                             {
                                 registers[i].StringOffset = pattern.IndexOf(RIPValue);
@@ -1161,11 +1189,39 @@ namespace ERC
                             {
                                 for(int j = 0; j < sehChain.ReturnValue.Count; j++)
                                 {
+                                    string SEHValue = "";
+                                    switch (searchType)
+                                    {
+                                        case 0:
+                                            SEHValue = Encoding.Default.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                        case 1:
+                                            SEHValue = Encoding.Unicode.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                        case 2:
+                                            SEHValue = Encoding.ASCII.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                        case 3:
+                                            SEHValue = Encoding.UTF8.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                        case 4:
+                                            SEHValue = Encoding.UTF7.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                        case 5:
+                                            SEHValue = Encoding.UTF32.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                        default:
+                                            SEHValue = Encoding.Default.GetString(sehChain.ReturnValue[j]);
+                                            break;
+                                    }
+                                    char[] sehArray = SEHValue.ToCharArray();
+                                    Array.Reverse(sehArray);
+                                    SEHValue = new string(sehArray);
                                     RegisterInfo SEH = new RegisterInfo();
-                                    if (pattern.Contains(BitConverter.ToString(sehChain.ReturnValue[j])))
+                                    if (pattern.Contains(SEHValue))
                                     {
                                         SEH.Register = "SEH" + i.ToString();
-                                        SEH.StringOffset = pattern.IndexOf(BitConverter.ToString(sehChain.ReturnValue[j]));
+                                        SEH.StringOffset = pattern.IndexOf(SEHValue);
                                         SEH.ThreadID = ThreadsInfo[i].ThreadID;
                                         SEH.RegisterValue = (IntPtr)BitConverter.ToInt64(sehChain.ReturnValue[j], 0);
                                         registers.Add(SEH);

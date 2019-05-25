@@ -15,9 +15,9 @@ namespace ERC_test_app
         {
             core.SetWorkingDirectory(@"C:\Users\Andy\Desktop\");/*
             Console.WriteLine("create a pattern 1000 characters long: ");
-            create_a_pattern();
+            create_a_pattern();*/
             Console.WriteLine("Find offset in pattern (Ag9):");
-            find_pattern_offset();
+            find_pattern_offset();/*
             Console.WriteLine("List all local processes: ");
             List_All_Local_Processes();
             Console.WriteLine("Search Process Memory (notepad): ");
@@ -36,23 +36,25 @@ namespace ERC_test_app
             Find_SEH();
             Console.WriteLine("Generating egg hunters:");
             egghunters();
+            Console.WriteLine("Get SEH chain for thread 0:");
+            GetSehChain();*/
             Console.WriteLine("Searching for Non repeating pattern");
-            FindNRP();*/
+            FindNRP();/*
             Console.WriteLine("Generate RopChain 32");
-            GenerateRopChain();
+            GenerateRopChain();*/
             Console.ReadKey();
         }
 
         public static void create_a_pattern()
         {
-            var result = ERC.Utilities.PatternTools.PatternCreate(4000, core);
+            var result = ERC.Utilities.PatternTools.PatternCreate(1000, core);
             Console.WriteLine(result.ReturnValue);
             Console.WriteLine(Environment.NewLine);
         }
 
         public static void find_pattern_offset()
         {
-            var result = ERC.Utilities.PatternTools.PatternOffset("Ag9", core);
+            var result = ERC.Utilities.PatternTools.PatternOffset("i2Ai", core);
             Console.WriteLine(result.ReturnValue);
             Console.WriteLine(Environment.NewLine);
         }
@@ -157,7 +159,7 @@ namespace ERC_test_app
             
         }
 
-        public static void Find_SEH()
+        public static void Find_SEH_Jump()
         {
             //ensure notepad is open before running this function.
             Process[] processes = Process.GetProcesses();
@@ -184,6 +186,25 @@ namespace ERC_test_app
             Console.WriteLine(eggs);
         }
 
+        public static void GetSehChain()
+        {
+            Process[] processes = Process.GetProcesses();
+            Process thisProcess = null;
+            foreach (Process process1 in processes)
+            {
+                if (process1.ProcessName.Contains("KMFtp"))//"Kolibri"))//"notepad"))//
+                {
+                    thisProcess = process1;
+                }
+            }
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            var test = info.ThreadsInfo[0].GetSehChain();
+            foreach(IntPtr i in test)
+            {
+                Console.WriteLine("Ptr: {0}", i.ToString("X8"));
+            }
+        }
+
         public static void FindNRP()
         {
             //ensure notepad is open before running this function.
@@ -191,13 +212,22 @@ namespace ERC_test_app
             Process thisProcess = null;
             foreach (Process process1 in processes)
             {
-                if (process1.ProcessName.Contains("notepad"))//"Kolibri"))//"x64dbg"))//
+                if (process1.ProcessName.Contains("FTPServer"))//"Kolibri"))//"notepad"))//"KMFtp"))//
                 {
                     thisProcess = process1;
                 }
             }
             ProcessInfo info = new ProcessInfo(core, thisProcess);
-            info.FindNRP();
+            var test = info.FindNRP();
+            if(test.Error != null)
+            {
+                Console.WriteLine(test.Error);
+            }
+            var strings = DisplayOutput.GenerateFindNRPTable(info, 2, false);
+            foreach(string s in strings)
+            {
+                Console.WriteLine(s);
+            }
         }
 
         public static void GenerateRopChain()
