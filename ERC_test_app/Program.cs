@@ -15,9 +15,9 @@ namespace ERC_test_app
         {
             core.SetWorkingDirectory(@"C:\Users\Andy\Desktop\");/*
             Console.WriteLine("create a pattern 1000 characters long: ");
-            create_a_pattern();*/
+            create_a_pattern();
             Console.WriteLine("Find offset in pattern (Ag9):");
-            find_pattern_offset();/*
+            find_pattern_offset();
             Console.WriteLine("List all local processes: ");
             List_All_Local_Processes();
             Console.WriteLine("Search Process Memory (notepad): ");
@@ -37,11 +37,13 @@ namespace ERC_test_app
             Console.WriteLine("Generating egg hunters:");
             egghunters();
             Console.WriteLine("Get SEH chain for thread 0:");
-            GetSehChain();*/
+            GetSehChain();
             Console.WriteLine("Searching for Non repeating pattern");
-            FindNRP();/*
+            FindNRP();
             Console.WriteLine("Generate RopChain 32");
-            GenerateRopChain();*/
+            GenerateRopChain32();*/
+            Console.WriteLine("Generate RopChain 64");
+            GenerateRopChain64(); 
             Console.ReadKey();
         }
 
@@ -93,13 +95,13 @@ namespace ERC_test_app
         public static void assembling_opcodes()
         {
             List<string> instructions = new List<string>();
-            instructions.Add("add eax, [ eax + 9 ]");
+            instructions.Add("ret");
 
             foreach (string s in instructions)
             {
                 List<string> strings = new List<string>();
                 strings.Add(s);
-                var asmResult = ERC.Utilities.OpcodeAssembler.AssembleOpcodes(strings, MachineType.I386);
+                var asmResult = ERC.Utilities.OpcodeAssembler.AssembleOpcodes(strings, MachineType.x64);
                 Console.WriteLine(s + " = " + BitConverter.ToString(asmResult.ReturnValue).Replace("-", ""));
             }
             
@@ -107,7 +109,7 @@ namespace ERC_test_app
 
         public static void disassemble_opcodes()
         {
-            byte[] opcodes = new byte[] { 0x60, 0xFF, 0xE4, 0x48, 0x31, 0xC0, 0x55, 0xC3 };
+            byte[] opcodes = new byte[] { 0xC4 };
             var result = ERC.Utilities.OpcodeDisassembler.Disassemble(opcodes, MachineType.x64);
             Console.WriteLine(result.ReturnValue + Environment.NewLine);
         }
@@ -230,21 +232,39 @@ namespace ERC_test_app
             }
         }
 
-        public static void GenerateRopChain()
+        public static void GenerateRopChain32()
         {
             //ensure notepad is open before running this function.
             Process[] processes = Process.GetProcesses();
             Process thisProcess = null;
             foreach (Process process1 in processes)
             {
-                if (process1.ProcessName.Contains("Kolibri"))//"x64dbg"))//"notepad"))//
+                if (process1.ProcessName.Contains("calculator"))//""Kolibri"))//"x64dbg"))//"notepad"))//
                 {
                     thisProcess = process1;
                 }
             }
             ProcessInfo info = new ProcessInfo(core, thisProcess);
-            RopChainGenerator RCG = new RopChainGenerator(info);
-            RCG.GenerateRopChain32(IntPtr.Zero, 1000);
+            RopChainGenerator32 RCG = new RopChainGenerator32(info);
+            RCG.GenerateRopChain32();
+        }
+
+        public static void GenerateRopChain64()
+        {
+            //ensure notepad is open before running this function.
+            Process[] processes = Process.GetProcesses();
+            Process thisProcess = null;
+            foreach (Process process1 in processes)
+            {
+                if (process1.ProcessName.Contains("notepad"))//"Calculator"))//"Kolibri"))//"x64dbg"))//
+                {
+                    thisProcess = process1;
+                }
+            }
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            RopChainGenerator64 RCG = new RopChainGenerator64(info);
+            RCG.GenerateRopChain64();
+            Console.WriteLine("Function Complete");
         }
     }
 }
