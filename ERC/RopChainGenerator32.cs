@@ -135,6 +135,99 @@ namespace ERC.Utilities
         #endregion
 
         #region GenerateRopChain32
+        /// <summary>
+        /// Creates a RopChain for a specific process.
+        /// </summary>
+        /// <param name="ptrsToExclude">Takes a byte array of values used to disqualify ROP gadgets</param>
+        /// <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
+        /// <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+        /// <returns>Returns an ErcResult string containing</returns>
+        public ErcResult<string> GenerateRopChain32(byte[] ptrsToExclude, byte[] startAddress = null, List<string> excludes = null)
+        {
+            ErcResult<string> RopChain = new ErcResult<string>(info.ProcessCore);
+            x86Opcodes = new X86Lists();
+
+            var ret1 = GetApiAddresses(info);
+            if (ret1.Error != null && ApiAddresses.Count <= 0)
+            {
+                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                failed.ReturnValue = "An error has occured, check log file for more details.";
+                failed.Error = ret1.Error;
+                return failed;
+            }
+
+            var ret2 = GetRopNops(info, excludes);
+            if (ret1.Error != null && RopNops.Count <= 0)
+            {
+                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                failed.ReturnValue = "An error has occured, check log file for more details.";
+                failed.Error = ret1.Error;
+                return failed;
+            }
+
+            var ret3 = PopulateOpcodes(info);
+            optimiseLists(info);
+            usableX86Opcodes.pushEax = PtrRemover.RemovePointers(usableX86Opcodes.pushEax, ptrsToExclude);
+            usableX86Opcodes.pushEbx = PtrRemover.RemovePointers(usableX86Opcodes.pushEbx, ptrsToExclude);
+            usableX86Opcodes.pushEcx = PtrRemover.RemovePointers(usableX86Opcodes.pushEcx, ptrsToExclude);
+            usableX86Opcodes.pushEdx = PtrRemover.RemovePointers(usableX86Opcodes.pushEdx, ptrsToExclude);
+            usableX86Opcodes.pushEsp = PtrRemover.RemovePointers(usableX86Opcodes.pushEsp, ptrsToExclude);
+            usableX86Opcodes.pushEbp = PtrRemover.RemovePointers(usableX86Opcodes.pushEbp, ptrsToExclude);
+            usableX86Opcodes.pushEsi = PtrRemover.RemovePointers(usableX86Opcodes.pushEsi, ptrsToExclude);
+            usableX86Opcodes.pushEdi = PtrRemover.RemovePointers(usableX86Opcodes.pushEdi, ptrsToExclude);
+            usableX86Opcodes.jmpEsp = PtrRemover.RemovePointers(usableX86Opcodes.jmpEsp, ptrsToExclude);
+            usableX86Opcodes.callEsp = PtrRemover.RemovePointers(usableX86Opcodes.callEsp, ptrsToExclude);
+            usableX86Opcodes.xorEax = PtrRemover.RemovePointers(usableX86Opcodes.xorEax, ptrsToExclude);
+            usableX86Opcodes.xorEbx = PtrRemover.RemovePointers(usableX86Opcodes.xorEbx, ptrsToExclude);
+            usableX86Opcodes.xorEcx = PtrRemover.RemovePointers(usableX86Opcodes.xorEcx, ptrsToExclude);
+            usableX86Opcodes.xorEdx = PtrRemover.RemovePointers(usableX86Opcodes.xorEdx, ptrsToExclude);
+            usableX86Opcodes.xorEsi = PtrRemover.RemovePointers(usableX86Opcodes.xorEsi, ptrsToExclude);
+            usableX86Opcodes.xorEdi = PtrRemover.RemovePointers(usableX86Opcodes.xorEdi, ptrsToExclude);
+            usableX86Opcodes.popEax = PtrRemover.RemovePointers(usableX86Opcodes.popEax, ptrsToExclude);
+            usableX86Opcodes.popEbx = PtrRemover.RemovePointers(usableX86Opcodes.popEbx, ptrsToExclude);
+            usableX86Opcodes.popEcx = PtrRemover.RemovePointers(usableX86Opcodes.popEcx, ptrsToExclude);
+            usableX86Opcodes.popEdx = PtrRemover.RemovePointers(usableX86Opcodes.popEdx, ptrsToExclude);
+            usableX86Opcodes.popEsp = PtrRemover.RemovePointers(usableX86Opcodes.popEsp, ptrsToExclude);
+            usableX86Opcodes.popEbp = PtrRemover.RemovePointers(usableX86Opcodes.popEbp, ptrsToExclude);
+            usableX86Opcodes.popEsi = PtrRemover.RemovePointers(usableX86Opcodes.popEsi, ptrsToExclude);
+            usableX86Opcodes.popEdi = PtrRemover.RemovePointers(usableX86Opcodes.popEdi, ptrsToExclude);
+            usableX86Opcodes.pushad = PtrRemover.RemovePointers(usableX86Opcodes.pushad, ptrsToExclude);
+            usableX86Opcodes.incEax = PtrRemover.RemovePointers(usableX86Opcodes.incEax, ptrsToExclude);
+            usableX86Opcodes.incEbx = PtrRemover.RemovePointers(usableX86Opcodes.incEbx, ptrsToExclude);
+            usableX86Opcodes.incEcx = PtrRemover.RemovePointers(usableX86Opcodes.incEcx, ptrsToExclude);
+            usableX86Opcodes.incEdx = PtrRemover.RemovePointers(usableX86Opcodes.incEdx, ptrsToExclude);
+            usableX86Opcodes.incEbp = PtrRemover.RemovePointers(usableX86Opcodes.incEbp, ptrsToExclude);
+            usableX86Opcodes.incEsp = PtrRemover.RemovePointers(usableX86Opcodes.incEsp, ptrsToExclude);
+            usableX86Opcodes.incEsi = PtrRemover.RemovePointers(usableX86Opcodes.incEsi, ptrsToExclude);
+            usableX86Opcodes.incEdi = PtrRemover.RemovePointers(usableX86Opcodes.incEdi, ptrsToExclude);
+            usableX86Opcodes.decEax = PtrRemover.RemovePointers(usableX86Opcodes.decEax, ptrsToExclude);
+            usableX86Opcodes.decEbx = PtrRemover.RemovePointers(usableX86Opcodes.decEbx, ptrsToExclude);
+            usableX86Opcodes.decEcx = PtrRemover.RemovePointers(usableX86Opcodes.decEcx, ptrsToExclude);
+            usableX86Opcodes.decEdx = PtrRemover.RemovePointers(usableX86Opcodes.decEdx, ptrsToExclude);
+            usableX86Opcodes.decEbp = PtrRemover.RemovePointers(usableX86Opcodes.decEbp, ptrsToExclude);
+            usableX86Opcodes.decEsp = PtrRemover.RemovePointers(usableX86Opcodes.decEsp, ptrsToExclude);
+            usableX86Opcodes.decEsi = PtrRemover.RemovePointers(usableX86Opcodes.decEsi, ptrsToExclude);
+            usableX86Opcodes.decEdi = PtrRemover.RemovePointers(usableX86Opcodes.decEdi, ptrsToExclude);
+            usableX86Opcodes.add = PtrRemover.RemovePointers(usableX86Opcodes.add, ptrsToExclude);
+            usableX86Opcodes.sub = PtrRemover.RemovePointers(usableX86Opcodes.sub, ptrsToExclude);
+            usableX86Opcodes.mov = PtrRemover.RemovePointers(usableX86Opcodes.mov, ptrsToExclude);
+            usableX86Opcodes.and = PtrRemover.RemovePointers(usableX86Opcodes.and, ptrsToExclude);
+
+            var chain = GenerateVirtualAllocChain32(info, startAddress);
+            if(chain.Error == null)
+            {
+                VirtualAllocChain = chain.ReturnValue;
+            }
+            DisplayOutput.RopChainGadgets32(this, info);
+            return RopChain;
+        }
+
+        /// <summary>
+        /// Creates a RopChain for a specific process.
+        /// </summary>
+        /// <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
+        /// <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+        /// <returns>Returns an ErcResult string containing</returns>
         public ErcResult<string> GenerateRopChain32(byte[] startAddress = null, List<string> excludes = null)
         {
             ErcResult<string> RopChain = new ErcResult<string>(info.ProcessCore);
@@ -160,9 +253,9 @@ namespace ERC.Utilities
 
             var ret3 = PopulateOpcodes(info);
             optimiseLists(info);
-            
+
             var chain = GenerateVirtualAllocChain32(info, startAddress);
-            if(chain.Error == null)
+            if (chain.Error == null)
             {
                 VirtualAllocChain = chain.ReturnValue;
             }
@@ -249,7 +342,7 @@ namespace ERC.Utilities
             ErcResult<List<IntPtr>> ropNopsResult = new ErcResult<List<IntPtr>>(info.ProcessCore);
             ropNopsResult.ReturnValue = new List<IntPtr>();
             byte[] ropNop = new byte[] { 0xC3 };
-            var ropPtrs = info.SearchMemory(0, ropNop, excludes: excludes);
+            var ropPtrs = info.SearchMemory(0, searchBytes: ropNop, excludes: excludes);
             if (ropPtrs.Error != null)
             {
                 ropNopsResult.Error = ropPtrs.Error;
@@ -267,7 +360,7 @@ namespace ERC.Utilities
             ErcResult<List<IntPtr>> ropNopsResult = new ErcResult<List<IntPtr>>(info.ProcessCore);
             ropNopsResult.ReturnValue = new List<IntPtr>();
             byte[] ropNop = new byte[] { 0xC3 };
-            var ropPtrs = info.SearchMemory(0, ropNop);
+            var ropPtrs = info.SearchMemory(0, searchBytes: ropNop);
             if (ropPtrs.Error != null)
             {
                 ropNopsResult.Error = ropPtrs.Error;

@@ -263,6 +263,20 @@ namespace ERC.Utilities
         }
         #endregion
 
-        
+        #region Byte Array Compare
+        public static Tuple<bool, byte[], byte[]> ByteCompare(ProcessInfo info, IntPtr startAddress, byte[] bytes)
+        {
+            byte[] memoryBytes = new byte[bytes.Length];
+            ErcCore.ReadProcessMemory(info.ProcessHandle, startAddress, bytes, bytes.Length, out int bytesRead);
+            for(int i = 0; i < bytes.Length; i++)
+            {
+                if(bytes[i] != memoryBytes[i])
+                {
+                    return Tuple.Create(false, bytes, memoryBytes);
+                }
+            }
+            return Tuple.Create(true, bytes, memoryBytes);
+        }
+        #endregion
     }
 }
