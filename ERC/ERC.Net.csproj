@@ -49,4 +49,8 @@
     <NativeLibs Remove="RopChainGenerator64.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <NativeLibs Remove="PtrRemover.cs" />
+  </ItemGroup>
+
 </Project>

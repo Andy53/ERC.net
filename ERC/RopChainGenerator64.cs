@@ -224,48 +224,129 @@ namespace ERC.Utilities
         }
         #endregion
 
-        public ErcResult<string> GenerateRopChain64(byte[] startAddress = null, List<string> excludes = null)
+        #region GenerateRopChain64
+        /// <summary>
+        /// Creates a RopChain for a specific process.
+        /// </summary>
+        /// <param name="ptrsToExclude">Takes a byte array of values used to disqualify ROP gadgets</param>
+        /// <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
+        /// <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+        /// <returns>Returns an ErcResult string containing</returns>
+        public ErcResult<string> GenerateRopChain64(byte[] ptrsToExclude, byte[] startAddress = null, List<string> excludes = null)
         {
             ErcResult<string> RopChain = new ErcResult<string>(info.ProcessCore);
             x64Opcodes = new X64Lists();
 
-            Console.WriteLine("Getting API addresses...");
             var ret1 = GetApiAddresses(info);
             if (ret1.Error != null && ApiAddresses.Count <= 0)
             {
                 ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
-                Console.WriteLine("failed 1");
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret1.Error;
-                return failed;
             }
-            Console.WriteLine("Getting API addresses complete!");
 
-            Console.WriteLine("Getting RopNop addresses...");
             var ret2 = GetRopNops(info, excludes);
             if (ret2.Error != null && RopNops.Count <= 0)
             {
                 ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
-                Console.WriteLine("failed 2");
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret2.Error;
-                return failed;
             }
-            Console.WriteLine("Getting RopNop addresses complete!");
 
-            Console.WriteLine("Populating opcodes...");
             var ret3 = PopulateOpcodes(info);
             if (ret3.Error != null)
             {
                 ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
-                Console.WriteLine("failed 3");
                 failed.Error = ret3.Error;
-                //return failed;
             }
-            Console.WriteLine("Populating opcodes complete!");
 
             OptimiseLists(info);
+            usableX64Opcodes.pushRax = PtrRemover.RemovePointers(usableX64Opcodes.pushRax, ptrsToExclude);
+            usableX64Opcodes.pushRcx = PtrRemover.RemovePointers(usableX64Opcodes.pushRcx, ptrsToExclude);
+            usableX64Opcodes.pushRdx = PtrRemover.RemovePointers(usableX64Opcodes.pushRdx, ptrsToExclude);
+            usableX64Opcodes.pushRbx = PtrRemover.RemovePointers(usableX64Opcodes.pushRbx, ptrsToExclude);
+            usableX64Opcodes.pushRsp = PtrRemover.RemovePointers(usableX64Opcodes.pushRsp, ptrsToExclude);
+            usableX64Opcodes.pushRbp = PtrRemover.RemovePointers(usableX64Opcodes.pushRbp, ptrsToExclude);
+            usableX64Opcodes.pushRsi = PtrRemover.RemovePointers(usableX64Opcodes.pushRsi, ptrsToExclude);
+            usableX64Opcodes.pushRdi = PtrRemover.RemovePointers(usableX64Opcodes.pushRdi, ptrsToExclude);
+            usableX64Opcodes.pushR8 = PtrRemover.RemovePointers(usableX64Opcodes.pushR8, ptrsToExclude);
+            usableX64Opcodes.pushR9 = PtrRemover.RemovePointers(usableX64Opcodes.pushR9, ptrsToExclude);
+            usableX64Opcodes.pushR10 = PtrRemover.RemovePointers(usableX64Opcodes.pushR10, ptrsToExclude);
+            usableX64Opcodes.pushR11 = PtrRemover.RemovePointers(usableX64Opcodes.pushR11, ptrsToExclude);
+            usableX64Opcodes.pushR12 = PtrRemover.RemovePointers(usableX64Opcodes.pushR12, ptrsToExclude);
+            usableX64Opcodes.pushR13 = PtrRemover.RemovePointers(usableX64Opcodes.pushR13, ptrsToExclude);
+            usableX64Opcodes.pushR14 = PtrRemover.RemovePointers(usableX64Opcodes.pushR14, ptrsToExclude);
+            usableX64Opcodes.pushR15 = PtrRemover.RemovePointers(usableX64Opcodes.pushR15, ptrsToExclude);
+            usableX64Opcodes.popRax = PtrRemover.RemovePointers(usableX64Opcodes.popRax, ptrsToExclude);
+            usableX64Opcodes.popRbx = PtrRemover.RemovePointers(usableX64Opcodes.popRbx, ptrsToExclude);
+            usableX64Opcodes.popRcx = PtrRemover.RemovePointers(usableX64Opcodes.popRcx, ptrsToExclude);
+            usableX64Opcodes.popRdx = PtrRemover.RemovePointers(usableX64Opcodes.popRdx, ptrsToExclude);
+            usableX64Opcodes.popRsp = PtrRemover.RemovePointers(usableX64Opcodes.popRsp, ptrsToExclude);
+            usableX64Opcodes.popRbp = PtrRemover.RemovePointers(usableX64Opcodes.popRbp, ptrsToExclude);
+            usableX64Opcodes.popRsi = PtrRemover.RemovePointers(usableX64Opcodes.popRsi, ptrsToExclude);
+            usableX64Opcodes.popRdi = PtrRemover.RemovePointers(usableX64Opcodes.popRdi, ptrsToExclude);
+            usableX64Opcodes.popR8 = PtrRemover.RemovePointers(usableX64Opcodes.popR8, ptrsToExclude);
+            usableX64Opcodes.popR9 = PtrRemover.RemovePointers(usableX64Opcodes.popR9, ptrsToExclude);
+            usableX64Opcodes.popR10 = PtrRemover.RemovePointers(usableX64Opcodes.popR10, ptrsToExclude);
+            usableX64Opcodes.popR11 = PtrRemover.RemovePointers(usableX64Opcodes.popR11, ptrsToExclude);
+            usableX64Opcodes.popR12 = PtrRemover.RemovePointers(usableX64Opcodes.popR12, ptrsToExclude);
+            usableX64Opcodes.popR13 = PtrRemover.RemovePointers(usableX64Opcodes.popR13, ptrsToExclude);
+            usableX64Opcodes.popR14 = PtrRemover.RemovePointers(usableX64Opcodes.popR14, ptrsToExclude);
+            usableX64Opcodes.popR15 = PtrRemover.RemovePointers(usableX64Opcodes.popR15, ptrsToExclude);
+            usableX64Opcodes.xorRax = PtrRemover.RemovePointers(usableX64Opcodes.xorRax, ptrsToExclude);
+            usableX64Opcodes.xorRbx = PtrRemover.RemovePointers(usableX64Opcodes.xorRbx, ptrsToExclude);
+            usableX64Opcodes.xorRcx = PtrRemover.RemovePointers(usableX64Opcodes.xorRcx, ptrsToExclude);
+            usableX64Opcodes.xorRdx = PtrRemover.RemovePointers(usableX64Opcodes.xorRdx, ptrsToExclude);
+            usableX64Opcodes.xorRsi = PtrRemover.RemovePointers(usableX64Opcodes.xorRsi, ptrsToExclude);
+            usableX64Opcodes.xorRdi = PtrRemover.RemovePointers(usableX64Opcodes.xorRdi, ptrsToExclude);
+            usableX64Opcodes.xorRsp = PtrRemover.RemovePointers(usableX64Opcodes.xorRsp, ptrsToExclude);
+            usableX64Opcodes.xorRbp = PtrRemover.RemovePointers(usableX64Opcodes.xorRbp, ptrsToExclude);
+            usableX64Opcodes.xorR8 = PtrRemover.RemovePointers(usableX64Opcodes.xorR8, ptrsToExclude);
+            usableX64Opcodes.xorR9 = PtrRemover.RemovePointers(usableX64Opcodes.xorR9, ptrsToExclude);
+            usableX64Opcodes.xorR10 = PtrRemover.RemovePointers(usableX64Opcodes.xorR10, ptrsToExclude);
+            usableX64Opcodes.xorR11 = PtrRemover.RemovePointers(usableX64Opcodes.xorR11, ptrsToExclude);
+            usableX64Opcodes.xorR12 = PtrRemover.RemovePointers(usableX64Opcodes.xorR12, ptrsToExclude);
+            usableX64Opcodes.xorR13 = PtrRemover.RemovePointers(usableX64Opcodes.xorR13, ptrsToExclude);
+            usableX64Opcodes.xorR14 = PtrRemover.RemovePointers(usableX64Opcodes.xorR14, ptrsToExclude);
+            usableX64Opcodes.xorR15 = PtrRemover.RemovePointers(usableX64Opcodes.xorR15, ptrsToExclude);
+            usableX64Opcodes.jmpRsp = PtrRemover.RemovePointers(usableX64Opcodes.jmpRsp, ptrsToExclude);
+            usableX64Opcodes.callRsp = PtrRemover.RemovePointers(usableX64Opcodes.callRsp, ptrsToExclude);
+            usableX64Opcodes.incRax = PtrRemover.RemovePointers(usableX64Opcodes.incRax, ptrsToExclude);
+            usableX64Opcodes.incRbx = PtrRemover.RemovePointers(usableX64Opcodes.incRbx, ptrsToExclude);
+            usableX64Opcodes.incRcx = PtrRemover.RemovePointers(usableX64Opcodes.incRcx, ptrsToExclude);
+            usableX64Opcodes.incRdx = PtrRemover.RemovePointers(usableX64Opcodes.incRdx, ptrsToExclude);
+            usableX64Opcodes.incRbp = PtrRemover.RemovePointers(usableX64Opcodes.incRbp, ptrsToExclude);
+            usableX64Opcodes.incRsp = PtrRemover.RemovePointers(usableX64Opcodes.incRsp, ptrsToExclude);
+            usableX64Opcodes.incRsi = PtrRemover.RemovePointers(usableX64Opcodes.incRsi, ptrsToExclude);
+            usableX64Opcodes.incRdi = PtrRemover.RemovePointers(usableX64Opcodes.incRdi, ptrsToExclude);
+            usableX64Opcodes.incR8 = PtrRemover.RemovePointers(usableX64Opcodes.incR8, ptrsToExclude);
+            usableX64Opcodes.incR9 = PtrRemover.RemovePointers(usableX64Opcodes.incR9, ptrsToExclude);
+            usableX64Opcodes.incR10 = PtrRemover.RemovePointers(usableX64Opcodes.incR10, ptrsToExclude);
+            usableX64Opcodes.incR11 = PtrRemover.RemovePointers(usableX64Opcodes.incR11, ptrsToExclude);
+            usableX64Opcodes.incR12 = PtrRemover.RemovePointers(usableX64Opcodes.incR12, ptrsToExclude);
+            usableX64Opcodes.incR13 = PtrRemover.RemovePointers(usableX64Opcodes.incR13, ptrsToExclude);
+            usableX64Opcodes.incR14 = PtrRemover.RemovePointers(usableX64Opcodes.incR14, ptrsToExclude);
+            usableX64Opcodes.incR15 = PtrRemover.RemovePointers(usableX64Opcodes.incR15, ptrsToExclude);
+            usableX64Opcodes.decRax = PtrRemover.RemovePointers(usableX64Opcodes.decRax, ptrsToExclude);
+            usableX64Opcodes.decRbx = PtrRemover.RemovePointers(usableX64Opcodes.decRbx, ptrsToExclude);
+            usableX64Opcodes.decRcx = PtrRemover.RemovePointers(usableX64Opcodes.decRcx, ptrsToExclude);
+            usableX64Opcodes.decRdx = PtrRemover.RemovePointers(usableX64Opcodes.decRdx, ptrsToExclude);
+            usableX64Opcodes.decRbp = PtrRemover.RemovePointers(usableX64Opcodes.decRbp, ptrsToExclude);
+            usableX64Opcodes.decRsp = PtrRemover.RemovePointers(usableX64Opcodes.decRsp, ptrsToExclude);
+            usableX64Opcodes.decRsi = PtrRemover.RemovePointers(usableX64Opcodes.decRsi, ptrsToExclude);
+            usableX64Opcodes.decRdi = PtrRemover.RemovePointers(usableX64Opcodes.decRdi, ptrsToExclude);
+            usableX64Opcodes.decR8 = PtrRemover.RemovePointers(usableX64Opcodes.decR8, ptrsToExclude);
+            usableX64Opcodes.decR9 = PtrRemover.RemovePointers(usableX64Opcodes.decR9, ptrsToExclude);
+            usableX64Opcodes.decR10 = PtrRemover.RemovePointers(usableX64Opcodes.decR10, ptrsToExclude);
+            usableX64Opcodes.decR11 = PtrRemover.RemovePointers(usableX64Opcodes.decR11, ptrsToExclude);
+            usableX64Opcodes.decR12 = PtrRemover.RemovePointers(usableX64Opcodes.decR12, ptrsToExclude);
+            usableX64Opcodes.decR13 = PtrRemover.RemovePointers(usableX64Opcodes.decR13, ptrsToExclude);
+            usableX64Opcodes.decR14 = PtrRemover.RemovePointers(usableX64Opcodes.decR14, ptrsToExclude);
+            usableX64Opcodes.decR15 = PtrRemover.RemovePointers(usableX64Opcodes.decR15, ptrsToExclude);
+            usableX64Opcodes.add = PtrRemover.RemovePointers(usableX64Opcodes.add, ptrsToExclude);
+            usableX64Opcodes.mov = PtrRemover.RemovePointers(usableX64Opcodes.mov, ptrsToExclude);
+            usableX64Opcodes.sub = PtrRemover.RemovePointers(usableX64Opcodes.sub, ptrsToExclude);
 
             var ret4 = GenerateVirtualAllocChain64(info, startAddress);
             if (ret4.Error != null)
@@ -273,7 +354,6 @@ namespace ERC.Utilities
                 ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret4.Error;
-                return failed;
             }
 
             List<Tuple<byte[], string>> ropGadgets = new List<Tuple<byte[], string>>();
@@ -284,6 +364,62 @@ namespace ERC.Utilities
             DisplayOutput.RopChainGadgets64(this, info, ropGadgets);
             return RopChain;
         }
+
+        /// <summary>
+        /// Creates a RopChain for a specific process.
+        /// </summary>
+        /// <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
+        /// <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+        /// <returns>Returns an ErcResult string containing</returns>
+        public ErcResult<string> GenerateRopChain64(byte[] startAddress = null, List<string> excludes = null)
+        {
+            ErcResult<string> RopChain = new ErcResult<string>(info.ProcessCore);
+            x64Opcodes = new X64Lists();
+
+            var ret1 = GetApiAddresses(info);
+            if (ret1.Error != null && ApiAddresses.Count <= 0)
+            {
+                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                failed.ReturnValue = "An error has occured, check log file for more details.";
+                failed.Error = ret1.Error;
+            }
+
+            var ret2 = GetRopNops(info, excludes);
+            if (ret2.Error != null && RopNops.Count <= 0)
+            {
+                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                failed.ReturnValue = "An error has occured, check log file for more details.";
+                failed.Error = ret2.Error;
+            }
+
+            var ret3 = PopulateOpcodes(info);
+            if (ret3.Error != null)
+            {
+                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                failed.ReturnValue = "An error has occured, check log file for more details.";
+                failed.Error = ret3.Error;
+            }
+
+
+            OptimiseLists(info);
+
+            var ret4 = GenerateVirtualAllocChain64(info, startAddress);
+            if (ret4.Error != null)
+            {
+                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                failed.ReturnValue = "An error has occured, check log file for more details.";
+                failed.Error = ret4.Error;
+            }
+
+            List<Tuple<byte[], string>> ropGadgets = new List<Tuple<byte[], string>>();
+            for (int i = 0; i < ret4.ReturnValue.Count; i++)
+            {
+                ropGadgets.Add(ret4.ReturnValue[i]);
+            }
+            DisplayOutput.RopChainGadgets64(this, info, ropGadgets);
+            return RopChain;
+        }
+        #endregion
 
         #region GetApiAddresses
         private ErcResult<int> GetApiAddresses(ProcessInfo info)
@@ -354,7 +490,7 @@ namespace ERC.Utilities
             ErcResult<List<IntPtr>> ropNopsResult = new ErcResult<List<IntPtr>>(info.ProcessCore);
             ropNopsResult.ReturnValue = new List<IntPtr>();
             byte[] ropNop = new byte[] { 0xC3 };
-            var ropPtrs = info.SearchMemory(0, ropNop, excludes: excludes);
+            var ropPtrs = info.SearchMemory(0, searchBytes: ropNop, excludes: excludes);
             if (ropPtrs.Error != null)
             {
                 ropNopsResult.Error = ropPtrs.Error;
@@ -372,7 +508,7 @@ namespace ERC.Utilities
             ErcResult<List<IntPtr>> ropNopsResult = new ErcResult<List<IntPtr>>(info.ProcessCore);
             ropNopsResult.ReturnValue = new List<IntPtr>();
             byte[] ropNop = new byte[] { 0xC3 };
-            var ropPtrs = info.SearchMemory(0, ropNop);
+            var ropPtrs = info.SearchMemory(0, searchBytes: ropNop);
             if (ropPtrs.Error != null)
             {
                 ropNopsResult.Error = ropPtrs.Error;

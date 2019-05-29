@@ -433,6 +433,157 @@ namespace ERC
             resultAddresses.ReturnValue = new HashSet<IntPtr>(resultAddresses.ReturnValue).ToList();
             return resultAddresses;  
         }
+
+        /// <summary>
+        /// Private function called from Search_Memory. Searches memory regions populated by the process for specific strings.
+        /// </summary>
+        /// <param name="searchBytes"> Takes a byte array as input to be searched for</param>
+        /// <param name="ptrsToExclude"> Takes a byte array of values used to disqualify pointers</param>
+        /// <returns>Returns a list of IntPtr for each instance found.</returns>
+        internal ErcResult<List<IntPtr>> SearchProcessMemory(byte[] searchBytes, byte[] ptrsToExclude)
+        {
+            ErcResult<List<IntPtr>> resultAddresses = new ErcResult<List<IntPtr>>(ProcessCore);
+
+            resultAddresses.ReturnValue = new List<IntPtr>();
+            Process process = ProcessCurrent;
+
+            if (ProcessMachineType == MachineType.I386)
+            {
+                for (int i = 0; i < ProcessMemoryBasicInfo32.Count; i++)
+                {
+                    if ((ulong)ProcessMemoryBasicInfo32[i].RegionSize > int.MaxValue)
+                    {
+                        long startAddress = (long)ProcessMemoryBasicInfo32[i].BaseAddress;
+                        long endAddress = (long)ProcessMemoryBasicInfo32[i].BaseAddress + (long)(ProcessMemoryBasicInfo32[i].RegionSize - 1);
+                        long region = (long)ProcessMemoryBasicInfo32[i].RegionSize;
+                        for (long j = startAddress; j < endAddress; j += (region / 100))
+                        {
+                            byte[] buffer = new byte[region / 100];
+                            int bytesRead = 0;
+                            ReadProcessMemory(ProcessHandle, (IntPtr)j, buffer, buffer.Length, out bytesRead);
+
+                            long pos = 0;
+                            long index = 0;
+                            do
+                            {
+                                byte[] buffer1Partial = new byte[buffer.Length - pos];
+                                Array.Copy(buffer, pos, buffer1Partial, 0, buffer.Length - pos);
+                                index = ByteIndexOf(buffer1Partial, searchBytes);
+
+                                if (index != -1)
+                                {
+                                    resultAddresses.ReturnValue.Add((IntPtr)(index + (long)ProcessMemoryBasicInfo32[i].BaseAddress + pos));
+                                }
+                                pos += index;
+                                if (index == 0)
+                                {
+                                    pos += searchBytes.Length;
+                                    index = 1;
+                                }
+                            } while (index != -1 && index != 0);
+                        }
+                    }
+                    else
+                    {
+                        long bufferSize = (long)ProcessMemoryBasicInfo32[i].RegionSize;
+                        int bytesRead = 0;
+                        IntPtr baseAddress = ProcessMemoryBasicInfo32[i].BaseAddress;
+                        byte[] buffer = new byte[bufferSize];
+
+                        ReadProcessMemory(ProcessHandle, baseAddress, buffer, buffer.Length, out bytesRead);
+
+                        long pos = 0;
+                        long index = 0;
+                        do
+                        {
+                            byte[] buffer1Partial = new byte[buffer.Length - pos];
+                            Array.Copy(buffer, pos, buffer1Partial, 0, buffer.Length - pos);
+                            index = ByteIndexOf(buffer1Partial, searchBytes);
+
+                            if (index != -1)
+                            {
+                                resultAddresses.ReturnValue.Add((IntPtr)(index + (long)ProcessMemoryBasicInfo32[i].BaseAddress + pos));
+                            }
+                            pos += index;
+                            if (index == 0)
+                            {
+                                pos += searchBytes.Length;
+                                index = 1;
+                            }
+                        } while (index != -1 && index != 0);
+                    }
+                }
+            }
+            else if (ProcessMachineType == MachineType.x64)
+            {
+                byte[] buffer = new byte[int.MaxValue / 10];
+                int bytesRead = 0;
+                for (int i = 0; i < ProcessMemoryBasicInfo64.Count; i++)
+                {
+                    if (ProcessMemoryBasicInfo64[i].RegionSize > int.MaxValue)
+                    {
+                        ulong startAddress = ProcessMemoryBasicInfo64[i].BaseAddress;
+                        ulong endAddress = ProcessMemoryBasicInfo64[i].BaseAddress + (ProcessMemoryBasicInfo64[i].RegionSize - 1);
+                        ulong region = ProcessMemoryBasicInfo64[i].RegionSize;
+
+                        for (ulong j = startAddress; j < endAddress; j += int.MaxValue / 10)
+                        {
+                            ReadProcessMemory(ProcessHandle, (IntPtr)j, buffer, buffer.Length, out bytesRead);
+                            long pos = 0;
+                            long index = 0;
+                            do
+                            {
+                                byte[] buffer1Partial = new byte[buffer.Length - pos];
+                                Array.Copy(buffer, pos, buffer1Partial, 0, buffer.Length - pos);
+                                index = ByteIndexOf(buffer1Partial, searchBytes);
+
+                                if (index != -1)
+                                {
+                                    resultAddresses.ReturnValue.Add((IntPtr)(index + (long)ProcessMemoryBasicInfo64[i].BaseAddress + pos));
+                                }
+                                pos += index;
+                                if (index == 0)
+                                {
+                                    pos += searchBytes.Length;
+                                    index = 1;
+                                }
+                            } while (index != -1 && index != 0);
+                        }
+                    }
+                    else
+                    {
+                        long bufferSize = (long)ProcessMemoryBasicInfo64[i].RegionSize;
+                        bytesRead = 0;
+                        IntPtr baseAddress = (IntPtr)ProcessMemoryBasicInfo64[i].BaseAddress;
+                        byte[] buffer1 = new byte[bufferSize];
+
+                        ReadProcessMemory(ProcessHandle, baseAddress, buffer1, buffer1.Length, out bytesRead);
+                        long pos = 0;
+                        long index = 0;
+                        do
+                        {
+                            byte[] buffer1Partial = new byte[buffer1.Length - pos];
+                            Array.Copy(buffer1, pos, buffer1Partial, 0, buffer1.Length - pos);
+                            index = ByteIndexOf(buffer1Partial, searchBytes);
+
+                            if (index != -1)
+                            {
+                                resultAddresses.ReturnValue.Add((IntPtr)(index + (long)ProcessMemoryBasicInfo64[i].BaseAddress + pos));
+                            }
+                            pos += index;
+                            if (index == 0)
+                            {
+                                pos += searchBytes.Length;
+                                index = 1;
+                            }
+                        } while (index != -1 && index != 0);
+                    }
+                }
+            }
+            resultAddresses.ReturnValue = new HashSet<IntPtr>(resultAddresses.ReturnValue).ToList();
+            resultAddresses.ReturnValue = Utilities.PtrRemover.RemovePointers(resultAddresses.ReturnValue, ptrsToExclude);
+            return resultAddresses;
+        }
         #endregion
 
         #region SearchAllMemoryPPR
@@ -582,6 +733,155 @@ namespace ERC
             }
             return ptrs;
         }
+
+        /// <summary>
+        /// Searches all memory associated with a given process and associated modules for POP X POP X RET instructions. 
+        /// Passing a list of module paths or names will exclude those modules from the search. 
+        /// </summary>
+        /// <param name="excludes">Takes a list of module names to be excluded from the search</param>
+        /// <param name="ptrsToExclude"> Takes a byte array of values used to disqualify pointers</param>
+        /// <returns>Returns an ERC_Result containing a dictionary of pointers and the main module in which they were found</returns>
+        public ErcResult<Dictionary<IntPtr, string>> SearchAllMemoryPPR(byte[] ptrsToExclude, List<string> excludes = null)
+        {
+            ErcResult<Dictionary<IntPtr, string>> ptrs = new ErcResult<Dictionary<IntPtr, string>>(ProcessCore);
+            ptrs.ReturnValue = new Dictionary<IntPtr, string>();
+            if (ProcessMachineType == MachineType.I386)
+            {
+                for (int i = 0; i < ProcessMemoryBasicInfo32.Count; i++)
+                {
+                    if ((ulong)ProcessMemoryBasicInfo32[i].RegionSize > int.MaxValue)
+                    {
+                        long start_address = (long)ProcessMemoryBasicInfo32[i].BaseAddress;
+                        long end_address = (long)ProcessMemoryBasicInfo32[i].BaseAddress + (long)(ProcessMemoryBasicInfo32[i].RegionSize - 1);
+                        long region = (long)ProcessMemoryBasicInfo32[i].RegionSize;
+                        for (long j = start_address; j < end_address; j += (region / 100))
+                        {
+                            byte[] buffer = new byte[region / 100];
+                            int bytesRead = 0;
+                            ReadProcessMemory(ProcessHandle, (IntPtr)j, buffer, buffer.Length, out bytesRead);
+                            List<int> pprs = ERC.Utilities.Payloads.PopPopRet(buffer);
+                            if (pprs.Count > 0)
+                            {
+                                for (int k = 0; k < pprs.Count; k++)
+                                {
+                                    if (!ptrs.ReturnValue.ContainsKey((IntPtr)((ulong)pprs[k] + (ulong)ProcessMemoryBasicInfo32[i].BaseAddress)))
+                                    {
+                                        ptrs.ReturnValue.Add((IntPtr)((ulong)pprs[k] + (ulong)ProcessMemoryBasicInfo32[i].BaseAddress), ProcessPath);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        long bufferSize = (long)ProcessMemoryBasicInfo32[i].RegionSize;
+                        int bytesRead = 0;
+                        IntPtr baseAddress = ProcessMemoryBasicInfo32[i].BaseAddress;
+                        byte[] buffer = new byte[bufferSize];
+
+                        ReadProcessMemory(ProcessHandle, baseAddress, buffer, buffer.Length, out bytesRead);
+                        List<int> pprs = ERC.Utilities.Payloads.PopPopRet(buffer);
+                        if (pprs.Count > 0)
+                        {
+                            for (int k = 0; k < pprs.Count; k++)
+                            {
+                                if (!ptrs.ReturnValue.ContainsKey((IntPtr)((ulong)pprs[k] + (ulong)ProcessMemoryBasicInfo32[i].BaseAddress)))
+                                {
+                                    ptrs.ReturnValue.Add((IntPtr)((ulong)pprs[k] + (ulong)ProcessMemoryBasicInfo32[i].BaseAddress), ProcessPath);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (ProcessMachineType == MachineType.x64)
+            {
+                byte[] buffer = new byte[int.MaxValue / 10];
+                int bytesRead = 0;
+                for (int i = 0; i < ProcessMemoryBasicInfo64.Count; i++)
+                {
+                    if (ProcessMemoryBasicInfo64[i].RegionSize > int.MaxValue)
+                    {
+                        ulong startAddress = ProcessMemoryBasicInfo64[i].BaseAddress;
+                        ulong endAddress = ProcessMemoryBasicInfo64[i].BaseAddress + (ProcessMemoryBasicInfo64[i].RegionSize - 1);
+                        ulong region = ProcessMemoryBasicInfo64[i].RegionSize;
+
+                        for (ulong j = startAddress; j < endAddress; j += int.MaxValue / 10)
+                        {
+                            ReadProcessMemory(ProcessHandle, (IntPtr)j, buffer, buffer.Length, out bytesRead);
+                            List<int> pprs = ERC.Utilities.Payloads.PopPopRet(buffer);
+                            if (pprs.Count > 0)
+                            {
+                                for (int k = 0; k < pprs.Count; k++)
+                                {
+                                    if (!ptrs.ReturnValue.ContainsKey((IntPtr)((ulong)pprs[k] + ProcessMemoryBasicInfo64[i].BaseAddress)))
+                                    {
+                                        ptrs.ReturnValue.Add((IntPtr)((ulong)pprs[k] + ProcessMemoryBasicInfo64[i].BaseAddress), ProcessPath);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        long bufferSize = (long)ProcessMemoryBasicInfo64[i].RegionSize;
+                        bytesRead = 0;
+                        IntPtr baseAddress = (IntPtr)ProcessMemoryBasicInfo64[i].BaseAddress;
+                        byte[] buffer1 = new byte[bufferSize];
+
+                        ReadProcessMemory(ProcessHandle, baseAddress, buffer1, buffer1.Length, out bytesRead);
+                        List<int> pprs = ERC.Utilities.Payloads.PopPopRet(buffer1);
+                        if (pprs.Count > 0)
+                        {
+                            for (int k = 0; k < pprs.Count; k++)
+                            {
+                                if (!ptrs.ReturnValue.ContainsKey((IntPtr)((ulong)pprs[k] + ProcessMemoryBasicInfo64[i].BaseAddress)))
+                                {
+                                    ptrs.ReturnValue.Add((IntPtr)((ulong)pprs[k] + ProcessMemoryBasicInfo64[i].BaseAddress), ProcessPath);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            List<ModuleInfo> modules = new List<ModuleInfo>();
+            for (int i = 0; i < ModulesInfo.Count; i++)
+            {
+                if (excludes != null)
+                {
+                    if (!excludes.Contains(ModulesInfo[i].ModuleName) && !excludes.Contains(ModulesInfo[i].ModulePath))
+                    {
+                        modules.Add(ModulesInfo[i]);
+                    }
+                }
+                else
+                {
+                    modules.Add(ModulesInfo[i]);
+                }
+            }
+            for (int i = 0; i < modules.Count; i++)
+            {
+
+                IntPtr baseAddress = modules[i].ModuleBase;
+                byte[] buffer = new byte[modules[i].ModuleSize];
+                int bytesread = 0;
+
+                ReadProcessMemory(ProcessHandle, modules[i].ModuleBase, buffer, buffer.Length, out bytesread);
+                List<int> pprs = ERC.Utilities.Payloads.PopPopRet(buffer);
+                if (pprs.Count > 0)
+                {
+                    for (int k = 0; k < pprs.Count; k++)
+                    {
+                        if (!ptrs.ReturnValue.ContainsKey((IntPtr)((ulong)pprs[k] + (ulong)modules[i].ModuleBase)))
+                        {
+                            ptrs.ReturnValue.Add((IntPtr)((ulong)pprs[k] + (ulong)modules[i].ModuleBase), modules[i].ModulePath);
+                        }
+                    }
+                }
+            }
+            ptrs.ReturnValue = Utilities.PtrRemover.RemovePointers(ptrs.ReturnValue, ptrsToExclude);
+            return ptrs;
+        }
         #endregion
 
         #region Search_Memory
@@ -674,6 +974,100 @@ namespace ERC
                     }
                 }
             }
+            return resultAddresses;
+        }
+
+        /// <summary>
+        /// Searches all memory (the process and associated DLLs) for a specific string or byte array. Strings can be passed as ASCII, Unicode, UTF7 or UTF8.
+        /// Specific modules can be exclude through passing a Listof strings containing module names or paths.
+        /// </summary>
+        /// <param name="searchType">0 = search term is in bytes\n1 = search term is in unicode\n2 = search term is in ASCII\n3 = Search term is in UTF8\n4 = Search term is in UTF7\n5 = Search term is in UTF32</param>
+        /// <param name="ptrsToExclude"> Takes a byte array of values used to disqualify pointers</param>
+        /// <param name="searchBytes">Byte array to be searched for (optional)</param>
+        /// <param name="searchString">String to be searched for (optional)</param>
+        /// <param name="excludes">Modules to be excluded from the search (optional)</param>
+        /// <returns>Returns an ERC_Result containing pointers to all instances of the search query.</returns>
+        public ErcResult<Dictionary<IntPtr, string>> SearchMemory(int searchType, byte[] ptrsToExclude, byte[] searchBytes = null, string searchString = null, List<string> excludes = null)
+        {
+            ErcResult<Dictionary<IntPtr, string>> resultAddresses = new ErcResult<Dictionary<IntPtr, string>>(ProcessCore);
+            if (searchBytes == null && searchString == null)
+            {
+                resultAddresses.Error = new ERCException("No search term provided. " +
+                    "Either a byte array or string must be provided as the search term or there is nothing to search for.");
+                resultAddresses.LogEvent();
+                return resultAddresses;
+            }
+            resultAddresses.ReturnValue = new Dictionary<IntPtr, string>();
+            switch (searchType)
+            {
+                case 0:
+                    break;
+                case 1:
+                    searchBytes = Encoding.Unicode.GetBytes(searchString);
+                    break;
+                case 2:
+                    searchBytes = Encoding.ASCII.GetBytes(searchString);
+                    break;
+                case 3:
+                    searchBytes = Encoding.UTF8.GetBytes(searchString);
+                    break;
+                case 4:
+                    searchBytes = Encoding.UTF7.GetBytes(searchString);
+                    break;
+                case 5:
+                    searchBytes = Encoding.UTF32.GetBytes(searchString);
+                    break;
+                default:
+                    resultAddresses.Error = new ERCException("Incorrect searchType value provided, value must be 0-4");
+                    resultAddresses.LogEvent();
+                    return resultAddresses;
+            }
+            var processPtrs = SearchProcessMemory(searchBytes);
+            if (processPtrs.Error != null)
+            {
+                resultAddresses.Error = new ERCException("Error passed from Search_Process_Memory: " + processPtrs.Error.ToString());
+                resultAddresses.LogEvent();
+                return resultAddresses;
+            }
+
+            for (int i = 0; i < processPtrs.ReturnValue.Count; i++)
+            {
+                if (!resultAddresses.ReturnValue.ContainsKey(processPtrs.ReturnValue[i]))
+                {
+                    resultAddresses.ReturnValue.Add(processPtrs.ReturnValue[i], ProcessPath);
+                }
+            }
+
+            List<ModuleInfo> modules = new List<ModuleInfo>();
+            for (int i = 0; i < ModulesInfo.Count; i++)
+            {
+                if (excludes != null)
+                {
+                    if (!excludes.Contains(ModulesInfo[i].ModuleName) && !excludes.Contains(ModulesInfo[i].ModulePath))
+                    {
+                        modules.Add(ModulesInfo[i]);
+                    }
+                }
+                else
+                {
+                    modules.Add(ModulesInfo[i]);
+                }
+            }
+            for (int i = 0; i < modules.Count; i++)
+            {
+                var modulePtrs = modules[i].SearchModule(searchBytes);
+                if (modulePtrs.ReturnValue.Count > 0)
+                {
+                    for (int j = 0; j < modulePtrs.ReturnValue.Count; j++)
+                    {
+                        if (!resultAddresses.ReturnValue.ContainsKey(modulePtrs.ReturnValue[j]))
+                        {
+                            resultAddresses.ReturnValue.Add(modulePtrs.ReturnValue[j], modules[i].ModulePath);
+                        }
+                    }
+                }
+            }
+            resultAddresses.ReturnValue = Utilities.PtrRemover.RemovePointers(resultAddresses.ReturnValue, ptrsToExclude);
             return resultAddresses;
         }
         #endregion
