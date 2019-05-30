@@ -22,7 +22,7 @@ namespace ERC.Utilities
         List<byte[]> opcodes32 = new List<byte[]>();
         internal X86Lists x86Opcodes;
         internal X86Lists usableX86Opcodes;
-        private ProcessInfo info;
+        internal ProcessInfo RcgInfo;
         #endregion
 
         #region Constructor
@@ -38,7 +38,7 @@ namespace ERC.Utilities
                 throw new ArgumentException("Fatal Error: Unsupported processor version.");
             }
 
-            info = _info;
+            RcgInfo = _info;
             //Populate 32 bit list
             byte[] pushEax = new byte[] { 0x50 };
             byte[] pushEbx = new byte[] { 0x53 };
@@ -144,29 +144,29 @@ namespace ERC.Utilities
         /// <returns>Returns an ErcResult string containing</returns>
         public ErcResult<string> GenerateRopChain32(byte[] ptrsToExclude, byte[] startAddress = null, List<string> excludes = null)
         {
-            ErcResult<string> RopChain = new ErcResult<string>(info.ProcessCore);
+            ErcResult<string> RopChain = new ErcResult<string>(RcgInfo.ProcessCore);
             x86Opcodes = new X86Lists();
 
-            var ret1 = GetApiAddresses(info);
+            var ret1 = GetApiAddresses(RcgInfo);
             if (ret1.Error != null && ApiAddresses.Count <= 0)
             {
-                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret1.Error;
                 return failed;
             }
 
-            var ret2 = GetRopNops(info, excludes);
+            var ret2 = GetRopNops(excludes);
             if (ret1.Error != null && RopNops.Count <= 0)
             {
-                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret1.Error;
                 return failed;
             }
 
-            var ret3 = PopulateOpcodes(info);
-            optimiseLists(info);
+            var ret3 = PopulateOpcodes(RcgInfo);
+            optimiseLists(RcgInfo);
             usableX86Opcodes.pushEax = PtrRemover.RemovePointers(usableX86Opcodes.pushEax, ptrsToExclude);
             usableX86Opcodes.pushEbx = PtrRemover.RemovePointers(usableX86Opcodes.pushEbx, ptrsToExclude);
             usableX86Opcodes.pushEcx = PtrRemover.RemovePointers(usableX86Opcodes.pushEcx, ptrsToExclude);
@@ -213,12 +213,12 @@ namespace ERC.Utilities
             usableX86Opcodes.mov = PtrRemover.RemovePointers(usableX86Opcodes.mov, ptrsToExclude);
             usableX86Opcodes.and = PtrRemover.RemovePointers(usableX86Opcodes.and, ptrsToExclude);
 
-            var chain = GenerateVirtualAllocChain32(info, startAddress);
+            var chain = GenerateVirtualAllocChain32(RcgInfo, startAddress);
             if(chain.Error == null)
             {
                 VirtualAllocChain = chain.ReturnValue;
             }
-            DisplayOutput.RopChainGadgets32(this, info);
+            DisplayOutput.RopChainGadgets32(this);
             return RopChain;
         }
 
@@ -230,41 +230,44 @@ namespace ERC.Utilities
         /// <returns>Returns an ErcResult string containing</returns>
         public ErcResult<string> GenerateRopChain32(byte[] startAddress = null, List<string> excludes = null)
         {
-            ErcResult<string> RopChain = new ErcResult<string>(info.ProcessCore);
+            ErcResult<string> RopChain = new ErcResult<string>(RcgInfo.ProcessCore);
             x86Opcodes = new X86Lists();
 
-            var ret1 = GetApiAddresses(info);
+            var ret1 = GetApiAddresses(RcgInfo);
             if (ret1.Error != null && ApiAddresses.Count <= 0)
             {
-                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret1.Error;
                 return failed;
             }
 
-            var ret2 = GetRopNops(info, excludes);
+            var ret2 = GetRopNops(excludes);
             if (ret1.Error != null && RopNops.Count <= 0)
             {
-                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret1.Error;
                 return failed;
             }
 
-            var ret3 = PopulateOpcodes(info);
-            optimiseLists(info);
+            var ret3 = PopulateOpcodes(RcgInfo);
+            optimiseLists(RcgInfo);
 
-            var chain = GenerateVirtualAllocChain32(info, startAddress);
+            var chain = GenerateVirtualAllocChain32(RcgInfo, startAddress);
             if (chain.Error == null)
             {
                 VirtualAllocChain = chain.ReturnValue;
             }
-            DisplayOutput.RopChainGadgets32(this, info);
+            DisplayOutput.RopChainGadgets32(this);
             return RopChain;
         }
         #endregion
 
         #region GetApiAddresses
+        /// <summary>
+        /// Gets the handles of 4 functions associated with building ROP chains: VirtualAlloc, HeapCreate, VirtualProtect and WriteProcessMemory
+        /// </summary>
         private ErcResult<int> GetApiAddresses(ProcessInfo info)
         {
             ErcResult<int> returnVar = new ErcResult<int>(info.ProcessCore);
@@ -337,12 +340,17 @@ namespace ERC.Utilities
         #endregion
 
         #region GetRopNops
-        private ErcResult<List<IntPtr>> GetRopNops(ProcessInfo info, List<string> excludes = null)
+        /// <summary>
+        /// Gets a list of RopNops from the current process memory.
+        /// </summary>
+        /// <param name="excludes">A list of modules to be excluded from the search</param>
+        /// <returns>Returns a ErcResult containing a list of IntPtr</returns>
+        private ErcResult<List<IntPtr>> GetRopNops(List<string> excludes = null)
         {
-            ErcResult<List<IntPtr>> ropNopsResult = new ErcResult<List<IntPtr>>(info.ProcessCore);
+            ErcResult<List<IntPtr>> ropNopsResult = new ErcResult<List<IntPtr>>(RcgInfo.ProcessCore);
             ropNopsResult.ReturnValue = new List<IntPtr>();
             byte[] ropNop = new byte[] { 0xC3 };
-            var ropPtrs = info.SearchMemory(0, searchBytes: ropNop, excludes: excludes);
+            var ropPtrs = RcgInfo.SearchMemory(0, searchBytes: ropNop, excludes: excludes);
             if (ropPtrs.Error != null)
             {
                 ropNopsResult.Error = ropPtrs.Error;

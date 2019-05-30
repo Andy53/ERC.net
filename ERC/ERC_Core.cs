@@ -429,6 +429,11 @@ namespace ERC
         #endregion
 
         #region X64toX32PointerModifier
+        /// <summary>
+        /// Converts a x64 pointer into a x86 pointer.
+        /// </summary>
+        /// <param name="ptr64">64bit pointer to be converted</param>
+        /// <returns>Retruns a byte array 4 bytes long containing the modified pointer</returns>
         internal static byte[] X64toX32PointerModifier(byte[] ptr64)
         {
             byte[] ptr32 = new byte[4];
