@@ -10,13 +10,14 @@ namespace ERC.Utilities
     {
         private const int MEM_COMMIT = 0x1000;
 
-        Dictionary<string, IntPtr> ApiAddresses = new Dictionary<string, IntPtr>();
-        List<IntPtr> RopNops = new List<IntPtr>();
-        List<byte[]> opcodes64 = new List<byte[]>();
+        public List<Tuple<byte[], string>> VirtualAllocChain = new List<Tuple<byte[], string>>();
+
         internal X64Lists x64Opcodes;
         internal X64Lists usableX64Opcodes;
-        internal Dictionary<IntPtr, string>[] combinedLists = new Dictionary<IntPtr, string>[16]; 
-        private ProcessInfo info;
+        internal ProcessInfo RcgInfo;
+        private Dictionary<string, IntPtr> ApiAddresses = new Dictionary<string, IntPtr>();
+        private List<IntPtr> RopNops = new List<IntPtr>();
+        private List<byte[]> opcodes64 = new List<byte[]>();
 
         #region Constructor
         public RopChainGenerator64(ProcessInfo _info)
@@ -30,7 +31,7 @@ namespace ERC.Utilities
                 throw new ArgumentException("Fatal Error: This is not a 64bit process.");
             }
 
-            info = _info;
+            RcgInfo = _info;
             byte[] pushRax = new byte[] { 0x50 };
             byte[] pushRcx = new byte[] { 0x51 };
             byte[] pushRdx = new byte[] { 0x51 };
@@ -234,34 +235,34 @@ namespace ERC.Utilities
         /// <returns>Returns an ErcResult string containing</returns>
         public ErcResult<string> GenerateRopChain64(byte[] ptrsToExclude, byte[] startAddress = null, List<string> excludes = null)
         {
-            ErcResult<string> RopChain = new ErcResult<string>(info.ProcessCore);
+            ErcResult<string> RopChain = new ErcResult<string>(RcgInfo.ProcessCore);
             x64Opcodes = new X64Lists();
 
-            var ret1 = GetApiAddresses(info);
+            var ret1 = GetApiAddresses(RcgInfo);
             if (ret1.Error != null && ApiAddresses.Count <= 0)
             {
-                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret1.Error;
             }
 
-            var ret2 = GetRopNops(info, excludes);
+            var ret2 = GetRopNops(RcgInfo, excludes);
             if (ret2.Error != null && RopNops.Count <= 0)
             {
-                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret2.Error;
             }
 
-            var ret3 = PopulateOpcodes(info);
+            var ret3 = PopulateOpcodes(RcgInfo);
             if (ret3.Error != null)
             {
-                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret3.Error;
             }
 
-            OptimiseLists(info);
+            OptimiseLists(RcgInfo);
             usableX64Opcodes.pushRax = PtrRemover.RemovePointers(usableX64Opcodes.pushRax, ptrsToExclude);
             usableX64Opcodes.pushRcx = PtrRemover.RemovePointers(usableX64Opcodes.pushRcx, ptrsToExclude);
             usableX64Opcodes.pushRdx = PtrRemover.RemovePointers(usableX64Opcodes.pushRdx, ptrsToExclude);
@@ -348,20 +349,20 @@ namespace ERC.Utilities
             usableX64Opcodes.mov = PtrRemover.RemovePointers(usableX64Opcodes.mov, ptrsToExclude);
             usableX64Opcodes.sub = PtrRemover.RemovePointers(usableX64Opcodes.sub, ptrsToExclude);
 
-            var ret4 = GenerateVirtualAllocChain64(info, startAddress);
+            var ret4 = GenerateVirtualAllocChain64(RcgInfo, startAddress);
             if (ret4.Error != null)
             {
-                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret4.Error;
             }
 
-            List<Tuple<byte[], string>> ropGadgets = new List<Tuple<byte[], string>>();
+
             for (int i = 0; i < ret4.ReturnValue.Count; i++)
             {
-                ropGadgets.Add(ret4.ReturnValue[i]);
+                VirtualAllocChain.Add(ret4.ReturnValue[i]);
             }
-            DisplayOutput.RopChainGadgets64(this, info, ropGadgets);
+            DisplayOutput.RopChainGadgets64(this);
             return RopChain;
         }
 
@@ -373,40 +374,40 @@ namespace ERC.Utilities
         /// <returns>Returns an ErcResult string containing</returns>
         public ErcResult<string> GenerateRopChain64(byte[] startAddress = null, List<string> excludes = null)
         {
-            ErcResult<string> RopChain = new ErcResult<string>(info.ProcessCore);
+            ErcResult<string> RopChain = new ErcResult<string>(RcgInfo.ProcessCore);
             x64Opcodes = new X64Lists();
 
-            var ret1 = GetApiAddresses(info);
+            var ret1 = GetApiAddresses(RcgInfo);
             if (ret1.Error != null && ApiAddresses.Count <= 0)
             {
-                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret1.Error;
             }
 
-            var ret2 = GetRopNops(info, excludes);
+            var ret2 = GetRopNops(RcgInfo, excludes);
             if (ret2.Error != null && RopNops.Count <= 0)
             {
-                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret2.Error;
             }
 
-            var ret3 = PopulateOpcodes(info);
+            var ret3 = PopulateOpcodes(RcgInfo);
             if (ret3.Error != null)
             {
-                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret3.Error;
             }
 
 
-            OptimiseLists(info);
+            OptimiseLists(RcgInfo);
 
-            var ret4 = GenerateVirtualAllocChain64(info, startAddress);
+            var ret4 = GenerateVirtualAllocChain64(RcgInfo, startAddress);
             if (ret4.Error != null)
             {
-                ErcResult<string> failed = new ErcResult<string>(info.ProcessCore);
+                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
                 failed.ReturnValue = "An error has occured, check log file for more details.";
                 failed.Error = ret4.Error;
             }
@@ -416,7 +417,7 @@ namespace ERC.Utilities
             {
                 ropGadgets.Add(ret4.ReturnValue[i]);
             }
-            DisplayOutput.RopChainGadgets64(this, info, ropGadgets);
+            DisplayOutput.RopChainGadgets64(this);
             return RopChain;
         }
         #endregion

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace ERC.Utilities
 {
@@ -64,7 +65,7 @@ namespace ERC.Utilities
         /// </summary>
         /// <param name="unwantedBytes">Takes a byte array of bytes to be excluded</param>
         /// <returns>Returns an array of all other possible bytes.</returns>
-        public static byte[] Byte_Array_Constructor(byte[] unwantedBytes)
+        public static byte[] ByteArrayConstructor(byte[] unwantedBytes)
         {
             byte[] bytes = new byte[ByteArray.Length - unwantedBytes.Length];
             int bytesCounter = 0;
@@ -264,6 +265,15 @@ namespace ERC.Utilities
         #endregion
 
         #region Byte Array Compare
+        /// <summary>
+        /// Compares a byte array with an area in memory of equal size. This method should be used in conjunction with the ByteArrayConstructor to identify 
+        /// bytes which can not be passed into a program without corrupting the input.
+        /// </summary>
+        /// <param name="info">The process to compare memory from</param>
+        /// <param name="startAddress">The address at which to start the comparison</param>
+        /// <param name="bytes">The byte array containing the bytes to be compared</param>
+        /// <returns>Returns a Tuple containing a bool which is true if the comparison was identical and false if it was not, a byte array containing 
+        /// the bytes provided and a byte array containing the bytes read from process memory</returns>
         public static Tuple<bool, byte[], byte[]> ByteCompare(ProcessInfo info, IntPtr startAddress, byte[] bytes)
         {
             byte[] memoryBytes = new byte[bytes.Length];
@@ -276,6 +286,37 @@ namespace ERC.Utilities
                 }
             }
             return Tuple.Create(true, bytes, memoryBytes);
+        }
+
+        /// <summary>
+        /// Compares a byte array with an area in memory of equal size. This method should be used in conjunction with the ByteArrayConstructor to identify 
+        /// bytes which can not be passed into a program without corrupting the input.
+        /// </summary>
+        /// <param name="info">The process to compare memory from</param>
+        /// <param name="startAddress">The address at which to start the comparison</param>
+        /// <param name="byteFilePath">The path to a file containing the bytes to be compared</param>
+        /// <returns>Returns a Tuple containing a bool which is true if the comparison was identical and false if it was not, a byte array containing 
+        /// the bytes provided and a byte array containing the bytes read from process memory</returns>
+        public static Tuple<bool, byte[], byte[]> ByteCompare(ProcessInfo info, IntPtr startAddress, string byteFilePath)
+        {
+            if (File.Exists(byteFilePath))
+            {
+                byte[] bytes = File.ReadAllBytes(byteFilePath);
+                byte[] memoryBytes = new byte[bytes.Length];
+                ErcCore.ReadProcessMemory(info.ProcessHandle, startAddress, bytes, bytes.Length, out int bytesRead);
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    if (bytes[i] != memoryBytes[i])
+                    {
+                        return Tuple.Create(false, bytes, memoryBytes);
+                    }
+                }
+                return Tuple.Create(true, bytes, memoryBytes);
+            }
+            else
+            {
+                throw new FileNotFoundException(byteFilePath);
+            }
         }
         #endregion
     }

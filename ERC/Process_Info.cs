@@ -1759,6 +1759,10 @@ namespace ERC
         #endregion
 
         #region Get Modules Handles
+        /// <summary>
+        /// Returns a list of module handles associated with the process.
+        /// </summary>
+        /// <returns>Returns a dictionary containing the handle and path of each module</returns>
         public ErcResult<Dictionary<string, IntPtr>> GetModuleHandles()
         {
             ErcResult<Dictionary<string, IntPtr>> ret = new ErcResult<Dictionary<string, IntPtr>>(ProcessCore);
@@ -1776,6 +1780,10 @@ namespace ERC
         #endregion
 
         #region Get Module Information
+        /// <summary>
+        /// Gets the list of ModuleInfo objects associated with the current process.
+        /// </summary>
+        /// <returns>Returns an ErcResult containing a list of ModuleInfo objects</returns>
         public ErcResult<List<ModuleInfo>> GetProcessModuleInformation()
         {
             ErcResult<List<ModuleInfo>> ret = new ErcResult<List<ModuleInfo>>(ProcessCore);
@@ -1793,6 +1801,10 @@ namespace ERC
         #endregion
 
         #region Get Thread Information
+        /// <summary>
+        /// Gets the list of ThreadInfo objects associated with the current process.
+        /// </summary>
+        /// <returns>Returns an ErcResult containing a list of ThreadInfo objects</returns>
         public ErcResult<List<ThreadInfo>> GetProcessThreadInformation()
         {
             ErcResult<List<ThreadInfo>> ret = new ErcResult<List<ThreadInfo>>(ProcessCore);

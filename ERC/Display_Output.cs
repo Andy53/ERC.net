@@ -436,27 +436,31 @@ namespace ERC
         #endregion
 
         #region RopChainGadgets32
-        public static List<string> RopChainGadgets32(RopChainGenerator32 rcg, ProcessInfo info)
+        /// <summary>
+        /// Produces output files containing information about the associated ROP chain, produces files containing ROP gadgets and the associated ROP chain.
+        /// </summary>
+        /// <param name="rcg">The ROP chain generator object</param>
+        /// <returns>Returns a List of strings</returns>
+        public static List<string> RopChainGadgets32(RopChainGenerator32 rcg)
         {
             string output = "";
             List<string> totalGadgets = new List<string>();
             List<string> curatedGadgets = new List<string>();
-            string filePath = GetFilePath(info.WorkingDirectory, "gadgets_", ".txt");
-            string totalGadgetsPath = GetFilePath(info.WorkingDirectory, "total_gadgest_", ".txt");
-            string curatedGadgetsPath = GetFilePath(info.WorkingDirectory, "curated_gadgest_", ".txt");
-            string ropChainPath = GetFilePath(info.WorkingDirectory, "rop_chain_", ".txt");
+            string totalGadgetsPath = GetFilePath(rcg.RcgInfo.WorkingDirectory, "total_gadgest_", ".txt");
+            string curatedGadgetsPath = GetFilePath(rcg.RcgInfo.WorkingDirectory, "curated_gadgest_", ".txt");
+            string ropChainPath = GetFilePath(rcg.RcgInfo.WorkingDirectory, "rop_chain_", ".txt");
 
             output += "-------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
-            if (info.Author != "No_Author_Set")
+            if (rcg.RcgInfo.Author != "No_Author_Set")
             {
-                output += "Process Name: " + info.ProcessName + " Gadget list created by: " + info.Author + " " + Environment.NewLine;
+                output += "Process Name: " + rcg.RcgInfo.ProcessName + " Gadget list created by: " + rcg.RcgInfo.Author + " " + Environment.NewLine;
             }
             else
             {
-                output += "Process Name: " + info.ProcessName + " ROP chain gadget list" + Environment.NewLine;
+                output += "Process Name: " + rcg.RcgInfo.ProcessName + " ROP chain gadget list" + Environment.NewLine;
             }
 
-            if (info.ProcessMachineType == MachineType.I386)
+            if (rcg.RcgInfo.ProcessMachineType == MachineType.I386)
             {
                 totalGadgets.Add("pushEax: ");
                 curatedGadgets.Add("pushEax: ");
@@ -1062,23 +1066,28 @@ namespace ERC
         #endregion
 
         #region RopChainGadgets64
-        public static List<string> RopChainGadgets64(RopChainGenerator64 rcg, ProcessInfo info, List<Tuple<byte[], string>> VirtualAllocChain)
+        /// <summary>
+        /// Produces output files containing information about the associated ROP chain, produces files containing ROP gadgets and the associated ROP chain.
+        /// </summary>
+        /// <param name="rcg">The ROP chain generator object</param>
+        /// <returns>Returns a List of strings</returns>
+        public static List<string> RopChainGadgets64(RopChainGenerator64 rcg)
         {
             string output = "";
             List<string> totalGadgets = new List<string>();
             List<string> curatedGadgets = new List<string>();
-            string totalGadgetsPath = GetFilePath(info.WorkingDirectory, "total_gadgest_64_", ".txt");
-            string curatedGadgetsPath = GetFilePath(info.WorkingDirectory, "curated_gadgest_64_", ".txt");
-            string ropChainPath = GetFilePath(info.WorkingDirectory, "rop_chain_64_", ".txt");
+            string totalGadgetsPath = GetFilePath(rcg.RcgInfo.WorkingDirectory, "total_gadgest_64_", ".txt");
+            string curatedGadgetsPath = GetFilePath(rcg.RcgInfo.WorkingDirectory, "curated_gadgest_64_", ".txt");
+            string ropChainPath = GetFilePath(rcg.RcgInfo.WorkingDirectory, "rop_chain_64_", ".txt");
 
             output += "-------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
-            if (info.Author != "No_Author_Set")
+            if (rcg.RcgInfo.Author != "No_Author_Set")
             {
-                output += "Process Name: " + info.ProcessName + " Gadget list created by: " + info.Author + " " + Environment.NewLine;
+                output += "Process Name: " + rcg.RcgInfo.ProcessName + " Gadget list created by: " + rcg.RcgInfo.Author + " " + Environment.NewLine;
             }
             else
             {
-                output += "Process Name: " + info.ProcessName + " ROP chain gadget list" + Environment.NewLine;
+                output += "Process Name: " + rcg.RcgInfo.ProcessName + " ROP chain gadget list" + Environment.NewLine;
             }
 
             totalGadgets.Add("pushRax: ");
@@ -1634,7 +1643,7 @@ namespace ERC
             File.WriteAllLines(curatedGadgetsPath, curatedGadgets);
 
             List<string> ropChain = new List<string>();
-            foreach (Tuple<byte[], string> k in VirtualAllocChain)
+            foreach (Tuple<byte[], string> k in rcg.VirtualAllocChain)
             {
                 ropChain.Add(BitConverter.ToString(k.Item1).Replace("-", "\\x") + " | " + k.Item2);
             }
