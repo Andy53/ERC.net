@@ -10,12 +10,27 @@ using System.Text;
 
 namespace ERC
 {
+    /// <summary>
+    /// Stores information about the current thread.
+    /// </summary>
     public class ThreadInfo
     {
         #region Variables
+        /// <summary>
+        /// A handle for the current thread.
+        /// </summary>
         public IntPtr ThreadHandle { get; private set; }
+        /// <summary>
+        /// The ID number of the current thread.
+        /// </summary>
         public int ThreadID { get; private set; }
+        /// <summary>
+        /// x86 CPU Register values.
+        /// </summary>
         public CONTEXT32 Context32;
+        /// <summary>
+        /// x64 CPU Register values.
+        /// </summary>
         public CONTEXT64 Context64;
 
         internal bool ThreadFailed { get; private set; }
