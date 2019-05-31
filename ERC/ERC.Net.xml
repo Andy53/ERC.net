@@ -1,0 +1,672 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ERC.Net</name>
+    </assembly>
+    <members>
+        <member name="T:ERC.DisplayOutput">
+            <summary> Provides output in various human readable formats of data from the library. </summary>
+        </member>
+        <member name="M:ERC.DisplayOutput.GetFilePath(System.String,System.String,System.String)">
+            <summary>
+            Identifies output files previously created by a the Display_Modules function
+            and identifies the last number used. Returns the next number to be used as a filename.
+            </summary>
+            <param name="directory">The directory to be used</param>
+            <param name="prefix">A prefix for the file name e.g. "modules_" or "Pattern_" etc</param>
+            <param name="extension">The file extension to be used e.g. ".txt" </param>
+            <returns>Returns a string containing the full file path to be used when writing output to disk</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.DisplayModuleInfo(ERC.ProcessInfo)">
+            <summary>
+            Displays a list of all modules and associated information from a specific process. Can output to stdout, a file or both.
+            </summary>
+            <param name="info">The ProcessInfo object of which the module information will be displayed</param>
+            <returns>Returns a string containing all module info from a specific process</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo)">
+            <summary>
+            Aquires filename and writes out all module data to the current working directory. Requires a Process_Info object to be passed as a parameter.
+            </summary>
+            <param name="info">The ProcessInfo object of which the module information will be displayed</param>
+            <returns>Returns a formatted string of all results</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.GetSEHJumps(ERC.ProcessInfo,System.Collections.Generic.List{System.String})">
+            <summary>
+            Searches all memory associated with a given process and associated modules for POP X POP X RET instructions. 
+            Passing a list of module paths or names will exclude those modules from the search. 
+            Similar to Search_All_Memory_PPR however provides output in an easily readable format.
+            </summary>
+            <param name="info">The ProcessInfo object which will be searched for POP POP RET instructions,</param>
+            <param name="excludes">Modules to be ignored when searching for the instruction sets.</param>
+            <returns>Returns an ErcResult containing a list of strings detailing the pointers, opcodes and base files of suitable instruction sets.</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.GenerateByteArray(System.Byte[],ERC.ErcCore)">
+            <summary>
+            Generates an array of all possible bytes for use when identifying bad characters. Writes the output to disk in the working directory.
+            </summary>
+            <param name="unwantedBytes">An array of bytes to be excluded from the final byte array</param>
+            <param name="core">An ErcCore object</param>
+            <returns>Returns a byte array of all possible bytes.</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.GenerateEggHunters(ERC.ErcCore,System.String)">
+            <summary>
+            Generates a collection of EggHunter payloads.
+            </summary>
+            <param name="core">(Optional) If an ErcCore object is provided the output will also be written out to the working directory </param>
+            <param name="tag">(Optional) If a tag is provided the payloads will be altered to search for that tag, the default tag is ERCD</param>
+            <returns>Returns a string containing all EggHunters </returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.GenerateFindNRPTable(ERC.ProcessInfo,System.Int32,System.Boolean)">
+            <summary>
+            Searches the memory of a process for a non repeating pattern.
+            </summary>
+            <param name="info">The ProcessInfo object of the process to be searched</param>
+            <param name="searchType">Integer specifiying the format of the string: 0 = search term is in bytes\n1 = search term is in unicode\n2 = search term is in ASCII\n3 = Search term is in UTF8\n4 = Search term is in UTF7\n5 = Search term is in UTF32</param>
+            <param name="extended">Whether the extended character range is to be used when searching for the non repeating pattern</param>
+            <returns>Returns a List of strings containing the locations the repeating pattern was identified</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32)">
+            <summary>
+            Produces output files containing information about the associated ROP chain, produces files containing ROP gadgets and the associated ROP chain.
+            </summary>
+            <param name="rcg">The ROP chain generator object</param>
+            <returns>Returns a List of strings</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64)">
+            <summary>
+            Produces output files containing information about the associated ROP chain, produces files containing ROP gadgets and the associated ROP chain.
+            </summary>
+            <param name="rcg">The ROP chain generator object</param>
+            <returns>Returns a List of strings</returns>
+        </member>
+        <member name="T:ERC.ERCException">
+            <summary>
+            Custom exception handler.
+            </summary>
+        </member>
+        <member name="T:ERC.ErcCore">
+            <summary>
+            A single instance of this object should be instantiated at a minimum. It is used for storing global variables such as the working directory etc.
+            </summary>
+        </member>
+        <member name="M:ERC.ErcCore.SetWorkingDirectory(System.String)">
+            <summary>
+            Changes the working directory in both the XML file and associated ErcCore object
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:ERC.ErcCore.SetPatternStandardPath(System.String)">
+            <summary>
+            Sets the standard pattern file path. Any pattern can replace the standard pattern when searching however the new pattern must be written to a file and the file path set here.
+            </summary>
+            <param name="path">The filepath of the new standard pattern file</param>
+        </member>
+        <member name="M:ERC.ErcCore.SetPatternExtendedPath(System.String)">
+            <summary>
+            Sets the extended pattern file path. Any pattern can replace the extended pattern when searching however the new pattern must be written to a file and the file path set here.
+            </summary>
+            <param name="path">The filepath of the new extended pattern file</param>
+        </member>
+        <member name="M:ERC.ErcCore.SetAuthor(System.String)">
+            <summary>
+            Sets the name of the author for use when outputing results to disk.
+            </summary>
+            <param name="author">String containing the name of the author</param>
+        </member>
+        <member name="M:ERC.ErcCore.SetErrorFile(System.String)">
+            <summary>
+            Sets the error log file to a user specified filepath. 
+            </summary>
+            <param name="path">The new error log filepath.</param>
+        </member>
+        <member name="M:ERC.ErcCore.LogEvent(System.Exception)">
+            <summary>
+            Logs events to the error log path in the XML file. This file is only appended to and never replaced.
+            </summary>
+            <param name="e">The exception to log</param>
+        </member>
+        <member name="M:ERC.ErcCore.X64toX32PointerModifier(System.Byte[])">
+            <summary>
+            Converts a x64 pointer into a x86 pointer.
+            </summary>
+            <param name="ptr64">64bit pointer to be converted</param>
+            <returns>Retruns a byte array 4 bytes long containing the modified pointer</returns>
+        </member>
+        <member name="T:ERC.ErcResult`1">
+            <summary>
+            A basic object which contains a generic type and exception. 
+            </summary>
+            <typeparam name="T">A generic type</typeparam>
+        </member>
+        <member name="M:ERC.ErcResult`1.LogEvent">
+            <summary>
+            Logs an event to the ErrorLogFile value.
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.ThreadAccess">
+            <summary>
+            Enum to specify access level required when accessing a thread. 
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.FLOATING_SAVE_AREA">
+            <summary>
+            x86 Save area data.
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.CONTEXT32">
+            <summary>
+            Structure for holding x86 register values.
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.XSAVE_FORMAT64">
+            <summary>
+            x64 Save area data.
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.CONTEXT64">
+            <summary>
+            Structure for holding x64 register values.
+            </summary>
+        </member>
+        <member name="T:ERC.ModuleInfo">
+            <summary>
+            Contains all information relating to a specific module.
+            </summary>
+        </member>
+        <member name="M:ERC.ModuleInfo.#ctor(System.String,System.IntPtr,System.Diagnostics.Process,ERC.ErcCore)">
+            <summary>
+            Constructor for the ModuleInfo object. Takes (string)modules filepath (IntPtr)module handle (Process)Process from which the module is loaded
+            </summary>
+            <param name="module">Filepath of the module</param>
+            <param name="ptr">Handle to the module</param>
+            <param name="process">Process where the module is loaded</param>
+        </member>
+        <member name="M:ERC.ModuleInfo.SearchModule(System.Byte[])">
+            <summary>
+            Searches for a string of bytes within a specific module. Takes a byte array to be searched for. 
+            </summary>
+            <param name="searchBytes">A byte array to be searched for</param>
+            <returns>Returns ERC_Result of pointers to the search term</returns>
+        </member>
+        <member name="T:ERC.Utilities.OpcodeAssembler">
+            <summary>
+            OpcodeAssembler class, can be declared and inherit from a ProcessInfo object to inherit the values of the current process or be called as 
+            a static function to assemble instructions.
+            </summary>
+        </member>
+        <member name="M:ERC.Utilities.OpcodeAssembler.AssembleOpcodes(System.Collections.Generic.List{System.String})">
+            <summary>
+            Takes either an array or list of strings containing assembly instructions and returns the associated opcodes.  
+            </summary>
+            <param name="instructions">The instructions to be assembled</param>
+            <returns>Returns an ErcResult byte array containing the assembled instructions</returns>
+        </member>
+        <member name="M:ERC.Utilities.OpcodeAssembler.AssembleOpcodes(System.Collections.Generic.List{System.String},ERC.MachineType)">
+            <summary>
+            Takes either an array or list of strings containing assembly instructions, a MachineType of I386 or x64, 
+            an instance of the ERC_Core object and returns the associated opcodes.  
+            </summary>
+            <param name="instructions">The instructions to be assemble=d</param>
+            <param name="machineType">a ERC.MachineType of either I386 or x64</param>
+            <param name="core">An ErcCore object</param>
+            <returns>Returns an ERC_Result byte array containing the assembled instructions</returns>
+        </member>
+        <member name="T:ERC.Utilities.OpcodeDisassembler">
+            <summary>
+            OpcodeDisassembler class, can be declared and inherit from a ProcessInfo object to inherit the values of the current process or be called as 
+            a static function to disassemble opcodes.
+            </summary>
+        </member>
+        <member name="M:ERC.Utilities.OpcodeDisassembler.Disassemble(System.Byte[])">
+            <summary>
+            Disassembles opcodes into the associated instructions. Takes a byte array containing opcodes. 
+            </summary>
+            <param name="opcodes">The opcodes to be disassembled</param>
+            <returns>Returns an ERC_Result containing associated instructions.</returns>
+        </member>
+        <member name="M:ERC.Utilities.OpcodeDisassembler.Disassemble(System.Byte[],ERC.MachineType)">
+            <summary>
+            Disassembles opcodes into the associated instructions. Takes a byte array containing opcodes, a MachineType of I386 or x64, 
+            an instance of the ERC_Core object and returns an ERC_Result containing associated instructions.
+            </summary>
+            <param name="opcodes">A byte array containing opcodes to be disassembled</param>
+            <param name="machineType">a ERC.MachineType of either I386 or x64</param>
+            <param name="core">An ErcCore object</param>
+            <returns>Returns an ERC_Result containing associated instructions.</returns>
+        </member>
+        <member name="M:ERC.Utilities.PatternTools.PatternCreate(System.Int32,ERC.ErcCore,System.Boolean)">
+            <summary>
+            Creates a string of non repeating characters.
+            </summary>
+            <param name="length">The length of the pattern to be created as integer</param>
+            <param name="core">An ErcCore object</param>
+            <param name="extended">(Optional) bool specifying whether the extended character set should be used</param>
+            <returns>Returns an ErcResult string containing the generated pattern</returns>
+        </member>
+        <member name="M:ERC.Utilities.PatternTools.PatternOffset(System.String,ERC.ErcCore,System.Boolean)">
+            <summary>
+            Takes a string of characters and returns the location of the first character in a pattern created by Pattern_Create.
+            </summary>
+            <param name="pattern">The pattern to be searched for.</param>
+            <param name="core">An ErcCore object</param>
+            <param name="extended">(Optional) bool specifying whether the extended character set should be used</param>
+            <returns>Returns an ErcResult int containing the offset of the supplied pattern within the generated pattern</returns>
+        </member>
+        <member name="M:ERC.Utilities.PatternTools.PatternOutputBuilder(System.String,ERC.ErcCore)">
+            <summary>
+            Private function, should not be called directly. Takes input from pattern_create and outputs in an easily readable format.
+            </summary>
+            <param name="pattern">The pattern to be used</param>
+            <param name="core">An ErcCore object</param>
+            <returns>Returns a string containing the human readable output of the pattern create method.</returns>
+        </member>
+        <member name="M:ERC.Utilities.Payloads.ByteArrayConstructor(System.Byte[])">
+            <summary>
+            Creates an array of all possible byte values except those passed to the function. 
+            </summary>
+            <param name="unwantedBytes">Takes a byte array of bytes to be excluded</param>
+            <returns>Returns an array of all other possible bytes.</returns>
+        </member>
+        <member name="M:ERC.Utilities.Payloads.EggHunterConstructor(System.String)">
+            <summary>
+            Generates a selection of EggHunter payloads. A custom tag can be specified, if no tag is specified EggHunters will search for the default tag (ERCD)
+            </summary>
+            <param name="tag">A custom tag which the egg hunters will search for.</param>
+            <returns>Returns a dictionary containing a list of EggHunters and string detailing them</returns>
+        </member>
+        <member name="M:ERC.Utilities.Payloads.PopPopRet(System.Byte[])">
+            <summary>
+            Finds all instances of POP X POP X RET in a given byte array. 
+            </summary>
+            <param name="data">Byte array to be searched</param>
+            <returns>Returns an array of integers containing the offsets of the instruction sets.</returns>
+        </member>
+        <member name="M:ERC.Utilities.Payloads.ByteCompare(ERC.ProcessInfo,System.IntPtr,System.Byte[])">
+            <summary>
+            Compares a byte array with an area in memory of equal size. This method should be used in conjunction with the ByteArrayConstructor to identify 
+            bytes which can not be passed into a program without corrupting the input.
+            </summary>
+            <param name="info">The process to compare memory from</param>
+            <param name="startAddress">The address at which to start the comparison</param>
+            <param name="bytes">The byte array containing the bytes to be compared</param>
+            <returns>Returns a Tuple containing a bool which is true if the comparison was identical and false if it was not, a byte array containing 
+            the bytes provided and a byte array containing the bytes read from process memory</returns>
+        </member>
+        <member name="M:ERC.Utilities.Payloads.ByteCompare(ERC.ProcessInfo,System.IntPtr,System.String)">
+            <summary>
+            Compares a byte array with an area in memory of equal size. This method should be used in conjunction with the ByteArrayConstructor to identify 
+            bytes which can not be passed into a program without corrupting the input.
+            </summary>
+            <param name="info">The process to compare memory from</param>
+            <param name="startAddress">The address at which to start the comparison</param>
+            <param name="byteFilePath">The path to a file containing the bytes to be compared</param>
+            <returns>Returns a Tuple containing a bool which is true if the comparison was identical and false if it was not, a byte array containing 
+            the bytes provided and a byte array containing the bytes read from process memory</returns>
+        </member>
+        <member name="M:ERC.Utilities.PtrRemover.RemovePointers(System.Collections.Generic.List{System.IntPtr},System.Byte[])">
+            <summary>
+            Removes pointers which contain unwanted bytes. 
+            </summary>
+            <param name="srcList">The list from which to remove the pointers</param>
+            <param name="bytes">If a pointer contains any of these bytes it will be discarded</param>
+            <returns>Returns a ErcResult of List IntPtr</returns>
+        </member>
+        <member name="M:ERC.Utilities.PtrRemover.RemovePointers(System.Collections.Generic.Dictionary{System.IntPtr,System.String},System.Byte[])">
+            <summary>
+            Removes pointers which contain unwanted bytes. 
+            </summary>
+            <param name="srcList">The list from which to remove the pointers</param>
+            <param name="bytes">If a pointer contains any of these bytes it will be discarded</param>
+            <returns>Returns a ErcResult of Dictionary IntPtr, String</returns>
+        </member>
+        <member name="T:ERC.Utilities.RopChainGenerator32">
+            <summary> Attempts to create Rop chains from 64 bit processes. </summary>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String})">
+            <summary>
+            Creates a RopChain for a specific process.
+            </summary>
+            <param name="ptrsToExclude">Takes a byte array of values used to disqualify ROP gadgets</param>
+            <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
+            <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+            <returns>Returns an ErcResult string containing</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Collections.Generic.List{System.String})">
+            <summary>
+            Creates a RopChain for a specific process.
+            </summary>
+            <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
+            <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+            <returns>Returns an ErcResult string containing</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator32.GetApiAddresses(ERC.ProcessInfo)">
+            <summary>
+            Gets the handles of 4 functions associated with building ROP chains: VirtualAlloc, HeapCreate, VirtualProtect and WriteProcessMemory
+            </summary>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator32.GetRopNops(System.Collections.Generic.List{System.String})">
+            <summary>
+            Gets a list of RopNops from the current process memory.
+            </summary>
+            <param name="excludes">A list of modules to be excluded from the search</param>
+            <returns>Returns a ErcResult containing a list of IntPtr</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator32.ZeroRegister(ERC.Utilities.RopChainGenerator32.Register32,ERC.Utilities.RopChainGenerator32.RegisterModifiers32)">
+            <summary>
+            Checks for a combination of instructions that can be used to zero out a register, this can be a xor instruction on itself or a xor instruction elsewhere
+            followed by a move to the selected register. This function should be extended with further methods for zeroing a register at a later date.
+            </summary>
+            <param name="modifyingReg">The Register32 value for the register to be zeroed.</param>
+            <returns>A dictionary(byte[], string) containing pointers to the instructions and the associated mnemonics</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator32.SetRegisterModifier(ERC.Utilities.RopChainGenerator32.Register32,ERC.Utilities.RopChainGenerator32.Register32,ERC.Utilities.RopChainGenerator32.RegisterModifiers32)">
+            <summary>
+            Sets the flag of a Register32 enum in a RegisterModifiers32 class. This flag is used to identify whether setting the value of one 
+            register involved editing another register. For example if setting EAX involved modifying EBX then RegisterModifiers32.EAX will have the EBX flag set. Any
+            register should not be able to modify the value of any other register twice.
+            
+            The purpose of this is to stop an infitinte loop where each register modifies the other in order to achieve the correct value.
+            </summary>
+            <param name="modifiedReg">The Registers32 which is being modified</param>
+            <param name="modifyingReg">The Registers32 which is doing the modification</param>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator32.GetRegisterModified(ERC.Utilities.RopChainGenerator32.Register32,ERC.Utilities.RopChainGenerator32.Register32,ERC.Utilities.RopChainGenerator32.RegisterModifiers32)">
+            <summary>
+            Returns a boolean indicating whether one register has modified the value of another register attempting to set the correct value.
+            </summary>
+            <param name="modifiedReg">The Registers32 which is being modified</param>
+            <param name="modifyingReg">The Registers32 which is doing the modification</param>
+            <returns>A bool, true = register was modified by this register false = register was not modified by this register</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator32.GetMovInstruction(ERC.Utilities.RopChainGenerator32.Register32,ERC.Utilities.RopChainGenerator32.Register32)">
+            <summary>
+            Finds a mov instruction going from the src register to the destination register
+            </summary>
+            <param name="destReg">The destination register</param>
+            <param name="srcReg">The source register</param>
+            <returns>Returns a tuple of byte[], string, Register32 containing a pointer to the instruction and the associated mnemonics</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator32.GetAddInstruction(ERC.Utilities.RopChainGenerator32.Register32,ERC.Utilities.RopChainGenerator32.Register32)">
+            <summary>
+            Finds a add instruction going from the src register to the destination register
+            </summary>
+            <param name="destReg">The destination register</param>
+            <param name="srcReg">The source register</param>
+            <returns>Returns a tuple of byte[], string, Register32 containing a pointer to the instruction and the associated mnemonics</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator32.CompleteRegisters32(ERC.Utilities.RopChainGenerator32.Register32)">
+            <summary>
+            Checks all values of a Registers32 enum and returns false if any of them are not set. 
+            </summary>
+            <param name="regState">The Registers32 object to be tested</param>
+            <returns>A boolean value is returned</returns>
+        </member>
+        <member name="T:ERC.Utilities.RopChainGenerator64">
+            <summary> Attempts to create Rop chains from 64 bit processes. </summary>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String})">
+            <summary>
+            Creates a RopChain for a specific process.
+            </summary>
+            <param name="ptrsToExclude">Takes a byte array of values used to disqualify ROP gadgets</param>
+            <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
+            <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+            <returns>Returns an ErcResult string containing</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Collections.Generic.List{System.String})">
+            <summary>
+            Creates a RopChain for a specific process.
+            </summary>
+            <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
+            <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+            <returns>Returns an ErcResult string containing</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator64.ZeroRegister(ERC.Utilities.RopChainGenerator64.Register64,ERC.Utilities.RopChainGenerator64.RegisterModifiers64)">
+            <summary>
+            Checks for a combination of instructions that can be used to zero out a register, this can be a xor instruction on itself or a xor instruction elsewhere
+            followed by a move to the selected register. This function should be extended with further methods for zeroing a register at a later date.
+            </summary>
+            <param name="modifyingReg">The Register64 value for the register to be zeroed.</param>
+            <returns>A dictionary(byte[], string) containing pointers to the instructions and the associated mnemonics</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator64.SetRegisterModifier(ERC.Utilities.RopChainGenerator64.Register64,ERC.Utilities.RopChainGenerator64.Register64,ERC.Utilities.RopChainGenerator64.RegisterModifiers64)">
+            <summary>
+            Sets the flag of a Register64 enum in a RegisterModifiers64 class. This flag is used to identify whether setting the value of one 
+            register involved editing another register. For example if setting EAX involved modifying RBX then RegisterModifiers32.RAX will have the RBX flag set. Any
+            register should not be able to modify the value of any other register twice.
+            
+            The purpose of this is to stop an infitinte loop where each register modifies the other in order to achieve the correct value.
+            </summary>
+            <param name="modifiedReg">The Register64 which is being modified</param>
+            <param name="modifyingReg">The Register64 which is doing the modification</param>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator64.GetAddInstruction(ERC.Utilities.RopChainGenerator64.Register64,ERC.Utilities.RopChainGenerator64.Register64)">
+            <summary>
+            Finds a add instruction going from the src register to the destination register
+            </summary>
+            <param name="destReg">The destination register</param>
+            <param name="srcReg">The source register</param>
+            <returns>Returns a tuple of byte[], string, Register64 containing a pointer to the instruction and the associated mnemonics</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator64.GetSubInstruction(ERC.Utilities.RopChainGenerator64.Register64,ERC.Utilities.RopChainGenerator64.Register64)">
+            <summary>
+            Finds a sub instruction going from the src register to the destination register
+            </summary>
+            <param name="destReg">The destination register</param>
+            <param name="srcReg">The source register</param>
+            <returns>Returns a tuple of byte[], string, Register64 containing a pointer to the instruction and the associated mnemonics</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator64.GetMovInstruction(ERC.Utilities.RopChainGenerator64.Register64,ERC.Utilities.RopChainGenerator64.Register64,ERC.Utilities.RopChainGenerator64.RegisterModifiers64)">
+            <summary>
+            Finds a mov instruction going from the src register to the destination register
+            </summary>
+            <param name="destReg">The destination register</param>
+            <param name="srcReg">The source register</param>
+            <returns>Returns a dictionary of byte[] string containing a pointer to the instruction and the associated mnemonics</returns>
+        </member>
+        <member name="T:ERC.ProcessInfo">
+            <summary> Contains information needed for the associated functions relating the process. </summary>
+        </member>
+        <member name="P:ERC.ProcessInfo.ProcessName">
+            <summary> Name of the process. </summary>
+        </member>
+        <member name="P:ERC.ProcessInfo.ProcessDescription">
+            <summary> Process description. </summary>
+        </member>
+        <member name="P:ERC.ProcessInfo.ProcessPath">
+            <summary> Path for the projects main module. </summary>
+        </member>
+        <member name="P:ERC.ProcessInfo.ProcessID">
+            <summary> Process ID. </summary>
+        </member>
+        <member name="P:ERC.ProcessInfo.ProcessHandle">
+            <summary> Handle for the process. </summary>
+        </member>
+        <member name="P:ERC.ProcessInfo.ProcessCurrent">
+            <summary> .Net Process object for this process </summary>
+        </member>
+        <member name="P:ERC.ProcessInfo.ProcessMachineType">
+            <summary> The machine type the process runs on. Eg. x86 or x64 </summary>
+        </member>
+        <member name="F:ERC.ProcessInfo.ModulesInfo">
+            <summary> A list containing ModuleInfo objects associuted with the process. /// </summary>
+        </member>
+        <member name="F:ERC.ProcessInfo.ThreadsInfo">
+            <summary> A list containing ThreadInfo objects associuted with the process. /// </summary>
+        </member>
+        <member name="M:ERC.ProcessInfo.#ctor(ERC.ErcCore,System.Diagnostics.Process)">
+            <summary>
+            Constructor for the Process_Info object, requires an ERC_Core object and a Process.
+            </summary>
+            <param name="core">An ErcCore object</param>
+            <param name="process">The process to gather information from</param>
+        </member>
+        <member name="M:ERC.ProcessInfo.#ctor(ERC.ProcessInfo)">
+            <summary>
+            Constructor to use when inheriting from ProcessInfo.
+            </summary>
+            <param name="parent">The object to inherit from</param>
+        </member>
+        <member name="M:ERC.ProcessInfo.ListLocalProcesses(ERC.ErcCore)">
+            <summary>
+            Gets a list of running processes on the host and removes unusable processes (such as system processes etc)
+            </summary>
+            <param name="core">An ErcCore object</param>
+            <returns>Returns an ErcResult containing a list of all supported processes</returns>
+        </member>
+        <member name="M:ERC.ProcessInfo.GetProcessModules">
+            <summary>
+            Returns a list of files loaded by the current process as List String
+            </summary>
+            <returns>Returns an ErcResult containing a Dictionary of module names and the associated handles</returns>
+        </member>
+        <member name="M:ERC.ProcessInfo.Is64Bit(System.Diagnostics.Process)">
+            <summary>
+            Identifies if a process is 64bit or 32 bit, returns true for 64bit and false for 32bit.
+            </summary>
+            <param name="process">The process to be used</param>
+            <returns>Returns true if the process is 64bit and false if it is not.</returns>
+        </member>
+        <member name="M:ERC.ProcessInfo.LocateMemoryRegions">
+            <summary>
+            Identifies memory regions occupied by the current process and populates the associated list with the Process_Info object.
+            </summary>
+        </member>
+        <member name="M:ERC.ProcessInfo.SearchProcessMemory(System.Byte[])">
+            <summary>
+            Private function called from Search_Memory. Searches memory regions populated by the process for specific strings.
+            </summary>
+            <param name="searchBytes"> Takes a byte array as input to be searched for</param>
+            <returns>Returns a list of IntPtr for each instance found.</returns>
+        </member>
+        <member name="M:ERC.ProcessInfo.SearchProcessMemory(System.Byte[],System.Byte[])">
+            <summary>
+            Private function called from Search_Memory. Searches memory regions populated by the process for specific strings.
+            </summary>
+            <param name="searchBytes"> Takes a byte array as input to be searched for</param>
+            <param name="ptrsToExclude"> Takes a byte array of values used to disqualify pointers</param>
+            <returns>Returns a list of IntPtr for each instance found.</returns>
+        </member>
+        <member name="M:ERC.ProcessInfo.SearchAllMemoryPPR(System.Collections.Generic.List{System.String})">
+            <summary>
+            Searches all memory associated with a given process and associated modules for POP X POP X RET instructions. 
+            Passing a list of module paths or names will exclude those modules from the search. 
+            </summary>
+            <param name="excludes">Takes a list of module names to be excluded from the search</param>
+            <returns>Returns an ERC_Result containing a dictionary of pointers and the main module in which they were found</returns>
+        </member>
+        <member name="M:ERC.ProcessInfo.SearchAllMemoryPPR(System.Byte[],System.Collections.Generic.List{System.String})">
+            <summary>
+            Searches all memory associated with a given process and associated modules for POP X POP X RET instructions. 
+            Passing a list of module paths or names will exclude those modules from the search. 
+            </summary>
+            <param name="excludes">Takes a list of module names to be excluded from the search</param>
+            <param name="ptrsToExclude"> Takes a byte array of values used to disqualify pointers</param>
+            <returns>Returns an ERC_Result containing a dictionary of pointers and the main module in which they were found</returns>
+        </member>
+        <member name="M:ERC.ProcessInfo.SearchMemory(System.Int32,System.Byte[],System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Searches all memory (the process and associated DLLs) for a specific string or byte array. Strings can be passed as ASCII, Unicode, UTF7 or UTF8.
+            Specific modules can be exclude through passing a Listof strings containing module names or paths.
+            </summary>
+            <param name="searchType">0 = search term is in bytes\n1 = search term is in unicode\n2 = search term is in ASCII\n3 = Search term is in UTF8\n4 = Search term is in UTF7\n5 = Search term is in UTF32</param>
+            <param name="searchBytes">Byte array to be searched for (optional)</param>
+            <param name="searchString">String to be searched for (optional)</param>
+            <param name="excludes">Modules to be excluded from the search (optional)</param>
+            <returns>Returns an ERC_Result containing pointers to all instances of the search query.</returns>
+        </member>
+        <member name="M:ERC.ProcessInfo.SearchMemory(System.Int32,System.Byte[],System.Byte[],System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Searches all memory (the process and associated DLLs) for a specific string or byte array. Strings can be passed as ASCII, Unicode, UTF7 or UTF8.
+            Specific modules can be exclude through passing a Listof strings containing module names or paths.
+            </summary>
+            <param name="searchType">0 = search term is in bytes\n1 = search term is in unicode\n2 = search term is in ASCII\n3 = Search term is in UTF8\n4 = Search term is in UTF7\n5 = Search term is in UTF32</param>
+            <param name="ptrsToExclude"> Takes a byte array of values used to disqualify pointers</param>
+            <param name="searchBytes">Byte array to be searched for (optional)</param>
+            <param name="searchString">String to be searched for (optional)</param>
+            <param name="excludes">Modules to be excluded from the search (optional)</param>
+            <returns>Returns an ERC_Result containing pointers to all instances of the search query.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ERC.ProcessInfo.FindNRP(System.Int32,System.Boolean)" -->
+        <member name="M:ERC.ProcessInfo.ByteIndexOf(System.Byte[],System.Byte[])">
+            <summary>
+            Private function, BoyerMoore string search algorithm modified to search for sets of bytes in a byte array. 
+            Takes two byte arrays, array to be searched and array to search for.
+            </summary>
+        </member>
+        <member name="M:ERC.ProcessInfo.ToString">
+            <summary>
+            Override of the ToString method. Returns information about the process in a pleasantly formatted string
+            </summary>
+            <returns>A string</returns>
+        </member>
+        <member name="M:ERC.ProcessInfo.GetModuleHandles">
+            <summary>
+            Returns a list of module handles associated with the process.
+            </summary>
+            <returns>Returns a dictionary containing the handle and path of each module</returns>
+        </member>
+        <member name="M:ERC.ProcessInfo.GetProcessModuleInformation">
+            <summary>
+            Gets the list of ModuleInfo objects associated with the current process.
+            </summary>
+            <returns>Returns an ErcResult containing a list of ModuleInfo objects</returns>
+        </member>
+        <member name="M:ERC.ProcessInfo.GetProcessThreadInformation">
+            <summary>
+            Gets the list of ThreadInfo objects associated with the current process.
+            </summary>
+            <returns>Returns an ErcResult containing a list of ThreadInfo objects</returns>
+        </member>
+        <member name="T:ERC.ThreadInfo">
+            <summary>
+            Stores information about the current thread.
+            </summary>
+        </member>
+        <member name="P:ERC.ThreadInfo.ThreadHandle">
+            <summary>
+            A handle for the current thread.
+            </summary>
+        </member>
+        <member name="P:ERC.ThreadInfo.ThreadID">
+            <summary>
+            The ID number of the current thread.
+            </summary>
+        </member>
+        <member name="F:ERC.ThreadInfo.Context32">
+            <summary>
+            x86 CPU Register values.
+            </summary>
+        </member>
+        <member name="F:ERC.ThreadInfo.Context64">
+            <summary>
+            x64 CPU Register values.
+            </summary>
+        </member>
+        <member name="M:ERC.ThreadInfo.Get_Context">
+            <summary>
+            Gets the register values of a thread and populates the CONTEXT structs. Should only be used on a suspended thread, results on an active thread are unreliable.
+            </summary>
+            <returns>Returns an ErcResult, the return value can be ignored, the object should only be checked for error values</returns>
+        </member>
+        <member name="M:ERC.ThreadInfo.GetSehChain">
+            <summary>
+            Gets the current SEH chain for the process.
+            </summary>
+            <returns>Returns a list of IntPtr containing the SEH chain</returns>
+        </member>
+        <member name="M:ERC.ThreadInfo.GetTeb">
+            <summary>
+            Gets the Thread environment block of the current thread.
+            </summary>
+            <returns>Returns a TEB struct</returns>
+        </member>
+        <member name="M:ERC.ThreadInfo.ToString">
+            <summary>
+            Gets information specific to the current thread and returns it as a string.
+            </summary>
+            <returns>Returns a string</returns>
+        </member>
+    </members>
+</doc>
