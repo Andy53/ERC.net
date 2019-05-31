@@ -10,20 +10,30 @@ using System.Text;
 
 namespace ERC
 {
+    /// <summary> Contains information needed for the associated functions relating the process. </summary>
     public class ProcessInfo : ErcCore
     {
         #region Class_Variables
+        /// <summary> Name of the process. </summary>
         public string ProcessName { get; private set; }
+        /// <summary> Process description. </summary>
         public string ProcessDescription { get; private set; }
+        /// <summary> Path for the projects main module. </summary>
         public string ProcessPath { get; private set; }
+        /// <summary> Process ID. </summary>
         public int ProcessID { get; private set; }
 
+        /// <summary> Handle for the process. </summary>
         public IntPtr ProcessHandle { get; private set; }
+        /// <summary> .Net Process object for this process </summary>
         public Process ProcessCurrent { get; private set; }
+        /// <summary> The machine type the process runs on. Eg. x86 or x64 </summary>
         public MachineType ProcessMachineType { get; private set; }
         private Dictionary<string, IntPtr> ProcessModuleHandles = new Dictionary<string, IntPtr>();
+        /// <summary> A list containing ModuleInfo objects associuted with the process. /// </summary>
         public  List<ModuleInfo> ModulesInfo = new List<ModuleInfo>();
-        public  List<ThreadInfo> ThreadsInfo = new List<ThreadInfo>();
+        /// <summary> A list containing ThreadInfo objects associuted with the process. /// </summary>
+        public List<ThreadInfo> ThreadsInfo = new List<ThreadInfo>();
 
         internal ErcCore ProcessCore;
         private List<MEMORY_BASIC_INFORMATION32> ProcessMemoryBasicInfo32;
@@ -85,6 +95,10 @@ namespace ERC
             LocateMemoryRegions();
         }
 
+        /// <summary>
+        /// Constructor to use when inheriting from ProcessInfo.
+        /// </summary>
+        /// <param name="parent">The object to inherit from</param>
         protected ProcessInfo(ProcessInfo parent)
         {
             ProcessName = parent.ProcessName;
@@ -150,7 +164,7 @@ namespace ERC
 
         #region GetProcessModules
         /// <summary>
-        /// Returns a list of files loaded by the current process as List<String>
+        /// Returns a list of files loaded by the current process as List String
         /// </summary>
         /// <returns>Returns an ErcResult containing a Dictionary of module names and the associated handles</returns>
         public ErcResult<Dictionary<string, IntPtr>> GetProcessModules()
@@ -1737,6 +1751,10 @@ namespace ERC
         #region Accessors
 
         #region ToString
+        /// <summary>
+        /// Override of the ToString method. Returns information about the process in a pleasantly formatted string
+        /// </summary>
+        /// <returns>A string</returns>
         public override string ToString()
         {
             string ret = "";
