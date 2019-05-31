@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace ERC.Utilities
 {
+    /// <summary> Attempts to create Rop chains from 64 bit processes. </summary>
     public class RopChainGenerator64
     {
         private const int MEM_COMMIT = 0x1000;

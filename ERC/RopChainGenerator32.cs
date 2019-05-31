@@ -10,6 +10,7 @@ using ERC;
 
 namespace ERC.Utilities
 {
+    /// <summary> Attempts to create Rop chains from 64 bit processes. </summary>
     public class RopChainGenerator32
     {
         #region Class Variables

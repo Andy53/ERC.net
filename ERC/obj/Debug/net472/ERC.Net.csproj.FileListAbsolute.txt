@@ -18,3 +18,4 @@ D:\Source\Repos\ERC_net\ERC.net\ERC\obj\Debug\net472\ERC.Net.csproj.CopyComplete
 D:\Source\Repos\ERC_net\ERC.net\ERC\obj\Debug\net472\ERC.Net.dll
 D:\Source\Repos\ERC_net\ERC.net\ERC\obj\Debug\net472\ERC.Net.pdb
 D:\Source\Repos\ERC_net\ERC.net\ERC\obj\Debug\net472\ERC.Net.csprojAssemblyReference.cache
+D:\Source\Repos\ERC_net\ERC.net\ERC\bin\Debug\net472\ERC.Net.xml
