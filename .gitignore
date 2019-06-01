@@ -5,4 +5,10 @@ D:\Source\Repos\ERC_net\.vs
 .vs/ERC.net/v15/Server/sqlite3/storage.ide-shm
 .vs/ERC.net/v15/Server/sqlite3/storage.ide-wal
 D:\Source\Repos\ERC_net\ERC.net\ERC_test_app
-ERC.net.sln
+.ERC.net.sln
+D:\Source\Repos\ERC_net\ERC\bin\Debug\net472\ERC.Net.xml
+ERC\obj\ERC.Net.csproj.nuget.cache
+ERC\bin\Debug\net472\ERC.Net.xml
+ERC\obj\ERC.Net.csproj.nuget.g.props
+ERC\obj\ERC.Net.csproj.nuget.g.targets
+ERC\obj\project.assets.json
