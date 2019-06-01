@@ -11,6 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="docfx.console" Version="2.42.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Reloaded.Assembler" Version="1.0.5" />
     <PackageReference Include="SharpDisasm" Version="1.1.11" />
   </ItemGroup>
