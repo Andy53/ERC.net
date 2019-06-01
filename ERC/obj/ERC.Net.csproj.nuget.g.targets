@@ -5,5 +5,6 @@
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)reloaded.assembler\1.0.5\build\Reloaded.Assembler.targets" Condition="Exists('$(NuGetPackageRoot)reloaded.assembler\1.0.5\build\Reloaded.Assembler.targets')" />
+    <Import Project="$(NuGetPackageRoot)docfx.console\2.42.4\build\docfx.console.targets" Condition="Exists('$(NuGetPackageRoot)docfx.console\2.42.4\build\docfx.console.targets')" />
   </ImportGroup>
 </Project>
