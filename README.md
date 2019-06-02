@@ -135,7 +135,7 @@ namespace ERC_test_app
             Process thisProcess = null;
             foreach (Process process1 in processes)
             {
-                if (process1.ProcessName.Contains("notepad"))//"KMFtp"))//"x64dbg"))//
+                if (process1.ProcessName.Contains("notepad"))
                 {
                     thisProcess = process1;
                 }
