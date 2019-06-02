@@ -1,4 +1,5 @@
 *.ide
+.vs/*
 .vs/ERC.net/v15/Server/sqlite3/storage.ide-shm
 .vs/ERC.net/v15/Server/sqlite3/storage.ide-wal
 D:\Source\Repos\ERC_net\ERC.net\ERC_test_app
