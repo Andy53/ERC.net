@@ -8,9 +8,9 @@ Install the nuget package or download the source code from [Github](https://gith
 
 ### Prerequisites
 
-Visual studio
-.Net 4.7.2
-C#
+Visual studio  
+.Net 4.7.2   
+C#   
 
 ### Getting Started
 
@@ -44,6 +44,7 @@ Creating a sting of non repeating characters:
             }
         }
     }
+
 
 Identifying the position of a sting within a non repeating string:
 
