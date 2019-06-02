@@ -30,10 +30,10 @@ Creating a sting of non repeating characters:
         {
             static void Main(string[] args)
             {
-            public static ErcCore core = new ErcCore();
-            Console.WriteLine("create a pattern 1000 characters long: ");
-            create_a_pattern();
-            Console.ReadKey();
+                public static ErcCore core = new ErcCore();
+                Console.WriteLine("create a pattern 1000 characters long: ");
+                create_a_pattern();
+                Console.ReadKey();
             }
 
             public static void create_a_pattern()
@@ -41,6 +41,34 @@ Creating a sting of non repeating characters:
                 var result = ERC.Utilities.PatternTools.PatternCreate(1000, core);
                 Console.WriteLine(result.ReturnValue);
                 Console.WriteLine(Environment.NewLine);
+            }
+        }
+    }
+
+Identifying the position of a sting within a non repeating string:
+
+    using System;
+    using ERC;
+    using System.Diagnostics;
+    using System.Collections.Generic;
+    using ERC.Utilities;
+
+    namespace ERC_test_app
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                public static ErcCore core = new ErcCore();
+                Console.WriteLine("Find offset in pattern (Ag9):");
+                find_pattern_offset();
+                Console.ReadKey();
+            }
+
+            public static void find_pattern_offset()
+            {
+                var result = ERC.Utilities.PatternTools.PatternOffset("Ag9", core);
+                Console.WriteLine(result.ReturnValue);
             }
         }
     }
