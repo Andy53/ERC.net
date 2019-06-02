@@ -44,7 +44,7 @@ namespace ERC_test_app
         }
     }
 }
-```
+```    
      
     
 Identifying the position of a sting within a non repeating string:
