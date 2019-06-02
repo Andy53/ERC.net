@@ -74,12 +74,39 @@ namespace ERC_test_app
         }
     }
 }
+```     
+     
+Display a list of all applicable local processes:
 ```
+using System;
+using ERC;
+using System.Diagnostics;
+using System.Collections.Generic;
+using ERC.Utilities;
 
-And repeat
+namespace ERC_test_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            public static ErcCore core = new ErcCore();
+            Console.WriteLine("List all local processes: ");
+            List_All_Local_Processes();
+            Console.ReadKey();
+        }
 
-```
-until finished
+        public static void List_All_Local_Processes()
+        {
+            var test = ProcessInfo.ListLocalProcesses(core);
+            foreach (Process process in test.ReturnValue)
+            {
+                Console.WriteLine("Name: {0} ID: {1}", process.ProcessName, process.Id);
+            }
+            Console.WriteLine(Environment.NewLine);
+        }
+    }
+}
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
