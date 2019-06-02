@@ -109,6 +109,49 @@ namespace ERC_test_app
 }
 ```
 
+Search Process Memory for a string (the string being searched for in "anonymous", the program being searched is notepad) and return a list of pointers to that string in process memory:
+```
+using System;
+using ERC;
+using System.Diagnostics;
+using System.Collections.Generic;
+using ERC.Utilities;
+
+namespace ERC_test_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            public static ErcCore core = new ErcCore();
+            Console.WriteLine("Search Process Memory (notepad): ");
+            Search_Process_Memory();
+            Console.ReadKey();
+        }
+
+        public static void Search_Process_Memory()
+        {
+            Process[] processes = Process.GetProcesses();
+            Process thisProcess = null;
+            foreach (Process process1 in processes)
+            {
+                if (process1.ProcessName.Contains("notepad"))//"KMFtp"))//"x64dbg"))//
+                {
+                    thisProcess = process1;
+                }
+            }
+
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            var listy = info.SearchMemory(1, searchString: "anonymous");
+            foreach (KeyValuePair<IntPtr, string> s in listy.ReturnValue)
+            {
+                Console.WriteLine("0x" + s.Key.ToString("x") + " Filepath: " + s.Value);
+            }
+        }
+    }
+}
+```
+
 End with an example of getting some data out of the system or using it for a little demo
 
 ## Versioning
