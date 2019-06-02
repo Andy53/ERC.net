@@ -17,6 +17,7 @@ C#
 Below are a set of examples detailing how to use the basic functionality provided by ERC.Net
 
 Creating a sting of non repeating characters:
+
     using System;
     using ERC;
     using System.Diagnostics;
