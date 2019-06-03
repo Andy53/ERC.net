@@ -150,9 +150,389 @@ namespace ERC_test_app
         }
     }
 }
+```     
+
+
+An example of how to assemble mnemonics into opcodes:
+```
+using System;
+using ERC;
+using System.Diagnostics;
+using System.Collections.Generic;
+using ERC.Utilities;
+
+namespace ERC_test_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            public static ErcCore core = new ErcCore();
+            Console.WriteLine("Assembling opcodes:");
+            assembling_opcodes();
+            Console.ReadKey();
+        }
+
+        public static void assembling_opcodes()
+        {
+            List<string> instructions = new List<string>();
+            instructions.Add("ret");
+
+            foreach (string s in instructions)
+            {
+                List<string> strings = new List<string>();
+                strings.Add(s);
+                var asmResult = ERC.Utilities.OpcodeAssembler.AssembleOpcodes(strings, MachineType.x64);
+                Console.WriteLine(s + " = " + BitConverter.ToString(asmResult.ReturnValue).Replace("-", ""));
+            }
+        }
+    }
+}
+```     
+
+An example of how to disassemble opcodes into mnemonics:
+```
+using System;
+using ERC;
+using System.Diagnostics;
+using System.Collections.Generic;
+using ERC.Utilities;
+
+namespace ERC_test_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            public static ErcCore core = new ErcCore();
+            Console.WriteLine("Disassembling Opcodes:");
+            disassemble_opcodes();
+            Console.ReadKey();
+        }
+
+        public static void disassemble_opcodes()
+        {
+            byte[] opcodes = new byte[] { 0xC3 };
+            var result = ERC.Utilities.OpcodeDisassembler.Disassemble(opcodes, MachineType.x64);
+            Console.WriteLine(result.ReturnValue + Environment.NewLine);
+        }
+    }
+}
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Display information about all modules associated with a process:
+```
+using System;
+using ERC;
+using System.Diagnostics;
+using System.Collections.Generic;
+using ERC.Utilities;
+
+namespace ERC_test_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            public static ErcCore core = new ErcCore();
+            Console.WriteLine("Outputting module info");
+            output_module_info();
+            Console.ReadKey();
+        }
+
+        public static void output_module_info()
+        {
+            Process[] processes = Process.GetProcesses();
+            Process thisProcess = null;
+            foreach (Process process1 in processes)
+            {
+                if (process1.ProcessName.Contains("notepad"))
+                {
+                    thisProcess = process1;
+                }
+            }
+
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            Console.WriteLine("Here");
+            Console.WriteLine(DisplayOutput.GenerateModuleInfoTable(info));
+        }
+    }
+}
+```   
+
+Generate a byte array of all possible bytes excluding 0xA1, 0xB1, 0xC1 and 0xD1 then save it to a file in C:\:
+```
+using System;
+using ERC;
+using System.Diagnostics;
+using System.Collections.Generic;
+using ERC.Utilities;
+
+namespace ERC_test_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            core.SetWorkingDirectory(@"C:\");
+            public static ErcCore core = new ErcCore();
+            Console.WriteLine("Generating byte array, skipping [ 0xA1, 0xB1, 0xC1, 0xD1 ]");
+            output_byte_array();
+            Console.ReadKey();
+        }
+
+        public static void output_byte_array()
+        {
+            byte[] unwantedBytes = new byte[] { 0xA1, 0xB1, 0xC1, 0xD1 };
+            var bytes = DisplayOutput.GenerateByteArray(unwantedBytes, core);
+            Console.WriteLine(BitConverter.ToString(bytes).Replace("-", " "));
+        }
+    }
+}
+```    
+
+Return the value of all registers (Context) for a given thread:
+```
+using System;
+using ERC;
+using System.Diagnostics;
+using System.Collections.Generic;
+using ERC.Utilities;
+
+namespace ERC_test_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            public static ErcCore core = new ErcCore();
+            Console.WriteLine("Get thread Context:");
+            Get_Thread_Context();
+            Console.ReadKey();
+        }
+
+        public static void Get_Thread_Context()
+        {
+            Process[] processes = Process.GetProcesses();
+            Process thisProcess = null;
+            foreach (Process process1 in processes)
+            {
+                if (process1.ProcessName.Contains("notepad"))
+                {
+                    thisProcess = process1;
+                }
+            }
+
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            for(int i = 0; i < info.ThreadsInfo.Count; i++){
+                info.ThreadsInfo[i].Get_Context();
+                Console.WriteLine("i = {0}", i);
+            }
+        }
+    }
+}
+```    
+
+Return a pointer and mnemonics for all SEH jumps in the given process and associated modules:
+```
+using System;
+using ERC;
+using System.Diagnostics;
+using System.Collections.Generic;
+using ERC.Utilities;
+
+namespace ERC_test_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            public static ErcCore core = new ErcCore();
+            Console.WriteLine("Find SEH Jumps:");
+            Find_SEH();
+            Console.ReadKey();
+        }
+
+        public static void Find_SEH_Jump()
+        {
+            //ensure notepad is open before running this function.
+            Process[] processes = Process.GetProcesses();
+            Process thisProcess = null;
+            foreach (Process process1 in processes)
+            {
+                if (process1.ProcessName.Contains("notepad"))
+                {
+                    thisProcess = process1;
+                }
+            }
+
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            var tester = DisplayOutput.GetSEHJumps(info);
+            foreach(string s in tester.ReturnValue)
+            {
+                Console.WriteLine(s);
+            }
+        }
+    }
+}
+```     
+
+Generate a collection of egghunters with the tag "AAAA":
+```
+using System;
+using ERC;
+using System.Diagnostics;
+using System.Collections.Generic;
+using ERC.Utilities;
+
+namespace ERC_test_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            public static ErcCore core = new ErcCore();
+            Console.WriteLine("Generating egg hunters:");
+            egghunters();
+            Console.ReadKey();
+        }
+
+        public static void egghunters()
+        {
+            var eggs = DisplayOutput.GenerateEggHunters(core, "AAAA");
+            Console.WriteLine(eggs);
+        }
+    }
+}
+```     
+
+Display the SEH chain for a thread (the process must have entered an error state for this to be populated):
+```
+using System;
+using ERC;
+using System.Diagnostics;
+using System.Collections.Generic;
+using ERC.Utilities;
+
+namespace ERC_test_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            public static ErcCore core = new ErcCore();
+            Console.WriteLine("Get SEH chain for thread 0:");
+            GetSehChain();
+            Console.ReadKey();
+        }
+
+        public static void GetSehChain()
+        {
+            Process[] processes = Process.GetProcesses();
+            Process thisProcess = null;
+            foreach (Process process1 in processes)
+            {
+                if (process1.ProcessName.Contains("notepad"))
+                {
+                    thisProcess = process1;
+                }
+            }
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            var test = info.ThreadsInfo[0].GetSehChain();
+            foreach(IntPtr i in test)
+            {
+                Console.WriteLine("Ptr: {0}", i.ToString("X8"));
+            }
+        }
+    }
+}
+```    
+
+Find a non repeating pattern in memory and display which registers point to (or near) it:
+```
+using System;
+using ERC;
+using System.Diagnostics;
+using System.Collections.Generic;
+using ERC.Utilities;
+
+namespace ERC_test_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            public static ErcCore core = new ErcCore();
+            Console.WriteLine("Searching for Non repeating pattern");
+            FindNRP();
+            Console.ReadKey();
+        }
+
+        public static void FindNRP()
+        {
+            Process[] processes = Process.GetProcesses();
+            Process thisProcess = null;
+            foreach (Process process1 in processes)
+            {
+                if (process1.ProcessName.Contains("notepad"))
+                {
+                    thisProcess = process1;
+                }
+            }
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            var test = info.FindNRP();
+            if(test.Error != null)
+            {
+                Console.WriteLine(test.Error);
+            }
+            var strings = DisplayOutput.GenerateFindNRPTable(info, 2, false);
+            foreach(string s in strings)
+            {
+                Console.WriteLine(s);
+            }
+        }
+    }
+}
+```    
+
+Generate a 32bit ROP chain for the current process:
+```
+using System;
+using ERC;
+using System.Diagnostics;
+using System.Collections.Generic;
+using ERC.Utilities;
+
+namespace ERC_test_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            public static ErcCore core = new ErcCore();
+            Console.WriteLine("Generate RopChain 32");
+            GenerateRopChain32();*/
+            Console.ReadKey();
+        }
+
+        public static void GenerateRopChain32()
+        {
+            Process[] processes = Process.GetProcesses();
+            Process thisProcess = null;
+            foreach (Process process1 in processes)
+            {
+                if (process1.ProcessName.Contains("Word"))
+                {
+                    thisProcess = process1;
+                }
+            }
+            ProcessInfo info = new ProcessInfo(core, thisProcess);
+            RopChainGenerator32 RCG = new RopChainGenerator32(info);
+            RCG.GenerateRopChain32();
+        }
+    }
+}
+```    
 
 ## Versioning
 
