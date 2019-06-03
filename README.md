@@ -17,7 +17,7 @@ C#
 Below are a set of examples detailing how to use the basic functionality provided by ERC.Net
 
 Creating a sting of non repeating characters:
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
@@ -48,7 +48,7 @@ namespace ERC_test_app
      
     
 Identifying the position of a sting within a non repeating string:
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
@@ -77,7 +77,7 @@ namespace ERC_test_app
 ```     
      
 Display a list of all applicable local processes:
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
@@ -110,7 +110,7 @@ namespace ERC_test_app
 ```
 
 Search Process Memory for a string (the string being searched for in "anonymous", the program being searched is notepad) and return a list of pointers to that string in process memory:
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
@@ -154,7 +154,7 @@ namespace ERC_test_app
 
 
 An example of how to assemble mnemonics into opcodes:
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
@@ -191,7 +191,7 @@ namespace ERC_test_app
 ```     
 
 An example of how to disassemble opcodes into mnemonics:
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
@@ -221,7 +221,7 @@ namespace ERC_test_app
 ```
 
 Display information about all modules associated with a process:
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
@@ -261,7 +261,7 @@ namespace ERC_test_app
 ```   
 
 Generate a byte array of all possible bytes excluding 0xA1, 0xB1, 0xC1 and 0xD1 then save it to a file in C:\:
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
@@ -292,7 +292,7 @@ namespace ERC_test_app
 ```    
 
 Return the value of all registers (Context) for a given thread:
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
@@ -334,7 +334,7 @@ namespace ERC_test_app
 ```    
 
 Return a pointer and mnemonics for all SEH jumps in the given process and associated modules:
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
@@ -378,7 +378,7 @@ namespace ERC_test_app
 ```     
 
 Generate a collection of egghunters with the tag "AAAA":
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
@@ -407,7 +407,7 @@ namespace ERC_test_app
 ```     
 
 Display the SEH chain for a thread (the process must have entered an error state for this to be populated):
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
@@ -449,7 +449,7 @@ namespace ERC_test_app
 ```    
 
 Find a non repeating pattern in memory and display which registers point to (or near) it:
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
@@ -496,7 +496,7 @@ namespace ERC_test_app
 ```    
 
 Generate a 32bit ROP chain for the current process:
-```
+```csharp
 using System;
 using ERC;
 using System.Diagnostics;
