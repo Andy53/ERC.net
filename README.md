@@ -540,7 +540,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Andy** - [PurpleBooth](https://github.com/PurpleBooth)
+* **Andy** - [Andy53](https://github.com/Andy53)
 
 ## License
 
