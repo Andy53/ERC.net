@@ -5,6 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace ERC.Utilities
 {
+    /// <summary>
+    /// Static class used to build a non repeating pattern and identify the position of a string in a non repeating pattern.
+    /// </summary>
     public static class PatternTools
     {
         #region string Constants
@@ -47,11 +50,6 @@ namespace ERC.Utilities
             }
                 
             result.ReturnValue = "";
-            string outputFile = "";
-            if (core.WorkingDirectory != null)
-            {
-                outputFile = DisplayOutput.GetFilePath(core.WorkingDirectory, "pattern_", ".txt");
-            }
 
             if (length < 1)
             {
@@ -79,10 +77,6 @@ namespace ERC.Utilities
 
                         if (result.ReturnValue.Length == length)
                         {
-                            if (!string.IsNullOrEmpty(outputFile))
-                            {
-                                File.WriteAllText(outputFile, PatternOutputBuilder(result.ReturnValue, core));
-                            }
                             return result;
                         }
 
@@ -93,10 +87,6 @@ namespace ERC.Utilities
                             result.ReturnValue += pos3;
                             if (result.ReturnValue.Length == length)
                             {
-                                if (!string.IsNullOrEmpty(outputFile))
-                                {
-                                    File.WriteAllText(outputFile, PatternOutputBuilder(result.ReturnValue, core));
-                                }
                                 return result;
                             }
                         }
@@ -106,10 +96,6 @@ namespace ERC.Utilities
                             result.ReturnValue += pos2;
                             if (result.ReturnValue.Length == length)
                             {
-                                if (!string.IsNullOrEmpty(outputFile))
-                                {
-                                    File.WriteAllText(outputFile, PatternOutputBuilder(result.ReturnValue, core));
-                                }
                                 return result;
                             }
                         }
@@ -118,10 +104,6 @@ namespace ERC.Utilities
                             result.ReturnValue += pos1;
                             if (result.ReturnValue.Length == length)
                             {
-                                if (!string.IsNullOrEmpty(outputFile))
-                                {
-                                    File.WriteAllText(outputFile, PatternOutputBuilder(result.ReturnValue, core));
-                                }
                                 return result;
                             }
                         }
@@ -173,61 +155,6 @@ namespace ERC.Utilities
             result.Error = new ERCException("Error: Pattern not found.");
             result.ReturnValue = -1;
             return result;
-        }
-        #endregion
-
-        #region Pattern Output
-        /// <summary>
-        /// Private function, should not be called directly. Takes input from pattern_create and outputs in an easily readable format.
-        /// </summary>
-        /// <param name="pattern">The pattern to be used</param>
-        /// <param name="core">An ErcCore object</param>
-        /// <returns>Returns a string containing the human readable output of the pattern create method.</returns>
-        private static string PatternOutputBuilder(string pattern, ErcCore core)
-        {
-            byte[] bytes = Encoding.ASCII.GetBytes(pattern);
-            string hexPattern = BitConverter.ToString(bytes);
-            string asciiPattern = " ";
-            string[] hexArray = hexPattern.Split('-');
-
-            for (int i = 1; i < hexArray.Length; i++)
-            {
-                asciiPattern += pattern[i];
-
-                if (i % 88 == 0 && i > 0)
-                {
-                    asciiPattern += "\"";
-                    asciiPattern += Environment.NewLine;
-                    asciiPattern += "\"";
-                }
-            }
-
-            hexPattern = " ";
-            for (int i = 1; i < hexArray.Length; i++)
-            {
-                hexPattern += "\\x" + hexArray[i];
-
-                if (i % 22 == 0 && i > 0)
-                {
-                    hexPattern += Environment.NewLine;
-                }
-            }
-
-            asciiPattern = asciiPattern.TrimStart(' ');
-            hexPattern = hexPattern.TrimStart(' ');
-
-            string output = "";
-            output += "------------------------------------------------------------------------------------------" + Environment.NewLine;
-            output += "Pattern created at: " + DateTime.Now + ". Pattern created by: " + core.Author + ". Pattern length: " + pattern.Length + Environment.NewLine;
-            output += "------------------------------------------------------------------------------------------" + Environment.NewLine;
-            output += Environment.NewLine;
-            output += "Ascii:" + Environment.NewLine;
-            output += "\"" + asciiPattern + "\"" + Environment.NewLine;
-            output += Environment.NewLine;
-            output += "Hexadecimal:" + Environment.NewLine;
-            output += hexPattern;
-
-            return output;
         }
         #endregion
     }

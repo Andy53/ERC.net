@@ -12,7 +12,4 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Pkgdocfx_console Condition=" '$(Pkgdocfx_console)' == '' ">C:\Users\Andy\.nuget\packages\docfx.console\2.42.4</Pkgdocfx_console>
-  </PropertyGroup>
 </Project>

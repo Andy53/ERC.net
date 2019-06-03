@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -42,6 +43,83 @@ namespace ERC
             fileNumber++;
             result = directory + prefix + fileNumber.ToString() + extension;
             return result;
+        }
+        #endregion
+
+        #region Generate Pattern
+        /// <summary>
+        /// Creates a file in the ErcCore working directory containing a string of non repeating characters. 
+        /// </summary>
+        /// <param name="length">The length of the string to be created</param>
+        /// <param name="core">An ErcCore object</param>
+        /// <param name="extended">A optional boolean specifying whether to use the extended character set. Default is false.</param>
+        /// <returns></returns>
+        public static string GeneratePattern(int length, ErcCore core, bool extended = false)
+        {
+            var patternFilePath = GetFilePath(core.WorkingDirectory, "Pattern_Create_", ".txt");
+            var pattern = PatternTools.PatternCreate(length, core, extended);
+            if(pattern.Error != null)
+            {
+                throw pattern.Error;
+            }
+            var patternOutput = PatternOutputBuilder(pattern.ReturnValue, core);
+            File.WriteAllText(patternFilePath, patternOutput);
+            return patternOutput;
+        }
+        #endregion
+
+        #region Pattern Output
+        /// <summary>
+        /// Private function, should not be called directly. Takes input from pattern_create and outputs in an easily readable format.
+        /// </summary>
+        /// <param name="pattern">The pattern to be used</param>
+        /// <param name="core">An ErcCore object</param>
+        /// <returns>Returns a string containing the human readable output of the pattern create method.</returns>
+        private static string PatternOutputBuilder(string pattern, ErcCore core)
+        {
+            byte[] bytes = Encoding.ASCII.GetBytes(pattern);
+            string hexPattern = BitConverter.ToString(bytes);
+            string asciiPattern = " ";
+            string[] hexArray = hexPattern.Split('-');
+
+            for (int i = 1; i < hexArray.Length; i++)
+            {
+                asciiPattern += pattern[i];
+
+                if (i % 88 == 0 && i > 0)
+                {
+                    asciiPattern += "\"";
+                    asciiPattern += Environment.NewLine;
+                    asciiPattern += "\"";
+                }
+            }
+
+            hexPattern = " ";
+            for (int i = 1; i < hexArray.Length; i++)
+            {
+                hexPattern += "\\x" + hexArray[i];
+
+                if (i % 22 == 0 && i > 0)
+                {
+                    hexPattern += Environment.NewLine;
+                }
+            }
+
+            asciiPattern = asciiPattern.TrimStart(' ');
+            hexPattern = hexPattern.TrimStart(' ');
+
+            string output = "";
+            output += "------------------------------------------------------------------------------------------" + Environment.NewLine;
+            output += "Pattern created at: " + DateTime.Now + ". Pattern created by: " + core.Author + ". Pattern length: " + pattern.Length + Environment.NewLine;
+            output += "------------------------------------------------------------------------------------------" + Environment.NewLine;
+            output += Environment.NewLine;
+            output += "Ascii:" + Environment.NewLine;
+            output += "\"" + asciiPattern + "\"" + Environment.NewLine;
+            output += Environment.NewLine;
+            output += "Hexadecimal:" + Environment.NewLine;
+            output += hexPattern;
+
+            return output;
         }
         #endregion
 
