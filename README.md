@@ -540,7 +540,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Andy** - [Andy53](https://github.com/Andy53)
+* **Andy Bowden** - [Andy53](https://github.com/Andy53)
 
 ## License
 
