@@ -4,7 +4,7 @@ ERC.Net is a collection of tools designed to assist in debugging Windows applica
 
 ## Installing
 
-Install the [nuget package](https://www.nuget.org/packages/ERC.Net/1.0.0) or download the source code from [Github](https://github.com/Andy53/ERC.net), build the library and then link it in your project.
+Install one of the nuget packages ([x86](https://www.nuget.org/packages/ERC.Net-x86/)/[x64](https://www.nuget.org/packages/ERC.Net-x64/)) or download the source code from [Github](https://github.com/Andy53/ERC.net), build the library and then link it in your project.
 
 ### Prerequisites
 
