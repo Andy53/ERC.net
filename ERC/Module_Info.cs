@@ -2,7 +2,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -108,16 +107,24 @@ namespace ERC
                         }
                     }
 
-                    PopulateConfigStruct();
-
-                    if (ImageConfigDir32.SEHandlerCount == 0 && ImageConfigDir32.SEHandlerTable == 0)
+                    if(ModuleMachineType == MachineType.I386)
                     {
-                        ModuleSafeSEH = false;
+                        PopulateConfigStruct();
+
+                        if (ImageConfigDir32.SEHandlerCount == 0 && ImageConfigDir32.SEHandlerTable == 0)
+                        {
+                            ModuleSafeSEH = false;
+                        }
+                        else
+                        {
+                            ModuleSafeSEH = true;
+                        }
                     }
                     else
                     {
                         ModuleSafeSEH = true;
                     }
+                    
                 }
                 else if (ModuleMachineType == MachineType.x64)
                 {

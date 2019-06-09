@@ -302,23 +302,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Andy\\.nuget\\packages\\": {},
+    "C:\\Users\\Devvy\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC.Net.csproj",
+      "projectUniqueName": "C:\\Users\\Devvy\\Source\\Repos\\ERC.net\\ERC\\ERC.Net.csproj",
       "projectName": "ERC.Net",
-      "projectPath": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\ERC.Net.csproj",
-      "packagesPath": "C:\\Users\\Andy\\.nuget\\packages\\",
-      "outputPath": "D:\\Source\\Repos\\ERC_net\\ERC.net\\ERC\\obj\\",
+      "projectPath": "C:\\Users\\Devvy\\Source\\Repos\\ERC.net\\ERC\\ERC.Net.csproj",
+      "packagesPath": "C:\\Users\\Devvy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Devvy\\Source\\Repos\\ERC.net\\ERC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Devvy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
