@@ -17,6 +17,23 @@
             <param name="extension">The file extension to be used e.g. ".txt" </param>
             <returns>Returns a string containing the full file path to be used when writing output to disk</returns>
         </member>
+        <member name="M:ERC.DisplayOutput.GeneratePattern(System.Int32,ERC.ErcCore,System.Boolean)">
+            <summary>
+            Creates a file in the ErcCore working directory containing a string of non repeating characters. 
+            </summary>
+            <param name="length">The length of the string to be created</param>
+            <param name="core">An ErcCore object</param>
+            <param name="extended">A optional boolean specifying whether to use the extended character set. Default is false.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.PatternOutputBuilder(System.String,ERC.ErcCore)">
+            <summary>
+            Private function, should not be called directly. Takes input from pattern_create and outputs in an easily readable format.
+            </summary>
+            <param name="pattern">The pattern to be used</param>
+            <param name="core">An ErcCore object</param>
+            <returns>Returns a string containing the human readable output of the pattern create method.</returns>
+        </member>
         <member name="M:ERC.DisplayOutput.DisplayModuleInfo(ERC.ProcessInfo)">
             <summary>
             Displays a list of all modules and associated information from a specific process. Can output to stdout, a file or both.
@@ -159,6 +176,12 @@
             Structure for holding x86 register values.
             </summary>
         </member>
+        <member name="M:ERC.Structures.CONTEXT32.ToString">
+            <summary>
+            Overridden ToString method, returns register values for the current thread.
+            </summary>
+            <returns>String</returns>
+        </member>
         <member name="T:ERC.Structures.XSAVE_FORMAT64">
             <summary>
             x64 Save area data.
@@ -168,6 +191,12 @@
             <summary>
             Structure for holding x64 register values.
             </summary>
+        </member>
+        <member name="M:ERC.Structures.CONTEXT64.ToString">
+            <summary>
+            Overridden ToString method, returns register values for the current thread.
+            </summary>
+            <returns>String</returns>
         </member>
         <member name="T:ERC.ModuleInfo">
             <summary>
@@ -235,6 +264,11 @@
             <param name="core">An ErcCore object</param>
             <returns>Returns an ERC_Result containing associated instructions.</returns>
         </member>
+        <member name="T:ERC.Utilities.PatternTools">
+            <summary>
+            Static class used to build a non repeating pattern and identify the position of a string in a non repeating pattern.
+            </summary>
+        </member>
         <member name="M:ERC.Utilities.PatternTools.PatternCreate(System.Int32,ERC.ErcCore,System.Boolean)">
             <summary>
             Creates a string of non repeating characters.
@@ -252,14 +286,6 @@
             <param name="core">An ErcCore object</param>
             <param name="extended">(Optional) bool specifying whether the extended character set should be used</param>
             <returns>Returns an ErcResult int containing the offset of the supplied pattern within the generated pattern</returns>
-        </member>
-        <member name="M:ERC.Utilities.PatternTools.PatternOutputBuilder(System.String,ERC.ErcCore)">
-            <summary>
-            Private function, should not be called directly. Takes input from pattern_create and outputs in an easily readable format.
-            </summary>
-            <param name="pattern">The pattern to be used</param>
-            <param name="core">An ErcCore object</param>
-            <returns>Returns a string containing the human readable output of the pattern create method.</returns>
         </member>
         <member name="M:ERC.Utilities.Payloads.ByteArrayConstructor(System.Byte[])">
             <summary>

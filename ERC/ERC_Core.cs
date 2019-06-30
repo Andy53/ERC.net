@@ -978,6 +978,25 @@ namespace ERC
             public uint SegSs;
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 512)]
             public byte[] ExtendedRegisters;
+
+            /// <summary>
+            /// Overridden ToString method, returns register values for the current thread.
+            /// </summary>
+            /// <returns>String</returns>
+            public override string ToString()
+            {
+                string ret = "";
+                ret += "EDI = " + Edi.ToString("X8") + Environment.NewLine;
+                ret += "ESI = " + Esi.ToString("X8") + Environment.NewLine;
+                ret += "EBX = " + Ebx.ToString("X8") + Environment.NewLine;
+                ret += "EDX = " + Edx.ToString("X8") + Environment.NewLine;
+                ret += "ECX = " + Ecx.ToString("X8") + Environment.NewLine;
+                ret += "EAX = " + Eax.ToString("X8") + Environment.NewLine;
+                ret += "EBP = " + Ebp.ToString("X8") + Environment.NewLine;
+                ret += "ESP = " + Esp.ToString("X8") + Environment.NewLine;
+                ret += "EIP = " + Eip.ToString("X8") + Environment.NewLine;
+                return ret;
+            }
         }
 
         // Next x64
@@ -1083,6 +1102,33 @@ namespace ERC
             public ulong LastBranchFromRip;
             public ulong LastExceptionToRip;
             public ulong LastExceptionFromRip;
+
+            /// <summary>
+            /// Overridden ToString method, returns register values for the current thread.
+            /// </summary>
+            /// <returns>String</returns>
+            public override string ToString()
+            {
+                string ret = "";
+                ret += "RAX = " + Rax.ToString("X16") + Environment.NewLine;
+                ret += "RCX = " + Rcx.ToString("X16") + Environment.NewLine;
+                ret += "RDX = " + Rdx.ToString("X16") + Environment.NewLine;
+                ret += "RBX = " + Rbx.ToString("X16") + Environment.NewLine;
+                ret += "RSP = " + Rsp.ToString("X16") + Environment.NewLine;
+                ret += "RBP = " + Rbp.ToString("X16") + Environment.NewLine;
+                ret += "RSI = " + Rsi.ToString("X16") + Environment.NewLine;
+                ret += "RDI = " + Rdi.ToString("X16") + Environment.NewLine;
+                ret += "R08 = " + R8.ToString("X16") + Environment.NewLine;
+                ret += "R09 = " + R9.ToString("X16") + Environment.NewLine;
+                ret += "R10 = " + R10.ToString("X16") + Environment.NewLine;
+                ret += "R11 = " + R11.ToString("X16") + Environment.NewLine;
+                ret += "R12 = " + R12.ToString("X16") + Environment.NewLine;
+                ret += "R13 = " + R13.ToString("X16") + Environment.NewLine;
+                ret += "R14 = " + R14.ToString("X16") + Environment.NewLine;
+                ret += "R15 = " + R15.ToString("X16") + Environment.NewLine;
+                ret += "RIP = " + Rip.ToString("X16") + Environment.NewLine;
+                return ret;
+            }
         }
 
         public class RegisterInfo

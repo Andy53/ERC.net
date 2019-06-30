@@ -20,27 +20,18 @@ Creating a sting of non repeating characters:
 ```csharp
 using System;
 using ERC;
-using System.Diagnostics;
-using System.Collections.Generic;
 using ERC.Utilities;
 
-namespace ERC_test_app
+namespace ERC_Test_App
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            public static ErcCore core = new ErcCore();
-            Console.WriteLine("create a pattern 1000 characters long: ");
-            create_a_pattern();
+            ErcCore core = new ErcCore();
+            var p = PatternTools.PatternCreate(1000, core);
+            Console.WriteLine("Pattern:" + Environment.NewLine + p.ReturnValue);
             Console.ReadKey();
-        }
-
-        public static void create_a_pattern()
-        {
-            var result = ERC.Utilities.PatternTools.PatternCreate(1000, core);
-            Console.WriteLine(result.ReturnValue);
-            Console.WriteLine(Environment.NewLine);
         }
     }
 }
@@ -51,26 +42,18 @@ Identifying the position of a sting within a non repeating string:
 ```csharp
 using System;
 using ERC;
-using System.Diagnostics;
-using System.Collections.Generic;
 using ERC.Utilities;
 
-namespace ERC_test_app
+namespace ERC_Test_App
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            public static ErcCore core = new ErcCore();
-            Console.WriteLine("Find offset in pattern (Ag9):");
-            find_pattern_offset();
+            ErcCore core = new ErcCore();
+            var p = PatternTools.PatternOffset("Aa9", core);
+            Console.WriteLine("Pattern Offset:" + Environment.NewLine + p.ReturnValue);
             Console.ReadKey();
-        }
-
-        public static void find_pattern_offset()
-        {
-            var result = ERC.Utilities.PatternTools.PatternOffset("Ag9", core);
-            Console.WriteLine(result.ReturnValue);
         }
     }
 }
@@ -79,31 +62,23 @@ namespace ERC_test_app
 Display a list of all applicable local processes:
 ```csharp
 using System;
-using ERC;
 using System.Diagnostics;
-using System.Collections.Generic;
-using ERC.Utilities;
+using ERC;
 
-namespace ERC_test_app
+namespace ERC_Test_App
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            public static ErcCore core = new ErcCore();
-            Console.WriteLine("List all local processes: ");
-            List_All_Local_Processes();
-            Console.ReadKey();
-        }
-
-        public static void List_All_Local_Processes()
-        {
+            ErcCore core = new ErcCore();
             var test = ProcessInfo.ListLocalProcesses(core);
             foreach (Process process in test.ReturnValue)
             {
                 Console.WriteLine("Name: {0} ID: {1}", process.ProcessName, process.Id);
             }
             Console.WriteLine(Environment.NewLine);
+            Console.ReadKey();
         }
     }
 }
@@ -112,25 +87,17 @@ namespace ERC_test_app
 Search Process Memory for a string (the string being searched for in "anonymous", the program being searched is notepad) and return a list of pointers to that string in process memory:
 ```csharp
 using System;
-using ERC;
-using System.Diagnostics;
 using System.Collections.Generic;
-using ERC.Utilities;
+using System.Diagnostics;
+using ERC;
 
-namespace ERC_test_app
+namespace ERC_Test_App
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            public static ErcCore core = new ErcCore();
-            Console.WriteLine("Search Process Memory (notepad): ");
-            Search_Process_Memory();
-            Console.ReadKey();
-        }
-
-        public static void Search_Process_Memory()
-        {
+            ErcCore core = new ErcCore();
             Process[] processes = Process.GetProcesses();
             Process thisProcess = null;
             foreach (Process process1 in processes)
@@ -145,8 +112,9 @@ namespace ERC_test_app
             var listy = info.SearchMemory(1, searchString: "anonymous");
             foreach (KeyValuePair<IntPtr, string> s in listy.ReturnValue)
             {
-                Console.WriteLine("0x" + s.Key.ToString("x") + " Filepath: " + s.Value);
+                Console.WriteLine("0x" + s.Key.ToString("x16") + " Filepath: " + s.Value);
             }
+            Console.ReadKey();
         }
     }
 }
@@ -156,24 +124,14 @@ namespace ERC_test_app
 An example of how to assemble mnemonics into opcodes:
 ```csharp
 using System;
-using ERC;
-using System.Diagnostics;
 using System.Collections.Generic;
-using ERC.Utilities;
+using ERC;
 
-namespace ERC_test_app
+namespace ERC_Test_App
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            public static ErcCore core = new ErcCore();
-            Console.WriteLine("Assembling opcodes:");
-            assembling_opcodes();
-            Console.ReadKey();
-        }
-
-        public static void assembling_opcodes()
+        static void Main()
         {
             List<string> instructions = new List<string>();
             instructions.Add("ret");
@@ -185,6 +143,7 @@ namespace ERC_test_app
                 var asmResult = ERC.Utilities.OpcodeAssembler.AssembleOpcodes(strings, MachineType.x64);
                 Console.WriteLine(s + " = " + BitConverter.ToString(asmResult.ReturnValue).Replace("-", ""));
             }
+            Console.ReadKey();
         }
     }
 }
@@ -194,27 +153,17 @@ An example of how to disassemble opcodes into mnemonics:
 ```csharp
 using System;
 using ERC;
-using System.Diagnostics;
-using System.Collections.Generic;
-using ERC.Utilities;
 
-namespace ERC_test_app
+namespace ERC_Test_App
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            public static ErcCore core = new ErcCore();
-            Console.WriteLine("Disassembling Opcodes:");
-            disassemble_opcodes();
-            Console.ReadKey();
-        }
-
-        public static void disassemble_opcodes()
+        static void Main()
         {
             byte[] opcodes = new byte[] { 0xC3 };
             var result = ERC.Utilities.OpcodeDisassembler.Disassemble(opcodes, MachineType.x64);
             Console.WriteLine(result.ReturnValue + Environment.NewLine);
+            Console.ReadKey();
         }
     }
 }
@@ -264,28 +213,18 @@ Generate a byte array of all possible bytes excluding 0xA1, 0xB1, 0xC1 and 0xD1 
 ```csharp
 using System;
 using ERC;
-using System.Diagnostics;
-using System.Collections.Generic;
-using ERC.Utilities;
 
-namespace ERC_test_app
+namespace ERC_Test_App
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            core.SetWorkingDirectory(@"C:\");
-            public static ErcCore core = new ErcCore();
-            Console.WriteLine("Generating byte array, skipping [ 0xA1, 0xB1, 0xC1, 0xD1 ]");
-            output_byte_array();
-            Console.ReadKey();
-        }
-
-        public static void output_byte_array()
-        {
+            ErcCore core = new ErcCore();
             byte[] unwantedBytes = new byte[] { 0xA1, 0xB1, 0xC1, 0xD1 };
             var bytes = DisplayOutput.GenerateByteArray(unwantedBytes, core);
             Console.WriteLine(BitConverter.ToString(bytes).Replace("-", " "));
+            Console.ReadKey();
         }
     }
 }
@@ -294,25 +233,16 @@ namespace ERC_test_app
 Return the value of all registers (Context) for a given thread:
 ```csharp
 using System;
-using ERC;
 using System.Diagnostics;
-using System.Collections.Generic;
-using ERC.Utilities;
+using ERC;
 
-namespace ERC_test_app
+namespace ERC_Test_App
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            public static ErcCore core = new ErcCore();
-            Console.WriteLine("Get thread Context:");
-            Get_Thread_Context();
-            Console.ReadKey();
-        }
-
-        public static void Get_Thread_Context()
-        {
+            ErcCore core = new ErcCore();
             Process[] processes = Process.GetProcesses();
             Process thisProcess = null;
             foreach (Process process1 in processes)
@@ -324,10 +254,12 @@ namespace ERC_test_app
             }
 
             ProcessInfo info = new ProcessInfo(core, thisProcess);
-            for(int i = 0; i < info.ThreadsInfo.Count; i++){
+            for (int i = 0; i < info.ThreadsInfo.Count; i++)
+            {
                 info.ThreadsInfo[i].Get_Context();
-                Console.WriteLine("i = {0}", i);
+                Console.WriteLine(info.ThreadsInfo[i].Context64.ToString());
             }
+            Console.ReadKey();
         }
     }
 }
@@ -336,26 +268,16 @@ namespace ERC_test_app
 Return a pointer and mnemonics for all SEH jumps in the given process and associated modules:
 ```csharp
 using System;
-using ERC;
 using System.Diagnostics;
-using System.Collections.Generic;
-using ERC.Utilities;
+using ERC;
 
-namespace ERC_test_app
+namespace ERC_Test_App
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            public static ErcCore core = new ErcCore();
-            Console.WriteLine("Find SEH Jumps:");
-            Find_SEH();
-            Console.ReadKey();
-        }
-
-        public static void Find_SEH_Jump()
-        {
-            //ensure notepad is open before running this function.
+            ErcCore core = new ErcCore();
             Process[] processes = Process.GetProcesses();
             Process thisProcess = null;
             foreach (Process process1 in processes)
@@ -368,10 +290,11 @@ namespace ERC_test_app
 
             ProcessInfo info = new ProcessInfo(core, thisProcess);
             var tester = DisplayOutput.GetSEHJumps(info);
-            foreach(string s in tester.ReturnValue)
+            foreach (string s in tester.ReturnValue)
             {
                 Console.WriteLine(s);
             }
+            Console.ReadKey();
         }
     }
 }
@@ -381,26 +304,17 @@ Generate a collection of egghunters with the tag "AAAA":
 ```csharp
 using System;
 using ERC;
-using System.Diagnostics;
-using System.Collections.Generic;
-using ERC.Utilities;
 
-namespace ERC_test_app
+namespace ERC_Test_App
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            public static ErcCore core = new ErcCore();
-            Console.WriteLine("Generating egg hunters:");
-            egghunters();
-            Console.ReadKey();
-        }
-
-        public static void egghunters()
-        {
+            ErcCore core = new ErcCore();
             var eggs = DisplayOutput.GenerateEggHunters(core, "AAAA");
             Console.WriteLine(eggs);
+            Console.ReadKey();
         }
     }
 }
@@ -409,25 +323,16 @@ namespace ERC_test_app
 Display the SEH chain for a thread (the process must have entered an error state for this to be populated):
 ```csharp
 using System;
-using ERC;
 using System.Diagnostics;
-using System.Collections.Generic;
-using ERC.Utilities;
+using ERC;
 
-namespace ERC_test_app
+namespace ERC_Test_App
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            public static ErcCore core = new ErcCore();
-            Console.WriteLine("Get SEH chain for thread 0:");
-            GetSehChain();
-            Console.ReadKey();
-        }
-
-        public static void GetSehChain()
-        {
+            ErcCore core = new ErcCore();
             Process[] processes = Process.GetProcesses();
             Process thisProcess = null;
             foreach (Process process1 in processes)
@@ -439,10 +344,11 @@ namespace ERC_test_app
             }
             ProcessInfo info = new ProcessInfo(core, thisProcess);
             var test = info.ThreadsInfo[0].GetSehChain();
-            foreach(IntPtr i in test)
+            foreach (IntPtr i in test)
             {
                 Console.WriteLine("Ptr: {0}", i.ToString("X8"));
             }
+            Console.ReadKey();
         }
     }
 }
@@ -451,45 +357,32 @@ namespace ERC_test_app
 Find a non repeating pattern in memory and display which registers point to (or near) it:
 ```csharp
 using System;
-using ERC;
 using System.Diagnostics;
-using System.Collections.Generic;
-using ERC.Utilities;
+using ERC;
 
-namespace ERC_test_app
+namespace ERC_Test_App
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            public static ErcCore core = new ErcCore();
-            Console.WriteLine("Searching for Non repeating pattern");
-            FindNRP();
-            Console.ReadKey();
-        }
-
-        public static void FindNRP()
-        {
+            ErcCore core = new ErcCore();
             Process[] processes = Process.GetProcesses();
             Process thisProcess = null;
             foreach (Process process1 in processes)
             {
-                if (process1.ProcessName.Contains("notepad"))
+                if (process1.ProcessName.Contains("Vulnerable Application Name"))
                 {
                     thisProcess = process1;
                 }
             }
             ProcessInfo info = new ProcessInfo(core, thisProcess);
-            var test = info.FindNRP();
-            if(test.Error != null)
-            {
-                Console.WriteLine(test.Error);
-            }
             var strings = DisplayOutput.GenerateFindNRPTable(info, 2, false);
-            foreach(string s in strings)
+            foreach (string s in strings)
             {
                 Console.WriteLine(s);
             }
+            Console.ReadKey();
         }
     }
 }
