@@ -16,6 +16,9 @@ namespace ERC.Utilities
         #region Class Variables
         private const int MEM_COMMIT = 0x1000;
 
+        /// <summary>
+        /// Contains a ROP chain which calls the VirtualAlloc method.
+        /// </summary>
         public List<Tuple<byte[], string>> VirtualAllocChain = new List <Tuple<byte[], string>>();
 
         Dictionary<string, IntPtr> ApiAddresses = new Dictionary<string, IntPtr>();

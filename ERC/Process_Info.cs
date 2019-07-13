@@ -1090,7 +1090,7 @@ namespace ERC
         /// Searches process registers and identifies pointers to buffers in memory containing a non repeating pattern. Functionality to identify SEH overwrites not yet implements.
         /// </summary>
         /// <param name="searchType">(Optional) 0 = search term is system default\n1 = search term is in unicode\n2 = search term is in ASCII\n3 = Search term is in UTF8\n4 = Search term is in UTF7\n5 = Search term is in UTF32</param>
-        /// <param name="extended">(Optional) Include additional characters in the pattern (!#$%^& etc) in the to be searched</param>
+        /// <param name="extended">(Optional) Include additional characters in the pattern (!#$%^ etc) in the to be searched</param>
         /// <returns>Returns a ERC_Result containing a List of RegisterOffset</returns>
         public ErcResult<List<RegisterInfo>> FindNRP(int searchType = 0, bool extended = false)
         {

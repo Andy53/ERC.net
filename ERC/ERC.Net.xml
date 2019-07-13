@@ -102,10 +102,147 @@
             Custom exception handler.
             </summary>
         </member>
+        <member name="M:ERC.ERCException.#ctor(System.String)">
+            <summary>
+            Constructor for the ERCException class.
+            </summary>
+            <param name="message">The message associated with the Exception</param>
+        </member>
         <member name="T:ERC.ErcCore">
             <summary>
             A single instance of this object should be instantiated at a minimum. It is used for storing global variables such as the working directory etc.
             </summary>
+        </member>
+        <member name="P:ERC.ErcCore.ErcVersion">
+            <summary>
+            The current version of the ERC.Net library
+            </summary>
+        </member>
+        <member name="P:ERC.ErcCore.WorkingDirectory">
+            <summary>
+            The directory where output files will be saved.
+            </summary>
+        </member>
+        <member name="P:ERC.ErcCore.Author">
+            <summary>
+            The Author to be credited in output files.
+            </summary>
+        </member>
+        <member name="P:ERC.ErcCore.ConfigPath">
+            <summary>
+            Path of the current ERC_Config.xml file.
+            </summary>
+        </member>
+        <member name="P:ERC.ErcCore.SystemErrorLogPath">
+            <summary>
+            Path where error details should be logged.
+            </summary>
+        </member>
+        <member name="P:ERC.ErcCore.PatternStandardPath">
+            <summary>
+            Path to the file containing the standard pattern to be used.
+            </summary>
+        </member>
+        <member name="P:ERC.ErcCore.PatternExtendedPath">
+            <summary>
+            Path to the file containing the extended pattern to be used.
+            </summary>
+        </member>
+        <member name="M:ERC.ErcCore.OpenProcess(ERC.Structures.ProcessAccessFlags,System.Boolean,System.Int32)">
+            <summary>
+            Opens an existing local process object.
+            </summary>
+            <param name="dwDesiredAccess">The access to the process object. This access right is checked against the security descriptor for the process.</param>
+            <param name="bInheritHandle">If this value is TRUE, processes created by this process will inherit the handle. Otherwise, the processes do not inherit this handle.</param>
+            <param name="dwProcessId">The identifier of the local process to be opened.</param>
+            <returns>If the function succeeds, the return value is an open handle to the specified process.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.ReadProcessMemory(System.IntPtr,System.IntPtr,System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Reads data from an area of memory in a specified process. The entire area to be read must be accessible or the operation fails.
+            </summary>
+            <param name="Handle">A handle to the process with memory that is being read.</param>
+            <param name="Address">A pointer to the base address in the specified process from which to read.</param>
+            <param name="Arr">A pointer to a buffer that receives the contents from the address space of the specified process.</param>
+            <param name="Size">The number of bytes to be read from the specified process.</param>
+            <param name="BytesRead">A pointer to a variable that receives the number of bytes transferred into the specified buffer.</param>
+            <returns>If the function succeeds, the return value is nonzero.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.VirtualQueryEx32(System.IntPtr,System.IntPtr,ERC.Structures.MEMORY_BASIC_INFORMATION32@,System.UInt32)">
+            <summary>
+            Retrieves information about a range of pages within the virtual address space of a specified 32 bit process.
+            </summary>
+            <param name="hProcess">A handle to the process whose memory information is queried. </param>
+            <param name="lpAddress">A pointer to the base address of the region of pages to be queried.</param>
+            <param name="lpBuffer">A pointer to a MEMORY_BASIC_INFORMATION32 structure in which information about the specified page range is returned.</param>
+            <param name="dwLength">The size of the buffer pointed to by the lpBuffer parameter, in bytes.</param>
+            <returns>The return value is the actual number of bytes returned in the information buffer.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.VirtualQueryEx64(System.IntPtr,System.IntPtr,ERC.Structures.MEMORY_BASIC_INFORMATION64@,System.UInt32)">
+            <summary>
+            Retrieves information about a range of pages within the virtual address space of a specified 64 bit process.
+            </summary>
+            <param name="hProcess">A handle to the process whose memory information is queried. </param>
+            <param name="lpAddress">A pointer to the base address of the region of pages to be queried.</param>
+            <param name="lpBuffer">A pointer to a MEMORY_BASIC_INFORMATION64 structure in which information about the specified page range is returned.</param>
+            <param name="dwLength">The size of the buffer pointed to by the lpBuffer parameter, in bytes.</param>
+            <returns>The return value is the actual number of bytes returned in the information buffer.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.IsWow64Process(System.IntPtr,System.Boolean@)">
+            <summary>
+            Determines whether the specified process is running under WOW64 or an Intel64 of x64 processor.
+            </summary>
+            <param name="process">A handle to the process.</param>
+            <param name="wow64Process">A pointer to a value that is set to TRUE if the process is running under WOW64 on an Intel64 or x64 processor.</param>
+            <returns>If the function succeeds, the return value is a nonzero value.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.OpenThread(ERC.Structures.ThreadAccess,System.Boolean,System.UInt32)">
+            <summary>
+            Opens an existing thread object.
+            </summary>
+            <param name="dwDesiredAccess">The access to the thread object.</param>
+            <param name="bInheritHandle">If this value is TRUE, processes created by this process will inherit the handle.</param>
+            <param name="dwThreadId">The identifier of the thread to be opened.</param>
+            <returns>If the function succeeds, the return value is an open handle to the specified thread.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.GetThreadContext32(System.IntPtr,ERC.Structures.CONTEXT32@)">
+            <summary>
+            Retrieves the context of the specified 32 bit thread.
+            </summary>
+            <param name="hThread">A handle to the thread whose context is to be retrieved. </param>
+            <param name="lpContext">A pointer to a CONTEXT structure that receives the appropriate context of the specified thread.</param>
+            <returns>If the function succeeds, the return value is nonzero.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.Wow64GetThreadContext(System.IntPtr,ERC.Structures.CONTEXT32@)">
+            <summary>
+            Retrieves the context of the specified WOW64 thread.
+            </summary>
+            <param name="hthread">A handle to the thread whose context is to be retrieved.</param>
+            <param name="lpContext">A pointer to a CONTEXT structure that receives the appropriate context of the specified thread.</param>
+            <returns>If the function succeeds, the return value is nonzero.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.GetThreadContext64(System.IntPtr,ERC.Structures.CONTEXT64@)">
+            <summary>
+            Retrieves the context of the specified 64 bit thread.
+            </summary>
+            <param name="hThread">A handle to the thread whose context is to be retrieved. </param>
+            <param name="lpContext">A pointer to a CONTEXT structure that receives the appropriate context of the specified thread.</param>
+            <returns>If the function succeeds, the return value is nonzero.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.LoadLibraryEx(System.String,System.IntPtr,ERC.Structures.LoadLibraryFlags)">
+            <summary>
+            This function maps a specified executable module into the address space of the calling process. The executable module can be a .dll or an .exe file. The specified module may cause other modules to be mapped into the address space.
+            </summary>
+            <param name="lpFileName">Pointer to a null-terminated string that names the executable module.</param>
+            <param name="hReservedNull">Must be null.</param>
+            <param name="dwFlags">Specifies the action to take when loading the module.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ERC.ErcCore.#ctor(ERC.ErcCore)">
+            <summary>
+            Constructor to be used when creating an object that inherits from an ErcCore object.
+            </summary>
+            <param name="parent">The ErcCore object to be inherited from.</param>
         </member>
         <member name="M:ERC.ErcCore.SetWorkingDirectory(System.String)">
             <summary>
@@ -224,6 +361,12 @@
             a static function to assemble instructions.
             </summary>
         </member>
+        <member name="M:ERC.Utilities.OpcodeAssembler.#ctor(ERC.ProcessInfo)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="parent">ProcessInfo object to be inherited from.</param>
+        </member>
         <member name="M:ERC.Utilities.OpcodeAssembler.AssembleOpcodes(System.Collections.Generic.List{System.String})">
             <summary>
             Takes either an array or list of strings containing assembly instructions and returns the associated opcodes.  
@@ -246,6 +389,12 @@
             OpcodeDisassembler class, can be declared and inherit from a ProcessInfo object to inherit the values of the current process or be called as 
             a static function to disassemble opcodes.
             </summary>
+        </member>
+        <member name="M:ERC.Utilities.OpcodeDisassembler.#ctor(ERC.ProcessInfo)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="parent">ProcessInfo object to be inherited from.</param>
         </member>
         <member name="M:ERC.Utilities.OpcodeDisassembler.Disassemble(System.Byte[])">
             <summary>
@@ -286,6 +435,11 @@
             <param name="core">An ErcCore object</param>
             <param name="extended">(Optional) bool specifying whether the extended character set should be used</param>
             <returns>Returns an ErcResult int containing the offset of the supplied pattern within the generated pattern</returns>
+        </member>
+        <member name="T:ERC.Utilities.Payloads">
+            <summary>
+            A collecton of methods which generate payloads.
+            </summary>
         </member>
         <member name="M:ERC.Utilities.Payloads.ByteArrayConstructor(System.Byte[])">
             <summary>
@@ -348,6 +502,11 @@
         </member>
         <member name="T:ERC.Utilities.RopChainGenerator32">
             <summary> Attempts to create Rop chains from 64 bit processes. </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.VirtualAllocChain">
+            <summary>
+            Contains a ROP chain which calls the VirtualAlloc method.
+            </summary>
         </member>
         <member name="M:ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String})">
             <summary>
@@ -430,6 +589,12 @@
         </member>
         <member name="T:ERC.Utilities.RopChainGenerator64">
             <summary> Attempts to create Rop chains from 64 bit processes. </summary>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator64.#ctor(ERC.ProcessInfo)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="_info">ProcessInfo object for which a ROP chain will be generated</param>
         </member>
         <member name="M:ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String})">
             <summary>

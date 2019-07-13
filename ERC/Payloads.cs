@@ -4,6 +4,9 @@ using System.IO;
 
 namespace ERC.Utilities
 {
+    /// <summary>
+    /// A collecton of methods which generate payloads.
+    /// </summary>
     public static class Payloads
     {
         public static byte[] ByteArray = 

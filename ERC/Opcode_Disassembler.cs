@@ -9,6 +9,10 @@ namespace ERC.Utilities
     /// </summary>
     public class OpcodeDisassembler : ProcessInfo
     {
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="parent">ProcessInfo object to be inherited from.</param>
         public OpcodeDisassembler(ProcessInfo parent) : base(parent)
         {
 
@@ -77,7 +81,6 @@ namespace ERC.Utilities
         /// </summary>
         /// <param name="opcodes">A byte array containing opcodes to be disassembled</param>
         /// <param name="machineType">a ERC.MachineType of either I386 or x64</param>
-        /// <param name="core">An ErcCore object</param>
         /// <returns>Returns an ERC_Result containing associated instructions.</returns>
         public static ErcResult<string> Disassemble(byte[] opcodes, MachineType machineType)
         {

@@ -21,6 +21,10 @@ namespace ERC.Utilities
         private List<byte[]> opcodes64 = new List<byte[]>();
 
         #region Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="_info">ProcessInfo object for which a ROP chain will be generated</param>
         public RopChainGenerator64(ProcessInfo _info)
         {
             if (_info.ProcessMachineType == MachineType.x64)
