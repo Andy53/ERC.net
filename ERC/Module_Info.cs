@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 
 namespace ERC
 {
@@ -15,25 +14,74 @@ namespace ERC
     public class ModuleInfo
     {
         #region Class Variables
+        /// <summary>
+        /// Module name.
+        /// </summary>
         public string ModuleName { get; private set; }
+        /// <summary>
+        /// Module path.
+        /// </summary>
         public string ModulePath { get; private set; }
+        /// <summary>
+        /// Module version.
+        /// </summary>
         public string ModuleVersion { get; private set; }
+        /// <summary>
+        /// Module product.
+        /// </summary>
         public string ModuleProduct { get; private set; }
 
+        /// <summary>
+        /// Module base pointer.
+        /// </summary>
         public IntPtr ModuleBase { get; private set; }
+        /// <summary>
+        /// Module entry point.
+        /// </summary>
         public IntPtr ModuleEntry { get; private set; }
+        /// <summary>
+        /// Module image base.
+        /// </summary>
         public IntPtr ModuleImageBase { get; private set; }
+        /// <summary>
+        /// Module size.
+        /// </summary>
         public int ModuleSize { get; private set; }
 
+        /// <summary>
+        /// Module supports ASLR.
+        /// </summary>
         public bool ModuleASLR { get; private set; }
+        /// <summary>
+        /// Module supports SafeSEH
+        /// </summary>
         public bool ModuleSafeSEH { get; private set; }
+        /// <summary>
+        /// Module can be rebased.
+        /// </summary>
         public bool ModuleRebase { get; private set; }
+        /// <summary>
+        /// Module is DEP enabled.
+        /// </summary>
         public bool ModuleNXCompat { get; private set; }
+        /// <summary>
+        /// Module is an OS dll.
+        /// </summary>
         public bool ModuleOsDll { get; private set; }
+        /// <summary>
+        /// Process where the module is loaded.
+        /// </summary>
         public Process ModuleProcess { get; private set; }
+        /// <summary>
+        /// Associated ErcCore object.
+        /// </summary>
         public ErcCore ModuleCore { get; private set; }
 
+        /// <summary>
+        /// Machine type of the module.
+        /// </summary>
         public MachineType ModuleMachineType { get; private set; }
+
         internal IMAGE_DOS_HEADER ImageDosHeader = new IMAGE_DOS_HEADER();
         internal IMAGE_FILE_HEADER ImageFileHeader = new IMAGE_FILE_HEADER();
         internal IMAGE_NT_HEADERS32 ImageNTHeaders32 { get; private set; }
@@ -44,6 +92,9 @@ namespace ERC
         internal IMAGE_LOAD_CONFIG_DIRECTORY64 ImageConfigDir64 { get; private set; }
         internal LOADED_IMAGE loadedImage = new LOADED_IMAGE();
 
+        /// <summary>
+        /// An errpr was encountered whilst processing the module.
+        /// </summary>
         public bool ModuleFailed = false;
         #endregion
 
@@ -54,6 +105,7 @@ namespace ERC
         /// <param name="module">Filepath of the module</param>
         /// <param name="ptr">Handle to the module</param>
         /// <param name="process">Process where the module is loaded</param>
+        /// <param name="core">An ErcCore object</param>
         internal unsafe ModuleInfo(string module, IntPtr ptr, Process process, ErcCore core)
         {
             try
@@ -344,6 +396,10 @@ namespace ERC
         #endregion
 
         #region ToString
+        /// <summary>
+        /// Override of the ToString method. Provides a data associated with the module.
+        /// </summary>
+        /// <returns>A string containing relevant data.</returns>
         public override string ToString()
         {
             string ret = "";

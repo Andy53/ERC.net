@@ -30,6 +30,10 @@ namespace ERC.Utilities
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="_info">The ProcessInfo object.</param>
         public RopChainGenerator32(ProcessInfo _info)
         {
 
@@ -1452,17 +1456,17 @@ namespace ERC.Utilities
         #region GenerateVirtualAllocChain32
         private ErcResult<List<Tuple<byte[], string>>> GenerateVirtualAllocChain32(ProcessInfo info, byte[] startAddress)
         {
-            /////////////////////////////////////////////////////////////////
-            /// VirtualAlloc Template:                                     //
-            /// EAX: 90909090 -> Nop sled                                  //
-            /// ECX: 00000040 -> flProtect                                 //
-            /// EDX: 00001000 -> flAllocationType                          //
-            /// EBX: ???????? -> Int size (area to be set as executable)   //
-            /// ESP: ???????? -> No Change                                 //
-            /// EBP: ???????? -> Jmp Esp / Call Esp                        //
-            /// ESI: ???????? -> ApiAddresses["VirtualAlloc"]              //
-            /// EDI: ???????? -> RopNop                                    //
-            /////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////
+            // VirtualAlloc Template:                                     //
+            // EAX: 90909090 -> Nop sled                                  //
+            // ECX: 00000040 -> flProtect                                 //
+            // EDX: 00001000 -> flAllocationType                          //
+            // EBX: ???????? -> Int size (area to be set as executable)   //
+            // ESP: ???????? -> No Change                                 //
+            // EBP: ???????? -> Jmp Esp / Call Esp                        //
+            // ESI: ???????? -> ApiAddresses["VirtualAlloc"]              //
+            // EDI: ???????? -> RopNop                                    //
+            ////////////////////////////////////////////////////////////////
 
             ErcResult<List<Tuple<byte[], string>>> VirtualAlloc = new ErcResult<List<Tuple<byte[], string>>>(info.ProcessCore);
             VirtualAlloc.ReturnValue = new List<Tuple<byte[], string>>();
@@ -2014,7 +2018,7 @@ namespace ERC.Utilities
             return VirtualProtectChain;
         }
 
-        #region BuildRopChain (Needs Work)
+        #region BuildRopChain
         private List<Tuple<byte[], string>> BuildRopChain(RegisterLists32 regLists32, RegisterModifiers32 regModified32)
         {
             List<Tuple<byte[], string>> ret = new List<Tuple<byte[], string>>();
@@ -2126,6 +2130,7 @@ namespace ERC.Utilities
         /// followed by a move to the selected register. This function should be extended with further methods for zeroing a register at a later date.
         /// </summary>
         /// <param name="modifyingReg">The Register32 value for the register to be zeroed.</param>
+        /// <param name="regModified32">The RegisterModifiers32 object.</param>
         /// <returns>A dictionary(byte[], string) containing pointers to the instructions and the associated mnemonics</returns>
         private List<Tuple<byte[], string, Register32>> ZeroRegister(Register32 modifyingReg, RegisterModifiers32 regModified32)
         {
@@ -2171,6 +2176,7 @@ namespace ERC.Utilities
         /// </summary>
         /// <param name="modifiedReg">The Registers32 which is being modified</param>
         /// <param name="modifyingReg">The Registers32 which is doing the modification</param>
+        /// <param name="regModified32">The RegisterModifiers32 object.</param>
         private void SetRegisterModifier(Register32 modifyingReg, Register32 modifiedReg, RegisterModifiers32 regModified32)
         {
             switch (modifyingReg)
@@ -2209,6 +2215,7 @@ namespace ERC.Utilities
         /// </summary>
         /// <param name="modifiedReg">The Registers32 which is being modified</param>
         /// <param name="modifyingReg">The Registers32 which is doing the modification</param>
+        /// <param name="regModified32">The RegisterModifiers32 object.</param>
         /// <returns>A bool, true = register was modified by this register false = register was not modified by this register</returns>
         private bool GetRegisterModified(Register32 modifyingReg, Register32 modifiedReg, RegisterModifiers32 regModified32)
         {
@@ -2541,52 +2548,190 @@ namespace ERC.Utilities
         #endregion
 
         #region Opcode List Holders
+        /// <summary>
+        /// Contains lists of instructions for specific registers.
+        /// </summary>
         public class X86Lists
         {
+            /// <summary>
+            /// pushEax list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushEax = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushEbx list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushEbx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushEcx list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushEcx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushEdx list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushEdx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushEsp list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushEsp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushEbp list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushEbp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushEsi list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushEsi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushEdi list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushEdi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// jmpEsp list.
+            /// </summary>
             public Dictionary<IntPtr, string> jmpEsp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// callEsp list.
+            /// </summary>
             public Dictionary<IntPtr, string> callEsp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorEax list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorEax = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorEbx list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorEbx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorEcx list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorEcx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorEdx list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorEdx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorEsi list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorEsi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorEdi list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorEdi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popEax list.
+            /// </summary>
             public Dictionary<IntPtr, string> popEax = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popEbx list.
+            /// </summary>
             public Dictionary<IntPtr, string> popEbx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popEcx list.
+            /// </summary>
             public Dictionary<IntPtr, string> popEcx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popEdx list.
+            /// </summary>
             public Dictionary<IntPtr, string> popEdx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popEsp list.
+            /// </summary>
             public Dictionary<IntPtr, string> popEsp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popEbp list.
+            /// </summary>
             public Dictionary<IntPtr, string> popEbp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popEsi list.
+            /// </summary>
             public Dictionary<IntPtr, string> popEsi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popEdi list.
+            /// </summary>
             public Dictionary<IntPtr, string> popEdi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushad list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushad = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incEax list.
+            /// </summary>
             public Dictionary<IntPtr, string> incEax = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incEbx list.
+            /// </summary>
             public Dictionary<IntPtr, string> incEbx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incEcx list.
+            /// </summary>
             public Dictionary<IntPtr, string> incEcx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incEdx list.
+            /// </summary>
             public Dictionary<IntPtr, string> incEdx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incEbp list.
+            /// </summary>
             public Dictionary<IntPtr, string> incEbp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incEsp list.
+            /// </summary>
             public Dictionary<IntPtr, string> incEsp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incEsi list.
+            /// </summary>
             public Dictionary<IntPtr, string> incEsi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incEdi list.
+            /// </summary>
             public Dictionary<IntPtr, string> incEdi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decEax list.
+            /// </summary>
             public Dictionary<IntPtr, string> decEax = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decEbx list.
+            /// </summary>
             public Dictionary<IntPtr, string> decEbx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decEcx list.
+            /// </summary>
             public Dictionary<IntPtr, string> decEcx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decEdx list.
+            /// </summary>
             public Dictionary<IntPtr, string> decEdx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decEbp list.
+            /// </summary>
             public Dictionary<IntPtr, string> decEbp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decEsp list.
+            /// </summary>
             public Dictionary<IntPtr, string> decEsp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decEsi list.
+            /// </summary>
             public Dictionary<IntPtr, string> decEsi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decEdi list.
+            /// </summary>
             public Dictionary<IntPtr, string> decEdi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// add list.
+            /// </summary>
             public Dictionary<IntPtr, string> add = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// sub list.
+            /// </summary>
             public Dictionary<IntPtr, string> sub = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// mov list.
+            /// </summary>
             public Dictionary<IntPtr, string> mov = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// and list.
+            /// </summary>
             public Dictionary<IntPtr, string> and = new Dictionary<IntPtr, string>();
         }
         #endregion

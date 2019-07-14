@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace ERC.Utilities
 {
+    /// <summary>
+    /// Contains methods for identifying and removing pointers to unwanted data.
+    /// </summary>
     public static class PtrRemover
     {
         /// <summary>

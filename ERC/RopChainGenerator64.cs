@@ -11,6 +11,9 @@ namespace ERC.Utilities
     {
         private const int MEM_COMMIT = 0x1000;
 
+        /// <summary>
+        /// Contains a ROP chain which calls the VirtualAlloc method.
+        /// </summary>
         public List<Tuple<byte[], string>> VirtualAllocChain = new List<Tuple<byte[], string>>();
 
         internal X64Lists x64Opcodes;
@@ -2516,17 +2519,17 @@ namespace ERC.Utilities
         #region GenerateVirtualAllocChain64
         private ErcResult<List<Tuple<byte[], string>>> GenerateVirtualAllocChain64(ProcessInfo info, byte[] startAddress)
         {
-            /////////////////////////////////////////////////////////////////
-            /// VirtualAlloc Template:                                     //
-            /// EAX: 90909090 -> Nop sled                                  //
-            /// ECX: 00000040 -> flProtect                                 //
-            /// EDX: 00001000 -> flAllocationType                          //
-            /// EBX: ???????? -> Int size (area to be set as executable)   //
-            /// RSP: ???????? -> No Change                                 //
-            /// EBP: ???????? -> Jmp Esp / Call Esp                        //
-            /// ESI: ???????? -> ApiAddresses["VirtualAlloc"]              //
-            /// EDI: ???????? -> RopNop                                    //
-            /////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////
+            // VirtualAlloc Template:                                     //
+            // EAX: 90909090 -> Nop sled                                  //
+            // ECX: 00000040 -> flProtect                                 //
+            // EDX: 00001000 -> flAllocationType                          //
+            // EBX: ???????? -> Int size (area to be set as executable)   //
+            // RSP: ???????? -> No Change                                 //
+            // EBP: ???????? -> Jmp Esp / Call Esp                        //
+            // ESI: ???????? -> ApiAddresses["VirtualAlloc"]              //
+            // EDI: ???????? -> RopNop                                    //
+            ////////////////////////////////////////////////////////////////
 
             ErcResult<List<Tuple<byte[], string>>> VirtualAlloc = new ErcResult<List<Tuple<byte[], string>>>(info.ProcessCore);
             VirtualAlloc.ReturnValue = new List<Tuple<byte[], string>>();
@@ -3230,6 +3233,7 @@ namespace ERC.Utilities
         /// followed by a move to the selected register. This function should be extended with further methods for zeroing a register at a later date.
         /// </summary>
         /// <param name="modifyingReg">The Register64 value for the register to be zeroed.</param>
+        /// <param name="regModified64">The RegisterModifiers64 object.</param>
         /// <returns>A dictionary(byte[], string) containing pointers to the instructions and the associated mnemonics</returns>
         private List<Tuple<byte[], string, Register64>> ZeroRegister(Register64 modifyingReg, RegisterModifiers64 regModified64)
         {
@@ -3275,57 +3279,58 @@ namespace ERC.Utilities
         /// </summary>
         /// <param name="modifiedReg">The Register64 which is being modified</param>
         /// <param name="modifyingReg">The Register64 which is doing the modification</param>
-        private void SetRegisterModifier(Register64 modifyingReg, Register64 modifiedReg, RegisterModifiers64 regModified32)
+        /// <param name="regModified64">The RegisterModifiers64 object.</param>
+        private void SetRegisterModifier(Register64 modifyingReg, Register64 modifiedReg, RegisterModifiers64 regModified64)
         {
             switch (modifyingReg)
             {
                 case Register64.RAX:
-                    regModified32.RAX |= modifiedReg;
+                    regModified64.RAX |= modifiedReg;
                     return;
                 case Register64.RBX:
-                    regModified32.RBX |= modifiedReg;
+                    regModified64.RBX |= modifiedReg;
                     return;
                 case Register64.RCX:
-                    regModified32.RCX |= modifiedReg;
+                    regModified64.RCX |= modifiedReg;
                     return;
                 case Register64.RDX:
-                    regModified32.RDX |= modifiedReg;
+                    regModified64.RDX |= modifiedReg;
                     return;
                 case Register64.RBP:
-                    regModified32.RBP |= modifiedReg;
+                    regModified64.RBP |= modifiedReg;
                     return;
                 case Register64.RSP:
-                    regModified32.RSP |= modifiedReg;
+                    regModified64.RSP |= modifiedReg;
                     return;
                 case Register64.RSI:
-                    regModified32.RSI |= modifiedReg;
+                    regModified64.RSI |= modifiedReg;
                     return;
                 case Register64.RDI:
-                    regModified32.RDI |= modifiedReg;
+                    regModified64.RDI |= modifiedReg;
                     return;
                 case Register64.R8:
-                    regModified32.R8 |= modifiedReg;
+                    regModified64.R8 |= modifiedReg;
                     return;
                 case Register64.R9:
-                    regModified32.R9 |= modifiedReg;
+                    regModified64.R9 |= modifiedReg;
                     return;
                 case Register64.R10:
-                    regModified32.R10 |= modifiedReg;
+                    regModified64.R10 |= modifiedReg;
                     return;
                 case Register64.R11:
-                    regModified32.R11 |= modifiedReg;
+                    regModified64.R11 |= modifiedReg;
                     return;
                 case Register64.R12:
-                    regModified32.R12 |= modifiedReg;
+                    regModified64.R12 |= modifiedReg;
                     return;
                 case Register64.R13:
-                    regModified32.R13 |= modifiedReg;
+                    regModified64.R13 |= modifiedReg;
                     return;
                 case Register64.R14:
-                    regModified32.R14 |= modifiedReg;
+                    regModified64.R14 |= modifiedReg;
                     return;
                 case Register64.R15:
-                    regModified32.R15 |= modifiedReg;
+                    regModified64.R15 |= modifiedReg;
                     return;
             }
         }
@@ -3594,6 +3599,7 @@ namespace ERC.Utilities
         /// </summary>
         /// <param name="destReg">The destination register</param>
         /// <param name="srcReg">The source register</param>
+        /// <param name="regModified64">The RegisterModifiers64 object.</param>
         /// <returns>Returns a dictionary of byte[] string containing a pointer to the instruction and the associated mnemonics</returns>
         private Tuple<byte[], string, Register64> GetMovInstruction(Register64 destReg, Register64 srcReg, RegisterModifiers64 regModified64)
         {
@@ -3790,92 +3796,350 @@ namespace ERC.Utilities
         }
 
         #region X64Lists
+        /// <summary>
+        /// Contains lists of instructions for specific registers.
+        /// </summary>
         public class X64Lists
         {
+            /// <summary>
+            /// pushRax list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushRax = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushRcx list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushRcx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushRdx list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushRdx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushRbx list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushRbx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushRsp list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushRsp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushRbp list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushRbp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushRsi list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushRsi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushRdi list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushRdi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushR8 list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushR8 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushR9 list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushR9 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushR10 list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushR10 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushR11 list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushR11 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushR12 list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushR12 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushR13 list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushR13 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushR14 list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushR14 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// pushR15 list.
+            /// </summary>
             public Dictionary<IntPtr, string> pushR15 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popRax list.
+            /// </summary>
             public Dictionary<IntPtr, string> popRax = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popRbx list.
+            /// </summary>
             public Dictionary<IntPtr, string> popRbx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popRcx list.
+            /// </summary>
             public Dictionary<IntPtr, string> popRcx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popRdx list.
+            /// </summary>
             public Dictionary<IntPtr, string> popRdx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popRsp list.
+            /// </summary>
             public Dictionary<IntPtr, string> popRsp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popRbp list.
+            /// </summary>
             public Dictionary<IntPtr, string> popRbp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popRsi list.
+            /// </summary>
             public Dictionary<IntPtr, string> popRsi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popRdi list.
+            /// </summary>
             public Dictionary<IntPtr, string> popRdi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popR8 list.
+            /// </summary>
             public Dictionary<IntPtr, string> popR8 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popR9 list.
+            /// </summary>
             public Dictionary<IntPtr, string> popR9 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popR10 list.
+            /// </summary>
             public Dictionary<IntPtr, string> popR10 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popR11 list.
+            /// </summary>
             public Dictionary<IntPtr, string> popR11 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popR12 list.
+            /// </summary>
             public Dictionary<IntPtr, string> popR12 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popR13 list.
+            /// </summary>
             public Dictionary<IntPtr, string> popR13 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popR14 list.
+            /// </summary>
             public Dictionary<IntPtr, string> popR14 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// popR15 list.
+            /// </summary>
             public Dictionary<IntPtr, string> popR15 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorRax list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorRax = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorRbx list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorRbx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorRcx list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorRcx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorRdx list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorRdx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorRsi list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorRsi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorRdi list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorRdi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorRsp list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorRsp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorRbp list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorRbp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorR8 list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorR8 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorR9 list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorR9 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorR10 list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorR10 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorR11 list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorR11 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorR12 list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorR12 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorR13 list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorR13 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorR14 list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorR14 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// xorR15 list.
+            /// </summary>
             public Dictionary<IntPtr, string> xorR15 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// jmpRsp list.
+            /// </summary>
             public Dictionary<IntPtr, string> jmpRsp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// callRsp list.
+            /// </summary>
             public Dictionary<IntPtr, string> callRsp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incRax list.
+            /// </summary>
             public Dictionary<IntPtr, string> incRax = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incRbx list.
+            /// </summary>
             public Dictionary<IntPtr, string> incRbx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incRcx list.
+            /// </summary>
             public Dictionary<IntPtr, string> incRcx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incRdx list.
+            /// </summary>
             public Dictionary<IntPtr, string> incRdx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incRbp list.
+            /// </summary>
             public Dictionary<IntPtr, string> incRbp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incRsp list.
+            /// </summary>
             public Dictionary<IntPtr, string> incRsp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incRsi list.
+            /// </summary>
             public Dictionary<IntPtr, string> incRsi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incRdi list.
+            /// </summary>
             public Dictionary<IntPtr, string> incRdi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incR8 list.
+            /// </summary>
             public Dictionary<IntPtr, string> incR8 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incR9 list.
+            /// </summary>
             public Dictionary<IntPtr, string> incR9 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incR10 list.
+            /// </summary>
             public Dictionary<IntPtr, string> incR10 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incR11 list.
+            /// </summary>
             public Dictionary<IntPtr, string> incR11 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incR12 list.
+            /// </summary>
             public Dictionary<IntPtr, string> incR12 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incR13 list.
+            /// </summary>
             public Dictionary<IntPtr, string> incR13 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incR14 list.
+            /// </summary>
             public Dictionary<IntPtr, string> incR14 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// incR15 list.
+            /// </summary>
             public Dictionary<IntPtr, string> incR15 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decRax list.
+            /// </summary>
             public Dictionary<IntPtr, string> decRax = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decRbx list.
+            /// </summary>
             public Dictionary<IntPtr, string> decRbx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decRcx list.
+            /// </summary>
             public Dictionary<IntPtr, string> decRcx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decRdx list.
+            /// </summary>
             public Dictionary<IntPtr, string> decRdx = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decRbp list.
+            /// </summary>
             public Dictionary<IntPtr, string> decRbp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decRsp list.
+            /// </summary>
             public Dictionary<IntPtr, string> decRsp = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decRsi list.
+            /// </summary>
             public Dictionary<IntPtr, string> decRsi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decRdi list.
+            /// </summary>
             public Dictionary<IntPtr, string> decRdi = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decR8 list.
+            /// </summary>
             public Dictionary<IntPtr, string> decR8 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decR9 list.
+            /// </summary>
             public Dictionary<IntPtr, string> decR9 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decR10 list.
+            /// </summary>
             public Dictionary<IntPtr, string> decR10 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decR11 list.
+            /// </summary>
             public Dictionary<IntPtr, string> decR11 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decR12 list.
+            /// </summary>
             public Dictionary<IntPtr, string> decR12 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decR13 list.
+            /// </summary>
             public Dictionary<IntPtr, string> decR13 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decR14 list.
+            /// </summary>
             public Dictionary<IntPtr, string> decR14 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// decR15 list.
+            /// </summary>
             public Dictionary<IntPtr, string> decR15 = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// add list.
+            /// </summary>
             public Dictionary<IntPtr, string> add = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// mov list.
+            /// </summary>
             public Dictionary<IntPtr, string> mov = new Dictionary<IntPtr, string>();
+            /// <summary>
+            /// sub list.
+            /// </summary>
             public Dictionary<IntPtr, string> sub = new Dictionary<IntPtr, string>();
         }
         #endregion
