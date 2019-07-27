@@ -108,6 +108,13 @@
             </summary>
             <param name="message">The message associated with the Exception</param>
         </member>
+        <member name="M:ERC.ERCException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates a serializable exception.
+            </summary>
+            <param name="info">Stores all the data needed to serialize or deserialize an object.</param>
+            <param name="ctxt">Describes the source and destination of a given serialized stream, and provides an additional caller-defined context.</param>
+        </member>
         <member name="T:ERC.ErcCore">
             <summary>
             A single instance of this object should be instantiated at a minimum. It is used for storing global variables such as the working directory etc.
@@ -229,6 +236,28 @@
             <param name="lpContext">A pointer to a CONTEXT structure that receives the appropriate context of the specified thread.</param>
             <returns>If the function succeeds, the return value is nonzero.</returns>
         </member>
+        <member name="M:ERC.ErcCore.SuspendThread(System.IntPtr)">
+            <summary>
+            Suspends the specified thread.
+            </summary>
+            <param name="hThread">A handle to the thread that is to be suspended.</param>
+            <returns>If the function succeeds, the return value is the thread's previous suspend count. If the function fails the return value is -1.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.CloseHandle(System.IntPtr)">
+            <summary>
+            Closes an open object handle.
+            </summary>
+            <param name="hObject">A valid handle to an open object.</param>
+            <returns>If the function succeeds, the return value is nonzero.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.GetProcAddress(System.IntPtr,System.String)">
+            <summary>
+            Retrieves the address of an exported function or variable from the specified dynamic-link library (DLL).
+            </summary>
+            <param name="hModule">A handle to the DLL module that contains the function or variable.</param>
+            <param name="procName">The function or variable name, or the function's ordinal value.</param>
+            <returns>If the function succeeds, the return value is the address of the exported function or variable.</returns>
+        </member>
         <member name="M:ERC.ErcCore.LoadLibraryEx(System.String,System.IntPtr,ERC.Structures.LoadLibraryFlags)">
             <summary>
             This function maps a specified executable module into the address space of the calling process. The executable module can be a .dll or an .exe file. The specified module may cause other modules to be mapped into the address space.
@@ -237,6 +266,125 @@
             <param name="hReservedNull">Must be null.</param>
             <param name="dwFlags">Specifies the action to take when loading the module.</param>
             <returns></returns>
+        </member>
+        <member name="M:ERC.ErcCore.FindResouce(System.IntPtr,System.String@,System.String@)">
+            <summary>
+            Determines the location of a resource with the specified type and name in the specified module.
+            </summary>
+            <param name="hModule">A handle to the module whose portable executable file or an accompanying MUI file contains the resource.</param>
+            <param name="resName">The name of the resource.</param>
+            <param name="resType">The resource type.</param>
+            <returns>If the function succeeds, the return value is a handle to the specified resource's information block.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.LoadResource(System.IntPtr,System.IntPtr)">
+            <summary>
+            Retrieves a handle that can be used to obtain a pointer to the first byte of the specified resource in memory.
+            </summary>
+            <param name="hModule">A handle to the module whose executable file contains the resource.</param>
+            <param name="hResInfo">A handle to the resource to be loaded. </param>
+            <returns>If the function succeeds, the return value is a handle to the data associated with the resource.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.GetProcessId(System.IntPtr)">
+            <summary>
+            Retrieves the process identifier of the specified process.
+            </summary>
+            <param name="handle">A handle to the process. The handle must have the PROCESS_QUERY_INFORMATION or PROCESS_QUERY_LIMITED_INFORMATION access right.</param>
+            <returns>Returns the identifier of the process as a Uint</returns>
+        </member>
+        <member name="M:ERC.ErcCore.GetModuleHandle(System.String)">
+            <summary>
+            Retrieves a module handle for the specified module. The module must have been loaded by the calling process.
+            </summary>
+            <param name="moduleName">The name of the loaded module (either a .dll or .exe file).</param>
+            <returns>If the function succeeds, the return value is a handle to the specified module.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.ZwQueryInformationThread(System.IntPtr,System.Int32,ERC.Structures.ThreadBasicInformation@,System.Int32,System.IntPtr)">
+            <summary>
+            The ZwQueryInformationThread routine retrieves information about the specified thread.
+            </summary>
+            <param name="hwnd">Handle to the thread object.</param>
+            <param name="i">The type of thread information to be retrieved. </param>
+            <param name="threadinfo">Pointer to a buffer supplied by the caller.</param>
+            <param name="length">The size, in bytes, of the buffer pointed to by threadinfo.</param>
+            <param name="bytesread">A pointer to a variable in which the routine returns the size of the requested information.</param>
+            <returns>ZwQueryInformationThread returns STATUS_SUCCESS on success, or the appropriate NTSTATUS error code on failure.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.EnumProcessModulesEx(System.IntPtr,System.IntPtr[],System.Int32,System.Int32@,System.UInt32)">
+            <summary>
+            Retrieves a handle for each module in the specified process.
+            </summary>
+            <param name="hProcess">A handle to the process.</param>
+            <param name="lphModule">An array that receives the list of module handles.</param>
+            <param name="cb">The size of the lphModule array, in bytes.</param>
+            <param name="lpcbNeeded">The number of bytes required to store all module handles in the lphModule array.</param>
+            <param name="dwFilterFlag">The filter criteria. </param>
+            <returns>If the function succeeds, the return value is nonzero.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.GetModuleFileNameEx(System.IntPtr,System.IntPtr,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            Retrieves the fully qualified path for the file containing the specified module.
+            </summary>
+            <param name="hProcess">A handle to the process that contains the module.</param>
+            <param name="hModule">A handle to the module. </param>
+            <param name="lpBaseName">A pointer to a buffer that receives the fully qualified path to the module.</param>
+            <param name="nSize">The size of the lpFilename buffer, in characters.</param>
+            <returns>If the function succeeds, the return value specifies the length of the string copied to the buffer.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.ImageLoad(System.String,System.String)">
+            <summary>
+            Maintains a list of loaded DLLs.
+            </summary>
+            <param name="DllName">The name of the image.</param>
+            <param name="DllPath">The path used to locate the image if the name provided cannot be found.</param>
+            <returns>If the function succeeds, the return value is a pointer to a LOADED_IMAGE structure.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.GetImageConfigInformation32(System.IntPtr,ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32@)">
+            <summary>
+            Locates and returns the load configuration data of an image.
+            </summary>
+            <param name="dllptr">A pointer to a LOADED_IMAGE structure.</param>
+            <param name="ImageConfigDir32">A pointer to an IMAGE_LOAD_CONFIG_DIRECTORY32</param>
+            <returns>If the function succeeds, the return value is TRUE.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.GetImageConfigInformation64(System.IntPtr,ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64@)">
+            <summary>
+            Locates and returns the load configuration data of an image.
+            </summary>
+            <param name="dllptr">A pointer to a LOADED_IMAGE structure.</param>
+            <param name="ImageConfigDir64">A pointer to an IMAGE_LOAD_CONFIG_DIRECTORY64</param>
+            <returns>If the function succeeds, the return value is TRUE.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.GetImageConfigInformation32(ERC.Structures.LOADED_IMAGE@,ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32@)">
+            <summary>
+            Locates and returns the load configuration data of an image.
+            </summary>
+            <param name="loadedImage">A Loaded_Image structure.</param>
+            <param name="ImageConfigDir32">A pointer to an IMAGE_LOAD_CONFIG_DIRECTORY32</param>
+            <returns>If the function succeeds, the return value is TRUE.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.GetImageConfigInformation64(ERC.Structures.LOADED_IMAGE@,ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64@)">
+            <summary>
+            Locates and returns the load configuration data of an image.
+            </summary>
+            <param name="loadedImage">A Loaded_Image structure.</param>
+            <param name="ImageConfigDir64">A pointer to an IMAGE_LOAD_CONFIG_DIRECTORY64</param>
+            <returns>If the function succeeds, the return value is TRUE.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.MapAndLoad(System.String,System.String,ERC.Structures.LOADED_IMAGE@,System.Boolean,System.Boolean)">
+            <summary>
+            Maps an image and preloads data from the mapped file.
+            </summary>
+            <param name="ImageName">The file name of the image (executable file or DLL) that is loaded.</param>
+            <param name="DllPath">The path used to locate the image if the name provided cannot be found.</param>
+            <param name="loadedImage">A pointer to a LOADED_IMAGE structure that receives information about the image after it is loaded.</param>
+            <param name="Dll">True if the file is a DLL, false if the file is an EXE.</param>
+            <param name="readOnly">Boolean for the access mode.</param>
+            <returns>If the function succeeds, the return value is TRUE.</returns>
+        </member>
+        <member name="M:ERC.ErcCore.#ctor">
+            <summary>
+            Constructor.
+            </summary>
         </member>
         <member name="M:ERC.ErcCore.#ctor(ERC.ErcCore)">
             <summary>
@@ -293,9 +441,1583 @@
             </summary>
             <typeparam name="T">A generic type</typeparam>
         </member>
+        <member name="P:ERC.ErcResult`1.ReturnValue">
+            <summary>
+            Generic Type.
+            </summary>
+        </member>
+        <member name="P:ERC.ErcResult`1.Error">
+            <summary>
+            Exception to be logged by LogEvent().
+            </summary>
+        </member>
+        <member name="M:ERC.ErcResult`1.#ctor(ERC.ErcCore)">
+            <summary>
+            Base constructor.
+            </summary>
+            <param name="core">The ErcCore object to inherit from.</param>
+        </member>
+        <member name="M:ERC.ErcResult`1.#ctor(ERC.ErcCore,System.String)">
+            <summary>
+            Base constructor with a custom location for exceptions to be logged.
+            </summary>
+            <param name="core">The ErcCore object to inherit from.</param>
+            <param name="errorFile">The location to log exceptions.</param>
+        </member>
         <member name="M:ERC.ErcResult`1.LogEvent">
             <summary>
             Logs an event to the ErrorLogFile value.
+            </summary>
+        </member>
+        <member name="M:ERC.ErcResult`1.ToString">
+            <summary>
+            Override of the ToString method. Returns a string containing values relevant to the object. 
+            </summary>
+            <returns>A string containing information about the object.</returns>
+        </member>
+        <member name="T:ERC.MachineType">
+            <summary>
+            Enum containing types of machine architectures.
+            </summary>
+        </member>
+        <member name="F:ERC.MachineType.Native">
+            <summary>
+            Native.
+            </summary>
+        </member>
+        <member name="F:ERC.MachineType.I386">
+            <summary>
+            x86.
+            </summary>
+        </member>
+        <member name="F:ERC.MachineType.Itanium">
+            <summary>
+            Itanium.
+            </summary>
+        </member>
+        <member name="F:ERC.MachineType.x64">
+            <summary>
+            x64.
+            </summary>
+        </member>
+        <member name="F:ERC.MachineType.error">
+            <summary>
+            Type is unknown or unset.
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.IMAGE_DOS_HEADER">
+            <summary>
+            IMAGE_DOS_HEADER.
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_DOS_HEADER.nt_head_ptr">
+            <summary>
+            A pointer to the IMAGE_NT_HEADER.
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.IMAGE_FILE_HEADER">
+            <summary>
+            IMAGE_FILE_HEADER. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-image_file_header
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_FILE_HEADER.Machine">
+            <summary>
+            Machine
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_FILE_HEADER.NumberOfSections">
+            <summary>
+            NumberOfSections
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_FILE_HEADER.TimeDateStamp">
+            <summary>
+            TimeDateStamp
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_FILE_HEADER.PointerToSymbolTable">
+            <summary>
+            PointerToSymbolTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_FILE_HEADER.NumberOfSymbols">
+            <summary>
+            NumberOfSymbols
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_FILE_HEADER.SizeOfOptionalHeader">
+            <summary>
+            SizeOfOptionalHeader
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_FILE_HEADER.Characteristics">
+            <summary>
+            Characteristics
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.IMAGE_NT_HEADERS32">
+            <summary>
+            IMAGE_NT_HEADER 32 bit variant. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_image_nt_headers
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_NT_HEADERS32.Signature">
+            <summary>
+            Signature
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_NT_HEADERS32.FileHeader">
+            <summary>
+            FileHeader
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_NT_HEADERS32.OptionalHeader">
+            <summary>
+            OptionalHeader
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.IMAGE_NT_HEADERS64">
+            <summary>
+            IMAGE_NT_HEADER 64 bit variant. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_image_nt_headers
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_NT_HEADERS64.Signature">
+            <summary>
+            Signature
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_NT_HEADERS64.FileHeader">
+            <summary>
+            FileHeader
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_NT_HEADERS64.OptionalHeader">
+            <summary>
+            OptionalHeader
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.IMAGE_DATA_DIRECTORY">
+            <summary>
+            IMAGE_DATA_DIRECTORY. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-image_data_directory
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_DATA_DIRECTORY.VirtualAddress">
+            <summary>
+            VirtualAddress.
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_DATA_DIRECTORY.Size">
+            <summary>
+            Size.
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.IMAGE_OPTIONAL_HEADER32">
+            <summary>
+            IMAGE_OPTIONAL_HEADER 32 bit variant. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_image_optional_header
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.Magic">
+            <summary>
+            Magic
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorLinkerVersion">
+            <summary>
+            MajorLinkerVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorLinkerVersion">
+            <summary>
+            MinorLinkerVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfCode">
+            <summary>
+            SizeOfCode
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfInitializedData">
+            <summary>
+            SizeOfInitializedData
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfUninitializedData">
+            <summary>
+            SizeOfUninitializedData
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.AddressOfEntryPoint">
+            <summary>
+            AddressOfEntryPoint
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfCode">
+            <summary>
+            BaseOfCode
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfData">
+            <summary>
+            BaseOfData
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImageBase">
+            <summary>
+            ImageBase
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SectionAlignment">
+            <summary>
+            SectionAlignment
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.FileAlignment">
+            <summary>
+            FileAlignment
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorOperatingSystemVersion">
+            <summary>
+            MajorOperatingSystemVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorOperatingSystemVersion">
+            <summary>
+            MinorOperatingSystemVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorImageVersion">
+            <summary>
+            MajorImageVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorImageVersion">
+            <summary>
+            MinorImageVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorSubsystemVersion">
+            <summary>
+            MajorSubsystemVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorSubsystemVersion">
+            <summary>
+            MinorSubsystemVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.Win32VersionValue">
+            <summary>
+            Win32VersionValue
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfImage">
+            <summary>
+            SizeOfImage
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeaders">
+            <summary>
+            SizeOfHeaders
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.CheckSum">
+            <summary>
+            CheckSum
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.Subsystem">
+            <summary>
+            Subsystem
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.DllCharacteristics">
+            <summary>
+            DllCharacteristics
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackReserve">
+            <summary>
+            SizeOfStackReserve
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackCommit">
+            <summary>
+            SizeOfStackCommit
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapReserve">
+            <summary>
+            SizeOfHeapReserve
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapCommit">
+            <summary>
+            SizeOfHeapCommit
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoaderFlags">
+            <summary>
+            LoaderFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.NumberOfRvaAndSizes">
+            <summary>
+            NumberOfRvaAndSizes
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExportTable">
+            <summary>
+            ExportTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImportTable">
+            <summary>
+            ImportTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.ResourceTable">
+            <summary>
+            ResourceTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExceptionTable">
+            <summary>
+            ExceptionTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.CertificateTable">
+            <summary>
+            CertificateTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseRelocationTable">
+            <summary>
+            BaseRelocationTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.Debug">
+            <summary>
+            Debug
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.Architecture">
+            <summary>
+            Architecture
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.GlobalPtr">
+            <summary>
+            GlobalPtr
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.TLSTable">
+            <summary>
+            TLSTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoadConfigTable">
+            <summary>
+            LoadConfigTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.BoundImport">
+            <summary>
+            BoundImport
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.IAT">
+            <summary>
+            IAT
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.DelayImportDescriptor">
+            <summary>
+            DelayImportDescriptor
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.CLRRuntimeHeader">
+            <summary>
+            CLRRuntimeHeader
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.Reserved">
+            <summary>
+            Reserved
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.IMAGE_OPTIONAL_HEADER64">
+            <summary>
+            IMAGE_OPTIONAL_HEADER 64 bit variant. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_image_optional_header
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.Magic">
+            <summary>
+            Magic
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.MajorLinkerVersion">
+            <summary>
+            MajorLinkerVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.MinorLinkerVersion">
+            <summary>
+            MinorLinkerVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.SizeOfCode">
+            <summary>
+            SizeOfCode
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.SizeOfInitializedData">
+            <summary>
+            SizeOfInitializedData
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.SizeOfUninitializedData">
+            <summary>
+            SizeOfUninitializedData
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.AddressOfEntryPoint">
+            <summary>
+            AddressOfEntryPoint
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.BaseOfCode">
+            <summary>
+            BaseOfCode
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.ImageBase">
+            <summary>
+            ImageBase
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.SectionAlignment">
+            <summary>
+            SectionAlignment
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.FileAlignment">
+            <summary>
+            FileAlignment
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.MajorOperatingSystemVersion">
+            <summary>
+            MajorOperatingSystemVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.MinorOperatingSystemVersion">
+            <summary>
+            MinorOperatingSystemVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.MajorImageVersion">
+            <summary>
+            MajorImageVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.MinorImageVersion">
+            <summary>
+            MinorImageVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.MajorSubsystemVersion">
+            <summary>
+            MajorSubsystemVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.MinorSubsystemVersion">
+            <summary>
+            MinorSubsystemVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.Win32VersionValue">
+            <summary>
+            Win32VersionValue
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.SizeOfImage">
+            <summary>
+            SizeOfImage
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.SizeOfHeaders">
+            <summary>
+            SizeOfHeaders
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.CheckSum">
+            <summary>
+            CheckSum
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.Subsystem">
+            <summary>
+            Subsystem
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.DllCharacteristics">
+            <summary>
+            DllCharacteristics
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.SizeOfStackReserve">
+            <summary>
+            SizeOfStackReserve
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.SizeOfStackCommit">
+            <summary>
+            SizeOfStackCommit
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.SizeOfHeapReserve">
+            <summary>
+            SizeOfHeapReserve
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.SizeOfHeapCommit">
+            <summary>
+            SizeOfHeapCommit
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.LoaderFlags">
+            <summary>
+            LoaderFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.NumberOfRvaAndSizes">
+            <summary>
+            NumberOfRvaAndSizes
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.ExportTable">
+            <summary>
+            ExportTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.ImportTable">
+            <summary>
+            ImportTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.ResourceTable">
+            <summary>
+            ResourceTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.ExceptionTable">
+            <summary>
+            ExceptionTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.CertificateTable">
+            <summary>
+            CertificateTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.BaseRelocationTable">
+            <summary>
+            BaseRelocationTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.Debug">
+            <summary>
+            Debug
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.Architecture">
+            <summary>
+            Architecture
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.GlobalPtr">
+            <summary>
+            GlobalPtr
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.TLSTable">
+            <summary>
+            TLSTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.LoadConfigTable">
+            <summary>
+            LoadConfigTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.BoundImport">
+            <summary>
+            BoundImport
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.IAT">
+            <summary>
+            IAT
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.DelayImportDescriptor">
+            <summary>
+            DelayImportDescriptor
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.CLRRuntimeHeader">
+            <summary>
+            CLRRuntimeHeader
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_OPTIONAL_HEADER64.Reserved">
+            <summary>
+            Reserved
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.MagicType">
+            <summary>
+            Image Option Header Magic Type.
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MagicType.IMAGE_NT_OPTIONAL_HDR32_MAGIC">
+            <summary>
+            IMAGE_NT_OPTIONAL_HDR32_MAGIC
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MagicType.IMAGE_NT_OPTIONAL_HDR64_MAGIC">
+            <summary>
+            IMAGE_NT_OPTIONAL_HDR64_MAGIC
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.SubSystemType">
+            <summary>
+            Image Option Header SubSystem Type.
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SubSystemType.IMAGE_SUBSYSTEM_UNKNOWN">
+            <summary>
+            IMAGE_SUBSYSTEM_UNKNOWN
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SubSystemType.IMAGE_SUBSYSTEM_NATIVE">
+            <summary>
+            IMAGE_SUBSYSTEM_NATIVE
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SubSystemType.IMAGE_SUBSYSTEM_WINDOWS_GUI">
+            <summary>
+            IMAGE_SUBSYSTEM_WINDOWS_GUI
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SubSystemType.IMAGE_SUBSYSTEM_WINDOWS_CUI">
+            <summary>
+            IMAGE_SUBSYSTEM_WINDOWS_CUI
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SubSystemType.IMAGE_SUBSYSTEM_POSIX_CUI">
+            <summary>
+            IMAGE_SUBSYSTEM_POSIX_CUI
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SubSystemType.IMAGE_SUBSYSTEM_WINDOWS_CE_GUI">
+            <summary>
+            IMAGE_SUBSYSTEM_WINDOWS_CE_GUI
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SubSystemType.IMAGE_SUBSYSTEM_EFI_APPLICATION">
+            <summary>
+            IMAGE_SUBSYSTEM_EFI_APPLICATION
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SubSystemType.IMAGE_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER">
+            <summary>
+            IMAGE_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SubSystemType.IMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER">
+            <summary>
+            IMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SubSystemType.IMAGE_SUBSYSTEM_EFI_ROM">
+            <summary>
+            IMAGE_SUBSYSTEM_EFI_ROM
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SubSystemType.IMAGE_SUBSYSTEM_XBOX">
+            <summary>
+            IMAGE_SUBSYSTEM_XBOX
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32">
+            <summary>
+            IMAGE_LOAD_CONFIG_DIRECTORY32. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_image_load_config_directory32
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.Size">
+            <summary>
+            Size
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.TimeDateStamp">
+            <summary>
+            TimeDateStamp
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.MajorVersion">
+            <summary>
+            MajorVersio
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.MinorVersion">
+            <summary>
+            MinorVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GlobalFlagsClear">
+            <summary>
+            GlobalFlagsClear
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GlobalFlagsSet">
+            <summary>
+            GlobalFlagsSet
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.CriticalSectionDefaultTimeout">
+            <summary>
+            CriticalSectionDefaultTimeout
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.DeCommitFreeBlockThreshold">
+            <summary>
+            DeCommitFreeBlockThreshold
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.DeCommitTotalFreeThreshold">
+            <summary>
+            DeCommitTotalFreeThreshold
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.LockPrefixTable">
+            <summary>
+            LockPrefixTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.MaximumAllocationSize">
+            <summary>
+            MaximumAllocationSize
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.VirtualMemoryThreshold">
+            <summary>
+            VirtualMemoryThreshold
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.ProcessHeapFlags">
+            <summary>
+            ProcessHeapFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.ProcessAffinityMask">
+            <summary>
+            ProcessAffinityMask
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.CSDVersion">
+            <summary>
+            CSDVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.DependentLoadFlags">
+            <summary>
+            DependentLoadFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.EditList">
+            <summary>
+            EditList
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.SecurityCookie">
+            <summary>
+            SecurityCookie
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.SEHandlerTable">
+            <summary>
+            SEHandlerTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.SEHandlerCount">
+            <summary>
+            SEHandlerCount
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GuardCFCheckFunctionPointer">
+            <summary>
+            GuardCFCheckFunctionPointer
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GuardCFDispatchFunctionPointer">
+            <summary>
+            GuardCFDispatchFunctionPointer
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GuardCFFunctionTable">
+            <summary>
+            GuardCFFunctionTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GuardCFFunctionCount">
+            <summary>
+            GuardCFFunctionCount
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GuardFlags">
+            <summary>
+            GuardFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.CodeIntegrity">
+            <summary>
+            CodeIntegrity
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GuardAddressTakenIatEntryTable">
+            <summary>
+            GuardAddressTakenIatEntryTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GuardAddressTakenIatEntryCount">
+            <summary>
+            GuardAddressTakenIatEntryCount
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GuardLongJumpTargetTable">
+            <summary>
+            GuardLongJumpTargetTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GuardLongJumpTargetCount">
+            <summary>
+            GuardLongJumpTargetCount
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.DynamicValueRelocTable">
+            <summary>
+            DynamicValueRelocTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.CHPEMetadataPointer">
+            <summary>
+            CHPEMetadataPointer
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GuardRFFailureRoutine">
+            <summary>
+            GuardRFFailureRoutine
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GuardRFFailureRoutineFunctionPointer">
+            <summary>
+            GuardRFFailureRoutineFunctionPointer
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.DynamicValueRelocTableOffset">
+            <summary>
+            DynamicValueRelocTableOffset
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.DynamicValueRelocTableSection">
+            <summary>
+            DynamicValueRelocTableSection
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.Reserved2">
+            <summary>
+            Reserved2
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.GuardRFVerifyStackPointerFunctionPointer">
+            <summary>
+            GuardRFVerifyStackPointerFunctionPointer
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.HotPatchTableOffset">
+            <summary>
+            HotPatchTableOffset
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.Reserved3">
+            <summary>
+            Reserved3
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.EnclaveConfigurationPointer">
+            <summary>
+            EnclaveConfigurationPointer
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32.VolatileMetadataPointer">
+            <summary>
+            VolatileMetadataPointer
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64">
+            <summary>
+            IMAGE_LOAD_CONFIG_DIRECTORY32. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_image_load_config_directory64
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Size">
+            <summary>
+            Size
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.TimeDateStamp">
+            <summary>
+            TimeDateStamp
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MajorVersion">
+            <summary>
+            MajorVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MinorVersion">
+            <summary>
+            MinorVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GlobalFlagsClear">
+            <summary>
+            GlobalFlagsClear
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GlobalFlagsSet">
+            <summary>
+            GlobalFlagsSet
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CriticalSectionDefaultTimeout">
+            <summary>
+            CriticalSectionDefaultTimeout
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DeCommitFreeBlockThreshold">
+            <summary>
+            DeCommitFreeBlockThreshold
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DeCommitTotalFreeThreshold">
+            <summary>
+            DeCommitTotalFreeThreshold
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.LockPrefixTable">
+            <summary>
+            LockPrefixTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MaximumAllocationSize">
+            <summary>
+            MaximumAllocationSize
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.VirtualMemoryThreshold">
+            <summary>
+            VirtualMemoryThreshold
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.ProcessAffinityMask">
+            <summary>
+            ProcessAffinityMask
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.ProcessHeapFlags">
+            <summary>
+            ProcessHeapFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CSDVersion">
+            <summary>
+            CSDVersion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DependentLoadFlags">
+            <summary>
+            DependentLoadFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.EditList">
+            <summary>
+            EditList
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SecurityCookie">
+            <summary>
+            SecurityCookie
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SEHandlerTable">
+            <summary>
+            SEHandlerTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SEHandlerCount">
+            <summary>
+            SEHandlerCount
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFCheckFunctionPointer">
+            <summary>
+            GuardCFCheckFunctionPointer
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFDispatchFunctionPointer">
+            <summary>
+            GuardCFDispatchFunctionPointer
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFFunctionTable">
+            <summary>
+            GuardCFFunctionTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFFunctionCount">
+            <summary>
+            GuardCFFunctionCount
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardFlags">
+            <summary>
+            GuardFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CodeIntegrity">
+            <summary>
+            CodeIntegrity
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardAddressTakenIatEntryTable">
+            <summary>
+            GuardAddressTakenIatEntryTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardAddressTakenIatEntryCount">
+            <summary>
+            GuardAddressTakenIatEntryCount
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardLongJumpTargetTable">
+            <summary>
+            GuardLongJumpTargetTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardLongJumpTargetCount">
+            <summary>
+            GuardLongJumpTargetCount
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTable">
+            <summary>
+            DynamicValueRelocTable
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CHPEMetadataPointer">
+            <summary>
+            CHPEMetadataPointer
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFFailureRoutine">
+            <summary>
+            GuardRFFailureRoutine
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFFailureRoutineFunctionPointer">
+            <summary>
+            GuardRFFailureRoutineFunctionPointer
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTableOffset">
+            <summary>
+            DynamicValueRelocTableOffset
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTableSection">
+            <summary>
+            DynamicValueRelocTableSection
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Reserved2">
+            <summary>
+            Reserved2
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFVerifyStackPointerFunctionPointer">
+            <summary>
+            GuardRFVerifyStackPointerFunctionPointer
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.HotPatchTableOffset">
+            <summary>
+            HotPatchTableOffset
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Reserved3">
+            <summary>
+            Reserved3
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.EnclaveConfigurationPointer">
+            <summary>
+            EnclaveConfigurationPointer
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.VolatileMetadataPointer">
+            <summary>
+            VolatileMetadataPointer
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY">
+            <summary>
+            IMAGE_LOAD_CONFIG_CODE_INTEGRITY.
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Flags">
+            <summary>
+            Flags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Catalog">
+            <summary>
+            Catalog
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.CatalogOffset">
+            <summary>
+            CatalogOffset
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Reserved">
+            <summary>
+            Reserved
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.LOADED_IMAGE">
+            <summary>
+            LOADED_IMAGE. See https://docs.microsoft.com/en-us/windows/win32/api/dbghelp/ns-dbghelp-_loaded_image
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.ModuleName">
+            <summary>
+            ModuleName
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.hFile">
+            <summary>
+            hFile
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.MappedAddress">
+            <summary>
+            MappedAddress
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.FileHeader">
+            <summary>
+            FileHeader
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.LastRvaSection">
+            <summary>
+            LastRvaSection
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.NumberOfSections">
+            <summary>
+            NumberOfSections
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.Sections">
+            <summary>
+            Sections
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.Characteristics">
+            <summary>
+            Characteristics
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.fSystemImage">
+            <summary>
+            fSystemImage
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.fDOSImage">
+            <summary>
+            fDOSImage
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.fReadOnly">
+            <summary>
+            fReadOnly
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.Version">
+            <summary>
+            Version
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.Links">
+            <summary>
+            Links
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LOADED_IMAGE.SizeOfImage">
+            <summary>
+            SizeOfImage
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.LIST_ENTRY">
+            <summary>
+            Describes an entry in a doubly linked list or serves as the header for such a list. See https://docs.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-_list_entry
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LIST_ENTRY.Flink">
+            <summary>
+            Flink points to the next entry in the list.
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LIST_ENTRY.Blink">
+            <summary>
+            Blink points to the previous entry in the list.
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.AllocationProtect">
+            <summary>
+            AllocationProtect.
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.AllocationProtect.PAGE_EXECUTE">
+            <summary>
+            PAGE_EXECUTE
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.AllocationProtect.PAGE_EXECUTE_READ">
+            <summary>
+            PAGE_EXECUTE_READ
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.AllocationProtect.PAGE_EXECUTE_READWRITE">
+            <summary>
+            PAGE_EXECUTE_READWRITE
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.AllocationProtect.PAGE_EXECUTE_WRITECOPY">
+            <summary>
+            PAGE_EXECUTE_WRITECOPY
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.AllocationProtect.PAGE_NOACCESS">
+            <summary>
+            PAGE_NOACCESS
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.AllocationProtect.PAGE_READONLY">
+            <summary>
+            PAGE_READONLY
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.AllocationProtect.PAGE_READWRITE">
+            <summary>
+            PAGE_READWRITE
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.AllocationProtect.PAGE_WRITECOPY">
+            <summary>
+            PAGE_WRITECOPY
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.AllocationProtect.PAGE_GUARD">
+            <summary>
+            PAGE_GUARD
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.AllocationProtect.PAGE_NOCACHE">
+            <summary>
+            PAGE_NOCACHE
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.AllocationProtect.PAGE_WRITECOMBINE">
+            <summary>
+            PAGE_WRITECOMBINE
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.StateEnum">
+            <summary>
+            StateEnum
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.StateEnum.MEM_COMMIT">
+            <summary>
+            MEM_COMMIT
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.StateEnum.MEM_FREE">
+            <summary>
+            MEM_FREE
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.StateEnum.MEM_RESERVE">
+            <summary>
+            MEM_RESERVE
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.TypeEnum">
+            <summary>
+            TypeEnum
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TypeEnum.MEM_IMAGE">
+            <summary>
+            MEM_IMAGE
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TypeEnum.MEM_MAPPED">
+            <summary>
+            MEM_MAPPED
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TypeEnum.MEM_PRIVATE">
+            <summary>
+            MEM_PRIVATE
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.MEMORY_BASIC_INFORMATION32">
+            <summary>
+            MEMORY_BASIC_INFORMATION32. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_memory_basic_information
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION32.BaseAddress">
+            <summary>
+            BaseAddress
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION32.AllocationBase">
+            <summary>
+            AllocationBase
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION32.AllocationProtect">
+            <summary>
+            AllocationProtec
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION32.RegionSize">
+            <summary>
+            RegionSize
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION32.State">
+            <summary>
+            State
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION32.Protect">
+            <summary>
+            Protect
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION32.Type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.MEMORY_BASIC_INFORMATION64">
+            <summary>
+            MEMORY_BASIC_INFORMATION32. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_memory_basic_information
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION64.BaseAddress">
+            <summary>
+            BaseAddress
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION64.AllocationBase">
+            <summary>
+            AllocationBase
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION64.AllocationProtect">
+            <summary>
+            AllocationProtect
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION64.__alignment1">
+            <summary>
+            __alignment1
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION64.RegionSize">
+            <summary>
+            RegionSize
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION64.State">
+            <summary>
+            State
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION64.Protect">
+            <summary>
+            Protect
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION64.Type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.MEMORY_BASIC_INFORMATION64.__alignment2">
+            <summary>
+            __alignment2
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.ProcessAccessFlags">
+            <summary>
+            ProcessAccessFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ProcessAccessFlags.All">
+            <summary>
+            All
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ProcessAccessFlags.Terminate">
+            <summary>
+            Terminate
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ProcessAccessFlags.CreateThread">
+            <summary>
+            CreateThread
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ProcessAccessFlags.VirtualMemoryOperation">
+            <summary>
+            VirtualMemoryOperation
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ProcessAccessFlags.VirtualMemoryRead">
+            <summary>
+            VirtualMemoryRead
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ProcessAccessFlags.VirtualMemoryWrite">
+            <summary>
+            VirtualMemoryWrite
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ProcessAccessFlags.DuplicateHandle">
+            <summary>
+            DuplicateHandle
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ProcessAccessFlags.CreateProcess">
+            <summary>
+            CreateProcess
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ProcessAccessFlags.SetQuota">
+            <summary>
+            SetQuota
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ProcessAccessFlags.SetInformation">
+            <summary>
+            SetInformation
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ProcessAccessFlags.QueryInformation">
+            <summary>
+            QueryInformation
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ProcessAccessFlags.QueryLimitedInformation">
+            <summary>
+            QueryLimitedInformation
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ProcessAccessFlags.Synchronize">
+            <summary>
+            Synchronize
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.LoadLibraryFlags">
+            <summary>
+            LoadLibraryFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LoadLibraryFlags.None">
+            <summary>
+            None
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LoadLibraryFlags.DONT_RESOLVE_DLL_REFERENCES">
+            <summary>
+            DONT_RESOLVE_DLL_REFERENCES
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LoadLibraryFlags.LOAD_IGNORE_CODE_AUTHZ_LEVEL">
+            <summary>
+            LOAD_IGNORE_CODE_AUTHZ_LEVEL
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE">
+            <summary>
+            LOAD_LIBRARY_AS_DATAFILE
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE">
+            <summary>
+            LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_IMAGE_RESOURCE">
+            <summary>
+            LOAD_LIBRARY_AS_IMAGE_RESOURCE
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_APPLICATION_DIR">
+            <summary>
+            LOAD_LIBRARY_SEARCH_APPLICATION_DIR
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DEFAULT_DIRS">
+            <summary>
+            LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR">
+            <summary>
+            LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_SYSTEM32">
+            <summary>
+            LOAD_LIBRARY_SEARCH_SYSTEM32
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_USER_DIRS">
+            <summary>
+            LOAD_LIBRARY_SEARCH_USER_DIRS
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.LoadLibraryFlags.LOAD_WITH_ALTERED_SEARCH_PATH">
+            <summary>
+            LOAD_WITH_ALTERED_SEARCH_PATH
             </summary>
         </member>
         <member name="T:ERC.Structures.ThreadAccess">
@@ -303,14 +2025,289 @@
             Enum to specify access level required when accessing a thread. 
             </summary>
         </member>
+        <member name="F:ERC.Structures.ThreadAccess.TERMINATE">
+            <summary>
+            TERMINATE
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadAccess.SUSPEND_RESUME">
+            <summary>
+            SUSPEND_RESUME
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadAccess.GET_CONTEXT">
+            <summary>
+            GET_CONTEXT
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadAccess.SET_CONTEXT">
+            <summary>
+            SET_CONTEXT
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadAccess.SET_INFORMATION">
+            <summary>
+            SET_INFORMATION
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadAccess.QUERY_INFORMATION">
+            <summary>
+            QUERY_INFORMATION
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadAccess.SET_THREAD_TOKEN">
+            <summary>
+            SET_THREAD_TOKEN
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadAccess.IMPERSONATE">
+            <summary>
+            IMPERSONATE
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadAccess.DIRECT_IMPERSONATION">
+            <summary>
+            DIRECT_IMPERSONATION
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadAccess.All_ACCESS">
+            <summary>
+            All_ACCESS
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.CONTEXT_FLAGS">
+            <summary>
+            CONTEXT_FLAGS
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_i386">
+            <summary>
+            CONTEXT_i386
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_i486">
+            <summary>
+            CONTEXT_i486
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_CONTROL">
+            <summary>
+            CONTEXT_CONTROL
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_INTEGER">
+            <summary>
+            CONTEXT_INTEGER
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_SEGMENTS">
+            <summary>
+            CONTEXT_SEGMENTS
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_FLOATING_POINT">
+            <summary>
+            CONTEXT_FLOATING_POINT
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_DEBUG_REGISTERS">
+            <summary>
+            CONTEXT_DEBUG_REGISTERS
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_EXTENDED_REGISTERS">
+            <summary>
+            CONTEXT_EXTENDED_REGISTERS
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_FULL">
+            <summary>
+            CONTEXT_FULL
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_ALL">
+            <summary>
+            CONTEXT_ALL
+            </summary>
+        </member>
         <member name="T:ERC.Structures.FLOATING_SAVE_AREA">
             <summary>
-            x86 Save area data.
+            x86 Save area data. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_wow64_floating_save_area
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.FLOATING_SAVE_AREA.ControlWord">
+            <summary>
+            ControlWord
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.FLOATING_SAVE_AREA.StatusWord">
+            <summary>
+            StatusWord
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.FLOATING_SAVE_AREA.TagWord">
+            <summary>
+            TagWord
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.FLOATING_SAVE_AREA.ErrorOffset">
+            <summary>
+            ErrorOffset
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.FLOATING_SAVE_AREA.ErrorSelector">
+            <summary>
+            ErrorSelector
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.FLOATING_SAVE_AREA.DataOffset">
+            <summary>
+            DataOffset
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.FLOATING_SAVE_AREA.DataSelector">
+            <summary>
+            DataSelector
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.FLOATING_SAVE_AREA.RegisterArea">
+            <summary>
+            RegisterArea
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.FLOATING_SAVE_AREA.Cr0NpxState">
+            <summary>
+            Cr0NpxState
             </summary>
         </member>
         <member name="T:ERC.Structures.CONTEXT32">
             <summary>
             Structure for holding x86 register values.
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.ContextFlags">
+            <summary>
+            ContextFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Dr0">
+            <summary>
+            Dr0
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Dr1">
+            <summary>
+            Dr1
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Dr2">
+            <summary>
+            Dr2
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Dr3">
+            <summary>
+            Dr3
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Dr6">
+            <summary>
+            Dr6
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Dr7">
+            <summary>
+            Dr7
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.FloatSave">
+            <summary>
+            FloatSave
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.SegGs">
+            <summary>
+            SegGs
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.SegFs">
+            <summary>
+            SegFs
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.SegEs">
+            <summary>
+            SegEs
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.SegDs">
+            <summary>
+            SegDs
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Edi">
+            <summary>
+            Edi
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Esi">
+            <summary>
+            Esi
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Ebx">
+            <summary>
+            Ebx
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Edx">
+            <summary>
+            Edx
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Ecx">
+            <summary>
+            Ecx
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Eax">
+            <summary>
+            Eax
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Ebp">
+            <summary>
+            Ebp
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Eip">
+            <summary>
+            Eip
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.SegCs">
+            <summary>
+            SegCs
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.EFlags">
+            <summary>
+            EFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.Esp">
+            <summary>
+            Esp
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.SegSs">
+            <summary>
+            SegSs
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT32.ExtendedRegisters">
+            <summary>
+            ExtendedRegisters
             </summary>
         </member>
         <member name="M:ERC.Structures.CONTEXT32.ToString">
@@ -319,14 +2316,345 @@
             </summary>
             <returns>String</returns>
         </member>
+        <member name="T:ERC.Structures.M128A">
+            <summary>
+            M128A
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.M128A.High">
+            <summary>
+            High
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.M128A.Low">
+            <summary>
+            Low
+            </summary>
+        </member>
+        <member name="M:ERC.Structures.M128A.ToString">
+            <summary>
+            ToString Override
+            </summary>
+            <returns>Returns a String</returns>
+        </member>
         <member name="T:ERC.Structures.XSAVE_FORMAT64">
             <summary>
             x64 Save area data.
             </summary>
         </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.ControlWord">
+            <summary>
+            ControlWord
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.StatusWord">
+            <summary>
+            StatusWord
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.TagWord">
+            <summary>
+            TagWord
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.Reserved1">
+            <summary>
+            Reserved1
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.ErrorOpcode">
+            <summary>
+            ErrorOpcode
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.ErrorOffset">
+            <summary>
+            ErrorOffset
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.ErrorSelector">
+            <summary>
+            ErrorSelector
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.Reserved2">
+            <summary>
+            Reserved2
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.DataOffset">
+            <summary>
+            DataOffset
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.DataSelector">
+            <summary>
+            DataSelector
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.Reserved3">
+            <summary>
+            Reserved3
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.MxCsr">
+            <summary>
+            MxCsr
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.MxCsr_Mask">
+            <summary>
+            MxCsr_Mask
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.FloatRegisters">
+            <summary>
+            FloatRegisters
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.XmmRegisters">
+            <summary>
+            XmmRegisters
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.XSAVE_FORMAT64.Reserved4">
+            <summary>
+            Reserved4
+            </summary>
+        </member>
         <member name="T:ERC.Structures.CONTEXT64">
             <summary>
             Structure for holding x64 register values.
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.P1Home">
+            <summary>
+            P1Home
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.P2Home">
+            <summary>
+            P2Home
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.P3Home">
+            <summary>
+            P3Home
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.P4Home">
+            <summary>
+            P4Home
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.P5Home">
+            <summary>
+            P5Home
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.P6Home">
+            <summary>
+            P6Home
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.ContextFlags">
+            <summary>
+            ContextFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.MxCsr">
+            <summary>
+            MxCsr
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.SegCs">
+            <summary>
+            SegCs
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.SegDs">
+            <summary>
+            SegDs
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.SegEs">
+            <summary>
+            SegEs
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.SegFs">
+            <summary>
+            SegFs
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.SegGs">
+            <summary>
+            SegGs
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.SegSs">
+            <summary>
+            SegSs
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.EFlags">
+            <summary>
+            EFlags
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Dr0">
+            <summary>
+            Dr0
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Dr1">
+            <summary>
+            Dr1
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Dr2">
+            <summary>
+            Dr2
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Dr3">
+            <summary>
+            Dr3
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Dr6">
+            <summary>
+            Dr6
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Dr7">
+            <summary>
+            Dr7
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Rax">
+            <summary>
+            Rax
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Rcx">
+            <summary>
+            Rcx
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Rdx">
+            <summary>
+            Rdx
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Rbx">
+            <summary>
+            Rbx
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Rsp">
+            <summary>
+            Rsp
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Rbp">
+            <summary>
+            Rbp
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Rsi">
+            <summary>
+            Rsi
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Rdi">
+            <summary>
+            Rdi
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.R8">
+            <summary>
+            R8
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.R9">
+            <summary>
+            R9
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.R10">
+            <summary>
+            R10
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.R11">
+            <summary>
+            R11
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.R12">
+            <summary>
+            R12
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.R13">
+            <summary>
+            R13
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.R14">
+            <summary>
+            R14
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.R15">
+            <summary>
+            R15
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.Rip">
+            <summary>
+            Rip
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.DUMMYUNIONNAME">
+            <summary>
+            DUMMYUNIONNAME
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.VectorRegister">
+            <summary>
+            VectorRegister
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.VectorControl">
+            <summary>
+            VectorControl
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.DebugControl">
+            <summary>
+            DebugControl
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.LastBranchToRip">
+            <summary>
+            LastBranchToRip
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.LastBranchFromRip">
+            <summary>
+            LastBranchFromRip
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.LastExceptionToRip">
+            <summary>
+            LastExceptionToRip
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.CONTEXT64.LastExceptionFromRip">
+            <summary>
+            LastExceptionFromRip
             </summary>
         </member>
         <member name="M:ERC.Structures.CONTEXT64.ToString">
@@ -335,9 +2663,409 @@
             </summary>
             <returns>String</returns>
         </member>
+        <member name="T:ERC.Structures.RegisterInfo">
+            <summary>
+            Register information
+            </summary>
+        </member>
+        <member name="P:ERC.Structures.RegisterInfo.Register">
+            <summary>
+            Register name.
+            </summary>
+        </member>
+        <member name="P:ERC.Structures.RegisterInfo.RegisterValue">
+            <summary>
+            Register value.
+            </summary>
+        </member>
+        <member name="P:ERC.Structures.RegisterInfo.RegisterOffset">
+            <summary>
+            Register Offset.
+            </summary>
+        </member>
+        <member name="P:ERC.Structures.RegisterInfo.StringOffset">
+            <summary>
+            String offset.
+            </summary>
+        </member>
+        <member name="P:ERC.Structures.RegisterInfo.BufferSize">
+            <summary>
+            Buffer size.
+            </summary>
+        </member>
+        <member name="P:ERC.Structures.RegisterInfo.ThreadID">
+            <summary>
+            Thread ID.
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.ThreadBasicInformation">
+            <summary>
+            ThreadBasicInformation
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadBasicInformation.ExitStatus">
+            <summary>
+            ExitStatus
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadBasicInformation.TebBaseAdress">
+            <summary>
+            TebBaseAdress
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadBasicInformation.Identifiers">
+            <summary>
+            Identifiers
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadBasicInformation.AffinityMask">
+            <summary>
+            AffinityMask
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadBasicInformation.Priority">
+            <summary>
+            Priority
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ThreadBasicInformation.BasePriority">
+            <summary>
+            BasePriority
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.ClientID">
+            <summary>
+            ClientID
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ClientID.ProcessId">
+            <summary>
+            ProcessID
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.ClientID.ThreadId">
+            <summary>
+            ThreadID
+            </summary>
+        </member>
+        <member name="T:ERC.Structures.TEB">
+            <summary>
+            Thread Environment Block.
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.CurrentSehFrame">
+            <summary>
+            CurrentSehFrame
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.TopOfStack">
+            <summary>
+            TopOfStack
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.BottomOfStack">
+            <summary>
+            BottomOfStack
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.SubSystemTeb">
+            <summary>
+            SubSystemTeb
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.FiberData">
+            <summary>
+            FiberData
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.ArbitraryDataSlot">
+            <summary>
+            ArbitraryDataSlot
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.Teb">
+            <summary>
+            Teb
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.EnvironmentPointer">
+            <summary>
+            EnvironmentPointer
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.Identifiers">
+            <summary>
+            Identifiers
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.RpcHandle">
+            <summary>
+            RpcHandle
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.Tls">
+            <summary>
+            Tls
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.Peb">
+            <summary>
+            Peb
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.LastErrorNumber">
+            <summary>
+            LastErrorNumber
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.CriticalSectionsCount">
+            <summary>
+            CriticalSectionsCount
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.CsrClientThread">
+            <summary>
+            CsrClientThread
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.Win32ThreadInfo">
+            <summary>
+            Win32ThreadInfo
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.Win32ClientInfo">
+            <summary>
+            Win32ClientInfo
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.WoW64Reserved">
+            <summary>
+            WoW64Reserved
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.CurrentLocale">
+            <summary>
+            CurrentLocale
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.FpSoftwareStatusRegister">
+            <summary>
+            FpSoftwareStatusRegister
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.SystemReserved1">
+            <summary>
+            SystemReserved1
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.ExceptionCode">
+            <summary>
+            ExceptionCode
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.ActivationContextStack">
+            <summary>
+            ActivationContextStack
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.SpareBytes">
+            <summary>
+            SpareBytes
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.SystemReserved2">
+            <summary>
+            SystemReserved2
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.GdiTebBatch">
+            <summary>
+            GdiTebBatch
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.GdiRegion">
+            <summary>
+            GdiRegion
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.GdiPen">
+            <summary>
+            GdiPen
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.GdiBrush">
+            <summary>
+            GdiBrush
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.RealProcessId">
+            <summary>
+            RealProcessId
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.RealThreadId">
+            <summary>
+            RealThreadId
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.GdiCachedProcessHandle">
+            <summary>
+            GdiCachedProcessHandle
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.GdiClientProcessId">
+            <summary>
+            GdiClientProcessId
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.GdiClientThreadId">
+            <summary>
+            GdiClientThreadId
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.GdiThreadLocalInfo">
+            <summary>
+            GdiThreadLocalInfo
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.UserReserved1">
+            <summary>
+            UserReserved1
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.GlReserved1">
+            <summary>
+            GlReserved1
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.LastStatusValue">
+            <summary>
+            LastStatusValue
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.StaticUnicodeString">
+            <summary>
+            StaticUnicodeString
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.DeallocationStack">
+            <summary>
+            DeallocationStack
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.TlsSlots">
+            <summary>
+            TlsSlots
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.TlsLinks">
+            <summary>
+            TlsLinks
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.Vdm">
+            <summary>
+            Vdm
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.RpcReserved">
+            <summary>
+            RpcReserved
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.TEB.ThreadErrorMode">
+            <summary>
+            ThreadErrorMode
+            </summary>
+        </member>
         <member name="T:ERC.ModuleInfo">
             <summary>
             Contains all information relating to a specific module.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleName">
+            <summary>
+            Module name.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModulePath">
+            <summary>
+            Module path.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleVersion">
+            <summary>
+            Module version.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleProduct">
+            <summary>
+            Module product.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleBase">
+            <summary>
+            Module base pointer.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleEntry">
+            <summary>
+            Module entry point.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleImageBase">
+            <summary>
+            Module image base.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleSize">
+            <summary>
+            Module size.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleASLR">
+            <summary>
+            Module supports ASLR.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleSafeSEH">
+            <summary>
+            Module supports SafeSEH
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleRebase">
+            <summary>
+            Module can be rebased.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleNXCompat">
+            <summary>
+            Module is DEP enabled.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleOsDll">
+            <summary>
+            Module is an OS dll.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleProcess">
+            <summary>
+            Process where the module is loaded.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleCore">
+            <summary>
+            Associated ErcCore object.
+            </summary>
+        </member>
+        <member name="P:ERC.ModuleInfo.ModuleMachineType">
+            <summary>
+            Machine type of the module.
+            </summary>
+        </member>
+        <member name="F:ERC.ModuleInfo.ModuleFailed">
+            <summary>
+            An errpr was encountered whilst processing the module.
             </summary>
         </member>
         <member name="M:ERC.ModuleInfo.#ctor(System.String,System.IntPtr,System.Diagnostics.Process,ERC.ErcCore)">
@@ -347,6 +3075,7 @@
             <param name="module">Filepath of the module</param>
             <param name="ptr">Handle to the module</param>
             <param name="process">Process where the module is loaded</param>
+            <param name="core">An ErcCore object</param>
         </member>
         <member name="M:ERC.ModuleInfo.SearchModule(System.Byte[])">
             <summary>
@@ -354,6 +3083,12 @@
             </summary>
             <param name="searchBytes">A byte array to be searched for</param>
             <returns>Returns ERC_Result of pointers to the search term</returns>
+        </member>
+        <member name="M:ERC.ModuleInfo.ToString">
+            <summary>
+            Override of the ToString method. Provides a data associated with the module.
+            </summary>
+            <returns>A string containing relevant data.</returns>
         </member>
         <member name="T:ERC.Utilities.OpcodeAssembler">
             <summary>
@@ -381,7 +3116,6 @@
             </summary>
             <param name="instructions">The instructions to be assemble=d</param>
             <param name="machineType">a ERC.MachineType of either I386 or x64</param>
-            <param name="core">An ErcCore object</param>
             <returns>Returns an ERC_Result byte array containing the assembled instructions</returns>
         </member>
         <member name="T:ERC.Utilities.OpcodeDisassembler">
@@ -410,7 +3144,6 @@
             </summary>
             <param name="opcodes">A byte array containing opcodes to be disassembled</param>
             <param name="machineType">a ERC.MachineType of either I386 or x64</param>
-            <param name="core">An ErcCore object</param>
             <returns>Returns an ERC_Result containing associated instructions.</returns>
         </member>
         <member name="T:ERC.Utilities.PatternTools">
@@ -439,6 +3172,31 @@
         <member name="T:ERC.Utilities.Payloads">
             <summary>
             A collecton of methods which generate payloads.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.Payloads.DefaultEgg">
+            <summary>
+            Default egg hunter tag.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.Payloads.EggHunter641">
+            <summary>
+            A 64 bit egg hunter.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.Payloads.EggHunter642">
+            <summary>
+            A second 64 bit egg hunter.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.Payloads.EggHunter32">
+            <summary>
+            A 32 bit egg hunter.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.Payloads.EggHunterWOW64">
+            <summary>
+            An egg hunter that will work on 32 bit systems or 32 bit processes running under WOW64.
             </summary>
         </member>
         <member name="M:ERC.Utilities.Payloads.ByteArrayConstructor(System.Byte[])">
@@ -484,6 +3242,11 @@
             <returns>Returns a Tuple containing a bool which is true if the comparison was identical and false if it was not, a byte array containing 
             the bytes provided and a byte array containing the bytes read from process memory</returns>
         </member>
+        <member name="T:ERC.Utilities.PtrRemover">
+            <summary>
+            Contains methods for identifying and removing pointers to unwanted data.
+            </summary>
+        </member>
         <member name="M:ERC.Utilities.PtrRemover.RemovePointers(System.Collections.Generic.List{System.IntPtr},System.Byte[])">
             <summary>
             Removes pointers which contain unwanted bytes. 
@@ -507,6 +3270,12 @@
             <summary>
             Contains a ROP chain which calls the VirtualAlloc method.
             </summary>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator32.#ctor(ERC.ProcessInfo)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="_info">The ProcessInfo object.</param>
         </member>
         <member name="M:ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String})">
             <summary>
@@ -543,6 +3312,7 @@
             followed by a move to the selected register. This function should be extended with further methods for zeroing a register at a later date.
             </summary>
             <param name="modifyingReg">The Register32 value for the register to be zeroed.</param>
+            <param name="regModified32">The RegisterModifiers32 object.</param>
             <returns>A dictionary(byte[], string) containing pointers to the instructions and the associated mnemonics</returns>
         </member>
         <member name="M:ERC.Utilities.RopChainGenerator32.SetRegisterModifier(ERC.Utilities.RopChainGenerator32.Register32,ERC.Utilities.RopChainGenerator32.Register32,ERC.Utilities.RopChainGenerator32.RegisterModifiers32)">
@@ -555,6 +3325,7 @@
             </summary>
             <param name="modifiedReg">The Registers32 which is being modified</param>
             <param name="modifyingReg">The Registers32 which is doing the modification</param>
+            <param name="regModified32">The RegisterModifiers32 object.</param>
         </member>
         <member name="M:ERC.Utilities.RopChainGenerator32.GetRegisterModified(ERC.Utilities.RopChainGenerator32.Register32,ERC.Utilities.RopChainGenerator32.Register32,ERC.Utilities.RopChainGenerator32.RegisterModifiers32)">
             <summary>
@@ -562,6 +3333,7 @@
             </summary>
             <param name="modifiedReg">The Registers32 which is being modified</param>
             <param name="modifyingReg">The Registers32 which is doing the modification</param>
+            <param name="regModified32">The RegisterModifiers32 object.</param>
             <returns>A bool, true = register was modified by this register false = register was not modified by this register</returns>
         </member>
         <member name="M:ERC.Utilities.RopChainGenerator32.GetMovInstruction(ERC.Utilities.RopChainGenerator32.Register32,ERC.Utilities.RopChainGenerator32.Register32)">
@@ -587,8 +3359,243 @@
             <param name="regState">The Registers32 object to be tested</param>
             <returns>A boolean value is returned</returns>
         </member>
+        <member name="T:ERC.Utilities.RopChainGenerator32.X86Lists">
+            <summary>
+            Contains lists of instructions for specific registers.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.pushEax">
+            <summary>
+            pushEax list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.pushEbx">
+            <summary>
+            pushEbx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.pushEcx">
+            <summary>
+            pushEcx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.pushEdx">
+            <summary>
+            pushEdx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.pushEsp">
+            <summary>
+            pushEsp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.pushEbp">
+            <summary>
+            pushEbp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.pushEsi">
+            <summary>
+            pushEsi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.pushEdi">
+            <summary>
+            pushEdi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.jmpEsp">
+            <summary>
+            jmpEsp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.callEsp">
+            <summary>
+            callEsp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.xorEax">
+            <summary>
+            xorEax list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.xorEbx">
+            <summary>
+            xorEbx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.xorEcx">
+            <summary>
+            xorEcx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.xorEdx">
+            <summary>
+            xorEdx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.xorEsi">
+            <summary>
+            xorEsi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.xorEdi">
+            <summary>
+            xorEdi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.popEax">
+            <summary>
+            popEax list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.popEbx">
+            <summary>
+            popEbx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.popEcx">
+            <summary>
+            popEcx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.popEdx">
+            <summary>
+            popEdx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.popEsp">
+            <summary>
+            popEsp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.popEbp">
+            <summary>
+            popEbp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.popEsi">
+            <summary>
+            popEsi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.popEdi">
+            <summary>
+            popEdi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.pushad">
+            <summary>
+            pushad list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.incEax">
+            <summary>
+            incEax list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.incEbx">
+            <summary>
+            incEbx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.incEcx">
+            <summary>
+            incEcx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.incEdx">
+            <summary>
+            incEdx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.incEbp">
+            <summary>
+            incEbp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.incEsp">
+            <summary>
+            incEsp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.incEsi">
+            <summary>
+            incEsi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.incEdi">
+            <summary>
+            incEdi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.decEax">
+            <summary>
+            decEax list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.decEbx">
+            <summary>
+            decEbx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.decEcx">
+            <summary>
+            decEcx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.decEdx">
+            <summary>
+            decEdx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.decEbp">
+            <summary>
+            decEbp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.decEsp">
+            <summary>
+            decEsp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.decEsi">
+            <summary>
+            decEsi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.decEdi">
+            <summary>
+            decEdi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.add">
+            <summary>
+            add list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.sub">
+            <summary>
+            sub list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.mov">
+            <summary>
+            mov list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.X86Lists.and">
+            <summary>
+            and list.
+            </summary>
+        </member>
         <member name="T:ERC.Utilities.RopChainGenerator64">
             <summary> Attempts to create Rop chains from 64 bit processes. </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.VirtualAllocChain">
+            <summary>
+            Contains a ROP chain which calls the VirtualAlloc method.
+            </summary>
         </member>
         <member name="M:ERC.Utilities.RopChainGenerator64.#ctor(ERC.ProcessInfo)">
             <summary>
@@ -619,6 +3626,7 @@
             followed by a move to the selected register. This function should be extended with further methods for zeroing a register at a later date.
             </summary>
             <param name="modifyingReg">The Register64 value for the register to be zeroed.</param>
+            <param name="regModified64">The RegisterModifiers64 object.</param>
             <returns>A dictionary(byte[], string) containing pointers to the instructions and the associated mnemonics</returns>
         </member>
         <member name="M:ERC.Utilities.RopChainGenerator64.SetRegisterModifier(ERC.Utilities.RopChainGenerator64.Register64,ERC.Utilities.RopChainGenerator64.Register64,ERC.Utilities.RopChainGenerator64.RegisterModifiers64)">
@@ -631,6 +3639,7 @@
             </summary>
             <param name="modifiedReg">The Register64 which is being modified</param>
             <param name="modifyingReg">The Register64 which is doing the modification</param>
+            <param name="regModified64">The RegisterModifiers64 object.</param>
         </member>
         <member name="M:ERC.Utilities.RopChainGenerator64.GetAddInstruction(ERC.Utilities.RopChainGenerator64.Register64,ERC.Utilities.RopChainGenerator64.Register64)">
             <summary>
@@ -654,7 +3663,438 @@
             </summary>
             <param name="destReg">The destination register</param>
             <param name="srcReg">The source register</param>
+            <param name="regModified64">The RegisterModifiers64 object.</param>
             <returns>Returns a dictionary of byte[] string containing a pointer to the instruction and the associated mnemonics</returns>
+        </member>
+        <member name="T:ERC.Utilities.RopChainGenerator64.X64Lists">
+            <summary>
+            Contains lists of instructions for specific registers.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRax">
+            <summary>
+            pushRax list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRcx">
+            <summary>
+            pushRcx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRdx">
+            <summary>
+            pushRdx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRbx">
+            <summary>
+            pushRbx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRsp">
+            <summary>
+            pushRsp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRbp">
+            <summary>
+            pushRbp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRsi">
+            <summary>
+            pushRsi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRdi">
+            <summary>
+            pushRdi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR8">
+            <summary>
+            pushR8 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR9">
+            <summary>
+            pushR9 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR10">
+            <summary>
+            pushR10 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR11">
+            <summary>
+            pushR11 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR12">
+            <summary>
+            pushR12 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR13">
+            <summary>
+            pushR13 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR14">
+            <summary>
+            pushR14 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR15">
+            <summary>
+            pushR15 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popRax">
+            <summary>
+            popRax list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popRbx">
+            <summary>
+            popRbx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popRcx">
+            <summary>
+            popRcx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popRdx">
+            <summary>
+            popRdx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popRsp">
+            <summary>
+            popRsp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popRbp">
+            <summary>
+            popRbp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popRsi">
+            <summary>
+            popRsi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popRdi">
+            <summary>
+            popRdi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popR8">
+            <summary>
+            popR8 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popR9">
+            <summary>
+            popR9 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popR10">
+            <summary>
+            popR10 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popR11">
+            <summary>
+            popR11 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popR12">
+            <summary>
+            popR12 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popR13">
+            <summary>
+            popR13 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popR14">
+            <summary>
+            popR14 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.popR15">
+            <summary>
+            popR15 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRax">
+            <summary>
+            xorRax list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRbx">
+            <summary>
+            xorRbx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRcx">
+            <summary>
+            xorRcx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRdx">
+            <summary>
+            xorRdx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRsi">
+            <summary>
+            xorRsi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRdi">
+            <summary>
+            xorRdi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRsp">
+            <summary>
+            xorRsp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRbp">
+            <summary>
+            xorRbp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR8">
+            <summary>
+            xorR8 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR9">
+            <summary>
+            xorR9 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR10">
+            <summary>
+            xorR10 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR11">
+            <summary>
+            xorR11 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR12">
+            <summary>
+            xorR12 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR13">
+            <summary>
+            xorR13 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR14">
+            <summary>
+            xorR14 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR15">
+            <summary>
+            xorR15 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.jmpRsp">
+            <summary>
+            jmpRsp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.callRsp">
+            <summary>
+            callRsp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incRax">
+            <summary>
+            incRax list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incRbx">
+            <summary>
+            incRbx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incRcx">
+            <summary>
+            incRcx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incRdx">
+            <summary>
+            incRdx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incRbp">
+            <summary>
+            incRbp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incRsp">
+            <summary>
+            incRsp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incRsi">
+            <summary>
+            incRsi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incRdi">
+            <summary>
+            incRdi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incR8">
+            <summary>
+            incR8 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incR9">
+            <summary>
+            incR9 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incR10">
+            <summary>
+            incR10 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incR11">
+            <summary>
+            incR11 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incR12">
+            <summary>
+            incR12 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incR13">
+            <summary>
+            incR13 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incR14">
+            <summary>
+            incR14 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.incR15">
+            <summary>
+            incR15 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decRax">
+            <summary>
+            decRax list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decRbx">
+            <summary>
+            decRbx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decRcx">
+            <summary>
+            decRcx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decRdx">
+            <summary>
+            decRdx list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decRbp">
+            <summary>
+            decRbp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decRsp">
+            <summary>
+            decRsp list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decRsi">
+            <summary>
+            decRsi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decRdi">
+            <summary>
+            decRdi list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decR8">
+            <summary>
+            decR8 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decR9">
+            <summary>
+            decR9 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decR10">
+            <summary>
+            decR10 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decR11">
+            <summary>
+            decR11 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decR12">
+            <summary>
+            decR12 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decR13">
+            <summary>
+            decR13 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decR14">
+            <summary>
+            decR14 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.decR15">
+            <summary>
+            decR15 list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.add">
+            <summary>
+            add list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.mov">
+            <summary>
+            mov list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.sub">
+            <summary>
+            sub list.
+            </summary>
         </member>
         <member name="T:ERC.ProcessInfo">
             <summary> Contains information needed for the associated functions relating the process. </summary>
@@ -779,7 +4219,14 @@
             <param name="excludes">Modules to be excluded from the search (optional)</param>
             <returns>Returns an ERC_Result containing pointers to all instances of the search query.</returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:ERC.ProcessInfo.FindNRP(System.Int32,System.Boolean)" -->
+        <member name="M:ERC.ProcessInfo.FindNRP(System.Int32,System.Boolean)">
+            <summary>
+            Searches process registers and identifies pointers to buffers in memory containing a non repeating pattern. Functionality to identify SEH overwrites not yet implements.
+            </summary>
+            <param name="searchType">(Optional) 0 = search term is system default\n1 = search term is in unicode\n2 = search term is in ASCII\n3 = Search term is in UTF8\n4 = Search term is in UTF7\n5 = Search term is in UTF32</param>
+            <param name="extended">(Optional) Include additional characters in the pattern (!#$%^ etc) in the to be searched</param>
+            <returns>Returns a ERC_Result containing a List of RegisterOffset</returns>
+        </member>
         <member name="M:ERC.ProcessInfo.ByteIndexOf(System.Byte[],System.Byte[])">
             <summary>
             Private function, BoyerMoore string search algorithm modified to search for sets of bytes in a byte array. 

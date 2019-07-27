@@ -173,7 +173,7 @@ namespace ERC
         /// <param name="dwFlags">Specifies the action to take when loading the module.</param>
         /// <returns></returns>
         [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hReservedNull, LoadLibraryFlags dwFlags);
+        internal static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hReservedNull, LoadLibraryFlags dwFlags);
 
         /// <summary>
         /// Determines the location of a resource with the specified type and name in the specified module.
@@ -183,7 +183,7 @@ namespace ERC
         /// <param name="resType">The resource type.</param>
         /// <returns>If the function succeeds, the return value is a handle to the specified resource's information block.</returns>
         [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "FindResourceA")]
-        public static extern IntPtr FindResouce(IntPtr hModule, ref string resName, ref string resType);
+        internal static extern IntPtr FindResouce(IntPtr hModule, ref string resName, ref string resType);
 
         /// <summary>
         /// Retrieves a handle that can be used to obtain a pointer to the first byte of the specified resource in memory.
@@ -192,7 +192,15 @@ namespace ERC
         /// <param name="hResInfo">A handle to the resource to be loaded. </param>
         /// <returns>If the function succeeds, the return value is a handle to the data associated with the resource.</returns>
         [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern IntPtr LoadResource(IntPtr hModule, IntPtr hResInfo);
+        internal static extern IntPtr LoadResource(IntPtr hModule, IntPtr hResInfo);
+
+        /// <summary>
+        /// Retrieves the process identifier of the specified process.
+        /// </summary>
+        /// <param name="handle">A handle to the process. The handle must have the PROCESS_QUERY_INFORMATION or PROCESS_QUERY_LIMITED_INFORMATION access right.</param>
+        /// <returns>Returns the identifier of the process as a Uint</returns>
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern uint GetProcessId(IntPtr handle);
 
         /// <summary>
         /// Retrieves a module handle for the specified module. The module must have been loaded by the calling process.
@@ -200,7 +208,7 @@ namespace ERC
         /// <param name="moduleName">The name of the loaded module (either a .dll or .exe file).</param>
         /// <returns>If the function succeeds, the return value is a handle to the specified module.</returns>
         [DllImport("user32.dll", EntryPoint = "GetModuleHandleW", SetLastError = true)]
-        public static extern IntPtr GetModuleHandle(string moduleName);
+        internal static extern IntPtr GetModuleHandle(string moduleName);
 
         /// <summary>
         /// The ZwQueryInformationThread routine retrieves information about the specified thread.
