@@ -1,8 +1,11 @@
 ﻿using ERC.Utilities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -53,7 +56,7 @@ namespace ERC
         /// <param name="length">The length of the string to be created</param>
         /// <param name="core">An ErcCore object</param>
         /// <param name="extended">A optional boolean specifying whether to use the extended character set. Default is false.</param>
-        /// <returns></returns>
+        /// <returns>Returns a string containing the pattern generated.</returns>
         public static string GeneratePattern(int length, ErcCore core, bool extended = false)
         {
             var patternFilePath = GetFilePath(core.WorkingDirectory, "Pattern_Create_", ".txt");
@@ -123,6 +126,117 @@ namespace ERC
         }
         #endregion
 
+        #region List Local Processes
+        /// <summary>
+        /// Lists usable processes running on the local machine.
+        /// </summary>
+        /// <returns>A string containing details of processes running on the local machine.</returns>
+        public static string ListLocalProcesses()
+        {
+            var processes = ProcessInfo.ListLocalProcesses(new ErcCore());
+            string processDetails = "";
+            if (processes.Error != null)
+            {
+                return processes.Error.Message;
+            }
+
+            foreach(Process p in processes.ReturnValue)
+            {
+                processDetails += p.ProcessName + " ID: " + p.Id + " Filename: " + p.MainWindowTitle + Environment.NewLine;
+            }
+            return processDetails;
+        }
+        #endregion
+
+        #region List Remote Processes
+        /// <summary>
+        /// Lists usable processes running on the remote machine.
+        /// </summary>
+        /// <returns>A string containing details of processes running on the remote machine.</returns>
+        public static string ListRemoteProcesses(string machineName)
+        {
+            var processes = ProcessInfo.ListRemoteProcesses(new ErcCore(), machineName);
+            string processDetails = "";
+            if (processes.Error != null)
+            {
+                return processes.Error.Message;
+            }
+
+            foreach (Process p in processes.ReturnValue)
+            {
+                processDetails += p.ProcessName + " ID: " + p.Id + " Filename: " + p.MainWindowTitle + Environment.NewLine;
+            }
+            return processDetails;
+        }
+        #endregion
+
+        #region DisplayProcessInfo
+        /// <summary>
+        /// Displays information related to the provided ProcessInfo object.
+        /// </summary>
+        /// <param name="info">The ProcessInfo object of which the module information will be displayed</param>
+        /// <param name="outputToFile">Set to false to surpress file output.</param>
+        /// <returns></returns>
+        public static string DisplayProcessInfo(ProcessInfo info, bool outputToFile = true)
+        {
+            string information = "Process Information: " + info.ProcessName + Environment.NewLine;
+            information += "------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
+            information += info.ToString();
+            information += Environment.NewLine;
+            information += GenerateModuleInfoTable(info, false);
+            information += Environment.NewLine;
+            information += DisplayThreadInfo(info, false);
+
+            if (outputToFile == true)
+            {
+                string processFilename = GetFilePath(info.WorkingDirectory, "process_info_", ".txt");
+                File.WriteAllText(processFilename, information);
+            }
+            return information;
+        }
+        #endregion
+
+        #region DisplayThreadInfo
+        /// <summary>
+        /// Displays information about all threads related to a specific process.
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="outputToFile"></param>
+        /// <returns></returns>
+        public static string DisplayThreadInfo(ProcessInfo info, bool outputToFile = true)
+        {
+            string information = "Thread Information for Process: " + info.ProcessName + Environment.NewLine;
+            information += "------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
+            var threads = info.GetProcessThreadInformation();
+            foreach(ThreadInfo t in threads.ReturnValue)
+            {
+                information += "Thread ID = " + t.ThreadID + Environment.NewLine;
+                var teb = t.GetTeb();
+                if (t.X64 == MachineType.x64)
+                {
+                    information += "    Thread Handle = " + "0x" + t.ThreadHandle.ToString("x16") + Environment.NewLine;
+                    information += "    Thread is running in a 64 bit process = true" + Environment.NewLine;
+                    information += "    Top of stack = " + "0x" + teb.TopOfStack.ToString("x16") + Environment.NewLine;
+                    information += "    Bottom of stack = " + "0x" + teb.BottomOfStack.ToString("x16") + Environment.NewLine;
+                }
+                else
+                {
+                    information += "    Thread Handle = " + "0x" + t.ThreadHandle.ToString("x8") + Environment.NewLine;
+                    information += "    Thread is running in a 64 bit process = false" + Environment.NewLine;
+                    information += "    Top of stack = " + "0x" + teb.TopOfStack.ToString("x8") + Environment.NewLine;
+                    information += "    Bottom of stack = " + "0x" + teb.BottomOfStack.ToString("x8") + Environment.NewLine;
+                }
+                information += Environment.NewLine;
+            }
+            if(outputToFile == true)
+            {
+                string threadFilename = GetFilePath(info.WorkingDirectory, "threads_", ".txt");
+                File.WriteAllText(threadFilename, information);
+            }
+            return information;
+        }
+        #endregion
+
         #region DisplayModuleInfo
         /// <summary>
         /// Displays a list of all modules and associated information from a specific process. Can output to stdout, a file or both.
@@ -134,7 +248,7 @@ namespace ERC
             int ptrSegmentWidth = 16;
             int flagSegmentWidth = 10;
             string output = "";
-            output += "-------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
+            output += "------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
 
             if (info.Author != "No_Author_Set")
             {
@@ -146,9 +260,9 @@ namespace ERC
                 output += "Process Name: " + info.ProcessName + " Modules total: " + info.ModulesInfo.Count + Environment.NewLine;
             }
 
-            output += "-------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
-            output += " Base          | Entry point   | Size      | Rebase   | SafeSEH  | ASLR     | NXCompat | OS DLL  | Version, Name and Path" + Environment.NewLine;
-            output += "-------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
+            output += "------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
+            output += " Base          | Entry point   | Size      | Rebase   | SafeSEH  | ASLR    | NXCompat | OS DLL  | Version, Name and Path" + Environment.NewLine;
+            output += "------------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
             foreach (ModuleInfo module in info.ModulesInfo)
             {
                 string baseElement = " ";
@@ -247,12 +361,16 @@ namespace ERC
         /// Aquires filename and writes out all module data to the current working directory. Requires a Process_Info object to be passed as a parameter.
         /// </summary>
         /// <param name="info">The ProcessInfo object of which the module information will be displayed</param>
+        /// <param name="outputToFile">Set to false to surpress file output.</param>
         /// <returns>Returns a formatted string of all results</returns>
-        public static string GenerateModuleInfoTable(ProcessInfo info)
+        public static string GenerateModuleInfoTable(ProcessInfo info, bool outputToFile = true)
         {
             string modOutput = DisplayModuleInfo(info);
             string modFilename = GetFilePath(info.WorkingDirectory, "modules_", ".txt");
-            File.WriteAllText(modFilename, modOutput);
+            if(outputToFile == true)
+            {
+                File.WriteAllText(modFilename, modOutput);
+            }
             return modOutput;
         }
         #endregion
@@ -266,29 +384,28 @@ namespace ERC
         /// <param name="info">The ProcessInfo object which will be searched for POP POP RET instructions,</param>
         /// <param name="excludes">Modules to be ignored when searching for the instruction sets.</param>
         /// <returns>Returns an ErcResult containing a list of strings detailing the pointers, opcodes and base files of suitable instruction sets.</returns>
-        public static ErcResult<List<string>> GetSEHJumps(ProcessInfo info, List<string> excludes = null)
+        public static List<string> GetSEHJumps(ProcessInfo info, List<string> excludes = null)
         {
-            ErcResult<List<string>> ret = new ErcResult<List<string>>(info.ProcessCore);
-            ret.ReturnValue = new List<string>();
+            List<string> ret = new List<string>();
+            //ret = new List<string>();
             ErcResult<Dictionary<IntPtr, string>> ptrs = info.SearchAllMemoryPPR(excludes);
 
             string sehFilename = GetFilePath(info.WorkingDirectory, "SEH_jumps_", ".txt");
-            ret.ReturnValue.Add("---------------------------------------------------------------------------------------");
+            ret.Add("---------------------------------------------------------------------------------------");
             if (info.Author != "No_Author_Set")
             {
-                ret.ReturnValue.Add("Process Name: " + info.ProcessName + " Created by: " + info.Author + " " +
+                ret.Add("Process Name: " + info.ProcessName + " Created by: " + info.Author + " " +
                 "Total Jumps: " + ptrs.ReturnValue.Count);
             }
             else
             {
-                ret.ReturnValue.Add("Process Name: " + info.ProcessName + " Total Jumps: " + ptrs.ReturnValue.Count);
+                ret.Add("Process Name: " + info.ProcessName + " Total Jumps: " + ptrs.ReturnValue.Count);
             }
-            ret.ReturnValue.Add("---------------------------------------------------------------------------------------");
+            ret.Add("---------------------------------------------------------------------------------------");
 
             if (ptrs.Error != null)
             {
-                ret.Error = new Exception("Error passed from Search_All_Memory_PPR: " + ptrs.Error.ToString());
-                return ret;
+                throw new Exception("Error passed from Search_All_Memory_PPR: " + ptrs.Error.ToString());
             }
 
             byte[] ppr = new byte[5];
@@ -309,7 +426,7 @@ namespace ERC
                             }
                             ERC.Utilities.OpcodeDisassembler disas = new ERC.Utilities.OpcodeDisassembler(info);
                             var result = disas.Disassemble(opcodes.ToArray());
-                            ret.ReturnValue.Add("0x" + s.Key.ToString("x") + " " +
+                            ret.Add("0x" + s.Key.ToString("x") + " " +
                                 result.ReturnValue.Replace(Environment.NewLine, ", ") + " Source file: " + s.Value);
                             opcodes.Clear();
                         }
@@ -317,13 +434,10 @@ namespace ERC
                 }
                 catch (Exception e)
                 {
-                    ret.Error = e;
-                    ret.LogEvent();
-                    return ret;
+                    throw e;
                 }
-
             }
-            File.WriteAllLines(sehFilename, ret.ReturnValue);
+            File.WriteAllLines(sehFilename, ret);
             return ret;
         }
         #endregion
@@ -335,7 +449,7 @@ namespace ERC
         /// <param name="unwantedBytes">An array of bytes to be excluded from the final byte array</param>
         /// <param name="core">An ErcCore object</param>
         /// <returns>Returns a byte array of all possible bytes.</returns>
-        public static byte[] GenerateByteArray(byte[] unwantedBytes, ErcCore core)
+        public static byte[] GenerateByteArray(ErcCore core, byte[] unwantedBytes = null)
         {
             string byteFilename = GetFilePath(core.WorkingDirectory, "ByteArray_", ".dll");
             byte[] byteArray = Payloads.ByteArrayConstructor(unwantedBytes);
@@ -344,7 +458,14 @@ namespace ERC
             fs1.Close();
 
             string outputString = "---------------------------------------------------------------------------------------" + Environment.NewLine;
-            outputString += "Byte Array generated at:" + DateTime.Now + "  Omitted values: " + BitConverter.ToString(unwantedBytes).Replace("-", ", ") + Environment.NewLine;
+            if(unwantedBytes != null)
+            {
+                outputString += "Byte Array generated at:" + DateTime.Now + "  Omitted values: " + BitConverter.ToString(unwantedBytes).Replace("-", ", ") + Environment.NewLine;
+            }
+            else
+            {
+                outputString += "Byte Array generated at:" + DateTime.Now + Environment.NewLine;
+            }
             outputString += "---------------------------------------------------------------------------------------" + Environment.NewLine;
             outputString += Environment.NewLine;
             outputString += "Raw:" + Environment.NewLine;
@@ -373,6 +494,57 @@ namespace ERC
             File.WriteAllText(byteFilename.Substring(0, (byteFilename.Length - 4)) + ".txt", outputString);
 
             return byteArray;
+        }
+        #endregion
+
+        #region CompareByteArrays
+        /// <summary>
+        /// Compares a the values contained in a memory region to the values in the supplied byte array.
+        /// </summary>
+        /// <param name="info">The processInfo object that contains the memory region.</param>
+        /// <param name="startAddress">The memory address to start the search at.</param>
+        /// <param name="byteArray">The byte array the region will be compared against.</param>
+        /// <returns>Returns a string detailing differences between the two.</returns>
+        public static string CompareByteArraysToMemoryRegion(ProcessInfo info, IntPtr startAddress, byte[] byteArray)
+        {
+            List<string> output = new List<string>();
+            byte[] memoryRegion = new byte[byteArray.Length];
+            int bytesRead = 0;
+            output.Add("                   ----------------------------------------------------");
+            string fromArray  = "        From Array | ";
+            string fromRegion = "From Memory Region | "; 
+            ErcCore.ReadProcessMemory(info.ProcessHandle, startAddress, memoryRegion, byteArray.Length, out bytesRead);
+            int counter = 0;
+            for(int i = 0; i < byteArray.Length; i = i + 2)
+            {
+                if (counter == 16)
+                {
+                    counter = 0;
+                    fromArray += " | ";
+                    fromRegion += " | ";
+                    string newLine = "                   |                                                  | ";
+                    output.Add(fromArray);
+                    output.Add(fromRegion);
+                    output.Add(newLine);
+                    fromArray  = "        From Array | ";
+                    fromRegion = "From Memory Region | ";
+                }
+                byte[] thisByte = new byte[1];
+                thisByte[0] = byteArray[i];
+                fromArray += BitConverter.ToString(thisByte);
+                fromArray += " ";
+
+                thisByte[0] = memoryRegion[i];
+                fromRegion += BitConverter.ToString(thisByte);
+                fromRegion += " ";
+                counter++;
+            }
+            output.Add("                   ----------------------------------------------------");
+            foreach (string s in output)
+            {
+                Console.WriteLine(s);
+            }
+            return "";
         }
         #endregion
 

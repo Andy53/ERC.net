@@ -35,7 +35,7 @@ namespace ERC
 
         internal bool ThreadFailed { get; private set; }
 
-        private MachineType X64 { get; set; }
+        internal MachineType X64 { get; set; }
         private ProcessThread ThreadCurrent { get; set; }
         private ProcessInfo ThreadProcess { get; set; }
         private ErcCore ThreadCore { get; set; }

@@ -24,7 +24,7 @@
             <param name="length">The length of the string to be created</param>
             <param name="core">An ErcCore object</param>
             <param name="extended">A optional boolean specifying whether to use the extended character set. Default is false.</param>
-            <returns></returns>
+            <returns>Returns a string containing the pattern generated.</returns>
         </member>
         <member name="M:ERC.DisplayOutput.PatternOutputBuilder(System.String,ERC.ErcCore)">
             <summary>
@@ -34,6 +34,34 @@
             <param name="core">An ErcCore object</param>
             <returns>Returns a string containing the human readable output of the pattern create method.</returns>
         </member>
+        <member name="M:ERC.DisplayOutput.ListLocalProcesses">
+            <summary>
+            Lists usable processes running on the local machine.
+            </summary>
+            <returns>A string containing details of processes running on the local machine.</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.ListRemoteProcesses(System.String)">
+            <summary>
+            Lists usable processes running on the remote machine.
+            </summary>
+            <returns>A string containing details of processes running on the remote machine.</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.DisplayProcessInfo(ERC.ProcessInfo,System.Boolean)">
+            <summary>
+            Displays information related to the provided ProcessInfo object.
+            </summary>
+            <param name="info">The ProcessInfo object of which the module information will be displayed</param>
+            <param name="outputToFile">Set to false to surpress file output.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.DisplayThreadInfo(ERC.ProcessInfo,System.Boolean)">
+            <summary>
+            Displays information about all threads related to a specific process.
+            </summary>
+            <param name="info"></param>
+            <param name="outputToFile"></param>
+            <returns></returns>
+        </member>
         <member name="M:ERC.DisplayOutput.DisplayModuleInfo(ERC.ProcessInfo)">
             <summary>
             Displays a list of all modules and associated information from a specific process. Can output to stdout, a file or both.
@@ -41,11 +69,12 @@
             <param name="info">The ProcessInfo object of which the module information will be displayed</param>
             <returns>Returns a string containing all module info from a specific process</returns>
         </member>
-        <member name="M:ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo)">
+        <member name="M:ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo,System.Boolean)">
             <summary>
             Aquires filename and writes out all module data to the current working directory. Requires a Process_Info object to be passed as a parameter.
             </summary>
             <param name="info">The ProcessInfo object of which the module information will be displayed</param>
+            <param name="outputToFile">Set to false to surpress file output.</param>
             <returns>Returns a formatted string of all results</returns>
         </member>
         <member name="M:ERC.DisplayOutput.GetSEHJumps(ERC.ProcessInfo,System.Collections.Generic.List{System.String})">
@@ -58,13 +87,22 @@
             <param name="excludes">Modules to be ignored when searching for the instruction sets.</param>
             <returns>Returns an ErcResult containing a list of strings detailing the pointers, opcodes and base files of suitable instruction sets.</returns>
         </member>
-        <member name="M:ERC.DisplayOutput.GenerateByteArray(System.Byte[],ERC.ErcCore)">
+        <member name="M:ERC.DisplayOutput.GenerateByteArray(ERC.ErcCore,System.Byte[])">
             <summary>
             Generates an array of all possible bytes for use when identifying bad characters. Writes the output to disk in the working directory.
             </summary>
             <param name="unwantedBytes">An array of bytes to be excluded from the final byte array</param>
             <param name="core">An ErcCore object</param>
             <returns>Returns a byte array of all possible bytes.</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.CompareByteArraysToMemoryRegion(ERC.ProcessInfo,System.IntPtr,System.Byte[])">
+            <summary>
+            Compares a the values contained in a memory region to the values in the supplied byte array.
+            </summary>
+            <param name="info">The processInfo object that contains the memory region.</param>
+            <param name="startAddress">The memory address to start the search at.</param>
+            <param name="byteArray">The byte array the region will be compared against.</param>
+            <returns>Returns a string detailing differences between the two.</returns>
         </member>
         <member name="M:ERC.DisplayOutput.GenerateEggHunters(ERC.ErcCore,System.String)">
             <summary>
@@ -4144,6 +4182,14 @@
             Gets a list of running processes on the host and removes unusable processes (such as system processes etc)
             </summary>
             <param name="core">An ErcCore object</param>
+            <returns>Returns an ErcResult containing a list of all supported processes</returns>
+        </member>
+        <member name="M:ERC.ProcessInfo.ListRemoteProcesses(ERC.ErcCore,System.String)">
+            <summary>
+            Gets a list of running processes on the host and removes unusable processes.
+            </summary>
+            <param name="core">An ErcCore object</param>
+            <param name="machineName">The computer from which to read the list of processes. Can be either the hostname or IP address.</param>
             <returns>Returns an ErcResult containing a list of all supported processes</returns>
         </member>
         <member name="M:ERC.ProcessInfo.GetProcessModules">

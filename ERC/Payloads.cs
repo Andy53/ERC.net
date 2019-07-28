@@ -85,16 +85,27 @@ namespace ERC.Utilities
         /// <returns>Returns an array of all other possible bytes.</returns>
         public static byte[] ByteArrayConstructor(byte[] unwantedBytes)
         {
-            byte[] bytes = new byte[ByteArray.Length - unwantedBytes.Length];
+            byte[] bytes;
+            if(unwantedBytes != null)
+            {
+                bytes = new byte[ByteArray.Length - unwantedBytes.Length];
+            }
+            else
+            {
+                bytes = new byte[ByteArray.Length];
+            }
             int bytesCounter = 0;
             for(int i = 0; i < ByteArray.Length; i++)
             {
                 bool addByte = true;
-                for(int j = 0; j < unwantedBytes.Length; j++)
+                if(unwantedBytes != null)
                 {
-                    if(ByteArray[i].Equals(unwantedBytes[j]))
+                    for (int j = 0; j < unwantedBytes.Length; j++)
                     {
-                        addByte = false;
+                        if (ByteArray[i].Equals(unwantedBytes[j]))
+                        {
+                            addByte = false;
+                        }
                     }
                 }
                 if(addByte == true)

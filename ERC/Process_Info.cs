@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -156,6 +157,56 @@ namespace ERC
                 }
             }
             
+            result.ReturnValue = usableProcesses;
+            return result;
+        }
+        #endregion
+
+        #region ListRemoteProcesses
+        /// <summary>
+        /// Gets a list of running processes on the host and removes unusable processes.
+        /// </summary>
+        /// <param name="core">An ErcCore object</param>
+        /// <param name="machineName">The computer from which to read the list of processes. Can be either the hostname or IP address.</param>
+        /// <returns>Returns an ErcResult containing a list of all supported processes</returns>
+        public static ErcResult<Process[]> ListRemoteProcesses(ErcCore core, string machineName)
+        {
+            ErcResult<Process[]> result = new ErcResult<Process[]>(core);
+
+            IPAddress machine = null;
+            if(IPAddress.TryParse(machineName, out machine))
+            {
+                IPHostEntry hostEntry = Dns.GetHostEntry(machine);
+                machineName = hostEntry.HostName;
+            }
+            
+            Process[] processes = Process.GetProcesses(machineName);
+            List<int> processesToRemove = new List<int>();
+
+            for (int i = 0; i < processes.Length; i++)
+            {
+                string filename = null;
+                try
+                {
+                    filename = processes[i].MainModule.FileName;
+                }
+                catch (Exception e)
+                {
+                    processesToRemove.Add(i);
+                }
+            }
+
+            Process[] usableProcesses = new Process[processes.Length - processesToRemove.Count];
+            int processCounter = 0;
+            for (int i = 0; i < processes.Length; i++)
+            {
+                if (!processesToRemove.Contains(i))
+                {
+                    usableProcesses[processCounter] = processes[i];
+                    processCounter++;
+                }
+            }
+
             result.ReturnValue = usableProcesses;
             return result;
         }
@@ -1763,11 +1814,11 @@ namespace ERC
             ret += "Process ID = " + ProcessID + Environment.NewLine;
             if(ProcessMachineType == MachineType.I386)
             {
-                ret += "Process Handle = 0x" + ProcessHandle.ToString("X8");
+                ret += "Process Handle = 0x" + ProcessHandle.ToString("X8") + Environment.NewLine;
             }
             else
             {
-                ret += "Process Handle = 0x" + ProcessHandle.ToString("X16");
+                ret += "Process Handle = 0x" + ProcessHandle.ToString("X16") + Environment.NewLine;
             }
             ret += "Process Machine Type = " + ProcessMachineType.ToString() + Environment.NewLine;
 
