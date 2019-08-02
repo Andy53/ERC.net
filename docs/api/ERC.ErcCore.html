@@ -317,14 +317,14 @@
   </h3>
   
   
-  <a id="ERC_ErcCore_FindResouce_" data-uid="ERC.ErcCore.FindResouce*"></a>
-  <h4 id="ERC_ErcCore_FindResouce_System_IntPtr_System_String__System_String__" data-uid="ERC.ErcCore.FindResouce(System.IntPtr,System.String@,System.String@)">FindResouce(IntPtr, ref String, ref String)</h4>
-  <div class="markdown level1 summary"><p>Determines the location of a resource with the specified type and name in the specified module.</p>
+  <a id="ERC_ErcCore_GetHandleInformation_" data-uid="ERC.ErcCore.GetHandleInformation*"></a>
+  <h4 id="ERC_ErcCore_GetHandleInformation_System_IntPtr_System_UInt32__" data-uid="ERC.ErcCore.GetHandleInformation(System.IntPtr,System.UInt32@)">GetHandleInformation(IntPtr, out UInt32)</h4>
+  <div class="markdown level1 summary"><p>Retrieves certain properties of an object handle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IntPtr FindResouce(IntPtr hModule, ref string resName, ref string resType)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool GetHandleInformation(IntPtr hObject, out uint lpdwFlags)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -338,20 +338,14 @@
     <tbody>
       <tr>
         <td><span class="xref">System.IntPtr</span></td>
-        <td><span class="parametername">hModule</span></td>
-        <td><p>A handle to the module whose portable executable file or an accompanying MUI file contains the resource.</p>
+        <td><span class="parametername">hObject</span></td>
+        <td><p>A handle to an object whose information is to be retrieved.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">resName</span></td>
-        <td><p>The name of the resource.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">resType</span></td>
-        <td><p>The resource type.</p>
+        <td><span class="xref">System.UInt32</span></td>
+        <td><span class="parametername">lpdwFlags</span></td>
+        <td><p>A pointer to a variable that receives a set of bit flags that specify properties of the object handle or 0. The following values are defined.</p>
 </td>
       </tr>
     </tbody>
@@ -366,160 +360,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.IntPtr</span></td>
-        <td><p>If the function succeeds, the return value is a handle to the specified resource's information block.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ERC_ErcCore_GetModuleHandle_" data-uid="ERC.ErcCore.GetModuleHandle*"></a>
-  <h4 id="ERC_ErcCore_GetModuleHandle_System_String_" data-uid="ERC.ErcCore.GetModuleHandle(System.String)">GetModuleHandle(String)</h4>
-  <div class="markdown level1 summary"><p>Retrieves a module handle for the specified module. The module must have been loaded by the calling process.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IntPtr GetModuleHandle(string moduleName)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">moduleName</span></td>
-        <td><p>The name of the loaded module (either a .dll or .exe file).</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.IntPtr</span></td>
-        <td><p>If the function succeeds, the return value is a handle to the specified module.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ERC_ErcCore_LoadLibraryEx_" data-uid="ERC.ErcCore.LoadLibraryEx*"></a>
-  <h4 id="ERC_ErcCore_LoadLibraryEx_System_String_System_IntPtr_ERC_Structures_LoadLibraryFlags_" data-uid="ERC.ErcCore.LoadLibraryEx(System.String,System.IntPtr,ERC.Structures.LoadLibraryFlags)">LoadLibraryEx(String, IntPtr, LoadLibraryFlags)</h4>
-  <div class="markdown level1 summary"><p>This function maps a specified executable module into the address space of the calling process. The executable module can be a .dll or an .exe file. The specified module may cause other modules to be mapped into the address space.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IntPtr LoadLibraryEx(string lpFileName, IntPtr hReservedNull, LoadLibraryFlags dwFlags)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">lpFileName</span></td>
-        <td><p>Pointer to a null-terminated string that names the executable module.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.IntPtr</span></td>
-        <td><span class="parametername">hReservedNull</span></td>
-        <td><p>Must be null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ERC.Structures.LoadLibraryFlags.html">LoadLibraryFlags</a></td>
-        <td><span class="parametername">dwFlags</span></td>
-        <td><p>Specifies the action to take when loading the module.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.IntPtr</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ERC_ErcCore_LoadResource_" data-uid="ERC.ErcCore.LoadResource*"></a>
-  <h4 id="ERC_ErcCore_LoadResource_System_IntPtr_System_IntPtr_" data-uid="ERC.ErcCore.LoadResource(System.IntPtr,System.IntPtr)">LoadResource(IntPtr, IntPtr)</h4>
-  <div class="markdown level1 summary"><p>Retrieves a handle that can be used to obtain a pointer to the first byte of the specified resource in memory.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IntPtr LoadResource(IntPtr hModule, IntPtr hResInfo)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.IntPtr</span></td>
-        <td><span class="parametername">hModule</span></td>
-        <td><p>A handle to the module whose executable file contains the resource.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.IntPtr</span></td>
-        <td><span class="parametername">hResInfo</span></td>
-        <td><p>A handle to the resource to be loaded.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.IntPtr</span></td>
-        <td><p>If the function succeeds, the return value is a handle to the data associated with the resource.</p>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>If the function succeeds, the return value is true.</p>
 </td>
       </tr>
     </tbody>

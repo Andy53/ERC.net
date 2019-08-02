@@ -135,6 +135,38 @@
             <param name="rcg">The ROP chain generator object</param>
             <returns>Returns a List of strings</returns>
         </member>
+        <member name="M:ERC.DisplayOutput.AssembleOpcodes(System.String[],System.UInt32)">
+            <summary>
+            Converts a collection of instructions into the associated opcodes.
+            </summary>
+            <param name="instructions">An array containing either x86 or x64 instructions.</param>
+            <param name="machine">Uint representing the machine type (x86 = 0, x64 = 1)</param>
+            <returns>Returns null if the method fails.</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.AssembleOpcodes(System.String[],ERC.MachineType)">
+            <summary>
+            Converts a collection of instructions into the associated opcodes.
+            </summary>
+            <param name="instructions">An array containing either x86 or x64 instructions.</param>
+            <param name="machine">MachineType of the instruction set to be assembled.</param>
+            <returns>Returns null if the method fails.</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.DisassembleOpcodes(System.String[],System.UInt32)">
+            <summary>
+            Converts a collection of opcodes into the associated instructions.
+            </summary>
+            <param name="instructions">An array containing either x86 or x64 opcodes.</param>
+            <param name="machine">Uint representing the machine type (x86 = 0, x64 = 1)</param>
+            <returns>Returns null if the method fails.</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],ERC.MachineType)">
+            <summary>
+            Converts a collection of opcodes into the associated instructions.
+            </summary>
+            <param name="opcodes">An array containing either x86 or x64 opcodes.</param>
+            <param name="machine">MachineType of the instruction set to be assembled.</param>
+            <returns>Returns null if the method fails.</returns>
+        </member>
         <member name="T:ERC.ERCException">
             <summary>
             Custom exception handler.
@@ -328,6 +360,14 @@
             </summary>
             <param name="handle">A handle to the process. The handle must have the PROCESS_QUERY_INFORMATION or PROCESS_QUERY_LIMITED_INFORMATION access right.</param>
             <returns>Returns the identifier of the process as a Uint</returns>
+        </member>
+        <member name="M:ERC.ErcCore.GetHandleInformation(System.IntPtr,System.UInt32@)">
+            <summary>
+            Retrieves certain properties of an object handle.
+            </summary>
+            <param name="hObject">A handle to an object whose information is to be retrieved.</param>
+            <param name="lpdwFlags">A pointer to a variable that receives a set of bit flags that specify properties of the object handle or 0. The following values are defined.</param>
+            <returns>If the function succeeds, the return value is true.</returns>
         </member>
         <member name="M:ERC.ErcCore.GetModuleHandle(System.String)">
             <summary>
@@ -4170,6 +4210,13 @@
             </summary>
             <param name="core">An ErcCore object</param>
             <param name="process">The process to gather information from</param>
+        </member>
+        <member name="M:ERC.ProcessInfo.#ctor(ERC.ErcCore,System.IntPtr)">
+            <summary>
+            Constructor for the Process_Info object, requires an ERC_Core object and a Process.
+            </summary>
+            <param name="core">An ErcCore object</param>
+            <param name="handle">The handle for the process to gather information from</param>
         </member>
         <member name="M:ERC.ProcessInfo.#ctor(ERC.ProcessInfo)">
             <summary>

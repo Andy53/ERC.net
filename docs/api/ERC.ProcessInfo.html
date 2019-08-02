@@ -105,16 +105,7 @@
       <a class="xref" href="ERC.ErcCore.html#ERC_ErcCore_PatternExtendedPath">ErcCore.PatternExtendedPath</a>
     </div>
     <div>
-      <a class="xref" href="ERC.ErcCore.html#ERC_ErcCore_LoadLibraryEx_System_String_System_IntPtr_ERC_Structures_LoadLibraryFlags_">ErcCore.LoadLibraryEx(String, IntPtr, LoadLibraryFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="ERC.ErcCore.html#ERC_ErcCore_FindResouce_System_IntPtr_System_String__System_String__">ErcCore.FindResouce(IntPtr, String, String)</a>
-    </div>
-    <div>
-      <a class="xref" href="ERC.ErcCore.html#ERC_ErcCore_LoadResource_System_IntPtr_System_IntPtr_">ErcCore.LoadResource(IntPtr, IntPtr)</a>
-    </div>
-    <div>
-      <a class="xref" href="ERC.ErcCore.html#ERC_ErcCore_GetModuleHandle_System_String_">ErcCore.GetModuleHandle(String)</a>
+      <a class="xref" href="ERC.ErcCore.html#ERC_ErcCore_GetHandleInformation_System_IntPtr_System_UInt32__">ErcCore.GetHandleInformation(IntPtr, UInt32)</a>
     </div>
     <div>
       <a class="xref" href="ERC.ErcCore.html#ERC_ErcCore_SetWorkingDirectory_System_String_">ErcCore.SetWorkingDirectory(String)</a>
@@ -192,6 +183,41 @@
         <td><span class="xref">System.Diagnostics.Process</span></td>
         <td><span class="parametername">process</span></td>
         <td><p>The process to gather information from</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ERC_ProcessInfo__ctor_" data-uid="ERC.ProcessInfo.#ctor*"></a>
+  <h4 id="ERC_ProcessInfo__ctor_ERC_ErcCore_System_IntPtr_" data-uid="ERC.ProcessInfo.#ctor(ERC.ErcCore,System.IntPtr)">ProcessInfo(ErcCore, IntPtr)</h4>
+  <div class="markdown level1 summary"><p>Constructor for the Process_Info object, requires an ERC_Core object and a Process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProcessInfo(ErcCore core, IntPtr handle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.ErcCore.html">ErcCore</a></td>
+        <td><span class="parametername">core</span></td>
+        <td><p>An ErcCore object</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IntPtr</span></td>
+        <td><span class="parametername">handle</span></td>
+        <td><p>The handle for the process to gather information from</p>
 </td>
       </tr>
     </tbody>
@@ -692,6 +718,57 @@
         <td><a class="xref" href="ERC.ErcCore.html">ErcCore</a></td>
         <td><span class="parametername">core</span></td>
         <td><p>An ErcCore object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.ErcResult-1.html">ErcResult</a>&lt;<span class="xref">System.Diagnostics.Process</span>[]&gt;</td>
+        <td><p>Returns an ErcResult containing a list of all supported processes</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ERC_ProcessInfo_ListRemoteProcesses_" data-uid="ERC.ProcessInfo.ListRemoteProcesses*"></a>
+  <h4 id="ERC_ProcessInfo_ListRemoteProcesses_ERC_ErcCore_System_String_" data-uid="ERC.ProcessInfo.ListRemoteProcesses(ERC.ErcCore,System.String)">ListRemoteProcesses(ErcCore, String)</h4>
+  <div class="markdown level1 summary"><p>Gets a list of running processes on the host and removes unusable processes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ErcResult&lt;Process[]&gt; ListRemoteProcesses(ErcCore core, string machineName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.ErcCore.html">ErcCore</a></td>
+        <td><span class="parametername">core</span></td>
+        <td><p>An ErcCore object</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">machineName</span></td>
+        <td><p>The computer from which to read the list of processes. Can be either the hostname or IP address.</p>
 </td>
       </tr>
     </tbody>

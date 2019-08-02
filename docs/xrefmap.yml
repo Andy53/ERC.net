@@ -13,15 +13,107 @@ references:
   commentId: T:ERC.DisplayOutput
   fullName: ERC.DisplayOutput
   nameWithType: DisplayOutput
-- uid: ERC.DisplayOutput.GenerateByteArray(System.Byte[],ERC.ErcCore)
-  name: GenerateByteArray(Byte[], ErcCore)
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_GenerateByteArray_System_Byte___ERC_ErcCore_
-  commentId: M:ERC.DisplayOutput.GenerateByteArray(System.Byte[],ERC.ErcCore)
-  name.vb: GenerateByteArray(Byte(), ErcCore)
-  fullName: ERC.DisplayOutput.GenerateByteArray(System.Byte[], ERC.ErcCore)
-  fullName.vb: ERC.DisplayOutput.GenerateByteArray(System.Byte(), ERC.ErcCore)
-  nameWithType: DisplayOutput.GenerateByteArray(Byte[], ErcCore)
-  nameWithType.vb: DisplayOutput.GenerateByteArray(Byte(), ErcCore)
+- uid: ERC.DisplayOutput.AssembleOpcodes(System.String[],ERC.MachineType)
+  name: AssembleOpcodes(String[], MachineType)
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_AssembleOpcodes_System_String___ERC_MachineType_
+  commentId: M:ERC.DisplayOutput.AssembleOpcodes(System.String[],ERC.MachineType)
+  name.vb: AssembleOpcodes(String(), MachineType)
+  fullName: ERC.DisplayOutput.AssembleOpcodes(System.String[], ERC.MachineType)
+  fullName.vb: ERC.DisplayOutput.AssembleOpcodes(System.String(), ERC.MachineType)
+  nameWithType: DisplayOutput.AssembleOpcodes(String[], MachineType)
+  nameWithType.vb: DisplayOutput.AssembleOpcodes(String(), MachineType)
+- uid: ERC.DisplayOutput.AssembleOpcodes(System.String[],System.UInt32)
+  name: AssembleOpcodes(String[], UInt32)
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_AssembleOpcodes_System_String___System_UInt32_
+  commentId: M:ERC.DisplayOutput.AssembleOpcodes(System.String[],System.UInt32)
+  name.vb: AssembleOpcodes(String(), UInt32)
+  fullName: ERC.DisplayOutput.AssembleOpcodes(System.String[], System.UInt32)
+  fullName.vb: ERC.DisplayOutput.AssembleOpcodes(System.String(), System.UInt32)
+  nameWithType: DisplayOutput.AssembleOpcodes(String[], UInt32)
+  nameWithType.vb: DisplayOutput.AssembleOpcodes(String(), UInt32)
+- uid: ERC.DisplayOutput.AssembleOpcodes*
+  name: AssembleOpcodes
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_AssembleOpcodes_
+  commentId: Overload:ERC.DisplayOutput.AssembleOpcodes
+  isSpec: "True"
+  fullName: ERC.DisplayOutput.AssembleOpcodes
+  nameWithType: DisplayOutput.AssembleOpcodes
+- uid: ERC.DisplayOutput.CompareByteArrayToMemoryRegion(ERC.ProcessInfo,System.IntPtr,System.Byte[])
+  name: CompareByteArrayToMemoryRegion(ProcessInfo, IntPtr, Byte[])
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_CompareByteArrayToMemoryRegion_ERC_ProcessInfo_System_IntPtr_System_Byte___
+  commentId: M:ERC.DisplayOutput.CompareByteArrayToMemoryRegion(ERC.ProcessInfo,System.IntPtr,System.Byte[])
+  name.vb: CompareByteArrayToMemoryRegion(ProcessInfo, IntPtr, Byte())
+  fullName: ERC.DisplayOutput.CompareByteArrayToMemoryRegion(ERC.ProcessInfo, System.IntPtr, System.Byte[])
+  fullName.vb: ERC.DisplayOutput.CompareByteArrayToMemoryRegion(ERC.ProcessInfo, System.IntPtr, System.Byte())
+  nameWithType: DisplayOutput.CompareByteArrayToMemoryRegion(ProcessInfo, IntPtr, Byte[])
+  nameWithType.vb: DisplayOutput.CompareByteArrayToMemoryRegion(ProcessInfo, IntPtr, Byte())
+- uid: ERC.DisplayOutput.CompareByteArrayToMemoryRegion*
+  name: CompareByteArrayToMemoryRegion
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_CompareByteArrayToMemoryRegion_
+  commentId: Overload:ERC.DisplayOutput.CompareByteArrayToMemoryRegion
+  isSpec: "True"
+  fullName: ERC.DisplayOutput.CompareByteArrayToMemoryRegion
+  nameWithType: DisplayOutput.CompareByteArrayToMemoryRegion
+- uid: ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],ERC.MachineType)
+  name: DisassembleOpcodes(Byte[], MachineType)
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_DisassembleOpcodes_System_Byte___ERC_MachineType_
+  commentId: M:ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],ERC.MachineType)
+  name.vb: DisassembleOpcodes(Byte(), MachineType)
+  fullName: ERC.DisplayOutput.DisassembleOpcodes(System.Byte[], ERC.MachineType)
+  fullName.vb: ERC.DisplayOutput.DisassembleOpcodes(System.Byte(), ERC.MachineType)
+  nameWithType: DisplayOutput.DisassembleOpcodes(Byte[], MachineType)
+  nameWithType.vb: DisplayOutput.DisassembleOpcodes(Byte(), MachineType)
+- uid: ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],System.UInt32)
+  name: DisassembleOpcodes(Byte[], UInt32)
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_DisassembleOpcodes_System_Byte___System_UInt32_
+  commentId: M:ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],System.UInt32)
+  name.vb: DisassembleOpcodes(Byte(), UInt32)
+  fullName: ERC.DisplayOutput.DisassembleOpcodes(System.Byte[], System.UInt32)
+  fullName.vb: ERC.DisplayOutput.DisassembleOpcodes(System.Byte(), System.UInt32)
+  nameWithType: DisplayOutput.DisassembleOpcodes(Byte[], UInt32)
+  nameWithType.vb: DisplayOutput.DisassembleOpcodes(Byte(), UInt32)
+- uid: ERC.DisplayOutput.DisassembleOpcodes*
+  name: DisassembleOpcodes
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_DisassembleOpcodes_
+  commentId: Overload:ERC.DisplayOutput.DisassembleOpcodes
+  isSpec: "True"
+  fullName: ERC.DisplayOutput.DisassembleOpcodes
+  nameWithType: DisplayOutput.DisassembleOpcodes
+- uid: ERC.DisplayOutput.DisplayProcessInfo(ERC.ProcessInfo,System.Boolean)
+  name: DisplayProcessInfo(ProcessInfo, Boolean)
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_DisplayProcessInfo_ERC_ProcessInfo_System_Boolean_
+  commentId: M:ERC.DisplayOutput.DisplayProcessInfo(ERC.ProcessInfo,System.Boolean)
+  fullName: ERC.DisplayOutput.DisplayProcessInfo(ERC.ProcessInfo, System.Boolean)
+  nameWithType: DisplayOutput.DisplayProcessInfo(ProcessInfo, Boolean)
+- uid: ERC.DisplayOutput.DisplayProcessInfo*
+  name: DisplayProcessInfo
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_DisplayProcessInfo_
+  commentId: Overload:ERC.DisplayOutput.DisplayProcessInfo
+  isSpec: "True"
+  fullName: ERC.DisplayOutput.DisplayProcessInfo
+  nameWithType: DisplayOutput.DisplayProcessInfo
+- uid: ERC.DisplayOutput.DisplayThreadInfo(ERC.ProcessInfo,System.Boolean)
+  name: DisplayThreadInfo(ProcessInfo, Boolean)
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_DisplayThreadInfo_ERC_ProcessInfo_System_Boolean_
+  commentId: M:ERC.DisplayOutput.DisplayThreadInfo(ERC.ProcessInfo,System.Boolean)
+  fullName: ERC.DisplayOutput.DisplayThreadInfo(ERC.ProcessInfo, System.Boolean)
+  nameWithType: DisplayOutput.DisplayThreadInfo(ProcessInfo, Boolean)
+- uid: ERC.DisplayOutput.DisplayThreadInfo*
+  name: DisplayThreadInfo
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_DisplayThreadInfo_
+  commentId: Overload:ERC.DisplayOutput.DisplayThreadInfo
+  isSpec: "True"
+  fullName: ERC.DisplayOutput.DisplayThreadInfo
+  nameWithType: DisplayOutput.DisplayThreadInfo
+- uid: ERC.DisplayOutput.GenerateByteArray(ERC.ErcCore,System.Byte[])
+  name: GenerateByteArray(ErcCore, Byte[])
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_GenerateByteArray_ERC_ErcCore_System_Byte___
+  commentId: M:ERC.DisplayOutput.GenerateByteArray(ERC.ErcCore,System.Byte[])
+  name.vb: GenerateByteArray(ErcCore, Byte())
+  fullName: ERC.DisplayOutput.GenerateByteArray(ERC.ErcCore, System.Byte[])
+  fullName.vb: ERC.DisplayOutput.GenerateByteArray(ERC.ErcCore, System.Byte())
+  nameWithType: DisplayOutput.GenerateByteArray(ErcCore, Byte[])
+  nameWithType.vb: DisplayOutput.GenerateByteArray(ErcCore, Byte())
 - uid: ERC.DisplayOutput.GenerateByteArray*
   name: GenerateByteArray
   href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_GenerateByteArray_
@@ -55,12 +147,12 @@ references:
   isSpec: "True"
   fullName: ERC.DisplayOutput.GenerateFindNRPTable
   nameWithType: DisplayOutput.GenerateFindNRPTable
-- uid: ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo)
-  name: GenerateModuleInfoTable(ProcessInfo)
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_GenerateModuleInfoTable_ERC_ProcessInfo_
-  commentId: M:ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo)
-  fullName: ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo)
-  nameWithType: DisplayOutput.GenerateModuleInfoTable(ProcessInfo)
+- uid: ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo,System.Boolean)
+  name: GenerateModuleInfoTable(ProcessInfo, Boolean)
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_GenerateModuleInfoTable_ERC_ProcessInfo_System_Boolean_
+  commentId: M:ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo,System.Boolean)
+  fullName: ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo, System.Boolean)
+  nameWithType: DisplayOutput.GenerateModuleInfoTable(ProcessInfo, Boolean)
 - uid: ERC.DisplayOutput.GenerateModuleInfoTable*
   name: GenerateModuleInfoTable
   href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_GenerateModuleInfoTable_
@@ -97,6 +189,32 @@ references:
   isSpec: "True"
   fullName: ERC.DisplayOutput.GetSEHJumps
   nameWithType: DisplayOutput.GetSEHJumps
+- uid: ERC.DisplayOutput.ListLocalProcesses
+  name: ListLocalProcesses()
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_ListLocalProcesses
+  commentId: M:ERC.DisplayOutput.ListLocalProcesses
+  fullName: ERC.DisplayOutput.ListLocalProcesses()
+  nameWithType: DisplayOutput.ListLocalProcesses()
+- uid: ERC.DisplayOutput.ListLocalProcesses*
+  name: ListLocalProcesses
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_ListLocalProcesses_
+  commentId: Overload:ERC.DisplayOutput.ListLocalProcesses
+  isSpec: "True"
+  fullName: ERC.DisplayOutput.ListLocalProcesses
+  nameWithType: DisplayOutput.ListLocalProcesses
+- uid: ERC.DisplayOutput.ListRemoteProcesses(System.String)
+  name: ListRemoteProcesses(String)
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_ListRemoteProcesses_System_String_
+  commentId: M:ERC.DisplayOutput.ListRemoteProcesses(System.String)
+  fullName: ERC.DisplayOutput.ListRemoteProcesses(System.String)
+  nameWithType: DisplayOutput.ListRemoteProcesses(String)
+- uid: ERC.DisplayOutput.ListRemoteProcesses*
+  name: ListRemoteProcesses
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_ListRemoteProcesses_
+  commentId: Overload:ERC.DisplayOutput.ListRemoteProcesses
+  isSpec: "True"
+  fullName: ERC.DisplayOutput.ListRemoteProcesses
+  nameWithType: DisplayOutput.ListRemoteProcesses
 - uid: ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32)
   name: RopChainGadgets32(RopChainGenerator32)
   href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_RopChainGadgets32_ERC_Utilities_RopChainGenerator32_
@@ -174,57 +292,21 @@ references:
   isSpec: "True"
   fullName: ERC.ErcCore.ErcVersion
   nameWithType: ErcCore.ErcVersion
-- uid: ERC.ErcCore.FindResouce(System.IntPtr,System.String@,System.String@)
-  name: FindResouce(IntPtr, ref String, ref String)
-  href: api/ERC.ErcCore.html#ERC_ErcCore_FindResouce_System_IntPtr_System_String__System_String__
-  commentId: M:ERC.ErcCore.FindResouce(System.IntPtr,System.String@,System.String@)
-  name.vb: FindResouce(IntPtr, ByRef String, ByRef String)
-  fullName: ERC.ErcCore.FindResouce(System.IntPtr, ref System.String, ref System.String)
-  fullName.vb: ERC.ErcCore.FindResouce(System.IntPtr, ByRef System.String, ByRef System.String)
-  nameWithType: ErcCore.FindResouce(IntPtr, ref String, ref String)
-  nameWithType.vb: ErcCore.FindResouce(IntPtr, ByRef String, ByRef String)
-- uid: ERC.ErcCore.FindResouce*
-  name: FindResouce
-  href: api/ERC.ErcCore.html#ERC_ErcCore_FindResouce_
-  commentId: Overload:ERC.ErcCore.FindResouce
-  fullName: ERC.ErcCore.FindResouce
-  nameWithType: ErcCore.FindResouce
-- uid: ERC.ErcCore.GetModuleHandle(System.String)
-  name: GetModuleHandle(String)
-  href: api/ERC.ErcCore.html#ERC_ErcCore_GetModuleHandle_System_String_
-  commentId: M:ERC.ErcCore.GetModuleHandle(System.String)
-  fullName: ERC.ErcCore.GetModuleHandle(System.String)
-  nameWithType: ErcCore.GetModuleHandle(String)
-- uid: ERC.ErcCore.GetModuleHandle*
-  name: GetModuleHandle
-  href: api/ERC.ErcCore.html#ERC_ErcCore_GetModuleHandle_
-  commentId: Overload:ERC.ErcCore.GetModuleHandle
-  fullName: ERC.ErcCore.GetModuleHandle
-  nameWithType: ErcCore.GetModuleHandle
-- uid: ERC.ErcCore.LoadLibraryEx(System.String,System.IntPtr,ERC.Structures.LoadLibraryFlags)
-  name: LoadLibraryEx(String, IntPtr, LoadLibraryFlags)
-  href: api/ERC.ErcCore.html#ERC_ErcCore_LoadLibraryEx_System_String_System_IntPtr_ERC_Structures_LoadLibraryFlags_
-  commentId: M:ERC.ErcCore.LoadLibraryEx(System.String,System.IntPtr,ERC.Structures.LoadLibraryFlags)
-  fullName: ERC.ErcCore.LoadLibraryEx(System.String, System.IntPtr, ERC.Structures.LoadLibraryFlags)
-  nameWithType: ErcCore.LoadLibraryEx(String, IntPtr, LoadLibraryFlags)
-- uid: ERC.ErcCore.LoadLibraryEx*
-  name: LoadLibraryEx
-  href: api/ERC.ErcCore.html#ERC_ErcCore_LoadLibraryEx_
-  commentId: Overload:ERC.ErcCore.LoadLibraryEx
-  fullName: ERC.ErcCore.LoadLibraryEx
-  nameWithType: ErcCore.LoadLibraryEx
-- uid: ERC.ErcCore.LoadResource(System.IntPtr,System.IntPtr)
-  name: LoadResource(IntPtr, IntPtr)
-  href: api/ERC.ErcCore.html#ERC_ErcCore_LoadResource_System_IntPtr_System_IntPtr_
-  commentId: M:ERC.ErcCore.LoadResource(System.IntPtr,System.IntPtr)
-  fullName: ERC.ErcCore.LoadResource(System.IntPtr, System.IntPtr)
-  nameWithType: ErcCore.LoadResource(IntPtr, IntPtr)
-- uid: ERC.ErcCore.LoadResource*
-  name: LoadResource
-  href: api/ERC.ErcCore.html#ERC_ErcCore_LoadResource_
-  commentId: Overload:ERC.ErcCore.LoadResource
-  fullName: ERC.ErcCore.LoadResource
-  nameWithType: ErcCore.LoadResource
+- uid: ERC.ErcCore.GetHandleInformation(System.IntPtr,System.UInt32@)
+  name: GetHandleInformation(IntPtr, out UInt32)
+  href: api/ERC.ErcCore.html#ERC_ErcCore_GetHandleInformation_System_IntPtr_System_UInt32__
+  commentId: M:ERC.ErcCore.GetHandleInformation(System.IntPtr,System.UInt32@)
+  name.vb: GetHandleInformation(IntPtr, ByRef UInt32)
+  fullName: ERC.ErcCore.GetHandleInformation(System.IntPtr, out System.UInt32)
+  fullName.vb: ERC.ErcCore.GetHandleInformation(System.IntPtr, ByRef System.UInt32)
+  nameWithType: ErcCore.GetHandleInformation(IntPtr, out UInt32)
+  nameWithType.vb: ErcCore.GetHandleInformation(IntPtr, ByRef UInt32)
+- uid: ERC.ErcCore.GetHandleInformation*
+  name: GetHandleInformation
+  href: api/ERC.ErcCore.html#ERC_ErcCore_GetHandleInformation_
+  commentId: Overload:ERC.ErcCore.GetHandleInformation
+  fullName: ERC.ErcCore.GetHandleInformation
+  nameWithType: ErcCore.GetHandleInformation
 - uid: ERC.ErcCore.LogEvent(System.Exception)
   name: LogEvent(Exception)
   href: api/ERC.ErcCore.html#ERC_ErcCore_LogEvent_System_Exception_
@@ -779,6 +861,12 @@ references:
   commentId: M:ERC.ProcessInfo.#ctor(ERC.ErcCore,System.Diagnostics.Process)
   fullName: ERC.ProcessInfo.ProcessInfo(ERC.ErcCore, System.Diagnostics.Process)
   nameWithType: ProcessInfo.ProcessInfo(ErcCore, Process)
+- uid: ERC.ProcessInfo.#ctor(ERC.ErcCore,System.IntPtr)
+  name: ProcessInfo(ErcCore, IntPtr)
+  href: api/ERC.ProcessInfo.html#ERC_ProcessInfo__ctor_ERC_ErcCore_System_IntPtr_
+  commentId: M:ERC.ProcessInfo.#ctor(ERC.ErcCore,System.IntPtr)
+  fullName: ERC.ProcessInfo.ProcessInfo(ERC.ErcCore, System.IntPtr)
+  nameWithType: ProcessInfo.ProcessInfo(ErcCore, IntPtr)
 - uid: ERC.ProcessInfo.#ctor(ERC.ProcessInfo)
   name: ProcessInfo(ProcessInfo)
   href: api/ERC.ProcessInfo.html#ERC_ProcessInfo__ctor_ERC_ProcessInfo_
@@ -883,6 +971,19 @@ references:
   isSpec: "True"
   fullName: ERC.ProcessInfo.ListLocalProcesses
   nameWithType: ProcessInfo.ListLocalProcesses
+- uid: ERC.ProcessInfo.ListRemoteProcesses(ERC.ErcCore,System.String)
+  name: ListRemoteProcesses(ErcCore, String)
+  href: api/ERC.ProcessInfo.html#ERC_ProcessInfo_ListRemoteProcesses_ERC_ErcCore_System_String_
+  commentId: M:ERC.ProcessInfo.ListRemoteProcesses(ERC.ErcCore,System.String)
+  fullName: ERC.ProcessInfo.ListRemoteProcesses(ERC.ErcCore, System.String)
+  nameWithType: ProcessInfo.ListRemoteProcesses(ErcCore, String)
+- uid: ERC.ProcessInfo.ListRemoteProcesses*
+  name: ListRemoteProcesses
+  href: api/ERC.ProcessInfo.html#ERC_ProcessInfo_ListRemoteProcesses_
+  commentId: Overload:ERC.ProcessInfo.ListRemoteProcesses
+  isSpec: "True"
+  fullName: ERC.ProcessInfo.ListRemoteProcesses
+  nameWithType: ProcessInfo.ListRemoteProcesses
 - uid: ERC.ProcessInfo.ModulesInfo
   name: ModulesInfo
   href: api/ERC.ProcessInfo.html#ERC_ProcessInfo_ModulesInfo

@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Users/Devvy/Source/Repos/ERC.net/docfx_project",
+  "source_base_path": "C:/users/devvy/Source/Repos/ERC.net/docfx_project",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -9,10 +9,10 @@
       "output": {
         ".html": {
           "relative_path": "api/ERC.DisplayOutput.html",
-          "hash": "FuNuL/1u0BaeaoU67yUqpA=="
+          "hash": "MsrY4dqio4LNos1VYrk+3w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ERC.ErcCore.html",
-          "hash": "oKVJ1P/+L7SRKeapX0nVfw=="
+          "hash": "fefRapwTAQ5oHd1nYam6Tg=="
         }
       },
       "is_incremental": true,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ERC.ErcResult-1.html",
-          "hash": "a4kNZOlBfOa+08XpYo7iyw=="
+          "hash": "tW78boN7afeG0+zGUk5x7g=="
         }
       },
       "is_incremental": true,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ERC.ProcessInfo.html",
-          "hash": "iiGcHaq5rV+dm6TuFACh/A=="
+          "hash": "omYk1mBHDFulwoUTZLb2GA=="
         }
       },
       "is_incremental": true,
@@ -501,7 +501,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ERC.Utilities.OpcodeAssembler.html",
-          "hash": "OSYVuhmlLD2skj8hFSVIYA=="
+          "hash": "GaPS6cKD/PpOqjFYCiFm8g=="
         }
       },
       "is_incremental": true,
@@ -513,7 +513,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ERC.Utilities.OpcodeDisassembler.html",
-          "hash": "nbYDZ6aZMn+4++Hsqgit/w=="
+          "hash": "1eMd5esRKVnYGt9B0f1AVQ=="
         }
       },
       "is_incremental": true,
@@ -624,7 +624,7 @@
           "hash": "kXK0FgqUOg51Zt5WnIn1zg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -712,6 +712,13 @@
         "skipped_file_count": 0
       },
       "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
@@ -722,14 +729,7 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 52,
-          "skipped_file_count": 52
-        },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
+          "skipped_file_count": 51
         }
       }
     },

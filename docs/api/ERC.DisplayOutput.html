@@ -115,14 +115,173 @@
   </h3>
   
   
-  <a id="ERC_DisplayOutput_GenerateByteArray_" data-uid="ERC.DisplayOutput.GenerateByteArray*"></a>
-  <h4 id="ERC_DisplayOutput_GenerateByteArray_System_Byte___ERC_ErcCore_" data-uid="ERC.DisplayOutput.GenerateByteArray(System.Byte[],ERC.ErcCore)">GenerateByteArray(Byte[], ErcCore)</h4>
-  <div class="markdown level1 summary"><p>Generates an array of all possible bytes for use when identifying bad characters. Writes the output to disk in the working directory.</p>
+  <a id="ERC_DisplayOutput_AssembleOpcodes_" data-uid="ERC.DisplayOutput.AssembleOpcodes*"></a>
+  <h4 id="ERC_DisplayOutput_AssembleOpcodes_System_String___ERC_MachineType_" data-uid="ERC.DisplayOutput.AssembleOpcodes(System.String[],ERC.MachineType)">AssembleOpcodes(String[], MachineType)</h4>
+  <div class="markdown level1 summary"><p>Converts a collection of instructions into the associated opcodes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static byte[] GenerateByteArray(byte[] unwantedBytes, ErcCore core)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string[] AssembleOpcodes(string[] instructions, MachineType machine)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">instructions</span></td>
+        <td><p>An array containing either x86 or x64 instructions.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ERC.MachineType.html">MachineType</a></td>
+        <td><span class="parametername">machine</span></td>
+        <td><p>MachineType of the instruction set to be assembled.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><p>Returns null if the method fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ERC_DisplayOutput_AssembleOpcodes_" data-uid="ERC.DisplayOutput.AssembleOpcodes*"></a>
+  <h4 id="ERC_DisplayOutput_AssembleOpcodes_System_String___System_UInt32_" data-uid="ERC.DisplayOutput.AssembleOpcodes(System.String[],System.UInt32)">AssembleOpcodes(String[], UInt32)</h4>
+  <div class="markdown level1 summary"><p>Converts a collection of instructions into the associated opcodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string[] AssembleOpcodes(string[] instructions, uint machine)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">instructions</span></td>
+        <td><p>An array containing either x86 or x64 instructions.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td><span class="parametername">machine</span></td>
+        <td><p>Uint representing the machine type (x86 = 0, x64 = 1)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><p>Returns null if the method fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ERC_DisplayOutput_CompareByteArrayToMemoryRegion_" data-uid="ERC.DisplayOutput.CompareByteArrayToMemoryRegion*"></a>
+  <h4 id="ERC_DisplayOutput_CompareByteArrayToMemoryRegion_ERC_ProcessInfo_System_IntPtr_System_Byte___" data-uid="ERC.DisplayOutput.CompareByteArrayToMemoryRegion(ERC.ProcessInfo,System.IntPtr,System.Byte[])">CompareByteArrayToMemoryRegion(ProcessInfo, IntPtr, Byte[])</h4>
+  <div class="markdown level1 summary"><p>Compares a the values contained in a memory region to the values in the supplied byte array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string[] CompareByteArrayToMemoryRegion(ProcessInfo info, IntPtr startAddress, byte[] byteArray)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.ProcessInfo.html">ProcessInfo</a></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The processInfo object that contains the memory region.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IntPtr</span></td>
+        <td><span class="parametername">startAddress</span></td>
+        <td><p>The memory address to start the search at.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">byteArray</span></td>
+        <td><p>The byte array the region will be compared against.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><p>Returns a string detailing differences between the two.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ERC_DisplayOutput_DisassembleOpcodes_" data-uid="ERC.DisplayOutput.DisassembleOpcodes*"></a>
+  <h4 id="ERC_DisplayOutput_DisassembleOpcodes_System_Byte___ERC_MachineType_" data-uid="ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],ERC.MachineType)">DisassembleOpcodes(Byte[], MachineType)</h4>
+  <div class="markdown level1 summary"><p>Converts a collection of opcodes into the associated instructions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string[] DisassembleOpcodes(byte[] opcodes, MachineType machine)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -136,14 +295,214 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Byte</span>[]</td>
-        <td><span class="parametername">unwantedBytes</span></td>
-        <td><p>An array of bytes to be excluded from the final byte array</p>
+        <td><span class="parametername">opcodes</span></td>
+        <td><p>An array containing either x86 or x64 opcodes.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="ERC.MachineType.html">MachineType</a></td>
+        <td><span class="parametername">machine</span></td>
+        <td><p>MachineType of the instruction set to be assembled.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><p>Returns null if the method fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ERC_DisplayOutput_DisassembleOpcodes_" data-uid="ERC.DisplayOutput.DisassembleOpcodes*"></a>
+  <h4 id="ERC_DisplayOutput_DisassembleOpcodes_System_Byte___System_UInt32_" data-uid="ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],System.UInt32)">DisassembleOpcodes(Byte[], UInt32)</h4>
+  <div class="markdown level1 summary"><p>Converts a collection of opcodes into the associated instructions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string[] DisassembleOpcodes(byte[] opcodes, uint machine)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">opcodes</span></td>
+        <td><p>An array containing either x86 or x64 opcodes.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td><span class="parametername">machine</span></td>
+        <td><p>Uint representing the machine type (x86 = 0, x64 = 1)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><p>Returns null if the method fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ERC_DisplayOutput_DisplayProcessInfo_" data-uid="ERC.DisplayOutput.DisplayProcessInfo*"></a>
+  <h4 id="ERC_DisplayOutput_DisplayProcessInfo_ERC_ProcessInfo_System_Boolean_" data-uid="ERC.DisplayOutput.DisplayProcessInfo(ERC.ProcessInfo,System.Boolean)">DisplayProcessInfo(ProcessInfo, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Displays information related to the provided ProcessInfo object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string DisplayProcessInfo(ProcessInfo info, bool outputToFile = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.ProcessInfo.html">ProcessInfo</a></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The ProcessInfo object of which the module information will be displayed</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">outputToFile</span></td>
+        <td><p>Set to false to surpress file output.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ERC_DisplayOutput_DisplayThreadInfo_" data-uid="ERC.DisplayOutput.DisplayThreadInfo*"></a>
+  <h4 id="ERC_DisplayOutput_DisplayThreadInfo_ERC_ProcessInfo_System_Boolean_" data-uid="ERC.DisplayOutput.DisplayThreadInfo(ERC.ProcessInfo,System.Boolean)">DisplayThreadInfo(ProcessInfo, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Displays information about all threads related to a specific process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string DisplayThreadInfo(ProcessInfo info, bool outputToFile = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.ProcessInfo.html">ProcessInfo</a></td>
+        <td><span class="parametername">info</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">outputToFile</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ERC_DisplayOutput_GenerateByteArray_" data-uid="ERC.DisplayOutput.GenerateByteArray*"></a>
+  <h4 id="ERC_DisplayOutput_GenerateByteArray_ERC_ErcCore_System_Byte___" data-uid="ERC.DisplayOutput.GenerateByteArray(ERC.ErcCore,System.Byte[])">GenerateByteArray(ErcCore, Byte[])</h4>
+  <div class="markdown level1 summary"><p>Generates an array of all possible bytes for use when identifying bad characters. Writes the output to disk in the working directory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GenerateByteArray(ErcCore core, byte[] unwantedBytes = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
       <tr>
         <td><a class="xref" href="ERC.ErcCore.html">ErcCore</a></td>
         <td><span class="parametername">core</span></td>
         <td><p>An ErcCore object</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">unwantedBytes</span></td>
+        <td><p>An array of bytes to be excluded from the final byte array</p>
 </td>
       </tr>
     </tbody>
@@ -275,13 +634,13 @@
   
   
   <a id="ERC_DisplayOutput_GenerateModuleInfoTable_" data-uid="ERC.DisplayOutput.GenerateModuleInfoTable*"></a>
-  <h4 id="ERC_DisplayOutput_GenerateModuleInfoTable_ERC_ProcessInfo_" data-uid="ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo)">GenerateModuleInfoTable(ProcessInfo)</h4>
+  <h4 id="ERC_DisplayOutput_GenerateModuleInfoTable_ERC_ProcessInfo_System_Boolean_" data-uid="ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo,System.Boolean)">GenerateModuleInfoTable(ProcessInfo, Boolean)</h4>
   <div class="markdown level1 summary"><p>Aquires filename and writes out all module data to the current working directory. Requires a Process_Info object to be passed as a parameter.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string GenerateModuleInfoTable(ProcessInfo info)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string GenerateModuleInfoTable(ProcessInfo info, bool outputToFile = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -297,6 +656,12 @@
         <td><a class="xref" href="ERC.ProcessInfo.html">ProcessInfo</a></td>
         <td><span class="parametername">info</span></td>
         <td><p>The ProcessInfo object of which the module information will be displayed</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">outputToFile</span></td>
+        <td><p>Set to false to surpress file output.</p>
 </td>
       </tr>
     </tbody>
@@ -369,7 +734,8 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td></td>
+        <td><p>Returns a string containing the pattern generated.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -384,7 +750,7 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ErcResult&lt;List&lt;string&gt;&gt; GetSEHJumps(ProcessInfo info, List&lt;string&gt; excludes = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static List&lt;string&gt; GetSEHJumps(ProcessInfo info, List&lt;string&gt; excludes = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -420,8 +786,79 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="ERC.ErcResult-1.html">ErcResult</a>&lt;<span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><p>Returns an ErcResult containing a list of strings detailing the pointers, opcodes and base files of suitable instruction sets.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ERC_DisplayOutput_ListLocalProcesses_" data-uid="ERC.DisplayOutput.ListLocalProcesses*"></a>
+  <h4 id="ERC_DisplayOutput_ListLocalProcesses" data-uid="ERC.DisplayOutput.ListLocalProcesses">ListLocalProcesses()</h4>
+  <div class="markdown level1 summary"><p>Lists usable processes running on the local machine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ListLocalProcesses()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string containing details of processes running on the local machine.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ERC_DisplayOutput_ListRemoteProcesses_" data-uid="ERC.DisplayOutput.ListRemoteProcesses*"></a>
+  <h4 id="ERC_DisplayOutput_ListRemoteProcesses_System_String_" data-uid="ERC.DisplayOutput.ListRemoteProcesses(System.String)">ListRemoteProcesses(String)</h4>
+  <div class="markdown level1 summary"><p>Lists usable processes running on the remote machine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ListRemoteProcesses(string machineName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">machineName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string containing details of processes running on the remote machine.</p>
 </td>
       </tr>
     </tbody>

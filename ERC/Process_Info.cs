@@ -96,6 +96,67 @@ namespace ERC
         }
 
         /// <summary>
+        /// Constructor for the Process_Info object, requires an ERC_Core object and a Process.
+        /// </summary>
+        /// <param name="core">An ErcCore object</param>
+        /// <param name="handle">The handle for the process to gather information from</param>
+        public ProcessInfo(ErcCore core, IntPtr handle) : base(core)
+        {
+            uint flags = 0;
+            bool result = GetHandleInformation(handle, out flags);
+            if(result == false)
+            {
+                throw new ERCException("The handle provided is not a valid process (GetHandleInformation returned false)");
+            }
+            uint processID = GetProcessId(handle);
+            
+            Process process = Process.GetProcessById((int)processID);
+            ProcessCore = core;
+
+            if (Is64Bit(process))
+            {
+                ProcessMachineType = MachineType.x64;
+            }
+            else
+            {
+                ProcessMachineType = MachineType.I386;
+            }
+
+            ProcessName = process.ProcessName;
+            ProcessDescription = FileVersionInfo.GetVersionInfo(process.MainModule.FileName).FileDescription;
+            ProcessPath = FileVersionInfo.GetVersionInfo(process.MainModule.FileName).FileName;
+            ProcessID = process.Id;
+            ProcessCurrent = process;
+            ProcessHandle = process.Handle;
+            ProcessModuleHandles = GetProcessModules().ReturnValue;
+
+            if (ProcessModuleHandles.Count == 0)
+            {
+                for (int i = 0; i < process.Modules.Count; i++)
+                {
+                    ProcessModuleHandles.Add(process.Modules[i].FileName, process.Modules[i].BaseAddress);
+                }
+            }
+            foreach (KeyValuePair<string, IntPtr> s in ProcessModuleHandles)
+            {
+                ModuleInfo thisModuleInfo = new ModuleInfo(s.Key, s.Value, process, core);
+                if (thisModuleInfo.ModuleFailed == false)
+                {
+                    ModulesInfo.Add(thisModuleInfo);
+                }
+            }
+            for (int i = 0; i < process.Threads.Count; i++)
+            {
+                ThreadInfo thisThreadInfo = new ThreadInfo(process.Threads[i], ProcessCore, this);
+                if (thisThreadInfo.ThreadFailed == false)
+                {
+                    ThreadsInfo.Add(thisThreadInfo);
+                }
+            }
+            LocateMemoryRegions();
+        }
+
+        /// <summary>
         /// Constructor to use when inheriting from ProcessInfo.
         /// </summary>
         /// <param name="parent">The object to inherit from</param>
@@ -140,7 +201,7 @@ namespace ERC
                 {
                     filename = processes[i].MainModule.FileName;
                 }
-                catch(Exception e)
+                catch(Exception)
                 {
                     processesToRemove.Add(i);
                 }
@@ -190,7 +251,7 @@ namespace ERC
                 {
                     filename = processes[i].MainModule.FileName;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     processesToRemove.Add(i);
                 }

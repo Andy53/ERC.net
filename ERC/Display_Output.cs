@@ -1,14 +1,11 @@
 ﻿using ERC.Utilities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace ERC
 {
@@ -505,7 +502,7 @@ namespace ERC
         /// <param name="startAddress">The memory address to start the search at.</param>
         /// <param name="byteArray">The byte array the region will be compared against.</param>
         /// <returns>Returns a string detailing differences between the two.</returns>
-        public static string CompareByteArraysToMemoryRegion(ProcessInfo info, IntPtr startAddress, byte[] byteArray)
+        public static string[] CompareByteArrayToMemoryRegion(ProcessInfo info, IntPtr startAddress, byte[] byteArray)
         {
             List<string> output = new List<string>();
             byte[] memoryRegion = new byte[byteArray.Length];
@@ -540,11 +537,7 @@ namespace ERC
                 counter++;
             }
             output.Add("                   ----------------------------------------------------");
-            foreach (string s in output)
-            {
-                Console.WriteLine(s);
-            }
-            return "";
+            return output.ToArray();
         }
         #endregion
 
@@ -1906,6 +1899,121 @@ namespace ERC
         {
             string ret = "0x" + element.Item1.ToString("X16") + " | " + element.Item2;
             return ret;
+        }
+        #endregion
+
+        #region Assemble Opcodes
+        /// <summary>
+        /// Converts a collection of instructions into the associated opcodes.
+        /// </summary>
+        /// <param name="instructions">An array containing either x86 or x64 instructions.</param>
+        /// <param name="machine">Uint representing the machine type (x86 = 0, x64 = 1)</param>
+        /// <returns>Returns null if the method fails.</returns>
+        public static string[] AssembleOpcodes(string[] instructions, uint machine)
+        {
+            string[] opcodeArray = null;
+            MachineType mt;
+            if(machine == 0)
+            {
+                mt = MachineType.I386;
+            }
+            else if(machine == 1)
+            {
+                mt = MachineType.x64;
+            }
+            else
+            {
+                throw new ERCException("Invalid machine type provided. Value provided = " + machine + ". Uint 0 = x86, 1 = x64");
+            }
+            var instructionsList = instructions.ToList();
+            var asmResult = OpcodeAssembler.AssembleOpcodes(instructionsList, mt);
+            if (asmResult.Error != null)
+            {
+                throw asmResult.Error;
+            }
+            string opcodes = BitConverter.ToString(asmResult.ReturnValue).Replace("-", "");
+            opcodeArray = opcodes.Split(' ');
+            return opcodeArray;
+        }
+
+        /// <summary>
+        /// Converts a collection of instructions into the associated opcodes.
+        /// </summary>
+        /// <param name="instructions">An array containing either x86 or x64 instructions.</param>
+        /// <param name="machine">MachineType of the instruction set to be assembled.</param>
+        /// <returns>Returns null if the method fails.</returns>
+        public static string[] AssembleOpcodes(string[] instructions, MachineType machine)
+        {
+            string[] opcodeArray = null;
+            if(machine != MachineType.I386 && machine != MachineType.x64)
+            {
+                throw new ERCException("Invalid machine type provided.");
+            }
+            var instructionsList = instructions.ToList();
+            var asmResult = OpcodeAssembler.AssembleOpcodes(instructionsList, machine);
+            if(asmResult.Error != null)
+            {
+                throw asmResult.Error;
+            }
+            string opcodes = BitConverter.ToString(asmResult.ReturnValue).Replace("-", "");
+            opcodeArray = opcodes.Split(' ');
+            return opcodeArray;
+        }
+        #endregion
+
+        #region Disassemble Opcodes
+        /// <summary>
+        /// Converts a collection of opcodes into the associated instructions.
+        /// </summary>
+        /// <param name="opcodes">An array containing either x86 or x64 opcodes.</param>
+        /// <param name="machine">Uint representing the machine type (x86 = 0, x64 = 1)</param>
+        /// <returns>Returns null if the method fails.</returns>
+        public static string[] DisassembleOpcodes(byte[] opcodes, uint machine)
+        {
+            string[] instructionArray = null;
+            MachineType mt;
+            if (machine == 0)
+            {
+                mt = MachineType.I386;
+            }
+            else if (machine == 1)
+            {
+                mt = MachineType.x64;
+            }
+            else
+            {
+                throw new ERCException("Invalid machine type provided. Value provided = " + machine + ". Uint 0 = x86, 1 = x64");
+            }
+            
+            var disassembledInstructions = OpcodeDisassembler.Disassemble(opcodes, mt);
+            if (disassembledInstructions.Error != null)
+            {
+                throw disassembledInstructions.Error;
+            }
+            instructionArray = disassembledInstructions.ReturnValue.Split('\n');
+            return instructionArray;
+        }
+
+        /// <summary>
+        /// Converts a collection of opcodes into the associated instructions.
+        /// </summary>
+        /// <param name="opcodes">An array containing either x86 or x64 opcodes.</param>
+        /// <param name="machine">MachineType of the instruction set to be assembled.</param>
+        /// <returns>Returns null if the method fails.</returns>
+        public static string[] DisassembleOpcodes(byte[] opcodes, MachineType machine)
+        {
+            string[] instructionArray = null;
+            if (machine != MachineType.I386 && machine != MachineType.x64)
+            {
+                throw new ERCException("Invalid machine type provided.");
+            }
+            var disassembledInstructions = OpcodeDisassembler.Disassemble(opcodes, machine);
+            if(disassembledInstructions.Error != null)
+            {
+                throw disassembledInstructions.Error;
+            }
+            instructionArray = disassembledInstructions.ReturnValue.Split('\n');
+            return instructionArray;
         }
         #endregion
     }

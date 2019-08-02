@@ -203,6 +203,15 @@ namespace ERC
         internal static extern uint GetProcessId(IntPtr handle);
 
         /// <summary>
+        /// Retrieves certain properties of an object handle.
+        /// </summary>
+        /// <param name="hObject">A handle to an object whose information is to be retrieved.</param>
+        /// <param name="lpdwFlags">A pointer to a variable that receives a set of bit flags that specify properties of the object handle or 0. The following values are defined.</param>
+        /// <returns>If the function succeeds, the return value is true.</returns>
+        [DllImport("kernel32.dll")]
+        public static extern bool GetHandleInformation(IntPtr hObject, out uint lpdwFlags);
+
+        /// <summary>
         /// Retrieves a module handle for the specified module. The module must have been loaded by the calling process.
         /// </summary>
         /// <param name="moduleName">The name of the loaded module (either a .dll or .exe file).</param>
