@@ -367,7 +367,6 @@ namespace ERC
                 PatternStandardPath = Path.Combine(WorkingDirectory, "Pattern_Standard");
                 if (!File.Exists(PatternStandardPath))
                 {
-                    Console.WriteLine("Building standard pattern file...");
                     var patternExt = Utilities.PatternTools.PatternCreate(20277, this, false);
                     if (patternExt.Error != null)
                     {
@@ -381,7 +380,6 @@ namespace ERC
             {
                 if (!File.Exists(PatternStandardPath))
                 {
-                    Console.WriteLine("Building standard pattern file...");
                     var patternExt = Utilities.PatternTools.PatternCreate(20277, this, false);
                     if (patternExt.Error != null)
                     {
@@ -391,13 +389,12 @@ namespace ERC
                     File.WriteAllText(PatternStandardPath, patternExt.ReturnValue);
                 }
             }
-            
-            if(PatternExtendedPath == "")
+
+            if (PatternExtendedPath == "")
             {
                 PatternExtendedPath = Path.Combine(WorkingDirectory, "Pattern_Extended");
                 if (!File.Exists(PatternExtendedPath))
                 {
-                    Console.WriteLine("Building extended pattern file...");
                     var patternExt = Utilities.PatternTools.PatternCreate(66923, this, true);
                     if (patternExt.Error != null)
                     {
@@ -411,7 +408,6 @@ namespace ERC
             {
                 if (!File.Exists(PatternExtendedPath))
                 {
-                    Console.WriteLine("Building extended pattern file...");
                     var patternExt = Utilities.PatternTools.PatternCreate(66923, this, true);
                     if (patternExt.Error != null)
                     {
@@ -421,6 +417,7 @@ namespace ERC
                     File.WriteAllText(PatternExtendedPath, patternExt.ReturnValue);
                 }
             }
+
         }
 
         /// <summary>

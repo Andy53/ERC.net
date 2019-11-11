@@ -10,6 +10,10 @@
     <DocumentationFile>..\..\ERC.net\ERC\ERC.Net.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Reloaded.Assembler" Version="1.0.5" />
     <PackageReference Include="SharpDisasm" Version="1.1.11" />
