@@ -10,3 +10,5 @@ ERC\obj\ERC.Net.csproj.nuget.cache
 ERC\bin\Debug\net472\ERC.Net.xml
 docfx_project/**
 docfx_project
+ERC/bin/
+ERC/obj/
