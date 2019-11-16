@@ -95,7 +95,7 @@
             <param name="core">An ErcCore object</param>
             <returns>Returns a byte array of all possible bytes.</returns>
         </member>
-        <member name="M:ERC.DisplayOutput.CompareByteArraysToMemoryRegion(ERC.ProcessInfo,System.IntPtr,System.Byte[])">
+        <member name="M:ERC.DisplayOutput.CompareByteArrayToMemoryRegion(ERC.ProcessInfo,System.IntPtr,System.Byte[])">
             <summary>
             Compares a the values contained in a memory region to the values in the supplied byte array.
             </summary>
@@ -151,11 +151,11 @@
             <param name="machine">MachineType of the instruction set to be assembled.</param>
             <returns>Returns null if the method fails.</returns>
         </member>
-        <member name="M:ERC.DisplayOutput.DisassembleOpcodes(System.String[],System.UInt32)">
+        <member name="M:ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],System.UInt32)">
             <summary>
             Converts a collection of opcodes into the associated instructions.
             </summary>
-            <param name="instructions">An array containing either x86 or x64 opcodes.</param>
+            <param name="opcodes">An array containing either x86 or x64 opcodes.</param>
             <param name="machine">Uint representing the machine type (x86 = 0, x64 = 1)</param>
             <returns>Returns null if the method fails.</returns>
         </member>
