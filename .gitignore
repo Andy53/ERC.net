@@ -12,3 +12,5 @@ docfx_project/**
 docfx_project
 ERC/bin/*
 ERC/obj/*
+ERC/bin/**
+ERC/obj/**
