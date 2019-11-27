@@ -130,7 +130,7 @@ namespace ERC.Utilities
             string patternFull;
             if (extended == true)
             {
-                digits += ": ,.;+=-_!&()#@'({})[]%";
+                digits += ": ,.;+=-_!&()#@'{}[]%";
                 patternFull = File.ReadAllText(core.PatternExtendedPath);
             }
             else
