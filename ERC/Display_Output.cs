@@ -1955,7 +1955,7 @@ namespace ERC
             {
                 throw asmResult.Error;
             }
-            string opcodes = BitConverter.ToString(asmResult.ReturnValue).Replace("-", "");
+            string opcodes = BitConverter.ToString(asmResult.ReturnValue).Replace("-", " ");
             opcodeArray = opcodes.Split(' ');
             return opcodeArray;
         }
