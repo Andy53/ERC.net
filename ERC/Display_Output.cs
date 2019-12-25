@@ -448,7 +448,7 @@ namespace ERC
         /// <returns>Returns a byte array of all possible bytes.</returns>
         public static byte[] GenerateByteArray(ErcCore core, byte[] unwantedBytes = null)
         {
-            string byteFilename = GetFilePath(core.WorkingDirectory, "ByteArray_", ".dll");
+            string byteFilename = GetFilePath(core.WorkingDirectory, "ByteArray_", ".bin");
             byte[] byteArray = Payloads.ByteArrayConstructor(unwantedBytes);
             FileStream fs1 = new FileStream(byteFilename, FileMode.Create, FileAccess.Write);
             fs1.Write(byteArray, 0, byteArray.Length);
