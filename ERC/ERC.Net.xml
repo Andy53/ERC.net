@@ -4326,6 +4326,12 @@
             Takes two byte arrays, array to be searched and array to search for.
             </summary>
         </member>
+        <member name="M:ERC.ProcessInfo.CreateExcludesList(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a list of modules to exclude from a search of memory.
+            </summary>
+            <returns>Returns an ErcResult containing a list of stringss</returns>
+        </member>
         <member name="M:ERC.ProcessInfo.ToString">
             <summary>
             Override of the ToString method. Returns information about the process in a pleasantly formatted string
