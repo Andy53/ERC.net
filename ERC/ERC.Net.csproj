@@ -59,4 +59,8 @@
     <NativeLibs Remove="PtrRemover.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <NativeLibs Remove="Convert.cs" />
+  </ItemGroup>
+
 </Project>
