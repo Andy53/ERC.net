@@ -9,229 +9,89 @@
             Static class containing methods for common conversions.
             </summary>
         </member>
-        <member name="M:ERC.Utilities.Convert.Hex2Ascii(System.String)">
+        <member name="M:ERC.Utilities.Convert.HexToAscii(System.String)">
             <summary>
             Converts a hex string to ASCII."
             </summary>
             <param name="hex">A string containing hex characters.</param>
             <returns>A string containing the equivalent ASCII values</returns>
         </member>
-        <member name="M:ERC.Utilities.Convert.Hex2Bytes(System.String)">
+        <member name="M:ERC.Utilities.Convert.HexToBytes(System.String)">
             <summary>
             Converts a hex string to the equivalent bytes.
             </summary>
             <param name="hex">A string containing hex characters.</param>
             <returns>A byte array containing the associated values.</returns>
         </member>
-        <member name="M:ERC.Utilities.Convert.Ascii2Bytes(System.String)">
+        <member name="M:ERC.Utilities.Convert.AsciiToBytes(System.String)">
             <summary>
             Converts an ASCII string to a byte array.
             </summary>
             <param name="ascii">An ASCII string.</param>
             <returns>A byte array containing the associated values.</returns>
         </member>
-        <member name="M:ERC.Utilities.Convert.Ascii2Hex(System.String)">
+        <member name="M:ERC.Utilities.Convert.AsciiToHex(System.String)">
             <summary>
             Converts an ASCII string to a hex string
             </summary>
             <param name="ascii">An ASCII string.</param>
             <returns>A hex string.</returns>
         </member>
-        <member name="M:ERC.Utilities.Convert.Ascii2Unicode(System.String)">
-            <summary>
-            Converts an ASCII string to a Unicode string.
-            </summary>
-            <param name="ascii">An ASCII string.</param>
-            <returns>A Unicode string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.Ascii2Utf7(System.String)">
-            <summary>
-            Converts an ASCII string to a UTF-7 string.
-            </summary>
-            <param name="ascii">An ASCII string.</param>
-            <returns>A UTF-7 string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.Ascii2Utf8(System.String)">
-            <summary>
-            Converts an ASCII string to a UTF-8 string.
-            </summary>
-            <param name="ascii">An ASCII string.</param>
-            <returns>A UTF-8 string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.Ascii2Utf32(System.String)">
-            <summary>
-            Converts an ASCII string to a UTF-32 string.
-            </summary>
-            <param name="ascii">An ASCII string.</param>
-            <returns>A UTF-32 string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.Unicode2Ascii(System.String)">
-            <summary>
-            Converts a Unicode string to an ASCII string.
-            </summary>
-            <param name="unicode">A Unicode string.</param>
-            <returns>An ASCII string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.Unicode2Bytes(System.String)">
+        <member name="M:ERC.Utilities.Convert.UnicodeToBytes(System.String)">
             <summary>
             Converts a Unicode string to a byte array.
             </summary>
             <param name="unicode">A Unicode string.</param>
             <returns>A byte array.</returns>
         </member>
-        <member name="M:ERC.Utilities.Convert.Unicode2Hex(System.String)">
+        <member name="M:ERC.Utilities.Convert.UnicodeToHex(System.String)">
             <summary>
             Converts a Unicode string to a hex string.
             </summary>
             <param name="unicode">A Unicode string.</param>
             <returns>A hex string.</returns>
         </member>
-        <member name="M:ERC.Utilities.Convert.Unicode2Utf7(System.String)">
-            <summary>
-            Converts a Unicode string to a UTF-7 string.
-            </summary>
-            <param name="unicode">A Unicode string.</param>
-            <returns>A UTF-7 string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.Unicode2Utf8(System.String)">
-            <summary>
-            Convert a Unicode string to a UTF-8 string.
-            </summary>
-            <param name="unicode">A Unicdoe string.</param>
-            <returns>A UTF-8 string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.Unicode2Utf32(System.String)">
-            <summary>
-            Converts a Unicode string to a UTF-32 string.
-            </summary>
-            <param name="unicode">A Unicode string.</param>
-            <returns>A UTF-32 string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.UTF72Ascii(System.String)">
-            <summary>
-            Converts a UTF-7 string to an ASCII string.
-            </summary>
-            <param name="utf7">A UTF-7 string.</param>
-            <returns>An ASCII string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.UTF72Bytes(System.String)">
+        <member name="M:ERC.Utilities.Convert.UTF7ToBytes(System.String)">
             <summary>
             Converts a UTF-7 string to a byte array.
             </summary>
             <param name="utf7">A UTF-7 string.</param>
             <returns>A byte array.</returns>
         </member>
-        <member name="M:ERC.Utilities.Convert.UTF72Hex(System.String)">
+        <member name="M:ERC.Utilities.Convert.UTF7ToHex(System.String)">
             <summary>
             Converts a UTF-7 string to a hex string.
             </summary>
             <param name="utf7">A UTF-7 string.</param>
             <returns>A hex string.</returns>
         </member>
-        <member name="M:ERC.Utilities.Convert.UTF72Unicode(System.String)">
-            <summary>
-            Converts a UTF-7 string to a Unicode string.
-            </summary>
-            <param name="utf7">A UTF-7 string.</param>
-            <returns>A Unicode string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.UTF72Utf8(System.String)">
-            <summary>
-            Converts a UTF-7 string to a UTF-8 string.
-            </summary>
-            <param name="utf7">A UTF-7 string.</param>
-            <returns>A UTF-8 string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.UTF72Utf32(System.String)">
-            <summary>
-            Converts a UTF-7 string to a UTF-32 string.
-            </summary>
-            <param name="utf7">A UTF-7 string.</param>
-            <returns>A UTF-32 string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.UTF82Ascii(System.String)">
-            <summary>
-            Converts a UTF-8 string to an ASCII string.
-            </summary>
-            <param name="utf8">A UTF-8 string.</param>
-            <returns>An ASCII string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.UTF82Bytes(System.String)">
+        <member name="M:ERC.Utilities.Convert.UTF8ToBytes(System.String)">
             <summary>
             Converts a UTF-8 string to a byte array.
             </summary>
             <param name="utf8">A UTF-8 string.</param>
             <returns>A byte array.</returns>
         </member>
-        <member name="M:ERC.Utilities.Convert.UTF82Hex(System.String)">
+        <member name="M:ERC.Utilities.Convert.UTF8ToHex(System.String)">
             <summary>
             Converts a UTF-8 string to a hex string.
             </summary>
             <param name="utf8">A UTF-8 string.</param>
             <returns>A hex string.</returns>
         </member>
-        <member name="M:ERC.Utilities.Convert.UTF82Unicode(System.String)">
-            <summary>
-            Converts a UTF-8 string to a Unicode string.
-            </summary>
-            <param name="utf8">A UTF-8 string.</param>
-            <returns>A Unicode string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.UTF82Utf7(System.String)">
-            <summary>
-            Converts a UTF-8 string to a UTF-7 string.
-            </summary>
-            <param name="utf8">A UTF-8 string.</param>
-            <returns>A UTF-7 string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.UTF82Utf32(System.String)">
-            <summary>
-            Converts a UTF-8 string to a UTF-32 string.
-            </summary>
-            <param name="utf8">A UTF-8 string.</param>
-            <returns>A UTF-32 string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.UTF322Ascii(System.String)">
-            <summary>
-            Converts a UTF-32 string to an ASCII string.
-            </summary>
-            <param name="utf32">A UTF-32 string.</param>
-            <returns>An ASCII string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.UTF322Bytes(System.String)">
+        <member name="M:ERC.Utilities.Convert.UTF32ToBytes(System.String)">
             <summary>
             Converts a UTF-32 string to a byte array.
             </summary>
             <param name="utf32">A UTF-32 string.</param>
             <returns>A byte array.</returns>
         </member>
-        <member name="M:ERC.Utilities.Convert.UTF322Hex(System.String)">
+        <member name="M:ERC.Utilities.Convert.UTF32ToHex(System.String)">
             <summary>
             Converts a UTF-32 string to a hex string.
             </summary>
             <param name="utf32">A UTF-32 string.</param>
             <returns>A hex string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.UTF322Unicode(System.String)">
-            <summary>
-            Converts a UTF-32 string to a Unicode string.
-            </summary>
-            <param name="utf32">A UTF-32 string.</param>
-            <returns>A Unicode string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.UTF322Utf7(System.String)">
-            <summary>
-            Converts a UTF-32 string to a UTF-7 string.
-            </summary>
-            <param name="utf32">A UTF-32 string.</param>
-            <returns>A UTF-7 string.</returns>
-        </member>
-        <member name="M:ERC.Utilities.Convert.UTF322Utf8(System.String)">
-            <summary>
-            Converts a UTF-32 string to a UTF-8 string.
-            </summary>
-            <param name="utf32">A UTF-32 string.</param>
-            <returns>A UTF-8 string.</returns>
         </member>
         <member name="T:ERC.Utilities.OpcodeAssembler">
             <summary>
@@ -1342,7 +1202,18 @@
             Passing a list of module paths or names will exclude those modules from the search. 
             Similar to Search_All_Memory_PPR however provides output in an easily readable format.
             </summary>
-            <param name="info">The ProcessInfo object which will be searched for POP POP RET instructions,</param>
+            <param name="info">The ProcessInfo object which will be searched for POP POP RET instructions.</param>
+            <param name="excludes">Modules to be ignored when searching for the instruction sets.</param>
+            <returns>Returns an ErcResult containing a list of strings detailing the pointers, opcodes and base files of suitable instruction sets.</returns>
+        </member>
+        <member name="M:ERC.DisplayOutput.GetSEHJumps(ERC.ProcessInfo,System.Byte[],System.Collections.Generic.List{System.String})">
+            <summary>
+            Searches all memory associated with a given process and associated modules for POP X POP X RET instructions. 
+            Passing a list of module paths or names will exclude those modules from the search. 
+            Similar to Search_All_Memory_PPR however provides output in an easily readable format.
+            </summary>
+            <param name="info">The ProcessInfo object which will be searched for POP POP RET instructions</param>
+            <param name="ptrsToExclude">Ptrs containing these byte values will be discarded.</param>
             <param name="excludes">Modules to be ignored when searching for the instruction sets.</param>
             <returns>Returns an ErcResult containing a list of strings detailing the pointers, opcodes and base files of suitable instruction sets.</returns>
         </member>
