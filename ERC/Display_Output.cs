@@ -2308,12 +2308,12 @@ namespace ERC
 
         #region Dump Memory
         /// <summary>
-        /// 
+        /// Reads a set of bytes from process memory and provides a string contianing the results.
         /// </summary>
-        /// <param name="info"></param>
-        /// <param name="startAddress"></param>
-        /// <param name="length"></param>
-        /// <returns></returns>
+        /// <param name="info">ProcessInfo object</param>
+        /// <param name="startAddress">The address to start reading from.</param>
+        /// <param name="length">The number of bytes to read.</param>
+        /// <returns>A string containing the bytes read from memroy</returns>
         public static ErcResult<string> DumpMemory(ProcessInfo info, IntPtr startAddress, int length)
         {
             string dumpFilename = GetFilePath(info.WorkingDirectory, "MemoryDump_", ".txt");
@@ -2358,6 +2358,8 @@ namespace ERC
                     output.ReturnValue += result.ReturnValue[i].ToString("X2") + " ";
                 }
             }
+
+            File.WriteAllText(dumpFilename, output.ReturnValue);
             return output;
         }
         #endregion
