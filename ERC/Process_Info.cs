@@ -1,6 +1,7 @@
 ﻿using ERC.Structures;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -1990,6 +1991,39 @@ namespace ERC
         }
         #endregion
 
+        #region Dump Memory Region
+        /// <summary>
+        /// Reads process memory from a specific address for a set number of bytes. 
+        /// </summary>
+        /// <param name="startAddress">The address to start reading from.</param>
+        /// <param name="length">Number of bytes to read.</param>
+        /// <returns>Returns a bytes array containing the specified contents of process memory.</returns>
+        public ErcResult<byte[]> DumpMemoryRegion(IntPtr startAddress, int length)
+        {
+            ErcResult<byte[]> result = new ErcResult<byte[]>(ProcessCore);
+            byte[] bytes = new byte[length];
+            try
+            {
+                int retValue = ErcCore.ReadProcessMemory(ProcessHandle, startAddress, bytes, length, out int bytesRead);
+                if (retValue == 0)
+                {
+                    ERCException ex = new ERCException(new Win32Exception(Marshal.GetLastWin32Error()).Message);
+                    result.ReturnValue = bytes;
+                    throw ex;
+                }
+                else
+                {
+                    result.ReturnValue = bytes;
+                }
+            }
+            catch(Exception e)
+            {
+                result.Error = e;
+            }
+            
+            return result;
+        }
+        #endregion
         #endregion
     }
 }

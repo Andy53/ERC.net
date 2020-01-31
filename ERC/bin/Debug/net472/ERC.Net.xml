@@ -4487,6 +4487,12 @@
             </summary>
             <returns>Returns an ErcResult containing a list of ThreadInfo objects</returns>
         </member>
+        <member name="M:ERC.ProcessInfo.DumpMemoryRegion(System.IntPtr,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:ERC.ThreadInfo">
             <summary>
             Stores information about the current thread.
