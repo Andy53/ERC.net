@@ -2305,5 +2305,61 @@ namespace ERC
                              .ToArray();
         }
         #endregion
+
+        #region Dump Memory
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="startAddress"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        public static ErcResult<string> DumpMemory(ProcessInfo info, IntPtr startAddress, int length)
+        {
+            string dumpFilename = GetFilePath(info.WorkingDirectory, "MemoryDump_", ".txt");
+            ErcResult<byte[]> result = info.DumpMemoryRegion(startAddress, length);
+            ErcResult<string> output = new ErcResult<string>(info.ProcessCore);
+
+            int bytesPerLine = 0;
+
+            if (info.ProcessMachineType == MachineType.I386)
+            {
+                bytesPerLine = 8;
+            }
+            else if (info.ProcessMachineType == MachineType.x64)
+            {
+                bytesPerLine = 16;
+            }
+            else
+            {
+                output.Error = new ERCException("Unsupported MachineType. MachineType must be I386 or x64");
+                output.ReturnValue = "ERROR: Check exception.";
+                return output;
+            }
+
+            output.ReturnValue += "----------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
+            output.ReturnValue += "Contents of memory region 0x" + startAddress.ToString("X" + bytesPerLine) + " - 0x" + (startAddress + length).ToString("X" + bytesPerLine) 
+                + " Created at: " + DateTime.Now + ". Created by: " + info.Author + Environment.NewLine;
+            output.ReturnValue += "----------------------------------------------------------------------------------------------------------------------" + Environment.NewLine;
+
+            for(int i = 0; i < result.ReturnValue.Length; i++)
+            {
+                if(i == 0)
+                {
+                    output.ReturnValue += startAddress.ToString("X" + bytesPerLine) + ": " + result.ReturnValue[i].ToString("X2") + " ";
+                }
+                else if(i % bytesPerLine == 0)
+                {
+                    output.ReturnValue += Environment.NewLine;
+                    output.ReturnValue += (startAddress + ((i / bytesPerLine) * bytesPerLine)).ToString("X" + bytesPerLine) + ": " + result.ReturnValue[i].ToString("X2") + " ";
+                }
+                else
+                {
+                    output.ReturnValue += result.ReturnValue[i].ToString("X2") + " ";
+                }
+            }
+            return output;
+        }
+        #endregion
     }
 }

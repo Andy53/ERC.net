@@ -1304,6 +1304,15 @@
             <param name="hex">A string containing hex characters.</param>
             <returns>Returns a byte array.</returns>
         </member>
+        <member name="M:ERC.DisplayOutput.DumpMemory(ERC.ProcessInfo,System.IntPtr,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <param name="startAddress"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
         <member name="T:ERC.ERCException">
             <summary>
             Custom exception handler.
@@ -4489,9 +4498,11 @@
         </member>
         <member name="M:ERC.ProcessInfo.DumpMemoryRegion(System.IntPtr,System.Int32)">
             <summary>
-            
+            Reads process memory from a specific address for a set number of bytes. 
             </summary>
-            <returns></returns>
+            <param name="startAddress">The address to start reading from.</param>
+            <param name="length">Number of bytes to read.</param>
+            <returns>Returns a bytes array containing the specified contents of process memory.</returns>
         </member>
         <member name="T:ERC.ThreadInfo">
             <summary>
