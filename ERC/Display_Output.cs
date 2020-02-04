@@ -406,10 +406,11 @@ namespace ERC
         /// <param name="nxcompat">Remove NXCompat libraries.</param>
         /// <param name="osdll">Remove OS Dlls.</param>
         /// <param name="unwantedBytes">Addresses containing values in this byte array will be ignored.</param>
+        /// <param name="protection">String containing protection level returned pointers will.</param>
         /// <returns></returns>
         public static List<string> SearchMemory(ProcessInfo info, int searchType, string searchString, bool aslr = false, 
             bool safeseh = false, bool rebase = false, bool nxcompat = false, bool osdll = false, 
-            byte[] unwantedBytes = null)
+            byte[] unwantedBytes = null, string protection = "exec")
         {
             List<string> excludedModules = info.CreateExcludesList(aslr, safeseh, rebase, nxcompat, osdll);
             Dictionary<IntPtr, string> results = new Dictionary<IntPtr, string>();
@@ -424,9 +425,40 @@ namespace ERC
                 results = info.SearchMemory(searchType, null, searchString, excludedModules).ReturnValue;
             }
 
-            if(unwantedBytes != null)
+            if (unwantedBytes != null)
             {
-                results = ERC.Utilities.PtrRemover.RemovePointers(results, unwantedBytes);
+                List<IntPtr> p = new List<IntPtr>();
+                foreach (KeyValuePair<IntPtr, string> k in results)
+                {
+                    p.Add(k.Key);
+                }
+                var pt = ERC.Utilities.PtrRemover.RemovePointers(p, unwantedBytes);
+                pt = ERC.Utilities.PtrRemover.RemovePointersProtection(info, pt, protection);
+
+                foreach (KeyValuePair<IntPtr, string> k in results.ToList())
+                {
+                    if (!pt.Contains(k.Key))
+                    {
+                        results.Remove(k.Key);
+                    }
+                }
+            }
+            else
+            {
+                List<IntPtr> p = new List<IntPtr>();
+                foreach (KeyValuePair<IntPtr, string> k in results)
+                {
+                    p.Add(k.Key);
+                }
+                var pt = ERC.Utilities.PtrRemover.RemovePointersProtection(info, p, protection);
+
+                foreach (KeyValuePair<IntPtr, string> k in results.ToList())
+                {
+                    if (!pt.Contains(k.Key))
+                    {
+                        results.Remove(k.Key);
+                    }
+                }
             }
 
             List<string> output = new List<string>();
@@ -485,10 +517,11 @@ namespace ERC
         /// <param name="nxcompat">Remove NXCompat libraries.</param>
         /// <param name="osdll">Remove OS Dlls.</param>
         /// <param name="unwantedBytes">Addresses containing values in this byte array will be ignored.</param>
+        /// <param name="protection">String containing protection level returned pointers will.</param>
         /// <returns>Returns an ErcResult containing a list of strings detailing the pointers, opcodes and base files of suitable instruction sets.</returns>
         public static List<string> GetSEHJumps(ProcessInfo info, bool aslr = false,
             bool safeseh = false, bool rebase = false, bool nxcompat = false, bool osdll = false,
-            byte[] unwantedBytes = null)
+            byte[] unwantedBytes = null, string protection = "exec")
         {
             List<string> ret = new List<string>();
             List<string> excludedModules = info.CreateExcludesList(aslr, safeseh, rebase, nxcompat, osdll);
@@ -502,6 +535,24 @@ namespace ERC
                     p.Add(k.Key);
                 }
                 var pt = ERC.Utilities.PtrRemover.RemovePointers(p, unwantedBytes);
+                pt = ERC.Utilities.PtrRemover.RemovePointersProtection(info, pt, protection);
+
+                foreach (KeyValuePair<IntPtr, string> k in ptrs.ReturnValue.ToList())
+                {
+                    if (!pt.Contains(k.Key))
+                    {
+                        ptrs.ReturnValue.Remove(k.Key);
+                    }
+                }
+            }
+            else
+            {
+                List<IntPtr> p = new List<IntPtr>();
+                foreach (KeyValuePair<IntPtr, string> k in ptrs.ReturnValue)
+                {
+                    p.Add(k.Key);
+                }
+                var pt = ERC.Utilities.PtrRemover.RemovePointersProtection(info, p, protection);
 
                 foreach (KeyValuePair<IntPtr, string> k in ptrs.ReturnValue.ToList())
                 {
@@ -539,6 +590,7 @@ namespace ERC
             }
             byte[] ppr = new byte[5];
             int bytesread = 0;
+
             foreach (KeyValuePair<IntPtr, string> s in ptrs.ReturnValue)
             {
                 string holder = "";
@@ -579,6 +631,7 @@ namespace ERC
                 {
                     throw e;
                 }
+
                 for (int i = 0; i < info.ModulesInfo.Count; i++)
                 {
                     if (info.ModulesInfo[i].ModulePath == s.Value)
@@ -591,7 +644,6 @@ namespace ERC
                 }
                 ret.Add(holder);
             }
-
             File.WriteAllLines(sehFilename, ret);
             return ret;
         }
