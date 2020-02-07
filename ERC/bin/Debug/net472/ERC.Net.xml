@@ -250,18 +250,20 @@
             Contains methods for identifying and removing pointers to unwanted data.
             </summary>
         </member>
-        <member name="M:ERC.Utilities.PtrRemover.RemovePointers(System.Collections.Generic.List{System.IntPtr},System.Byte[])">
+        <member name="M:ERC.Utilities.PtrRemover.RemovePointers(ERC.MachineType,System.Collections.Generic.List{System.IntPtr},System.Byte[])">
             <summary>
             Removes pointers which contain unwanted bytes. 
             </summary>
+            <param name="mt">MachineType architecture of the associated process.</param>
             <param name="srcList">The list from which to remove the pointers</param>
             <param name="bytes">If a pointer contains any of these bytes it will be discarded</param>
             <returns>Returns a ErcResult of List IntPtr</returns>
         </member>
-        <member name="M:ERC.Utilities.PtrRemover.RemovePointers(System.Collections.Generic.Dictionary{System.IntPtr,System.String},System.Byte[])">
+        <member name="M:ERC.Utilities.PtrRemover.RemovePointers(ERC.MachineType,System.Collections.Generic.Dictionary{System.IntPtr,System.String},System.Byte[])">
             <summary>
             Removes pointers which contain unwanted bytes. 
             </summary>
+            <param name="mt">MachineType architecture of the associated process.</param>
             <param name="srcList">The list from which to remove the pointers</param>
             <param name="bytes">If a pointer contains any of these bytes it will be discarded</param>
             <returns>Returns a ErcResult of Dictionary IntPtr, String</returns>
