@@ -1,3 +1,5 @@
+<img src="icon.png" align="right" />
+
 # ERC.Net     
 [![License](https://img.shields.io/github/license/Andy53/ERC.Net)](license.txt)
 [![GitHub issues](https://img.shields.io/github/issues-raw/Andy53/ERC.Net?style=flat)](https://github.com/Andy53/ERC.Net/issues)
