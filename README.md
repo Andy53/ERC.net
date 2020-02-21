@@ -1,4 +1,10 @@
-# ERC.Net
+# ERC.Net     
+[![License](https://img.shields.io/github/license/Andy53/ERC.Net)](license.txt)
+[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/Andy53/ERC.Net?style=flat)](https://github.com/Andy53/ERC.Net/tags)
+[![GitHub issues](https://img.shields.io/github/issues-raw/Andy53/ERC.Net?style=flat)](https://github.com/Andy53/ERC.Net/issues)
+<a href="https://github.com/Andy53/ERC.Net/commits/master">
+    <img src="https://img.shields.io/github/last-commit/Andy53/ERC.Net?style=flat-square&logo=github&logoColor=white">
+</a> 
 
 ERC.Net is a collection of tools designed to assist in debugging Windows application crashes. ERC.Net supports both 64 and 32 bit applications, can parse DLL/EXE headers, identify compile time flags such as ASLR, DEP and SafeSEH, generate non repeating patterns, generate platform specific egg hunters, identify process information such as loaded modules and running threads, read the TEB of a specific thread, assist with identifying numerous types of memory vulnerabilities and has numerous other use cases. 
 
