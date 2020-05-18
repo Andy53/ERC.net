@@ -18,7 +18,7 @@ Visual studio
 C#   
 
 ### Documentation
-This library contains the fundamental specifications, documentation, and architecture that underpin ERC.Xdbg. If you're looking to understand the system better, or want to know how to integrate the various components, there is a lot of valuable information contained here.    
+This library contains the fundamental specifications, documentation, and architecture that underpin ERC.Net. If you're looking to understand the system better, or want to know how to integrate the various components, there is a lot of valuable information contained here.    
 
 [📄 Documentation and Specifications](https://andy53.github.io/ERC.net/) 
 
