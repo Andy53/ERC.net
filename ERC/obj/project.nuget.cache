@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "1wt49WrFyWVvG8SBfWoHYl/qL6yPEqyErPMcI/x/TbJmNvf264xdCUaY2dUIwQwN54QLUyaFQMrfQyH/RWq0GQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\tester\\Documents\\GitHub\\ERC.net\\ERC\\ERC.Net.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tester\\.nuget\\packages\\reloaded.assembler\\1.0.5\\reloaded.assembler.1.0.5.nupkg.sha512",
+    "C:\\Users\\tester\\.nuget\\packages\\reloaded.memory\\1.2.2\\reloaded.memory.1.2.2.nupkg.sha512",
+    "C:\\Users\\tester\\.nuget\\packages\\reloaded.memory.buffers\\1.2.0\\reloaded.memory.buffers.1.2.0.nupkg.sha512",
+    "C:\\Users\\tester\\.nuget\\packages\\sharpdisasm\\1.1.11\\sharpdisasm.1.1.11.nupkg.sha512",
+    "C:\\Users\\tester\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\tester\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\tester\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
+    "C:\\Users\\tester\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+  ],
+  "logs": []
+}

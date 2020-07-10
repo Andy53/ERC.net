@@ -83,3 +83,4 @@ C:\Users\tester\Documents\GitHub\ERC.net\ERC\obj\Debug\net472\ERC.Net.AssemblyIn
 C:\Users\tester\Documents\GitHub\ERC.net\ERC\obj\Debug\net472\ERC.Net.csproj.CopyComplete
 C:\Users\tester\Documents\GitHub\ERC.net\ERC\obj\Debug\net472\ERC.Net.dll
 C:\Users\tester\Documents\GitHub\ERC.net\ERC\obj\Debug\net472\ERC.Net.pdb
+C:\Users\tester\Documents\GitHub\ERC.net\ERC\obj\Debug\net472\ERC.Net.csproj.CoreCompileInputs.cache
