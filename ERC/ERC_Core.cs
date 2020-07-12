@@ -705,7 +705,7 @@ namespace ERC
         {
             using (StreamWriter sw = File.AppendText(base.SystemErrorLogPath))
             {
-                sw.WriteLine(Error);
+                sw.WriteLine(Error + " TimeStamp: " + DateTime.Now);
             }
         }
 
