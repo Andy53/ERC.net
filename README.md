@@ -94,7 +94,7 @@ namespace ERC_Test_App
 }
 ```
 
-Search Process Memory for a string (the string being searched for in "anonymous", the program being searched is notepad) and return a list of pointers to that string in process memory:
+Search Process Memory for a string (the string being searched for is "anonymous", the program being searched is notepad) and return a list of pointers to that string in process memory:
 ```csharp
 using System;
 using System.Collections.Generic;
