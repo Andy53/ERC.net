@@ -439,7 +439,7 @@ namespace ERC_test_app
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/Andy53/ERC.net/tags). 
+For the versions available, see the [tags on this repository](https://github.com/Andy53/ERC.net/tags). 
 
 ## Authors
 
