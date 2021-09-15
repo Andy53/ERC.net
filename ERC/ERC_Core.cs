@@ -368,7 +368,7 @@ namespace ERC
         /// <param name="heapID">The identifier of the heap to be enumerated.</param>
         /// <returns>Returns TRUE if information for the first heap block has been copied to the buffer or FALSE otherwise. </returns>
         [DllImport("kernel32.dll", SetLastError = true, CallingConvention = CallingConvention.StdCall)]
-        internal static extern bool Heap32First(ref HEAPENTRY32 heapentry32, uint processID, UIntPtr heapID);
+        internal static extern bool Heap32First(ref HEAPENTRY32 heapentry32, uint processID, IntPtr heapID);
 
         /// <summary>
         /// Retrieves information about the next block of a heap that has been allocated by a process.
@@ -3101,9 +3101,9 @@ namespace ERC
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         public struct HEAPLIST32
         {
-            internal UIntPtr dwSize;
+            internal IntPtr dwSize;
             internal uint th32ProcessID;
-            internal UIntPtr th32HeapID;
+            internal IntPtr th32HeapID;
             internal uint dwFlags;
         }
 
@@ -3114,13 +3114,13 @@ namespace ERC
         public struct HEAPENTRY32
         {
             /** The size of the structure, in bytes **/
-            internal UIntPtr dwSize;
+            internal IntPtr dwSize;
             /** A handle to the heap block **/
             internal IntPtr hHandle;
             /** The linear address of the start of the block **/
-            internal UIntPtr dwAddress;
+            internal IntPtr dwAddress;
             /** The size of the heap block, in bytes **/
-            internal UIntPtr dwBlockSize;
+            internal IntPtr dwBlockSize;
             /** This member can be one of the following values.
                 LF32_FIXED    0x00000001
                LF32_FREE     0x00000002
@@ -3133,7 +3133,7 @@ namespace ERC
             /** The identifier of the process that uses the heap **/
             internal uint th32ProcessID;
             /** The heap identifier. This is not a handle, and has meaning only to the tool help functions **/
-            internal UIntPtr th32HeapID;
+            internal IntPtr th32HeapID;
         }
         #endregion
     }

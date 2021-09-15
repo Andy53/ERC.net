@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -414,50 +413,50 @@ namespace ERC
             byte[] unwantedBytes = null, string protection = "exec")
         {
             List<string> excludedModules = info.CreateExcludesList(aslr, safeseh, rebase, nxcompat, osdll);
-            Dictionary<IntPtr, string> results = new Dictionary<IntPtr, string>();
+            Dictionary<IntPtr, string> result = new Dictionary<IntPtr, string>();
 
             if (searchType == 0)
             {
                 byte[] searchBytes = StringToByteArray(searchString.Replace(" ", ""));
-                results = info.SearchMemory(searchType, searchBytes, null, excludedModules).ReturnValue;
+                result = info.SearchMemory(searchType, searchBytes, null, excludedModules).ReturnValue;
             }
             else
             {
-                results = info.SearchMemory(searchType, null, searchString, excludedModules).ReturnValue;
+                result = info.SearchMemory(searchType, null, searchString, excludedModules).ReturnValue;
             }
 
             if (unwantedBytes != null)
             {
                 List<IntPtr> p = new List<IntPtr>();
-                foreach (KeyValuePair<IntPtr, string> k in results)
+                foreach (KeyValuePair<IntPtr, string> k in result)
                 {
                     p.Add(k.Key);
                 }
                 var pt = ERC.Utilities.PtrRemover.RemovePointers(info.ProcessMachineType, p, unwantedBytes);
                 pt = ERC.Utilities.PtrRemover.RemovePointersProtection(info, pt, protection);
 
-                foreach (KeyValuePair<IntPtr, string> k in results.ToList())
+                foreach (KeyValuePair<IntPtr, string> k in result.ToList())
                 {
                     if (!pt.Contains(k.Key))
                     {
-                        results.Remove(k.Key);
+                        result.Remove(k.Key);
                     }
                 }
             }
             else
             {
                 List<IntPtr> p = new List<IntPtr>();
-                foreach (KeyValuePair<IntPtr, string> k in results)
+                foreach (KeyValuePair<IntPtr, string> k in result)
                 {
                     p.Add(k.Key);
                 }
                 var pt = ERC.Utilities.PtrRemover.RemovePointersProtection(info, p, protection);
 
-                foreach (KeyValuePair<IntPtr, string> k in results.ToList())
+                foreach (KeyValuePair<IntPtr, string> k in result.ToList())
                 {
                     if (!pt.Contains(k.Key))
                     {
-                        results.Remove(k.Key);
+                        result.Remove(k.Key);
                     }
                 }
             }
@@ -474,7 +473,7 @@ namespace ERC
                 output.Add("      Address      | ASLR | SafeSEH  | Rebase | NXCompat | OsDLL | Module Path");
             }
             output.Add("----------------------------------------------------------------------");
-            foreach (KeyValuePair<IntPtr, string> v in results)
+            foreach (KeyValuePair<IntPtr, string> v in result)
             {
                 for (int i = 0; i < info.ModulesInfo.Count; i++)
                 {
@@ -526,50 +525,50 @@ namespace ERC
             byte[] unwantedBytes = null, List<string> modules = null, string protection = "exec")
         {
             List<string> excludedModules = info.CreateExcludesList(aslr, safeseh, rebase, nxcompat, osdll);
-            Dictionary<IntPtr, string> results = new Dictionary<IntPtr, string>();
+            Dictionary<IntPtr, string> result = new Dictionary<IntPtr, string>();
 
             if (searchType == 0)
             {
                 byte[] searchBytes = StringToByteArray(searchString.Replace(" ", ""));
-                results = info.SearchModules(searchType, unwantedBytes, searchBytes, null, modules, excludedModules).ReturnValue;
+                result = info.SearchModules(searchType, unwantedBytes, searchBytes, null, modules, excludedModules).ReturnValue;
             }
             else
             {
-                results = info.SearchModules(searchType, unwantedBytes, null, searchString, modules, excludedModules).ReturnValue;
+                result = info.SearchModules(searchType, unwantedBytes, null, searchString, modules, excludedModules).ReturnValue;
             }
 
             if (unwantedBytes != null)
             {
                 List<IntPtr> p = new List<IntPtr>();
-                foreach (KeyValuePair<IntPtr, string> k in results)
+                foreach (KeyValuePair<IntPtr, string> k in result)
                 {
                     p.Add(k.Key);
                 }
                 var pt = ERC.Utilities.PtrRemover.RemovePointers(info.ProcessMachineType, p, unwantedBytes);
                 pt = ERC.Utilities.PtrRemover.RemovePointersProtection(info, pt, protection);
 
-                foreach (KeyValuePair<IntPtr, string> k in results.ToList())
+                foreach (KeyValuePair<IntPtr, string> k in result.ToList())
                 {
                     if (!pt.Contains(k.Key))
                     {
-                        results.Remove(k.Key);
+                        result.Remove(k.Key);
                     }
                 }
             }
             else
             {
                 List<IntPtr> p = new List<IntPtr>();
-                foreach (KeyValuePair<IntPtr, string> k in results)
+                foreach (KeyValuePair<IntPtr, string> k in result)
                 {
                     p.Add(k.Key);
                 }
                 var pt = ERC.Utilities.PtrRemover.RemovePointersProtection(info, p, protection);
 
-                foreach (KeyValuePair<IntPtr, string> k in results.ToList())
+                foreach (KeyValuePair<IntPtr, string> k in result.ToList())
                 {
                     if (!pt.Contains(k.Key))
                     {
-                        results.Remove(k.Key);
+                        result.Remove(k.Key);
                     }
                 }
             }
@@ -585,7 +584,7 @@ namespace ERC
                 output.Add("      Address      | ASLR | SafeSEH  | Rebase | NXCompat | OsDLL | Module Path");
             }
             output.Add("----------------------------------------------------------------------");
-            foreach (KeyValuePair<IntPtr, string> v in results)
+            foreach (KeyValuePair<IntPtr, string> v in result)
             {
                 for (int i = 0; i < info.ModulesInfo.Count; i++)
                 {
@@ -2748,30 +2747,91 @@ namespace ERC
 
         #region Dump Heap
         /// <summary>
-        /// Reads a set of bytes from a specific heap and provides a string contianing the results.
+        /// Reads a set of bytes from a specific heap and provides a string contianing the results. Either HeapID or startAddress must be supplied. If both are supplied HeapID takes precedence.
         /// </summary>
         /// <param name="hi">HeapInfo object</param>
-        /// <param name="heapid">The ID of the heap to be dumped.</param>
-        /// <param name="writeToFile">Bool indicating if output should be written to a file.</param>
+        /// <param name="heapid">The ID of the heap to be dumped. (optional)</param>
+        /// <param name="hexStartAddress">The start address of the specific heap block to be dumped in hexadecimal. (optional)</param>
+        /// <param name="writeToFile">Bool indicating if output should be written to a file.(optional)</param>
         /// <returns>A string containing the bytes read from memory</returns>
-        public static ErcResult<List<string>> DumpHeap(HeapInfo hi, ulong heapid, bool writeToFile = true)
+        public static ErcResult<List<string>> DumpHeap(HeapInfo hi, ulong heapid = 0, string hexStartAddress = "", bool writeToFile = true)
         {
-            Dictionary<IntPtr, int> searches = new Dictionary<IntPtr, int>();
-            foreach(Structures.HEAPENTRY32 he in hi.heapentries)
+            ErcResult<List<string>> output = new ErcResult<List<string>>(hi.HeapProcess.ProcessCore);
+            output.ReturnValue = new List<string>();
+
+            if (hexStartAddress.Contains("0x") || hexStartAddress.Contains("0x") || hexStartAddress.Contains("x") || hexStartAddress.Contains("X"))
             {
-                if ((ulong)he.th32HeapID == heapid)
+                hexStartAddress = hexStartAddress.Replace("0x", "");
+                hexStartAddress = hexStartAddress.Replace("0X", "");
+                hexStartAddress = hexStartAddress.Replace("X", "");
+                hexStartAddress = hexStartAddress.Replace("x", "");
+            }
+
+            ulong startAddress = 0;
+            if (hi.HeapProcess.ProcessMachineType == MachineType.I386)
+            {
+                try
                 {
-                    if (!searches.ContainsKey((IntPtr)(ulong)he.dwAddress))
+                    startAddress = (uint)System.Convert.ToInt32(hexStartAddress, 16);
+                }
+                catch (Exception e)
+                {
+                    output.Error = e;
+                }
+
+            }
+            else
+            {
+                try
+                {
+                    startAddress = (ulong)System.Convert.ToInt64(hexStartAddress, 16);
+                }
+                catch (Exception e)
+                {
+                    output.Error = e;
+                }
+            }
+
+            if (heapid == 0 && startAddress == 0)
+            {
+                ErcResult<List<string>> ret = new ErcResult<List<string>>(hi.HeapProcess);
+                ret.ReturnValue = new List<string>();
+                ret.Error = new ERCException("Neither heapID or start address supplied. One must be supplied in order to utilize this method.");
+                ret.ReturnValue.Add("ERROR: Check exception.");
+                return ret;
+            }
+
+            Dictionary<IntPtr, int> searches = new Dictionary<IntPtr, int>();
+            if(heapid != 0)
+            {
+                foreach (Structures.HEAPENTRY32 he in hi.HeapEntries)
+                {
+                    if ((ulong)he.th32HeapID == heapid)
                     {
-                        searches.Add((IntPtr)(ulong)he.dwAddress, (int)he.dwBlockSize);
+                        if (!searches.ContainsKey(he.dwAddress))
+                        {
+                            searches.Add(he.dwAddress, (int)he.dwBlockSize);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (Structures.HEAPENTRY32 he in hi.HeapEntries)
+                {
+                    if ((ulong)he.dwAddress == startAddress)
+                    {
+                        heapid = (ulong)he.th32HeapID;
+                        if (!searches.ContainsKey(he.dwAddress))
+                        {
+                            searches.Add(he.dwAddress, (int)he.dwBlockSize);
+                        }
                     }
                 }
             }
             
+            
             string dumpFilename = GetFilePath(hi.HeapProcess.WorkingDirectory, "HeapDump_", ".txt");
-            ErcResult<List<string>> output = new ErcResult<List<string>>(hi.HeapProcess.ProcessCore);
-            output.ReturnValue = new List<string>();
-
             int bytesPerLine = 0;
 
             output.ReturnValue.Add("----------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
@@ -2832,16 +2892,16 @@ namespace ERC
         /// <returns>Returns a list of strings</returns>
         public static ErcResult<List<string>> HeapStats(HeapInfo hi, bool extended = false)
         {
-            ErcResult<List<string>> output = new ErcResult<List<string>>(hi.HeapProcess);
-            output.ReturnValue = new List<string>();
-            output.ReturnValue.Add("----------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-            output.ReturnValue.Add("Heap statistics for process: " + hi.HeapProcess.ProcessName + " Created at: " + DateTime.Now + ". Created by: " + hi.HeapProcess.Author + Environment.NewLine);
-            output.ReturnValue.Add("----------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-            foreach (string s in hi.HeapStatistics(extended))
+            ErcResult<List<string>> result = new ErcResult<List<string>>(hi.HeapProcess);
+            result.ReturnValue = new List<string>();
+            result.ReturnValue.Add("----------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+            result.ReturnValue.Add("Heap statistics for process: " + hi.HeapProcess.ProcessName + " Created at: " + DateTime.Now + ". Created by: " + hi.HeapProcess.Author + Environment.NewLine);
+            result.ReturnValue.Add("----------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+            foreach (string s in hi.HeapStatistics(extended).ReturnValue)
             {
-                output.ReturnValue.Add(s);
+                result.ReturnValue.Add(s);
             }
-            return output;
+            return result;
         }
         #endregion
     }
