@@ -2890,16 +2890,16 @@ namespace ERC
         /// </summary>
         /// <param name="hi"></param>
         /// <returns>Returns a list of strings</returns>
-        public static ErcResult<List<string>> HeapStats(HeapInfo hi, bool extended = false)
+        public static List<string> HeapStats(HeapInfo hi, ulong heapID = 0, string hexStartAddress = "", bool extended = false)
         {
-            ErcResult<List<string>> result = new ErcResult<List<string>>(hi.HeapProcess);
-            result.ReturnValue = new List<string>();
-            result.ReturnValue.Add("----------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-            result.ReturnValue.Add("Heap statistics for process: " + hi.HeapProcess.ProcessName + " Created at: " + DateTime.Now + ". Created by: " + hi.HeapProcess.Author + Environment.NewLine);
-            result.ReturnValue.Add("----------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
-            foreach (string s in hi.HeapStatistics(extended).ReturnValue)
+            List<string> result = new List<string>();
+            result = new List<string>();
+            result.Add("----------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+            result.Add("Heap statistics for process: " + hi.HeapProcess.ProcessName + " Created at: " + DateTime.Now + ". Created by: " + hi.HeapProcess.Author + Environment.NewLine);
+            result.Add("----------------------------------------------------------------------------------------------------------------------" + Environment.NewLine);
+            foreach (string s in hi.HeapStatistics(extended, heapID, hexStartAddress).ReturnValue)
             {
-                result.ReturnValue.Add(s);
+                result.Add(s);
             }
             return result;
         }
@@ -2921,6 +2921,48 @@ namespace ERC
                 result.Add("Heap " + heapnum + " ID = " + ul + Environment.NewLine);
             }
 
+            return result;
+        }
+        #endregion
+
+        #region Search Heap
+        public static List<string> SearchHeap(HeapInfo hi, byte[] searchBytes, ulong heapID = 0, string hexStartAddress = "", bool writeToFile = true)
+        {
+            var output = hi.SearchHeap(searchBytes, heapID, hexStartAddress);
+            List<string> result = new List<string>();
+            if(output.Error != null)
+            {
+                result.Add("ERROR: " + output.Error.Message + Environment.NewLine);
+            }
+
+            if(output.ReturnValue.Count == 0)
+            {
+                result.Add(String.Format("Search table on {0} by {1}. Search string: 0x{2}", DateTime.Now, hi.HeapProcess.Author, BitConverter.ToString(searchBytes).Replace("-", "")) + Environment.NewLine);
+                result.Add("----------------------------------------------------------------------" + Environment.NewLine);
+                result.Add("No instances of the pattern were found." + Environment.NewLine);
+                return result;
+            }
+
+            result.Add(String.Format("Search table created on {0} by {1}. Search string: 0x{2}", DateTime.Now, hi.HeapProcess.Author, BitConverter.ToString(searchBytes).Replace("-", "")) + Environment.NewLine);
+            result.Add("----------------------------------------------------------------------" + Environment.NewLine);
+            
+            if(hi.HeapProcess.ProcessMachineType == MachineType.I386)
+            {
+                result.Add("  Address   | Heap ID  | Heap Entry Start Address " + Environment.NewLine);
+                foreach (Tuple<IntPtr, IntPtr, IntPtr> t in output.ReturnValue)
+                {
+                    result.Add(" 0x" + t.Item1.ToString("X8") + " | " + (uint)t.Item2 + " | 0x" + t.Item3.ToString("X8") + Environment.NewLine);
+                }
+            }
+            else
+            {
+                result.Add("       Address      |    Heap ID    | Heap Entry Start Address " + Environment.NewLine);
+                foreach (Tuple<IntPtr, IntPtr, IntPtr> t in output.ReturnValue)
+                {
+                    result.Add(" 0x" + t.Item1.ToString("X16") + " | " + (ulong)t.Item2 + " | 0x" + t.Item3.ToString("X16") + Environment.NewLine);
+                }
+            }
+            result.Add(Environment.NewLine);
             return result;
         }
         #endregion
