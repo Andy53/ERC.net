@@ -414,7 +414,7 @@ namespace ERC_test_app
         {
             public static ErcCore core = new ErcCore();
             Console.WriteLine("Generate RopChain 32");
-            GenerateRopChain32();*/
+            GenerateRopChain32();
             Console.ReadKey();
         }
 
