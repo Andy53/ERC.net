@@ -1757,15 +1757,6 @@ namespace ERC.Utilities
                         }
                     }
                 }
-                else
-                {
-                    regLists32.esiList = null;
-                    regLists32.esiList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.esiList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. ESI must be allocated manually"));
-                    regState32 |= Register32.ESI;
-                }
                 #endregion
 
                 #region Populate EBP
@@ -1848,15 +1839,6 @@ namespace ERC.Utilities
                         }
                     }
                 }
-                else
-                {
-                    regLists32.ebpList = null;
-                    regLists32.ebpList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.ebpList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EBP must be allocated manually"));
-                    regState32 |= Register32.EBP;
-                }
                 #endregion
 
                 #region Populate EBX
@@ -1931,15 +1913,6 @@ namespace ERC.Utilities
                         }
                     }    
                     
-                }
-                else
-                {
-                    regLists32.ebxList = null;
-                    regLists32.ebxList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.ebxList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EBX must be allocated manually"));
-                    regState32 |= Register32.EBX;
                 }
                 if (!regState32.HasFlag(Register32.EBX))
                 {
@@ -2041,15 +2014,6 @@ namespace ERC.Utilities
                         regState32 |= Register32.EDX;
                     }
                 }
-                else
-                {
-                    regLists32.edxList = null;
-                    regLists32.edxList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.edxList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EDX must be allocated manually"));
-                    regState32 |= Register32.EDX;
-                }
                 #endregion
 
                 #region Populate ECX
@@ -2141,15 +2105,6 @@ namespace ERC.Utilities
                         regState32 |= Register32.ECX;
                     }
                 }
-                else
-                {
-                    regLists32.edxList = null;
-                    regLists32.edxList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.edxList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EDX must be allocated manually"));
-                    regState32 |= Register32.ECX;
-                }
                 #endregion
 
                 #region Populate EAX
@@ -2208,15 +2163,6 @@ namespace ERC.Utilities
                             "Unable to find appropriate instruction. EAX must be allocated manually"));
                         regState32 |= Register32.EAX;
                     }
-                }
-                else
-                {
-                    regLists32.eaxList = null;
-                    regLists32.eaxList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.eaxList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EAX must be allocated manually"));
-                    regState32 |= Register32.EAX;
                 }
                 #endregion
             }
@@ -2311,15 +2257,6 @@ namespace ERC.Utilities
                         regState32 |= Register32.EDI;
                     }
                 }
-                else
-                {
-                    regLists32.ediList = null;
-                    regLists32.ediList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.ediList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EDI must be allocated manually"));
-                    regState32 |= Register32.EDI;
-                }
                 #endregion
 
                 #region Populate ESI
@@ -2376,15 +2313,6 @@ namespace ERC.Utilities
                             regState32 |= Register32.ESI;
                         }
                     }
-                }
-                else
-                {
-                    regLists32.esiList = null;
-                    regLists32.esiList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.esiList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. ESI must be allocated manually"));
-                    regState32 |= Register32.ESI;
                 }
                 #endregion
 
@@ -2463,15 +2391,6 @@ namespace ERC.Utilities
                         }
                     }
                 }
-                else
-                {
-                    regLists32.ebpList = null;
-                    regLists32.ebpList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.ebpList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EBP must be allocated manually"));
-                    regState32 |= Register32.EBP;
-                }
                 #endregion
 
                 #region Populate EBX
@@ -2532,15 +2451,6 @@ namespace ERC.Utilities
                         regState32 |= Register32.EBX;
                     }
                 }
-                else
-                {
-                    regLists32.ebxList = null;
-                    regLists32.ebxList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.ebxList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EBX must be allocated manually"));
-                    regState32 |= Register32.EBX;
-                }
                 #endregion
 
                 #region Populate EDX
@@ -2599,15 +2509,6 @@ namespace ERC.Utilities
                             "Unable to find appropriate instruction. EDX must be allocated manually"));
                         regState32 |= Register32.EDX;
                     }
-                }
-                else
-                {
-                    regLists32.edxList = null;
-                    regLists32.edxList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.edxList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EDX must be allocated manually"));
-                    regState32 |= Register32.EDX;
                 }
                 #endregion
 
@@ -2668,15 +2569,6 @@ namespace ERC.Utilities
                         regState32 |= Register32.ECX;
                     }
                 }
-                else
-                {
-                    regLists32.ecxList = null;
-                    regLists32.ecxList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.ecxList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. ECX must be allocated manually"));
-                    regState32 |= Register32.ECX;
-                }
                 #endregion
 
                 #region Populate EAX
@@ -2735,15 +2627,6 @@ namespace ERC.Utilities
                             "Unable to find appropriate instruction. EAX must be allocated manually"));
                         regState32 |= Register32.EAX;
                     }
-                }
-                else
-                {
-                    regLists32.eaxList = null;
-                    regLists32.eaxList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.eaxList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EAX must be allocated manually"));
-                    regState32 |= Register32.EAX;
                 }
                 #endregion
             }
@@ -2839,15 +2722,6 @@ namespace ERC.Utilities
                         regState32 |= Register32.EDI;
                     }
                 }
-                else
-                {
-                    regLists32.ediList = null;
-                    regLists32.ediList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.ediList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EDI must be allocated manually"));
-                    regState32 |= Register32.EDI;
-                }
                 #endregion
 
                 #region Populate ESI
@@ -2904,15 +2778,6 @@ namespace ERC.Utilities
                             regState32 |= Register32.ESI;
                         }
                     }
-                }
-                else
-                {
-                    regLists32.esiList = null;
-                    regLists32.esiList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.esiList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. ESI must be allocated manually"));
-                    regState32 |= Register32.ESI;
                 }
                 #endregion
 
@@ -2991,15 +2856,6 @@ namespace ERC.Utilities
                         }
                     }
                 }
-                else
-                {
-                    regLists32.ebpList = null;
-                    regLists32.ebpList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.ebpList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EBP must be allocated manually"));
-                    regState32 |= Register32.EBP;
-                }
                 #endregion
 
                 #region Populate EBX
@@ -3076,15 +2932,6 @@ namespace ERC.Utilities
 
                 }
                 if (!regState32.HasFlag(Register32.EBX))
-                {
-                    regLists32.ebxList = null;
-                    regLists32.ebxList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.ebxList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EBX must be allocated manually"));
-                    regState32 |= Register32.EBX;
-                }
-                else
                 {
                     regLists32.ebxList = null;
                     regLists32.ebxList = new List<Tuple<byte[], string>>();
@@ -3182,15 +3029,6 @@ namespace ERC.Utilities
                         regState32 |= Register32.EDX;
                     }
                 }
-                else
-                {
-                    regLists32.edxList = null;
-                    regLists32.edxList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.edxList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EDX must be allocated manually"));
-                    regState32 |= Register32.EDX;
-                }
                 #endregion
 
                 #region Populate ECX
@@ -3260,15 +3098,6 @@ namespace ERC.Utilities
                         regState32 |= Register32.ECX;
                     }
                 }
-                else 
-                {
-                    regLists32.ecxList = null;
-                    regLists32.ecxList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.ecxList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. ECX must be allocated manually"));
-                    regState32 |= Register32.ECX;
-                }
                 #endregion
 
                 #region Populate EAX
@@ -3327,15 +3156,6 @@ namespace ERC.Utilities
                             "Unable to find appropriate instruction. EAX must be allocated manually"));
                         regState32 |= Register32.EAX;
                     }
-                }
-                else
-                {
-                    regLists32.eaxList = null;
-                    regLists32.eaxList = new List<Tuple<byte[], string>>();
-                    byte[] nullBytes = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-                    regLists32.eaxList.Add(Tuple.Create(nullBytes,
-                        "Unable to find appropriate instruction. EAX must be allocated manually"));
-                    regState32 |= Register32.EAX;
                 }
                 #endregion
             }
