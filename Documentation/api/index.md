@@ -1,2 +1,2 @@
-# PLACEHOLDER
-TODO: Add .NET projects to the *src* folder and run `docfx` to generate **REAL** *API Documentation*!
+# ERC.Net
+In the left panel, you find the API documentation for all accessible structures and functionality of the ERC.Net library.

@@ -105,25 +105,12 @@ references:
   isSpec: "True"
   fullName: ERC.DisplayOutput.DisplayThreadInfo
   nameWithType: DisplayOutput.DisplayThreadInfo
-- uid: ERC.DisplayOutput.DumpHeap(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)
-  name: DumpHeap(HeapInfo, UInt64, String, Boolean)
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_DumpHeap_ERC_HeapInfo_System_UInt64_System_String_System_Boolean_
-  commentId: M:ERC.DisplayOutput.DumpHeap(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)
-  fullName: ERC.DisplayOutput.DumpHeap(ERC.HeapInfo, System.UInt64, System.String, System.Boolean)
-  nameWithType: DisplayOutput.DumpHeap(HeapInfo, UInt64, String, Boolean)
-- uid: ERC.DisplayOutput.DumpHeap*
-  name: DumpHeap
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_DumpHeap_
-  commentId: Overload:ERC.DisplayOutput.DumpHeap
-  isSpec: "True"
-  fullName: ERC.DisplayOutput.DumpHeap
-  nameWithType: DisplayOutput.DumpHeap
-- uid: ERC.DisplayOutput.DumpMemory(ERC.ProcessInfo,System.IntPtr,System.Int32,System.Boolean)
-  name: DumpMemory(ProcessInfo, IntPtr, Int32, Boolean)
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_DumpMemory_ERC_ProcessInfo_System_IntPtr_System_Int32_System_Boolean_
-  commentId: M:ERC.DisplayOutput.DumpMemory(ERC.ProcessInfo,System.IntPtr,System.Int32,System.Boolean)
-  fullName: ERC.DisplayOutput.DumpMemory(ERC.ProcessInfo, System.IntPtr, System.Int32, System.Boolean)
-  nameWithType: DisplayOutput.DumpMemory(ProcessInfo, IntPtr, Int32, Boolean)
+- uid: ERC.DisplayOutput.DumpMemory(ERC.ProcessInfo,System.IntPtr,System.Int32)
+  name: DumpMemory(ProcessInfo, IntPtr, Int32)
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_DumpMemory_ERC_ProcessInfo_System_IntPtr_System_Int32_
+  commentId: M:ERC.DisplayOutput.DumpMemory(ERC.ProcessInfo,System.IntPtr,System.Int32)
+  fullName: ERC.DisplayOutput.DumpMemory(ERC.ProcessInfo, System.IntPtr, System.Int32)
+  nameWithType: DisplayOutput.DumpMemory(ProcessInfo, IntPtr, Int32)
 - uid: ERC.DisplayOutput.DumpMemory*
   name: DumpMemory
   href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_DumpMemory_
@@ -224,48 +211,6 @@ references:
   isSpec: "True"
   fullName: ERC.DisplayOutput.GetSEHJumps
   nameWithType: DisplayOutput.GetSEHJumps
-- uid: ERC.DisplayOutput.GetSEHJumpsUnicode(ERC.ProcessInfo,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
-  name: GetSEHJumpsUnicode(ProcessInfo, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], String)
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_GetSEHJumpsUnicode_ERC_ProcessInfo_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Byte___System_String_
-  commentId: M:ERC.DisplayOutput.GetSEHJumpsUnicode(ERC.ProcessInfo,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
-  name.vb: GetSEHJumpsUnicode(ProcessInfo, Boolean, Boolean, Boolean, Boolean, Boolean, Byte(), String)
-  fullName: ERC.DisplayOutput.GetSEHJumpsUnicode(ERC.ProcessInfo, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Byte[], System.String)
-  fullName.vb: ERC.DisplayOutput.GetSEHJumpsUnicode(ERC.ProcessInfo, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Byte(), System.String)
-  nameWithType: DisplayOutput.GetSEHJumpsUnicode(ProcessInfo, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], String)
-  nameWithType.vb: DisplayOutput.GetSEHJumpsUnicode(ProcessInfo, Boolean, Boolean, Boolean, Boolean, Boolean, Byte(), String)
-- uid: ERC.DisplayOutput.GetSEHJumpsUnicode*
-  name: GetSEHJumpsUnicode
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_GetSEHJumpsUnicode_
-  commentId: Overload:ERC.DisplayOutput.GetSEHJumpsUnicode
-  isSpec: "True"
-  fullName: ERC.DisplayOutput.GetSEHJumpsUnicode
-  nameWithType: DisplayOutput.GetSEHJumpsUnicode
-- uid: ERC.DisplayOutput.HeapStats(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)
-  name: HeapStats(HeapInfo, UInt64, String, Boolean)
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_HeapStats_ERC_HeapInfo_System_UInt64_System_String_System_Boolean_
-  commentId: M:ERC.DisplayOutput.HeapStats(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)
-  fullName: ERC.DisplayOutput.HeapStats(ERC.HeapInfo, System.UInt64, System.String, System.Boolean)
-  nameWithType: DisplayOutput.HeapStats(HeapInfo, UInt64, String, Boolean)
-- uid: ERC.DisplayOutput.HeapStats*
-  name: HeapStats
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_HeapStats_
-  commentId: Overload:ERC.DisplayOutput.HeapStats
-  isSpec: "True"
-  fullName: ERC.DisplayOutput.HeapStats
-  nameWithType: DisplayOutput.HeapStats
-- uid: ERC.DisplayOutput.ListHeapIDs(ERC.HeapInfo)
-  name: ListHeapIDs(HeapInfo)
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_ListHeapIDs_ERC_HeapInfo_
-  commentId: M:ERC.DisplayOutput.ListHeapIDs(ERC.HeapInfo)
-  fullName: ERC.DisplayOutput.ListHeapIDs(ERC.HeapInfo)
-  nameWithType: DisplayOutput.ListHeapIDs(HeapInfo)
-- uid: ERC.DisplayOutput.ListHeapIDs*
-  name: ListHeapIDs
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_ListHeapIDs_
-  commentId: Overload:ERC.DisplayOutput.ListHeapIDs
-  isSpec: "True"
-  fullName: ERC.DisplayOutput.ListHeapIDs
-  nameWithType: DisplayOutput.ListHeapIDs
 - uid: ERC.DisplayOutput.ListLocalProcesses
   name: ListLocalProcesses()
   href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_ListLocalProcesses
@@ -292,12 +237,12 @@ references:
   isSpec: "True"
   fullName: ERC.DisplayOutput.ListRemoteProcesses
   nameWithType: DisplayOutput.ListRemoteProcesses
-- uid: ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32,System.Boolean)
-  name: RopChainGadgets32(RopChainGenerator32, Boolean)
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_RopChainGadgets32_ERC_Utilities_RopChainGenerator32_System_Boolean_
-  commentId: M:ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32,System.Boolean)
-  fullName: ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32, System.Boolean)
-  nameWithType: DisplayOutput.RopChainGadgets32(RopChainGenerator32, Boolean)
+- uid: ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32)
+  name: RopChainGadgets32(RopChainGenerator32)
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_RopChainGadgets32_ERC_Utilities_RopChainGenerator32_
+  commentId: M:ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32)
+  fullName: ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32)
+  nameWithType: DisplayOutput.RopChainGadgets32(RopChainGenerator32)
 - uid: ERC.DisplayOutput.RopChainGadgets32*
   name: RopChainGadgets32
   href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_RopChainGadgets32_
@@ -305,12 +250,12 @@ references:
   isSpec: "True"
   fullName: ERC.DisplayOutput.RopChainGadgets32
   nameWithType: DisplayOutput.RopChainGadgets32
-- uid: ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64,System.Boolean)
-  name: RopChainGadgets64(RopChainGenerator64, Boolean)
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_RopChainGadgets64_ERC_Utilities_RopChainGenerator64_System_Boolean_
-  commentId: M:ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64,System.Boolean)
-  fullName: ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64, System.Boolean)
-  nameWithType: DisplayOutput.RopChainGadgets64(RopChainGenerator64, Boolean)
+- uid: ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64)
+  name: RopChainGadgets64(RopChainGenerator64)
+  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_RopChainGadgets64_ERC_Utilities_RopChainGenerator64_
+  commentId: M:ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64)
+  fullName: ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64)
+  nameWithType: DisplayOutput.RopChainGadgets64(RopChainGenerator64)
 - uid: ERC.DisplayOutput.RopChainGadgets64*
   name: RopChainGadgets64
   href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_RopChainGadgets64_
@@ -318,22 +263,6 @@ references:
   isSpec: "True"
   fullName: ERC.DisplayOutput.RopChainGadgets64
   nameWithType: DisplayOutput.RopChainGadgets64
-- uid: ERC.DisplayOutput.SearchHeap(ERC.HeapInfo,System.Byte[],System.UInt64,System.String,System.Boolean)
-  name: SearchHeap(HeapInfo, Byte[], UInt64, String, Boolean)
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_SearchHeap_ERC_HeapInfo_System_Byte___System_UInt64_System_String_System_Boolean_
-  commentId: M:ERC.DisplayOutput.SearchHeap(ERC.HeapInfo,System.Byte[],System.UInt64,System.String,System.Boolean)
-  name.vb: SearchHeap(HeapInfo, Byte(), UInt64, String, Boolean)
-  fullName: ERC.DisplayOutput.SearchHeap(ERC.HeapInfo, System.Byte[], System.UInt64, System.String, System.Boolean)
-  fullName.vb: ERC.DisplayOutput.SearchHeap(ERC.HeapInfo, System.Byte(), System.UInt64, System.String, System.Boolean)
-  nameWithType: DisplayOutput.SearchHeap(HeapInfo, Byte[], UInt64, String, Boolean)
-  nameWithType.vb: DisplayOutput.SearchHeap(HeapInfo, Byte(), UInt64, String, Boolean)
-- uid: ERC.DisplayOutput.SearchHeap*
-  name: SearchHeap
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_SearchHeap_
-  commentId: Overload:ERC.DisplayOutput.SearchHeap
-  isSpec: "True"
-  fullName: ERC.DisplayOutput.SearchHeap
-  nameWithType: DisplayOutput.SearchHeap
 - uid: ERC.DisplayOutput.SearchMemory(ERC.ProcessInfo,System.Int32,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
   name: SearchMemory(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], String)
   href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_SearchMemory_ERC_ProcessInfo_System_Int32_System_String_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Byte___System_String_
@@ -350,22 +279,6 @@ references:
   isSpec: "True"
   fullName: ERC.DisplayOutput.SearchMemory
   nameWithType: DisplayOutput.SearchMemory
-- uid: ERC.DisplayOutput.SearchModules(ERC.ProcessInfo,System.Int32,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.Collections.Generic.List{System.String},System.String)
-  name: SearchModules(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], List<String>, String)
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_SearchModules_ERC_ProcessInfo_System_Int32_System_String_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Byte___System_Collections_Generic_List_System_String__System_String_
-  commentId: M:ERC.DisplayOutput.SearchModules(ERC.ProcessInfo,System.Int32,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.Collections.Generic.List{System.String},System.String)
-  name.vb: SearchModules(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte(), List(Of String), String)
-  fullName: ERC.DisplayOutput.SearchModules(ERC.ProcessInfo, System.Int32, System.String, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Byte[], System.Collections.Generic.List<System.String>, System.String)
-  fullName.vb: ERC.DisplayOutput.SearchModules(ERC.ProcessInfo, System.Int32, System.String, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Byte(), System.Collections.Generic.List(Of System.String), System.String)
-  nameWithType: DisplayOutput.SearchModules(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], List<String>, String)
-  nameWithType.vb: DisplayOutput.SearchModules(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte(), List(Of String), String)
-- uid: ERC.DisplayOutput.SearchModules*
-  name: SearchModules
-  href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_SearchModules_
-  commentId: Overload:ERC.DisplayOutput.SearchModules
-  isSpec: "True"
-  fullName: ERC.DisplayOutput.SearchModules
-  nameWithType: DisplayOutput.SearchModules
 - uid: ERC.DisplayOutput.WriteToFile(System.String,System.String,System.String,System.Collections.Generic.List{System.String})
   name: WriteToFile(String, String, String, List<String>)
   href: api/ERC.DisplayOutput.html#ERC_DisplayOutput_WriteToFile_System_String_System_String_System_String_System_Collections_Generic_List_System_String__
@@ -705,67 +618,6 @@ references:
   fullName.vb: ERC.ErcResult(Of T).ToString
   nameWithType: ErcResult<T>.ToString
   nameWithType.vb: ErcResult(Of T).ToString
-- uid: ERC.HeapInfo
-  name: HeapInfo
-  href: api/ERC.HeapInfo.html
-  commentId: T:ERC.HeapInfo
-  fullName: ERC.HeapInfo
-  nameWithType: HeapInfo
-- uid: ERC.HeapInfo.#ctor(ERC.ProcessInfo)
-  name: HeapInfo(ProcessInfo)
-  href: api/ERC.HeapInfo.html#ERC_HeapInfo__ctor_ERC_ProcessInfo_
-  commentId: M:ERC.HeapInfo.#ctor(ERC.ProcessInfo)
-  fullName: ERC.HeapInfo.HeapInfo(ERC.ProcessInfo)
-  nameWithType: HeapInfo.HeapInfo(ProcessInfo)
-- uid: ERC.HeapInfo.#ctor*
-  name: HeapInfo
-  href: api/ERC.HeapInfo.html#ERC_HeapInfo__ctor_
-  commentId: Overload:ERC.HeapInfo.#ctor
-  isSpec: "True"
-  fullName: ERC.HeapInfo.HeapInfo
-  nameWithType: HeapInfo.HeapInfo
-- uid: ERC.HeapInfo.HeapIDs
-  name: HeapIDs()
-  href: api/ERC.HeapInfo.html#ERC_HeapInfo_HeapIDs
-  commentId: M:ERC.HeapInfo.HeapIDs
-  fullName: ERC.HeapInfo.HeapIDs()
-  nameWithType: HeapInfo.HeapIDs()
-- uid: ERC.HeapInfo.HeapIDs*
-  name: HeapIDs
-  href: api/ERC.HeapInfo.html#ERC_HeapInfo_HeapIDs_
-  commentId: Overload:ERC.HeapInfo.HeapIDs
-  isSpec: "True"
-  fullName: ERC.HeapInfo.HeapIDs
-  nameWithType: HeapInfo.HeapIDs
-- uid: ERC.HeapInfo.HeapStatistics(System.Boolean,System.UInt64,System.String)
-  name: HeapStatistics(Boolean, UInt64, String)
-  href: api/ERC.HeapInfo.html#ERC_HeapInfo_HeapStatistics_System_Boolean_System_UInt64_System_String_
-  commentId: M:ERC.HeapInfo.HeapStatistics(System.Boolean,System.UInt64,System.String)
-  fullName: ERC.HeapInfo.HeapStatistics(System.Boolean, System.UInt64, System.String)
-  nameWithType: HeapInfo.HeapStatistics(Boolean, UInt64, String)
-- uid: ERC.HeapInfo.HeapStatistics*
-  name: HeapStatistics
-  href: api/ERC.HeapInfo.html#ERC_HeapInfo_HeapStatistics_
-  commentId: Overload:ERC.HeapInfo.HeapStatistics
-  isSpec: "True"
-  fullName: ERC.HeapInfo.HeapStatistics
-  nameWithType: HeapInfo.HeapStatistics
-- uid: ERC.HeapInfo.SearchHeap(System.Byte[],System.UInt64,System.String)
-  name: SearchHeap(Byte[], UInt64, String)
-  href: api/ERC.HeapInfo.html#ERC_HeapInfo_SearchHeap_System_Byte___System_UInt64_System_String_
-  commentId: M:ERC.HeapInfo.SearchHeap(System.Byte[],System.UInt64,System.String)
-  name.vb: SearchHeap(Byte(), UInt64, String)
-  fullName: ERC.HeapInfo.SearchHeap(System.Byte[], System.UInt64, System.String)
-  fullName.vb: ERC.HeapInfo.SearchHeap(System.Byte(), System.UInt64, System.String)
-  nameWithType: HeapInfo.SearchHeap(Byte[], UInt64, String)
-  nameWithType.vb: HeapInfo.SearchHeap(Byte(), UInt64, String)
-- uid: ERC.HeapInfo.SearchHeap*
-  name: SearchHeap
-  href: api/ERC.HeapInfo.html#ERC_HeapInfo_SearchHeap_
-  commentId: Overload:ERC.HeapInfo.SearchHeap
-  isSpec: "True"
-  fullName: ERC.HeapInfo.SearchHeap
-  nameWithType: HeapInfo.SearchHeap
 - uid: ERC.MachineType
   name: MachineType
   href: api/ERC.MachineType.html
@@ -1372,22 +1224,6 @@ references:
   isSpec: "True"
   fullName: ERC.ProcessInfo.SearchMemory
   nameWithType: ProcessInfo.SearchMemory
-- uid: ERC.ProcessInfo.SearchModules(System.Int32,System.Byte[],System.Byte[],System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})
-  name: SearchModules(Int32, Byte[], Byte[], String, List<String>, List<String>)
-  href: api/ERC.ProcessInfo.html#ERC_ProcessInfo_SearchModules_System_Int32_System_Byte___System_Byte___System_String_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__
-  commentId: M:ERC.ProcessInfo.SearchModules(System.Int32,System.Byte[],System.Byte[],System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})
-  name.vb: SearchModules(Int32, Byte(), Byte(), String, List(Of String), List(Of String))
-  fullName: ERC.ProcessInfo.SearchModules(System.Int32, System.Byte[], System.Byte[], System.String, System.Collections.Generic.List<System.String>, System.Collections.Generic.List<System.String>)
-  fullName.vb: ERC.ProcessInfo.SearchModules(System.Int32, System.Byte(), System.Byte(), System.String, System.Collections.Generic.List(Of System.String), System.Collections.Generic.List(Of System.String))
-  nameWithType: ProcessInfo.SearchModules(Int32, Byte[], Byte[], String, List<String>, List<String>)
-  nameWithType.vb: ProcessInfo.SearchModules(Int32, Byte(), Byte(), String, List(Of String), List(Of String))
-- uid: ERC.ProcessInfo.SearchModules*
-  name: SearchModules
-  href: api/ERC.ProcessInfo.html#ERC_ProcessInfo_SearchModules_
-  commentId: Overload:ERC.ProcessInfo.SearchModules
-  isSpec: "True"
-  fullName: ERC.ProcessInfo.SearchModules
-  nameWithType: ProcessInfo.SearchModules
 - uid: ERC.ProcessInfo.ThreadsInfo
   name: ThreadsInfo
   href: api/ERC.ProcessInfo.html#ERC_ProcessInfo_ThreadsInfo
@@ -2093,18 +1929,6 @@ references:
   commentId: F:ERC.Structures.FLOATING_SAVE_AREA.TagWord
   fullName: ERC.Structures.FLOATING_SAVE_AREA.TagWord
   nameWithType: FLOATING_SAVE_AREA.TagWord
-- uid: ERC.Structures.HEAPENTRY32
-  name: HEAPENTRY32
-  href: api/ERC.Structures.HEAPENTRY32.html
-  commentId: T:ERC.Structures.HEAPENTRY32
-  fullName: ERC.Structures.HEAPENTRY32
-  nameWithType: HEAPENTRY32
-- uid: ERC.Structures.HEAPLIST32
-  name: HEAPLIST32
-  href: api/ERC.Structures.HEAPLIST32.html
-  commentId: T:ERC.Structures.HEAPLIST32
-  fullName: ERC.Structures.HEAPLIST32
-  nameWithType: HEAPLIST32
 - uid: ERC.Structures.IMAGE_DATA_DIRECTORY
   name: IMAGE_DATA_DIRECTORY
   href: api/ERC.Structures.IMAGE_DATA_DIRECTORY.html
@@ -3762,12 +3586,6 @@ references:
   commentId: F:ERC.Structures.ProcessAccessFlags.VirtualMemoryWrite
   fullName: ERC.Structures.ProcessAccessFlags.VirtualMemoryWrite
   nameWithType: ProcessAccessFlags.VirtualMemoryWrite
-- uid: ERC.Structures.PROCESSENTRY32
-  name: PROCESSENTRY32
-  href: api/ERC.Structures.PROCESSENTRY32.html
-  commentId: T:ERC.Structures.PROCESSENTRY32
-  fullName: ERC.Structures.PROCESSENTRY32
-  nameWithType: PROCESSENTRY32
 - uid: ERC.Structures.RegisterInfo
   name: RegisterInfo
   href: api/ERC.Structures.RegisterInfo.html
@@ -3865,60 +3683,6 @@ references:
   isSpec: "True"
   fullName: ERC.Structures.RegisterInfo.ThreadID
   nameWithType: RegisterInfo.ThreadID
-- uid: ERC.Structures.SnapshotFlags
-  name: SnapshotFlags
-  href: api/ERC.Structures.SnapshotFlags.html
-  commentId: T:ERC.Structures.SnapshotFlags
-  fullName: ERC.Structures.SnapshotFlags
-  nameWithType: SnapshotFlags
-- uid: ERC.Structures.SnapshotFlags.All
-  name: All
-  href: api/ERC.Structures.SnapshotFlags.html#ERC_Structures_SnapshotFlags_All
-  commentId: F:ERC.Structures.SnapshotFlags.All
-  fullName: ERC.Structures.SnapshotFlags.All
-  nameWithType: SnapshotFlags.All
-- uid: ERC.Structures.SnapshotFlags.HeapList
-  name: HeapList
-  href: api/ERC.Structures.SnapshotFlags.html#ERC_Structures_SnapshotFlags_HeapList
-  commentId: F:ERC.Structures.SnapshotFlags.HeapList
-  fullName: ERC.Structures.SnapshotFlags.HeapList
-  nameWithType: SnapshotFlags.HeapList
-- uid: ERC.Structures.SnapshotFlags.Inherit
-  name: Inherit
-  href: api/ERC.Structures.SnapshotFlags.html#ERC_Structures_SnapshotFlags_Inherit
-  commentId: F:ERC.Structures.SnapshotFlags.Inherit
-  fullName: ERC.Structures.SnapshotFlags.Inherit
-  nameWithType: SnapshotFlags.Inherit
-- uid: ERC.Structures.SnapshotFlags.Module
-  name: Module
-  href: api/ERC.Structures.SnapshotFlags.html#ERC_Structures_SnapshotFlags_Module
-  commentId: F:ERC.Structures.SnapshotFlags.Module
-  fullName: ERC.Structures.SnapshotFlags.Module
-  nameWithType: SnapshotFlags.Module
-- uid: ERC.Structures.SnapshotFlags.Module32
-  name: Module32
-  href: api/ERC.Structures.SnapshotFlags.html#ERC_Structures_SnapshotFlags_Module32
-  commentId: F:ERC.Structures.SnapshotFlags.Module32
-  fullName: ERC.Structures.SnapshotFlags.Module32
-  nameWithType: SnapshotFlags.Module32
-- uid: ERC.Structures.SnapshotFlags.NoHeaps
-  name: NoHeaps
-  href: api/ERC.Structures.SnapshotFlags.html#ERC_Structures_SnapshotFlags_NoHeaps
-  commentId: F:ERC.Structures.SnapshotFlags.NoHeaps
-  fullName: ERC.Structures.SnapshotFlags.NoHeaps
-  nameWithType: SnapshotFlags.NoHeaps
-- uid: ERC.Structures.SnapshotFlags.Process
-  name: Process
-  href: api/ERC.Structures.SnapshotFlags.html#ERC_Structures_SnapshotFlags_Process
-  commentId: F:ERC.Structures.SnapshotFlags.Process
-  fullName: ERC.Structures.SnapshotFlags.Process
-  nameWithType: SnapshotFlags.Process
-- uid: ERC.Structures.SnapshotFlags.Thread
-  name: Thread
-  href: api/ERC.Structures.SnapshotFlags.html#ERC_Structures_SnapshotFlags_Thread
-  commentId: F:ERC.Structures.SnapshotFlags.Thread
-  fullName: ERC.Structures.SnapshotFlags.Thread
-  nameWithType: SnapshotFlags.Thread
 - uid: ERC.Structures.StateEnum
   name: StateEnum
   href: api/ERC.Structures.StateEnum.html
@@ -4870,15 +4634,6 @@ references:
   fullName.vb: ERC.Utilities.OpcodeDisassembler.Disassemble(System.Byte(), ERC.MachineType)
   nameWithType: OpcodeDisassembler.Disassemble(Byte[], MachineType)
   nameWithType.vb: OpcodeDisassembler.Disassemble(Byte(), MachineType)
-- uid: ERC.Utilities.OpcodeDisassembler.Disassemble(System.Byte[],ERC.MachineType,ERC.ErcCore)
-  name: Disassemble(Byte[], MachineType, ErcCore)
-  href: api/ERC.Utilities.OpcodeDisassembler.html#ERC_Utilities_OpcodeDisassembler_Disassemble_System_Byte___ERC_MachineType_ERC_ErcCore_
-  commentId: M:ERC.Utilities.OpcodeDisassembler.Disassemble(System.Byte[],ERC.MachineType,ERC.ErcCore)
-  name.vb: Disassemble(Byte(), MachineType, ErcCore)
-  fullName: ERC.Utilities.OpcodeDisassembler.Disassemble(System.Byte[], ERC.MachineType, ERC.ErcCore)
-  fullName.vb: ERC.Utilities.OpcodeDisassembler.Disassemble(System.Byte(), ERC.MachineType, ERC.ErcCore)
-  nameWithType: OpcodeDisassembler.Disassemble(Byte[], MachineType, ErcCore)
-  nameWithType.vb: OpcodeDisassembler.Disassemble(Byte(), MachineType, ErcCore)
 - uid: ERC.Utilities.OpcodeDisassembler.Disassemble*
   name: Disassemble
   href: api/ERC.Utilities.OpcodeDisassembler.html#ERC_Utilities_OpcodeDisassembler_Disassemble_
@@ -5096,24 +4851,24 @@ references:
   isSpec: "True"
   fullName: ERC.Utilities.RopChainGenerator32.RopChainGenerator32
   nameWithType: RopChainGenerator32.RopChainGenerator32
-- uid: ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator32.RopMethod)
-  name: GenerateRopChain32(Byte[], Byte[], List<String>, RopChainGenerator32.RopMethod)
-  href: api/ERC.Utilities.RopChainGenerator32.html#ERC_Utilities_RopChainGenerator32_GenerateRopChain32_System_Byte___System_Byte___System_Collections_Generic_List_System_String__ERC_Utilities_RopChainGenerator32_RopMethod_
-  commentId: M:ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator32.RopMethod)
-  name.vb: GenerateRopChain32(Byte(), Byte(), List(Of String), RopChainGenerator32.RopMethod)
-  fullName: ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[], System.Byte[], System.Collections.Generic.List<System.String>, ERC.Utilities.RopChainGenerator32.RopMethod)
-  fullName.vb: ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte(), System.Byte(), System.Collections.Generic.List(Of System.String), ERC.Utilities.RopChainGenerator32.RopMethod)
-  nameWithType: RopChainGenerator32.GenerateRopChain32(Byte[], Byte[], List<String>, RopChainGenerator32.RopMethod)
-  nameWithType.vb: RopChainGenerator32.GenerateRopChain32(Byte(), Byte(), List(Of String), RopChainGenerator32.RopMethod)
-- uid: ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator32.RopMethod)
-  name: GenerateRopChain32(Byte[], List<String>, RopChainGenerator32.RopMethod)
-  href: api/ERC.Utilities.RopChainGenerator32.html#ERC_Utilities_RopChainGenerator32_GenerateRopChain32_System_Byte___System_Collections_Generic_List_System_String__ERC_Utilities_RopChainGenerator32_RopMethod_
-  commentId: M:ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator32.RopMethod)
-  name.vb: GenerateRopChain32(Byte(), List(Of String), RopChainGenerator32.RopMethod)
-  fullName: ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[], System.Collections.Generic.List<System.String>, ERC.Utilities.RopChainGenerator32.RopMethod)
-  fullName.vb: ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte(), System.Collections.Generic.List(Of System.String), ERC.Utilities.RopChainGenerator32.RopMethod)
-  nameWithType: RopChainGenerator32.GenerateRopChain32(Byte[], List<String>, RopChainGenerator32.RopMethod)
-  nameWithType.vb: RopChainGenerator32.GenerateRopChain32(Byte(), List(Of String), RopChainGenerator32.RopMethod)
+- uid: ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String})
+  name: GenerateRopChain32(Byte[], Byte[], List<String>)
+  href: api/ERC.Utilities.RopChainGenerator32.html#ERC_Utilities_RopChainGenerator32_GenerateRopChain32_System_Byte___System_Byte___System_Collections_Generic_List_System_String__
+  commentId: M:ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String})
+  name.vb: GenerateRopChain32(Byte(), Byte(), List(Of String))
+  fullName: ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[], System.Byte[], System.Collections.Generic.List<System.String>)
+  fullName.vb: ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte(), System.Byte(), System.Collections.Generic.List(Of System.String))
+  nameWithType: RopChainGenerator32.GenerateRopChain32(Byte[], Byte[], List<String>)
+  nameWithType.vb: RopChainGenerator32.GenerateRopChain32(Byte(), Byte(), List(Of String))
+- uid: ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Collections.Generic.List{System.String})
+  name: GenerateRopChain32(Byte[], List<String>)
+  href: api/ERC.Utilities.RopChainGenerator32.html#ERC_Utilities_RopChainGenerator32_GenerateRopChain32_System_Byte___System_Collections_Generic_List_System_String__
+  commentId: M:ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Collections.Generic.List{System.String})
+  name.vb: GenerateRopChain32(Byte(), List(Of String))
+  fullName: ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[], System.Collections.Generic.List<System.String>)
+  fullName.vb: ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte(), System.Collections.Generic.List(Of System.String))
+  nameWithType: RopChainGenerator32.GenerateRopChain32(Byte[], List<String>)
+  nameWithType.vb: RopChainGenerator32.GenerateRopChain32(Byte(), List(Of String))
 - uid: ERC.Utilities.RopChainGenerator32.GenerateRopChain32*
   name: GenerateRopChain32
   href: api/ERC.Utilities.RopChainGenerator32.html#ERC_Utilities_RopChainGenerator32_GenerateRopChain32_
@@ -5121,82 +4876,12 @@ references:
   isSpec: "True"
   fullName: ERC.Utilities.RopChainGenerator32.GenerateRopChain32
   nameWithType: RopChainGenerator32.GenerateRopChain32
-- uid: ERC.Utilities.RopChainGenerator32.GenerateRopGadgets32(System.Byte[],System.Collections.Generic.List{System.String})
-  name: GenerateRopGadgets32(Byte[], List<String>)
-  href: api/ERC.Utilities.RopChainGenerator32.html#ERC_Utilities_RopChainGenerator32_GenerateRopGadgets32_System_Byte___System_Collections_Generic_List_System_String__
-  commentId: M:ERC.Utilities.RopChainGenerator32.GenerateRopGadgets32(System.Byte[],System.Collections.Generic.List{System.String})
-  name.vb: GenerateRopGadgets32(Byte(), List(Of String))
-  fullName: ERC.Utilities.RopChainGenerator32.GenerateRopGadgets32(System.Byte[], System.Collections.Generic.List<System.String>)
-  fullName.vb: ERC.Utilities.RopChainGenerator32.GenerateRopGadgets32(System.Byte(), System.Collections.Generic.List(Of System.String))
-  nameWithType: RopChainGenerator32.GenerateRopGadgets32(Byte[], List<String>)
-  nameWithType.vb: RopChainGenerator32.GenerateRopGadgets32(Byte(), List(Of String))
-- uid: ERC.Utilities.RopChainGenerator32.GenerateRopGadgets32*
-  name: GenerateRopGadgets32
-  href: api/ERC.Utilities.RopChainGenerator32.html#ERC_Utilities_RopChainGenerator32_GenerateRopGadgets32_
-  commentId: Overload:ERC.Utilities.RopChainGenerator32.GenerateRopGadgets32
-  isSpec: "True"
-  fullName: ERC.Utilities.RopChainGenerator32.GenerateRopGadgets32
-  nameWithType: RopChainGenerator32.GenerateRopGadgets32
-- uid: ERC.Utilities.RopChainGenerator32.HeapCreateChain
-  name: HeapCreateChain
-  href: api/ERC.Utilities.RopChainGenerator32.html#ERC_Utilities_RopChainGenerator32_HeapCreateChain
-  commentId: F:ERC.Utilities.RopChainGenerator32.HeapCreateChain
-  fullName: ERC.Utilities.RopChainGenerator32.HeapCreateChain
-  nameWithType: RopChainGenerator32.HeapCreateChain
-- uid: ERC.Utilities.RopChainGenerator32.RopMethod
-  name: RopChainGenerator32.RopMethod
-  href: api/ERC.Utilities.RopChainGenerator32.RopMethod.html
-  commentId: T:ERC.Utilities.RopChainGenerator32.RopMethod
-  fullName: ERC.Utilities.RopChainGenerator32.RopMethod
-  nameWithType: RopChainGenerator32.RopMethod
-- uid: ERC.Utilities.RopChainGenerator32.RopMethod.All
-  name: All
-  href: api/ERC.Utilities.RopChainGenerator32.RopMethod.html#ERC_Utilities_RopChainGenerator32_RopMethod_All
-  commentId: F:ERC.Utilities.RopChainGenerator32.RopMethod.All
-  fullName: ERC.Utilities.RopChainGenerator32.RopMethod.All
-  nameWithType: RopChainGenerator32.RopMethod.All
-- uid: ERC.Utilities.RopChainGenerator32.RopMethod.HeapCreate
-  name: HeapCreate
-  href: api/ERC.Utilities.RopChainGenerator32.RopMethod.html#ERC_Utilities_RopChainGenerator32_RopMethod_HeapCreate
-  commentId: F:ERC.Utilities.RopChainGenerator32.RopMethod.HeapCreate
-  fullName: ERC.Utilities.RopChainGenerator32.RopMethod.HeapCreate
-  nameWithType: RopChainGenerator32.RopMethod.HeapCreate
-- uid: ERC.Utilities.RopChainGenerator32.RopMethod.VirtualAlloc
-  name: VirtualAlloc
-  href: api/ERC.Utilities.RopChainGenerator32.RopMethod.html#ERC_Utilities_RopChainGenerator32_RopMethod_VirtualAlloc
-  commentId: F:ERC.Utilities.RopChainGenerator32.RopMethod.VirtualAlloc
-  fullName: ERC.Utilities.RopChainGenerator32.RopMethod.VirtualAlloc
-  nameWithType: RopChainGenerator32.RopMethod.VirtualAlloc
-- uid: ERC.Utilities.RopChainGenerator32.RopMethod.VirtualProtect
-  name: VirtualProtect
-  href: api/ERC.Utilities.RopChainGenerator32.RopMethod.html#ERC_Utilities_RopChainGenerator32_RopMethod_VirtualProtect
-  commentId: F:ERC.Utilities.RopChainGenerator32.RopMethod.VirtualProtect
-  fullName: ERC.Utilities.RopChainGenerator32.RopMethod.VirtualProtect
-  nameWithType: RopChainGenerator32.RopMethod.VirtualProtect
-- uid: ERC.Utilities.RopChainGenerator32.RopMethod.WriteProcessMemory
-  name: WriteProcessMemory
-  href: api/ERC.Utilities.RopChainGenerator32.RopMethod.html#ERC_Utilities_RopChainGenerator32_RopMethod_WriteProcessMemory
-  commentId: F:ERC.Utilities.RopChainGenerator32.RopMethod.WriteProcessMemory
-  fullName: ERC.Utilities.RopChainGenerator32.RopMethod.WriteProcessMemory
-  nameWithType: RopChainGenerator32.RopMethod.WriteProcessMemory
 - uid: ERC.Utilities.RopChainGenerator32.VirtualAllocChain
   name: VirtualAllocChain
   href: api/ERC.Utilities.RopChainGenerator32.html#ERC_Utilities_RopChainGenerator32_VirtualAllocChain
   commentId: F:ERC.Utilities.RopChainGenerator32.VirtualAllocChain
   fullName: ERC.Utilities.RopChainGenerator32.VirtualAllocChain
   nameWithType: RopChainGenerator32.VirtualAllocChain
-- uid: ERC.Utilities.RopChainGenerator32.VirtualProtectChain
-  name: VirtualProtectChain
-  href: api/ERC.Utilities.RopChainGenerator32.html#ERC_Utilities_RopChainGenerator32_VirtualProtectChain
-  commentId: F:ERC.Utilities.RopChainGenerator32.VirtualProtectChain
-  fullName: ERC.Utilities.RopChainGenerator32.VirtualProtectChain
-  nameWithType: RopChainGenerator32.VirtualProtectChain
-- uid: ERC.Utilities.RopChainGenerator32.WriteProcessMemoryChain
-  name: WriteProcessMemoryChain
-  href: api/ERC.Utilities.RopChainGenerator32.html#ERC_Utilities_RopChainGenerator32_WriteProcessMemoryChain
-  commentId: F:ERC.Utilities.RopChainGenerator32.WriteProcessMemoryChain
-  fullName: ERC.Utilities.RopChainGenerator32.WriteProcessMemoryChain
-  nameWithType: RopChainGenerator32.WriteProcessMemoryChain
 - uid: ERC.Utilities.RopChainGenerator32.X86Lists
   name: RopChainGenerator32.X86Lists
   href: api/ERC.Utilities.RopChainGenerator32.X86Lists.html
@@ -5492,24 +5177,24 @@ references:
   isSpec: "True"
   fullName: ERC.Utilities.RopChainGenerator64.RopChainGenerator64
   nameWithType: RopChainGenerator64.RopChainGenerator64
-- uid: ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator64.RopMethod)
-  name: GenerateRopChain64(Byte[], Byte[], List<String>, RopChainGenerator64.RopMethod)
-  href: api/ERC.Utilities.RopChainGenerator64.html#ERC_Utilities_RopChainGenerator64_GenerateRopChain64_System_Byte___System_Byte___System_Collections_Generic_List_System_String__ERC_Utilities_RopChainGenerator64_RopMethod_
-  commentId: M:ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator64.RopMethod)
-  name.vb: GenerateRopChain64(Byte(), Byte(), List(Of String), RopChainGenerator64.RopMethod)
-  fullName: ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[], System.Byte[], System.Collections.Generic.List<System.String>, ERC.Utilities.RopChainGenerator64.RopMethod)
-  fullName.vb: ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte(), System.Byte(), System.Collections.Generic.List(Of System.String), ERC.Utilities.RopChainGenerator64.RopMethod)
-  nameWithType: RopChainGenerator64.GenerateRopChain64(Byte[], Byte[], List<String>, RopChainGenerator64.RopMethod)
-  nameWithType.vb: RopChainGenerator64.GenerateRopChain64(Byte(), Byte(), List(Of String), RopChainGenerator64.RopMethod)
-- uid: ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator64.RopMethod)
-  name: GenerateRopChain64(Byte[], List<String>, RopChainGenerator64.RopMethod)
-  href: api/ERC.Utilities.RopChainGenerator64.html#ERC_Utilities_RopChainGenerator64_GenerateRopChain64_System_Byte___System_Collections_Generic_List_System_String__ERC_Utilities_RopChainGenerator64_RopMethod_
-  commentId: M:ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator64.RopMethod)
-  name.vb: GenerateRopChain64(Byte(), List(Of String), RopChainGenerator64.RopMethod)
-  fullName: ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[], System.Collections.Generic.List<System.String>, ERC.Utilities.RopChainGenerator64.RopMethod)
-  fullName.vb: ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte(), System.Collections.Generic.List(Of System.String), ERC.Utilities.RopChainGenerator64.RopMethod)
-  nameWithType: RopChainGenerator64.GenerateRopChain64(Byte[], List<String>, RopChainGenerator64.RopMethod)
-  nameWithType.vb: RopChainGenerator64.GenerateRopChain64(Byte(), List(Of String), RopChainGenerator64.RopMethod)
+- uid: ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String})
+  name: GenerateRopChain64(Byte[], Byte[], List<String>)
+  href: api/ERC.Utilities.RopChainGenerator64.html#ERC_Utilities_RopChainGenerator64_GenerateRopChain64_System_Byte___System_Byte___System_Collections_Generic_List_System_String__
+  commentId: M:ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String})
+  name.vb: GenerateRopChain64(Byte(), Byte(), List(Of String))
+  fullName: ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[], System.Byte[], System.Collections.Generic.List<System.String>)
+  fullName.vb: ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte(), System.Byte(), System.Collections.Generic.List(Of System.String))
+  nameWithType: RopChainGenerator64.GenerateRopChain64(Byte[], Byte[], List<String>)
+  nameWithType.vb: RopChainGenerator64.GenerateRopChain64(Byte(), Byte(), List(Of String))
+- uid: ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Collections.Generic.List{System.String})
+  name: GenerateRopChain64(Byte[], List<String>)
+  href: api/ERC.Utilities.RopChainGenerator64.html#ERC_Utilities_RopChainGenerator64_GenerateRopChain64_System_Byte___System_Collections_Generic_List_System_String__
+  commentId: M:ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Collections.Generic.List{System.String})
+  name.vb: GenerateRopChain64(Byte(), List(Of String))
+  fullName: ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[], System.Collections.Generic.List<System.String>)
+  fullName.vb: ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte(), System.Collections.Generic.List(Of System.String))
+  nameWithType: RopChainGenerator64.GenerateRopChain64(Byte[], List<String>)
+  nameWithType.vb: RopChainGenerator64.GenerateRopChain64(Byte(), List(Of String))
 - uid: ERC.Utilities.RopChainGenerator64.GenerateRopChain64*
   name: GenerateRopChain64
   href: api/ERC.Utilities.RopChainGenerator64.html#ERC_Utilities_RopChainGenerator64_GenerateRopChain64_
@@ -5517,82 +5202,12 @@ references:
   isSpec: "True"
   fullName: ERC.Utilities.RopChainGenerator64.GenerateRopChain64
   nameWithType: RopChainGenerator64.GenerateRopChain64
-- uid: ERC.Utilities.RopChainGenerator64.GenerateRopGadgets64(System.Byte[],System.Collections.Generic.List{System.String})
-  name: GenerateRopGadgets64(Byte[], List<String>)
-  href: api/ERC.Utilities.RopChainGenerator64.html#ERC_Utilities_RopChainGenerator64_GenerateRopGadgets64_System_Byte___System_Collections_Generic_List_System_String__
-  commentId: M:ERC.Utilities.RopChainGenerator64.GenerateRopGadgets64(System.Byte[],System.Collections.Generic.List{System.String})
-  name.vb: GenerateRopGadgets64(Byte(), List(Of String))
-  fullName: ERC.Utilities.RopChainGenerator64.GenerateRopGadgets64(System.Byte[], System.Collections.Generic.List<System.String>)
-  fullName.vb: ERC.Utilities.RopChainGenerator64.GenerateRopGadgets64(System.Byte(), System.Collections.Generic.List(Of System.String))
-  nameWithType: RopChainGenerator64.GenerateRopGadgets64(Byte[], List<String>)
-  nameWithType.vb: RopChainGenerator64.GenerateRopGadgets64(Byte(), List(Of String))
-- uid: ERC.Utilities.RopChainGenerator64.GenerateRopGadgets64*
-  name: GenerateRopGadgets64
-  href: api/ERC.Utilities.RopChainGenerator64.html#ERC_Utilities_RopChainGenerator64_GenerateRopGadgets64_
-  commentId: Overload:ERC.Utilities.RopChainGenerator64.GenerateRopGadgets64
-  isSpec: "True"
-  fullName: ERC.Utilities.RopChainGenerator64.GenerateRopGadgets64
-  nameWithType: RopChainGenerator64.GenerateRopGadgets64
-- uid: ERC.Utilities.RopChainGenerator64.HeapCreateChain
-  name: HeapCreateChain
-  href: api/ERC.Utilities.RopChainGenerator64.html#ERC_Utilities_RopChainGenerator64_HeapCreateChain
-  commentId: F:ERC.Utilities.RopChainGenerator64.HeapCreateChain
-  fullName: ERC.Utilities.RopChainGenerator64.HeapCreateChain
-  nameWithType: RopChainGenerator64.HeapCreateChain
-- uid: ERC.Utilities.RopChainGenerator64.RopMethod
-  name: RopChainGenerator64.RopMethod
-  href: api/ERC.Utilities.RopChainGenerator64.RopMethod.html
-  commentId: T:ERC.Utilities.RopChainGenerator64.RopMethod
-  fullName: ERC.Utilities.RopChainGenerator64.RopMethod
-  nameWithType: RopChainGenerator64.RopMethod
-- uid: ERC.Utilities.RopChainGenerator64.RopMethod.All
-  name: All
-  href: api/ERC.Utilities.RopChainGenerator64.RopMethod.html#ERC_Utilities_RopChainGenerator64_RopMethod_All
-  commentId: F:ERC.Utilities.RopChainGenerator64.RopMethod.All
-  fullName: ERC.Utilities.RopChainGenerator64.RopMethod.All
-  nameWithType: RopChainGenerator64.RopMethod.All
-- uid: ERC.Utilities.RopChainGenerator64.RopMethod.HeapCreate
-  name: HeapCreate
-  href: api/ERC.Utilities.RopChainGenerator64.RopMethod.html#ERC_Utilities_RopChainGenerator64_RopMethod_HeapCreate
-  commentId: F:ERC.Utilities.RopChainGenerator64.RopMethod.HeapCreate
-  fullName: ERC.Utilities.RopChainGenerator64.RopMethod.HeapCreate
-  nameWithType: RopChainGenerator64.RopMethod.HeapCreate
-- uid: ERC.Utilities.RopChainGenerator64.RopMethod.VirtualAlloc
-  name: VirtualAlloc
-  href: api/ERC.Utilities.RopChainGenerator64.RopMethod.html#ERC_Utilities_RopChainGenerator64_RopMethod_VirtualAlloc
-  commentId: F:ERC.Utilities.RopChainGenerator64.RopMethod.VirtualAlloc
-  fullName: ERC.Utilities.RopChainGenerator64.RopMethod.VirtualAlloc
-  nameWithType: RopChainGenerator64.RopMethod.VirtualAlloc
-- uid: ERC.Utilities.RopChainGenerator64.RopMethod.VirtualProtect
-  name: VirtualProtect
-  href: api/ERC.Utilities.RopChainGenerator64.RopMethod.html#ERC_Utilities_RopChainGenerator64_RopMethod_VirtualProtect
-  commentId: F:ERC.Utilities.RopChainGenerator64.RopMethod.VirtualProtect
-  fullName: ERC.Utilities.RopChainGenerator64.RopMethod.VirtualProtect
-  nameWithType: RopChainGenerator64.RopMethod.VirtualProtect
-- uid: ERC.Utilities.RopChainGenerator64.RopMethod.WriteProcessMemory
-  name: WriteProcessMemory
-  href: api/ERC.Utilities.RopChainGenerator64.RopMethod.html#ERC_Utilities_RopChainGenerator64_RopMethod_WriteProcessMemory
-  commentId: F:ERC.Utilities.RopChainGenerator64.RopMethod.WriteProcessMemory
-  fullName: ERC.Utilities.RopChainGenerator64.RopMethod.WriteProcessMemory
-  nameWithType: RopChainGenerator64.RopMethod.WriteProcessMemory
 - uid: ERC.Utilities.RopChainGenerator64.VirtualAllocChain
   name: VirtualAllocChain
   href: api/ERC.Utilities.RopChainGenerator64.html#ERC_Utilities_RopChainGenerator64_VirtualAllocChain
   commentId: F:ERC.Utilities.RopChainGenerator64.VirtualAllocChain
   fullName: ERC.Utilities.RopChainGenerator64.VirtualAllocChain
   nameWithType: RopChainGenerator64.VirtualAllocChain
-- uid: ERC.Utilities.RopChainGenerator64.VirtualProtectChain
-  name: VirtualProtectChain
-  href: api/ERC.Utilities.RopChainGenerator64.html#ERC_Utilities_RopChainGenerator64_VirtualProtectChain
-  commentId: F:ERC.Utilities.RopChainGenerator64.VirtualProtectChain
-  fullName: ERC.Utilities.RopChainGenerator64.VirtualProtectChain
-  nameWithType: RopChainGenerator64.VirtualProtectChain
-- uid: ERC.Utilities.RopChainGenerator64.WriteProcessMemoryChain
-  name: WriteProcessMemoryChain
-  href: api/ERC.Utilities.RopChainGenerator64.html#ERC_Utilities_RopChainGenerator64_WriteProcessMemoryChain
-  commentId: F:ERC.Utilities.RopChainGenerator64.WriteProcessMemoryChain
-  fullName: ERC.Utilities.RopChainGenerator64.WriteProcessMemoryChain
-  nameWithType: RopChainGenerator64.WriteProcessMemoryChain
 - uid: ERC.Utilities.RopChainGenerator64.X64Lists
   name: RopChainGenerator64.X64Lists
   href: api/ERC.Utilities.RopChainGenerator64.X64Lists.html
@@ -5605,12 +5220,6 @@ references:
   commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.add
   fullName: ERC.Utilities.RopChainGenerator64.X64Lists.add
   nameWithType: RopChainGenerator64.X64Lists.add
-- uid: ERC.Utilities.RopChainGenerator64.X64Lists.callRax
-  name: callRax
-  href: api/ERC.Utilities.RopChainGenerator64.X64Lists.html#ERC_Utilities_RopChainGenerator64_X64Lists_callRax
-  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.callRax
-  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.callRax
-  nameWithType: RopChainGenerator64.X64Lists.callRax
 - uid: ERC.Utilities.RopChainGenerator64.X64Lists.callRsp
   name: callRsp
   href: api/ERC.Utilities.RopChainGenerator64.X64Lists.html#ERC_Utilities_RopChainGenerator64_X64Lists_callRsp
@@ -5809,12 +5418,6 @@ references:
   commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incRsp
   fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incRsp
   nameWithType: RopChainGenerator64.X64Lists.incRsp
-- uid: ERC.Utilities.RopChainGenerator64.X64Lists.jmpRax
-  name: jmpRax
-  href: api/ERC.Utilities.RopChainGenerator64.X64Lists.html#ERC_Utilities_RopChainGenerator64_X64Lists_jmpRax
-  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.jmpRax
-  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.jmpRax
-  nameWithType: RopChainGenerator64.X64Lists.jmpRax
 - uid: ERC.Utilities.RopChainGenerator64.X64Lists.jmpRsp
   name: jmpRsp
   href: api/ERC.Utilities.RopChainGenerator64.X64Lists.html#ERC_Utilities_RopChainGenerator64_X64Lists_jmpRsp
@@ -6121,22 +5724,3 @@ references:
   commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRsp
   fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorRsp
   nameWithType: RopChainGenerator64.X64Lists.xorRsp
-- uid: ERC.Utilities.Win32Errors
-  name: Win32Errors
-  href: api/ERC.Utilities.Win32Errors.html
-  commentId: T:ERC.Utilities.Win32Errors
-  fullName: ERC.Utilities.Win32Errors
-  nameWithType: Win32Errors
-- uid: ERC.Utilities.Win32Errors.GetLastWin32Error(System.Int32)
-  name: GetLastWin32Error(Int32)
-  href: api/ERC.Utilities.Win32Errors.html#ERC_Utilities_Win32Errors_GetLastWin32Error_System_Int32_
-  commentId: M:ERC.Utilities.Win32Errors.GetLastWin32Error(System.Int32)
-  fullName: ERC.Utilities.Win32Errors.GetLastWin32Error(System.Int32)
-  nameWithType: Win32Errors.GetLastWin32Error(Int32)
-- uid: ERC.Utilities.Win32Errors.GetLastWin32Error*
-  name: GetLastWin32Error
-  href: api/ERC.Utilities.Win32Errors.html#ERC_Utilities_Win32Errors_GetLastWin32Error_
-  commentId: Overload:ERC.Utilities.Win32Errors.GetLastWin32Error
-  isSpec: "True"
-  fullName: ERC.Utilities.Win32Errors.GetLastWin32Error
-  nameWithType: Win32Errors.GetLastWin32Error
