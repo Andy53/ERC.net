@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ProcessInfo
    ">
-    <meta name="generator" content="docfx 2.59.0.0">
+    <meta name="generator" content="docfx 2.49.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -1138,82 +1138,6 @@ Specific modules can be exclude through passing a Listof strings containing modu
   </table>
   
   
-  <a id="ERC_ProcessInfo_SearchModules_" data-uid="ERC.ProcessInfo.SearchModules*"></a>
-  <h4 id="ERC_ProcessInfo_SearchModules_System_Int32_System_Byte___System_Byte___System_String_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__" data-uid="ERC.ProcessInfo.SearchModules(System.Int32,System.Byte[],System.Byte[],System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">SearchModules(Int32, Byte[], Byte[], String, List&lt;String&gt;, List&lt;String&gt;)</h4>
-  <div class="markdown level1 summary"><p>Searches all modules loaded by a process for a specific string or byte array. Strings can be passed as ASCII, Unicode, UTF7 or UTF8.
-Search can be limited to specific modules through passing a List of strings containing module names or paths.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ErcResult&lt;Dictionary&lt;IntPtr, string&gt;&gt; SearchModules(int searchType, byte[] ptrsToExclude = null, byte[] searchBytes = null, string searchString = null, List&lt;string&gt; includedModules = null, List&lt;string&gt; excludedModules = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">searchType</span></td>
-        <td><p>0 = search term is in bytes\n1 = search term is in unicode\n2 = search term is in ASCII\n3 = Search term is in UTF8\n4 = Search term is in UTF7\n5 = Search term is in UTF32</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
-        <td><span class="parametername">ptrsToExclude</span></td>
-        <td><p>Takes a byte array of values used to disqualify pointers</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
-        <td><span class="parametername">searchBytes</span></td>
-        <td><p>Byte array to be searched for (optional)</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">searchString</span></td>
-        <td><p>String to be searched for (optional)</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">includedModules</span></td>
-        <td><p>Modules to be included in the search (optional)</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">excludedModules</span></td>
-        <td><p>Modules to be excluded from the search (optional)</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ERC.ErcResult-1.html">ErcResult</a>&lt;<span class="xref">System.Collections.Generic.Dictionary</span>&lt;<span class="xref">System.IntPtr</span>, <span class="xref">System.String</span>&gt;&gt;</td>
-        <td><p>Returns an ERC_Result containing pointers to all instances of the search query.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <a id="ERC_ProcessInfo_ToString_" data-uid="ERC.ProcessInfo.ToString*"></a>
   <h4 id="ERC_ProcessInfo_ToString" data-uid="ERC.ProcessInfo.ToString">ToString()</h4>
   <div class="markdown level1 summary"><p>Override of the ToString method. Returns information about the process in a pleasantly formatted string</p>
@@ -1251,8 +1175,7 @@ Search can be limited to specific modules through passing a List of strings cont
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

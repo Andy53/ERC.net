@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DisplayOutput
    ">
-    <meta name="generator" content="docfx 2.59.0.0">
+    <meta name="generator" content="docfx 2.49.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -474,77 +474,14 @@
   </table>
   
   
-  <a id="ERC_DisplayOutput_DumpHeap_" data-uid="ERC.DisplayOutput.DumpHeap*"></a>
-  <h4 id="ERC_DisplayOutput_DumpHeap_ERC_HeapInfo_System_UInt64_System_String_System_Boolean_" data-uid="ERC.DisplayOutput.DumpHeap(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)">DumpHeap(HeapInfo, UInt64, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Reads a set of bytes from a specific heap and provides a string contianing the results. Either HeapID or startAddress must be supplied. If both are supplied HeapID takes precedence.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string[] DumpHeap(HeapInfo hi, ulong heapid = 0UL, string hexStartAddress = &quot;&quot;, bool writeToFile = true)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ERC.HeapInfo.html">HeapInfo</a></td>
-        <td><span class="parametername">hi</span></td>
-        <td><p>HeapInfo object</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.UInt64</span></td>
-        <td><span class="parametername">heapid</span></td>
-        <td><p>The ID of the heap to be dumped. (optional)</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">hexStartAddress</span></td>
-        <td><p>The start address of the specific heap block to be dumped in hexadecimal. (optional)</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">writeToFile</span></td>
-        <td><p>Bool indicating if output should be written to a file.(optional)</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><p>A string containing the bytes read from memory</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <a id="ERC_DisplayOutput_DumpMemory_" data-uid="ERC.DisplayOutput.DumpMemory*"></a>
-  <h4 id="ERC_DisplayOutput_DumpMemory_ERC_ProcessInfo_System_IntPtr_System_Int32_System_Boolean_" data-uid="ERC.DisplayOutput.DumpMemory(ERC.ProcessInfo,System.IntPtr,System.Int32,System.Boolean)">DumpMemory(ProcessInfo, IntPtr, Int32, Boolean)</h4>
+  <h4 id="ERC_DisplayOutput_DumpMemory_ERC_ProcessInfo_System_IntPtr_System_Int32_" data-uid="ERC.DisplayOutput.DumpMemory(ERC.ProcessInfo,System.IntPtr,System.Int32)">DumpMemory(ProcessInfo, IntPtr, Int32)</h4>
   <div class="markdown level1 summary"><p>Reads a set of bytes from process memory and provides a string contianing the results.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string DumpMemory(ProcessInfo info, IntPtr startAddress, int length, bool writeToFile = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ErcResult&lt;string&gt; DumpMemory(ProcessInfo info, IntPtr startAddress, int length)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -574,12 +511,6 @@
         <td><p>The number of bytes to read.</p>
 </td>
       </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">writeToFile</span></td>
-        <td><p>Bool indicating if output should be written to a file.</p>
-</td>
-      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -592,8 +523,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>A string containing the bytes read from memory</p>
+        <td><a class="xref" href="ERC.ErcResult-1.html">ErcResult</a>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>A string containing the bytes read from memroy</p>
 </td>
       </tr>
     </tbody>
@@ -709,7 +640,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string[] GenerateFindNRPTable(ProcessInfo info, int searchType = 0, bool extended = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static List&lt;string&gt; GenerateFindNRPTable(ProcessInfo info, int searchType = 0, bool extended = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -751,7 +682,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><p>Returns a List of strings containing the locations the repeating pattern was identified</p>
 </td>
       </tr>
@@ -876,7 +807,7 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string[] GetSEHJumps(ProcessInfo info, bool aslr = false, bool safeseh = false, bool rebase = false, bool nxcompat = false, bool osdll = false, byte[] unwantedBytes = null, string protection = &quot;exec&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public static List&lt;string&gt; GetSEHJumps(ProcessInfo info, bool aslr = false, bool safeseh = false, bool rebase = false, bool nxcompat = false, bool osdll = false, byte[] unwantedBytes = null, string protection = &quot;exec&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -948,8 +879,8 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><p>Returns an array of strings detailing the pointers, opcodes and base files of suitable instruction sets.</p>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>Returns an ErcResult containing a list of strings detailing the pointers, opcodes and base files of suitable instruction sets.</p>
 </td>
       </tr>
     </tbody>
@@ -965,7 +896,7 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string[] GetSEHJumps(ProcessInfo info, byte[] ptrsToExclude, List&lt;string&gt; excludes = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static List&lt;string&gt; GetSEHJumps(ProcessInfo info, byte[] ptrsToExclude, List&lt;string&gt; excludes = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1007,205 +938,8 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><p>Returns an array of strings detailing the pointers, opcodes and base files of suitable instruction sets.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ERC_DisplayOutput_GetSEHJumpsUnicode_" data-uid="ERC.DisplayOutput.GetSEHJumpsUnicode*"></a>
-  <h4 id="ERC_DisplayOutput_GetSEHJumpsUnicode_ERC_ProcessInfo_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Byte___System_String_" data-uid="ERC.DisplayOutput.GetSEHJumpsUnicode(ERC.ProcessInfo,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)">GetSEHJumpsUnicode(ProcessInfo, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], String)</h4>
-  <div class="markdown level1 summary"><p>Searches all memory associated with a given process and associated modules for POP X POP X RET instructions.
-Passing a list of module paths or names will exclude those modules from the search.
-Similar to Search_All_Memory_PPR however provides output in an easily readable format. This version only returns unicode compliant pointers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string[] GetSEHJumpsUnicode(ProcessInfo info, bool aslr = false, bool safeseh = false, bool rebase = false, bool nxcompat = false, bool osdll = false, byte[] unwantedBytes = null, string protection = &quot;exec&quot;)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ERC.ProcessInfo.html">ProcessInfo</a></td>
-        <td><span class="parametername">info</span></td>
-        <td><p>The ProcessInfo object which will be searched for POP POP RET instructions.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">aslr</span></td>
-        <td><p>Remove ASLR libraries.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">safeseh</span></td>
-        <td><p>Remove SafeSEH libraries.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">rebase</span></td>
-        <td><p>Remove rebasable libraries.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">nxcompat</span></td>
-        <td><p>Remove NXCompat libraries.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">osdll</span></td>
-        <td><p>Remove OS Dlls.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
-        <td><span class="parametername">unwantedBytes</span></td>
-        <td><p>Addresses containing values in this byte array will be ignored.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">protection</span></td>
-        <td><p>String containing protection level returned pointers will.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><p>Returns an array of strings detailing the pointers, opcodes and base files of suitable instruction sets.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ERC_DisplayOutput_HeapStats_" data-uid="ERC.DisplayOutput.HeapStats*"></a>
-  <h4 id="ERC_DisplayOutput_HeapStats_ERC_HeapInfo_System_UInt64_System_String_System_Boolean_" data-uid="ERC.DisplayOutput.HeapStats(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)">HeapStats(HeapInfo, UInt64, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Returns statistics about the heap information gathered about the current process.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string[] HeapStats(HeapInfo hi, ulong heapID = 0UL, string hexStartAddress = &quot;&quot;, bool extended = false)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ERC.HeapInfo.html">HeapInfo</a></td>
-        <td><span class="parametername">hi</span></td>
-        <td><p>HeapInfo Object</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.UInt64</span></td>
-        <td><span class="parametername">heapID</span></td>
-        <td><p>ID of the heap object</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">hexStartAddress</span></td>
-        <td><p>Start address of the heap object (optional)</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">extended</span></td>
-        <td><p>Displays an extended set of statistics</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><p>Returns an of strings</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ERC_DisplayOutput_ListHeapIDs_" data-uid="ERC.DisplayOutput.ListHeapIDs*"></a>
-  <h4 id="ERC_DisplayOutput_ListHeapIDs_ERC_HeapInfo_" data-uid="ERC.DisplayOutput.ListHeapIDs(ERC.HeapInfo)">ListHeapIDs(HeapInfo)</h4>
-  <div class="markdown level1 summary"><p>Returns a list of IDs for each heap associated with the current process.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string[] ListHeapIDs(HeapInfo hi)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ERC.HeapInfo.html">HeapInfo</a></td>
-        <td><span class="parametername">hi</span></td>
-        <td><p>A HeapInfo object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><p>Retruns an array of strings containing the heapIds.</p>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>Returns an ErcResult containing a list of strings detailing the pointers, opcodes and base files of suitable instruction sets.</p>
 </td>
       </tr>
     </tbody>
@@ -1284,13 +1018,13 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
   
   
   <a id="ERC_DisplayOutput_RopChainGadgets32_" data-uid="ERC.DisplayOutput.RopChainGadgets32*"></a>
-  <h4 id="ERC_DisplayOutput_RopChainGadgets32_ERC_Utilities_RopChainGenerator32_System_Boolean_" data-uid="ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32,System.Boolean)">RopChainGadgets32(RopChainGenerator32, Boolean)</h4>
+  <h4 id="ERC_DisplayOutput_RopChainGadgets32_ERC_Utilities_RopChainGenerator32_" data-uid="ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32)">RopChainGadgets32(RopChainGenerator32)</h4>
   <div class="markdown level1 summary"><p>Produces output files containing information about the associated ROP chain, produces files containing ROP gadgets and the associated ROP chain.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string[] RopChainGadgets32(RopChainGenerator32 rcg, bool gadgetsOnly = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static List&lt;string&gt; RopChainGadgets32(RopChainGenerator32 rcg)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1308,12 +1042,6 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
         <td><p>The ROP chain generator object</p>
 </td>
       </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">gadgetsOnly</span></td>
-        <td><p>Bool to indicate if ROP chains should be included or just gadget lists generated</p>
-</td>
-      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -1326,8 +1054,8 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><p>Returns an array of strings</p>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>Returns a List of strings</p>
 </td>
       </tr>
     </tbody>
@@ -1335,13 +1063,13 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
   
   
   <a id="ERC_DisplayOutput_RopChainGadgets64_" data-uid="ERC.DisplayOutput.RopChainGadgets64*"></a>
-  <h4 id="ERC_DisplayOutput_RopChainGadgets64_ERC_Utilities_RopChainGenerator64_System_Boolean_" data-uid="ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64,System.Boolean)">RopChainGadgets64(RopChainGenerator64, Boolean)</h4>
+  <h4 id="ERC_DisplayOutput_RopChainGadgets64_ERC_Utilities_RopChainGenerator64_" data-uid="ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64)">RopChainGadgets64(RopChainGenerator64)</h4>
   <div class="markdown level1 summary"><p>Produces output files containing information about the associated ROP chain, produces files containing ROP gadgets and the associated ROP chain.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string[] RopChainGadgets64(RopChainGenerator64 rcg, bool gadgetsOnly = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static List&lt;string&gt; RopChainGadgets64(RopChainGenerator64 rcg)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1359,12 +1087,6 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
         <td><p>The ROP chain generator object</p>
 </td>
       </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">gadgetsOnly</span></td>
-        <td><p>Bool to indicate if ROP chains should be included or just gadget lists generated</p>
-</td>
-      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -1377,77 +1099,8 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><p>Returns an array of strings</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ERC_DisplayOutput_SearchHeap_" data-uid="ERC.DisplayOutput.SearchHeap*"></a>
-  <h4 id="ERC_DisplayOutput_SearchHeap_ERC_HeapInfo_System_Byte___System_UInt64_System_String_System_Boolean_" data-uid="ERC.DisplayOutput.SearchHeap(ERC.HeapInfo,System.Byte[],System.UInt64,System.String,System.Boolean)">SearchHeap(HeapInfo, Byte[], UInt64, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Searches the process heap for a specific byte patters. If heapID and hexStartAddress are specified heapID takes precedence. Takes an optional bool indicating if output should be written to file.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string[] SearchHeap(HeapInfo hi, byte[] searchBytes, ulong heapID = 0UL, string hexStartAddress = &quot;&quot;, bool writeToFile = true)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ERC.HeapInfo.html">HeapInfo</a></td>
-        <td><span class="parametername">hi</span></td>
-        <td><p>HeapInfo object.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
-        <td><span class="parametername">searchBytes</span></td>
-        <td><p>Pattern to be searched for.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.UInt64</span></td>
-        <td><span class="parametername">heapID</span></td>
-        <td><p>Optional parameter indicating which heap to search.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">hexStartAddress</span></td>
-        <td><p>Optional parameter indicating the start address of the heap object to search</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">writeToFile</span></td>
-        <td><p>Bool indicating if the output should be written to file.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><p>Returns an array of strings.</p>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>Returns a List of strings</p>
 </td>
       </tr>
     </tbody>
@@ -1461,7 +1114,7 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string[] SearchMemory(ProcessInfo info, int searchType, string searchString, bool aslr = false, bool safeseh = false, bool rebase = false, bool nxcompat = false, bool osdll = false, byte[] unwantedBytes = null, string protection = &quot;exec&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public static List&lt;string&gt; SearchMemory(ProcessInfo info, int searchType, string searchString, bool aslr = false, bool safeseh = false, bool rebase = false, bool nxcompat = false, bool osdll = false, byte[] unwantedBytes = null, string protection = &quot;exec&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1530,7 +1183,7 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">protection</span></td>
-        <td><p>String array containing protection level returned pointers will.</p>
+        <td><p>String containing protection level returned pointers will.</p>
 </td>
       </tr>
     </tbody>
@@ -1544,112 +1197,8 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ERC_DisplayOutput_SearchModules_" data-uid="ERC.DisplayOutput.SearchModules*"></a>
-  <h4 id="ERC_DisplayOutput_SearchModules_ERC_ProcessInfo_System_Int32_System_String_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Byte___System_Collections_Generic_List_System_String__System_String_" data-uid="ERC.DisplayOutput.SearchModules(ERC.ProcessInfo,System.Int32,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.Collections.Generic.List{System.String},System.String)">SearchModules(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], List&lt;String&gt;, String)</h4>
-  <div class="markdown level1 summary"><p>Searches the loaded modules of a process for a string or byte combination.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string[] SearchModules(ProcessInfo info, int searchType, string searchString, bool aslr = false, bool safeseh = false, bool rebase = false, bool nxcompat = false, bool osdll = false, byte[] unwantedBytes = null, List&lt;string&gt; modules = null, string protection = &quot;exec&quot;)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ERC.ProcessInfo.html">ProcessInfo</a></td>
-        <td><span class="parametername">info</span></td>
-        <td><p>The processInfo object for the process</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">searchType</span></td>
-        <td><p>The type of data to be searched for.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">searchString</span></td>
-        <td><p>The string to search for.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">aslr</span></td>
-        <td><p>Remove ASLR libraries.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">safeseh</span></td>
-        <td><p>Remove SafeSEH libraries.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">rebase</span></td>
-        <td><p>Remove rebasable libraries.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">nxcompat</span></td>
-        <td><p>Remove NXCompat libraries.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">osdll</span></td>
-        <td><p>Remove OS Dlls.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
-        <td><span class="parametername">unwantedBytes</span></td>
-        <td><p>Addresses containing values in this byte array will be ignored.</p>
-</td>
-      </tr>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">modules</span></td>
-        <td><p>List of modules to be searched</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">protection</span></td>
-        <td><p>String array containing protection level returned pointers will.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
         <td></td>
       </tr>
     </tbody>
@@ -1711,8 +1260,7 @@ Similar to Search_All_Memory_PPR however provides output in an easily readable f
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

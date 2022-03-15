@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class RopChainGenerator64
    ">
-    <meta name="generator" content="docfx 2.59.0.0">
+    <meta name="generator" content="docfx 2.49.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -146,31 +146,6 @@
   </h3>
   
   
-  <h4 id="ERC_Utilities_RopChainGenerator64_HeapCreateChain" data-uid="ERC.Utilities.RopChainGenerator64.HeapCreateChain">HeapCreateChain</h4>
-  <div class="markdown level1 summary"><p>Contains a ROP chain which calls the VirtualAlloc method.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;Tuple&lt;byte[], string&gt;&gt; HeapCreateChain</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Tuple</span>&lt;<span class="xref">System.Byte</span>[], <span class="xref">System.String</span>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <h4 id="ERC_Utilities_RopChainGenerator64_VirtualAllocChain" data-uid="ERC.Utilities.RopChainGenerator64.VirtualAllocChain">VirtualAllocChain</h4>
   <div class="markdown level1 summary"><p>Contains a ROP chain which calls the VirtualAlloc method.</p>
 </div>
@@ -194,68 +169,18 @@
       </tr>
     </tbody>
   </table>
-  
-  
-  <h4 id="ERC_Utilities_RopChainGenerator64_VirtualProtectChain" data-uid="ERC.Utilities.RopChainGenerator64.VirtualProtectChain">VirtualProtectChain</h4>
-  <div class="markdown level1 summary"><p>Contains a ROP chain which calls the VirtualAlloc method.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;Tuple&lt;byte[], string&gt;&gt; VirtualProtectChain</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Tuple</span>&lt;<span class="xref">System.Byte</span>[], <span class="xref">System.String</span>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="ERC_Utilities_RopChainGenerator64_WriteProcessMemoryChain" data-uid="ERC.Utilities.RopChainGenerator64.WriteProcessMemoryChain">WriteProcessMemoryChain</h4>
-  <div class="markdown level1 summary"><p>Contains a ROP chain which calls the VirtualAlloc method.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;Tuple&lt;byte[], string&gt;&gt; WriteProcessMemoryChain</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Tuple</span>&lt;<span class="xref">System.Byte</span>[], <span class="xref">System.String</span>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   
   
   <a id="ERC_Utilities_RopChainGenerator64_GenerateRopChain64_" data-uid="ERC.Utilities.RopChainGenerator64.GenerateRopChain64*"></a>
-  <h4 id="ERC_Utilities_RopChainGenerator64_GenerateRopChain64_System_Byte___System_Byte___System_Collections_Generic_List_System_String__ERC_Utilities_RopChainGenerator64_RopMethod_" data-uid="ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator64.RopMethod)">GenerateRopChain64(Byte[], Byte[], List&lt;String&gt;, RopChainGenerator64.RopMethod)</h4>
+  <h4 id="ERC_Utilities_RopChainGenerator64_GenerateRopChain64_System_Byte___System_Byte___System_Collections_Generic_List_System_String__" data-uid="ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String})">GenerateRopChain64(Byte[], Byte[], List&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Creates a RopChain for a specific process.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ErcResult&lt;string&gt; GenerateRopChain64(byte[] ptrsToExclude, byte[] startAddress = null, List&lt;string&gt; excludes = null, RopChainGenerator64.RopMethod methods = RopChainGenerator64.RopMethod.All)</code></pre>
+    <pre><code class="lang-csharp hljs">public ErcResult&lt;string&gt; GenerateRopChain64(byte[] ptrsToExclude, byte[] startAddress = null, List&lt;string&gt; excludes = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -283,12 +208,6 @@
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">excludes</span></td>
         <td><p>A list of modules to be excluded from the search for ROP gadgets</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ERC.Utilities.RopChainGenerator64.RopMethod.html">RopChainGenerator64.RopMethod</a></td>
-        <td><span class="parametername">methods</span></td>
-        <td><p>ushort indicating the ROP method to be utilizied. Can be omiited for all.</p>
 </td>
       </tr>
     </tbody>
@@ -312,13 +231,13 @@
   
   
   <a id="ERC_Utilities_RopChainGenerator64_GenerateRopChain64_" data-uid="ERC.Utilities.RopChainGenerator64.GenerateRopChain64*"></a>
-  <h4 id="ERC_Utilities_RopChainGenerator64_GenerateRopChain64_System_Byte___System_Collections_Generic_List_System_String__ERC_Utilities_RopChainGenerator64_RopMethod_" data-uid="ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator64.RopMethod)">GenerateRopChain64(Byte[], List&lt;String&gt;, RopChainGenerator64.RopMethod)</h4>
+  <h4 id="ERC_Utilities_RopChainGenerator64_GenerateRopChain64_System_Byte___System_Collections_Generic_List_System_String__" data-uid="ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Collections.Generic.List{System.String})">GenerateRopChain64(Byte[], List&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Creates a RopChain for a specific process.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ErcResult&lt;string&gt; GenerateRopChain64(byte[] startAddress = null, List&lt;string&gt; excludes = null, RopChainGenerator64.RopMethod methods = RopChainGenerator64.RopMethod.All)</code></pre>
+    <pre><code class="lang-csharp hljs">public ErcResult&lt;string&gt; GenerateRopChain64(byte[] startAddress = null, List&lt;string&gt; excludes = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -334,63 +253,6 @@
         <td><span class="xref">System.Byte</span>[]</td>
         <td><span class="parametername">startAddress</span></td>
         <td><p>A Address to be used as the start location for which memory will be made executable</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">excludes</span></td>
-        <td><p>A list of modules to be excluded from the search for ROP gadgets</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ERC.Utilities.RopChainGenerator64.RopMethod.html">RopChainGenerator64.RopMethod</a></td>
-        <td><span class="parametername">methods</span></td>
-        <td><p>ushort indicating the ROP method to be utilizied. Can be omiited for all.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ERC.ErcResult-1.html">ErcResult</a>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><p>Returns an ErcResult string containing</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ERC_Utilities_RopChainGenerator64_GenerateRopGadgets64_" data-uid="ERC.Utilities.RopChainGenerator64.GenerateRopGadgets64*"></a>
-  <h4 id="ERC_Utilities_RopChainGenerator64_GenerateRopGadgets64_System_Byte___System_Collections_Generic_List_System_String__" data-uid="ERC.Utilities.RopChainGenerator64.GenerateRopGadgets64(System.Byte[],System.Collections.Generic.List{System.String})">GenerateRopGadgets64(Byte[], List&lt;String&gt;)</h4>
-  <div class="markdown level1 summary"><p>Creates a list of ROP gadgets for a specific process.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ErcResult&lt;string&gt; GenerateRopGadgets64(byte[] ptrsToExclude = null, List&lt;string&gt; excludes = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
-        <td><span class="parametername">ptrsToExclude</span></td>
-        <td><p>Takes a byte array of values used to disqualify ROP gadgets</p>
 </td>
       </tr>
       <tr>
@@ -427,8 +289,7 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>
