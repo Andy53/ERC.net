@@ -1,0 +1,963 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.ErcCore
+  commentId: T:ERC.ErcCore
+  id: ErcCore
+  parent: ERC
+  children:
+  - ERC.ErcCore.#ctor
+  - ERC.ErcCore.#ctor(ERC.ErcCore)
+  - ERC.ErcCore.Author
+  - ERC.ErcCore.ErcVersion
+  - ERC.ErcCore.GetHandleInformation(System.IntPtr,System.UInt32@)
+  - ERC.ErcCore.LogEvent(System.Exception)
+  - ERC.ErcCore.PatternExtendedPath
+  - ERC.ErcCore.PatternStandardPath
+  - ERC.ErcCore.SetAuthor(System.String)
+  - ERC.ErcCore.SetErrorFile(System.String)
+  - ERC.ErcCore.SetPatternExtendedPath(System.String)
+  - ERC.ErcCore.SetPatternStandardPath(System.String)
+  - ERC.ErcCore.SetWorkingDirectory(System.String)
+  - ERC.ErcCore.SystemErrorLogPath
+  - ERC.ErcCore.WorkingDirectory
+  langs:
+  - csharp
+  - vb
+  name: ErcCore
+  nameWithType: ErcCore
+  fullName: ERC.ErcCore
+  type: Class
+  source:
+    id: ErcCore
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 15
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nA single instance of this object should be instantiated at a minimum. It is used for storing global variables such as the working directory etc.\n"
+  example: []
+  syntax:
+    content: public class ErcCore
+    content.vb: Public Class ErcCore
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ERC.ErcResult`1
+  - ERC.ProcessInfo
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: ERC.ErcCore.ErcVersion
+  commentId: P:ERC.ErcCore.ErcVersion
+  id: ErcVersion
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: ErcVersion
+  nameWithType: ErcCore.ErcVersion
+  fullName: ERC.ErcCore.ErcVersion
+  type: Property
+  source:
+    id: ErcVersion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 21
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nThe current version of the ERC.Net library\n"
+  example: []
+  syntax:
+    content: public string ErcVersion { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ErcVersion As String
+  overload: ERC.ErcCore.ErcVersion*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ErcCore.WorkingDirectory
+  commentId: P:ERC.ErcCore.WorkingDirectory
+  id: WorkingDirectory
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: WorkingDirectory
+  nameWithType: ErcCore.WorkingDirectory
+  fullName: ERC.ErcCore.WorkingDirectory
+  type: Property
+  source:
+    id: WorkingDirectory
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 25
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nThe directory where output files will be saved.\n"
+  example: []
+  syntax:
+    content: public string WorkingDirectory { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property WorkingDirectory As String
+  overload: ERC.ErcCore.WorkingDirectory*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ErcCore.Author
+  commentId: P:ERC.ErcCore.Author
+  id: Author
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: Author
+  nameWithType: ErcCore.Author
+  fullName: ERC.ErcCore.Author
+  type: Property
+  source:
+    id: Author
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 29
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nThe Author to be credited in output files.\n"
+  example: []
+  syntax:
+    content: public string Author { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Author As String
+  overload: ERC.ErcCore.Author*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ERC.ErcCore.SystemErrorLogPath
+  commentId: P:ERC.ErcCore.SystemErrorLogPath
+  id: SystemErrorLogPath
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: SystemErrorLogPath
+  nameWithType: ErcCore.SystemErrorLogPath
+  fullName: ERC.ErcCore.SystemErrorLogPath
+  type: Property
+  source:
+    id: SystemErrorLogPath
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 37
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nPath where error details should be logged.\n"
+  example: []
+  syntax:
+    content: public string SystemErrorLogPath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SystemErrorLogPath As String
+  overload: ERC.ErcCore.SystemErrorLogPath*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ERC.ErcCore.PatternStandardPath
+  commentId: P:ERC.ErcCore.PatternStandardPath
+  id: PatternStandardPath
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: PatternStandardPath
+  nameWithType: ErcCore.PatternStandardPath
+  fullName: ERC.ErcCore.PatternStandardPath
+  type: Property
+  source:
+    id: PatternStandardPath
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 41
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nPath to the file containing the standard pattern to be used.\n"
+  example: []
+  syntax:
+    content: public string PatternStandardPath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PatternStandardPath As String
+  overload: ERC.ErcCore.PatternStandardPath*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ERC.ErcCore.PatternExtendedPath
+  commentId: P:ERC.ErcCore.PatternExtendedPath
+  id: PatternExtendedPath
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: PatternExtendedPath
+  nameWithType: ErcCore.PatternExtendedPath
+  fullName: ERC.ErcCore.PatternExtendedPath
+  type: Property
+  source:
+    id: PatternExtendedPath
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 45
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nPath to the file containing the extended pattern to be used.\n"
+  example: []
+  syntax:
+    content: public string PatternExtendedPath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PatternExtendedPath As String
+  overload: ERC.ErcCore.PatternExtendedPath*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: ERC.ErcCore.GetHandleInformation(System.IntPtr,System.UInt32@)
+  commentId: M:ERC.ErcCore.GetHandleInformation(System.IntPtr,System.UInt32@)
+  id: GetHandleInformation(System.IntPtr,System.UInt32@)
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: GetHandleInformation(IntPtr, out UInt32)
+  nameWithType: ErcCore.GetHandleInformation(IntPtr, out UInt32)
+  fullName: ERC.ErcCore.GetHandleInformation(System.IntPtr, out System.UInt32)
+  type: Method
+  source:
+    path: ERC.Net
+    isExternal: true
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nRetrieves certain properties of an object handle.\n"
+  example: []
+  syntax:
+    content: public static extern bool GetHandleInformation(IntPtr hObject, out uint lpdwFlags)
+    parameters:
+    - id: hObject
+      type: System.IntPtr
+      description: A handle to an object whose information is to be retrieved.
+    - id: lpdwFlags
+      type: System.UInt32
+      description: A pointer to a variable that receives a set of bit flags that specify properties of the object handle or 0. The following values are defined.
+    return:
+      type: System.Boolean
+      description: If the function succeeds, the return value is true.
+    content.vb: Public Shared Function GetHandleInformation(hObject As IntPtr, ByRef lpdwFlags As UInteger) As Boolean
+  overload: ERC.ErcCore.GetHandleInformation*
+  nameWithType.vb: ErcCore.GetHandleInformation(IntPtr, ByRef UInt32)
+  modifiers.csharp:
+  - public
+  - static
+  - extern
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.ErcCore.GetHandleInformation(System.IntPtr, ByRef System.UInt32)
+  name.vb: GetHandleInformation(IntPtr, ByRef UInt32)
+- uid: ERC.ErcCore.#ctor
+  commentId: M:ERC.ErcCore.#ctor
+  id: '#ctor'
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: ErcCore()
+  nameWithType: ErcCore.ErcCore()
+  fullName: ERC.ErcCore.ErcCore()
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 385
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nConstructor.\n"
+  example: []
+  syntax:
+    content: public ErcCore()
+    content.vb: Public Sub New
+  overload: ERC.ErcCore.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.ErcCore.#ctor(ERC.ErcCore)
+  commentId: M:ERC.ErcCore.#ctor(ERC.ErcCore)
+  id: '#ctor(ERC.ErcCore)'
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: ErcCore(ErcCore)
+  nameWithType: ErcCore.ErcCore(ErcCore)
+  fullName: ERC.ErcCore.ErcCore(ERC.ErcCore)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 493
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nConstructor to be used when creating an object that inherits from an ErcCore object.\n"
+  example: []
+  syntax:
+    content: protected ErcCore(ErcCore parent)
+    parameters:
+    - id: parent
+      type: ERC.ErcCore
+      description: The ErcCore object to be inherited from.
+    content.vb: Protected Sub New(parent As ErcCore)
+  overload: ERC.ErcCore.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: ERC.ErcCore.SetWorkingDirectory(System.String)
+  commentId: M:ERC.ErcCore.SetWorkingDirectory(System.String)
+  id: SetWorkingDirectory(System.String)
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: SetWorkingDirectory(String)
+  nameWithType: ErcCore.SetWorkingDirectory(String)
+  fullName: ERC.ErcCore.SetWorkingDirectory(System.String)
+  type: Method
+  source:
+    id: SetWorkingDirectory
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 560
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nChanges the working directory in both the XML file and associated ErcCore object\n"
+  example: []
+  syntax:
+    content: public void SetWorkingDirectory(string path)
+    parameters:
+    - id: path
+      type: System.String
+      description: ''
+    content.vb: Public Sub SetWorkingDirectory(path As String)
+  overload: ERC.ErcCore.SetWorkingDirectory*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.ErcCore.SetPatternStandardPath(System.String)
+  commentId: M:ERC.ErcCore.SetPatternStandardPath(System.String)
+  id: SetPatternStandardPath(System.String)
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: SetPatternStandardPath(String)
+  nameWithType: ErcCore.SetPatternStandardPath(String)
+  fullName: ERC.ErcCore.SetPatternStandardPath(System.String)
+  type: Method
+  source:
+    id: SetPatternStandardPath
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 587
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nSets the standard pattern file path. Any pattern can replace the standard pattern when searching however the new pattern must be written to a file and the file path set here.\n"
+  example: []
+  syntax:
+    content: public void SetPatternStandardPath(string path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The filepath of the new standard pattern file
+    content.vb: Public Sub SetPatternStandardPath(path As String)
+  overload: ERC.ErcCore.SetPatternStandardPath*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.ErcCore.SetPatternExtendedPath(System.String)
+  commentId: M:ERC.ErcCore.SetPatternExtendedPath(System.String)
+  id: SetPatternExtendedPath(System.String)
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: SetPatternExtendedPath(String)
+  nameWithType: ErcCore.SetPatternExtendedPath(String)
+  fullName: ERC.ErcCore.SetPatternExtendedPath(System.String)
+  type: Method
+  source:
+    id: SetPatternExtendedPath
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 614
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nSets the extended pattern file path. Any pattern can replace the extended pattern when searching however the new pattern must be written to a file and the file path set here.\n"
+  example: []
+  syntax:
+    content: public void SetPatternExtendedPath(string path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The filepath of the new extended pattern file
+    content.vb: Public Sub SetPatternExtendedPath(path As String)
+  overload: ERC.ErcCore.SetPatternExtendedPath*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.ErcCore.SetAuthor(System.String)
+  commentId: M:ERC.ErcCore.SetAuthor(System.String)
+  id: SetAuthor(System.String)
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: SetAuthor(String)
+  nameWithType: ErcCore.SetAuthor(String)
+  fullName: ERC.ErcCore.SetAuthor(System.String)
+  type: Method
+  source:
+    id: SetAuthor
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 641
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nSets the name of the author for use when outputing results to disk.\n"
+  example: []
+  syntax:
+    content: public void SetAuthor(string author)
+    parameters:
+    - id: author
+      type: System.String
+      description: String containing the name of the author
+    content.vb: Public Sub SetAuthor(author As String)
+  overload: ERC.ErcCore.SetAuthor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.ErcCore.SetErrorFile(System.String)
+  commentId: M:ERC.ErcCore.SetErrorFile(System.String)
+  id: SetErrorFile(System.String)
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: SetErrorFile(String)
+  nameWithType: ErcCore.SetErrorFile(String)
+  fullName: ERC.ErcCore.SetErrorFile(System.String)
+  type: Method
+  source:
+    id: SetErrorFile
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 657
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nSets the error log file to a user specified filepath. \n"
+  example: []
+  syntax:
+    content: public void SetErrorFile(string path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The new error log filepath.
+    content.vb: Public Sub SetErrorFile(path As String)
+  overload: ERC.ErcCore.SetErrorFile*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.ErcCore.LogEvent(System.Exception)
+  commentId: M:ERC.ErcCore.LogEvent(System.Exception)
+  id: LogEvent(System.Exception)
+  parent: ERC.ErcCore
+  langs:
+  - csharp
+  - vb
+  name: LogEvent(Exception)
+  nameWithType: ErcCore.LogEvent(Exception)
+  fullName: ERC.ErcCore.LogEvent(System.Exception)
+  type: Method
+  source:
+    id: LogEvent
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 701
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nLogs events to the error log path in the XML file. This file is only appended to and never replaced.\n"
+  example: []
+  syntax:
+    content: public void LogEvent(Exception e)
+    parameters:
+    - id: e
+      type: System.Exception
+      description: The exception to log
+    content.vb: Public Sub LogEvent(e As Exception)
+  overload: ERC.ErcCore.LogEvent*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: ERC
+  commentId: N:ERC
+  name: ERC
+  nameWithType: ERC
+  fullName: ERC
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ERC.ErcCore.ErcVersion*
+  commentId: Overload:ERC.ErcCore.ErcVersion
+  name: ErcVersion
+  nameWithType: ErcCore.ErcVersion
+  fullName: ERC.ErcCore.ErcVersion
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: ERC.ErcCore.WorkingDirectory*
+  commentId: Overload:ERC.ErcCore.WorkingDirectory
+  name: WorkingDirectory
+  nameWithType: ErcCore.WorkingDirectory
+  fullName: ERC.ErcCore.WorkingDirectory
+- uid: ERC.ErcCore.Author*
+  commentId: Overload:ERC.ErcCore.Author
+  name: Author
+  nameWithType: ErcCore.Author
+  fullName: ERC.ErcCore.Author
+- uid: ERC.ErcCore.SystemErrorLogPath*
+  commentId: Overload:ERC.ErcCore.SystemErrorLogPath
+  name: SystemErrorLogPath
+  nameWithType: ErcCore.SystemErrorLogPath
+  fullName: ERC.ErcCore.SystemErrorLogPath
+- uid: ERC.ErcCore.PatternStandardPath*
+  commentId: Overload:ERC.ErcCore.PatternStandardPath
+  name: PatternStandardPath
+  nameWithType: ErcCore.PatternStandardPath
+  fullName: ERC.ErcCore.PatternStandardPath
+- uid: ERC.ErcCore.PatternExtendedPath*
+  commentId: Overload:ERC.ErcCore.PatternExtendedPath
+  name: PatternExtendedPath
+  nameWithType: ErcCore.PatternExtendedPath
+  fullName: ERC.ErcCore.PatternExtendedPath
+- uid: ERC.ErcCore.GetHandleInformation*
+  commentId: Overload:ERC.ErcCore.GetHandleInformation
+  isExternal: true
+  name: GetHandleInformation
+  nameWithType: ErcCore.GetHandleInformation
+  fullName: ERC.ErcCore.GetHandleInformation
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  name: IntPtr
+  nameWithType: IntPtr
+  fullName: System.IntPtr
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: ERC.ErcCore.#ctor*
+  commentId: Overload:ERC.ErcCore.#ctor
+  name: ErcCore
+  nameWithType: ErcCore.ErcCore
+  fullName: ERC.ErcCore.ErcCore
+- uid: ERC.ErcCore
+  commentId: T:ERC.ErcCore
+  parent: ERC
+  name: ErcCore
+  nameWithType: ErcCore
+  fullName: ERC.ErcCore
+- uid: ERC.ErcCore.SetWorkingDirectory*
+  commentId: Overload:ERC.ErcCore.SetWorkingDirectory
+  name: SetWorkingDirectory
+  nameWithType: ErcCore.SetWorkingDirectory
+  fullName: ERC.ErcCore.SetWorkingDirectory
+- uid: ERC.ErcCore.SetPatternStandardPath*
+  commentId: Overload:ERC.ErcCore.SetPatternStandardPath
+  name: SetPatternStandardPath
+  nameWithType: ErcCore.SetPatternStandardPath
+  fullName: ERC.ErcCore.SetPatternStandardPath
+- uid: ERC.ErcCore.SetPatternExtendedPath*
+  commentId: Overload:ERC.ErcCore.SetPatternExtendedPath
+  name: SetPatternExtendedPath
+  nameWithType: ErcCore.SetPatternExtendedPath
+  fullName: ERC.ErcCore.SetPatternExtendedPath
+- uid: ERC.ErcCore.SetAuthor*
+  commentId: Overload:ERC.ErcCore.SetAuthor
+  name: SetAuthor
+  nameWithType: ErcCore.SetAuthor
+  fullName: ERC.ErcCore.SetAuthor
+- uid: ERC.ErcCore.SetErrorFile*
+  commentId: Overload:ERC.ErcCore.SetErrorFile
+  name: SetErrorFile
+  nameWithType: ErcCore.SetErrorFile
+  fullName: ERC.ErcCore.SetErrorFile
+- uid: ERC.ErcCore.LogEvent*
+  commentId: Overload:ERC.ErcCore.LogEvent
+  name: LogEvent
+  nameWithType: ErcCore.LogEvent
+  fullName: ERC.ErcCore.LogEvent
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception

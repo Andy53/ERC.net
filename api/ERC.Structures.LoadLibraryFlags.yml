@@ -1,0 +1,438 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Structures.LoadLibraryFlags
+  commentId: T:ERC.Structures.LoadLibraryFlags
+  id: LoadLibraryFlags
+  parent: ERC.Structures
+  children:
+  - ERC.Structures.LoadLibraryFlags.DONT_RESOLVE_DLL_REFERENCES
+  - ERC.Structures.LoadLibraryFlags.LOAD_IGNORE_CODE_AUTHZ_LEVEL
+  - ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE
+  - ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE
+  - ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_IMAGE_RESOURCE
+  - ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_APPLICATION_DIR
+  - ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+  - ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR
+  - ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_SYSTEM32
+  - ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_USER_DIRS
+  - ERC.Structures.LoadLibraryFlags.LOAD_WITH_ALTERED_SEARCH_PATH
+  - ERC.Structures.LoadLibraryFlags.None
+  langs:
+  - csharp
+  - vb
+  name: LoadLibraryFlags
+  nameWithType: LoadLibraryFlags
+  fullName: ERC.Structures.LoadLibraryFlags
+  type: Enum
+  source:
+    id: LoadLibraryFlags
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2115
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLoadLibraryFlags\n"
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum LoadLibraryFlags : uint
+    content.vb: >-
+      <Flags>
+
+      Public Enum LoadLibraryFlags As UInteger
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: ERC.Structures.LoadLibraryFlags.None
+  commentId: F:ERC.Structures.LoadLibraryFlags.None
+  id: None
+  parent: ERC.Structures.LoadLibraryFlags
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: LoadLibraryFlags.None
+  fullName: ERC.Structures.LoadLibraryFlags.None
+  type: Field
+  source:
+    id: None
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2121
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nNone\n"
+  example: []
+  syntax:
+    content: None = 0U
+    return:
+      type: ERC.Structures.LoadLibraryFlags
+    content.vb: None = 0UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.LoadLibraryFlags.DONT_RESOLVE_DLL_REFERENCES
+  commentId: F:ERC.Structures.LoadLibraryFlags.DONT_RESOLVE_DLL_REFERENCES
+  id: DONT_RESOLVE_DLL_REFERENCES
+  parent: ERC.Structures.LoadLibraryFlags
+  langs:
+  - csharp
+  - vb
+  name: DONT_RESOLVE_DLL_REFERENCES
+  nameWithType: LoadLibraryFlags.DONT_RESOLVE_DLL_REFERENCES
+  fullName: ERC.Structures.LoadLibraryFlags.DONT_RESOLVE_DLL_REFERENCES
+  type: Field
+  source:
+    id: DONT_RESOLVE_DLL_REFERENCES
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2125
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDONT_RESOLVE_DLL_REFERENCES\n"
+  example: []
+  syntax:
+    content: DONT_RESOLVE_DLL_REFERENCES = 1U
+    return:
+      type: ERC.Structures.LoadLibraryFlags
+    content.vb: DONT_RESOLVE_DLL_REFERENCES = 1UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.LoadLibraryFlags.LOAD_IGNORE_CODE_AUTHZ_LEVEL
+  commentId: F:ERC.Structures.LoadLibraryFlags.LOAD_IGNORE_CODE_AUTHZ_LEVEL
+  id: LOAD_IGNORE_CODE_AUTHZ_LEVEL
+  parent: ERC.Structures.LoadLibraryFlags
+  langs:
+  - csharp
+  - vb
+  name: LOAD_IGNORE_CODE_AUTHZ_LEVEL
+  nameWithType: LoadLibraryFlags.LOAD_IGNORE_CODE_AUTHZ_LEVEL
+  fullName: ERC.Structures.LoadLibraryFlags.LOAD_IGNORE_CODE_AUTHZ_LEVEL
+  type: Field
+  source:
+    id: LOAD_IGNORE_CODE_AUTHZ_LEVEL
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2129
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLOAD_IGNORE_CODE_AUTHZ_LEVEL\n"
+  example: []
+  syntax:
+    content: LOAD_IGNORE_CODE_AUTHZ_LEVEL = 16U
+    return:
+      type: ERC.Structures.LoadLibraryFlags
+    content.vb: LOAD_IGNORE_CODE_AUTHZ_LEVEL = 16UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE
+  commentId: F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE
+  id: LOAD_LIBRARY_AS_DATAFILE
+  parent: ERC.Structures.LoadLibraryFlags
+  langs:
+  - csharp
+  - vb
+  name: LOAD_LIBRARY_AS_DATAFILE
+  nameWithType: LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE
+  fullName: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE
+  type: Field
+  source:
+    id: LOAD_LIBRARY_AS_DATAFILE
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2133
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLOAD_LIBRARY_AS_DATAFILE\n"
+  example: []
+  syntax:
+    content: LOAD_LIBRARY_AS_DATAFILE = 2U
+    return:
+      type: ERC.Structures.LoadLibraryFlags
+    content.vb: LOAD_LIBRARY_AS_DATAFILE = 2UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE
+  commentId: F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE
+  id: LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE
+  parent: ERC.Structures.LoadLibraryFlags
+  langs:
+  - csharp
+  - vb
+  name: LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE
+  nameWithType: LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE
+  fullName: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE
+  type: Field
+  source:
+    id: LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2137
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE\n"
+  example: []
+  syntax:
+    content: LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE = 64U
+    return:
+      type: ERC.Structures.LoadLibraryFlags
+    content.vb: LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE = 64UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_IMAGE_RESOURCE
+  commentId: F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_IMAGE_RESOURCE
+  id: LOAD_LIBRARY_AS_IMAGE_RESOURCE
+  parent: ERC.Structures.LoadLibraryFlags
+  langs:
+  - csharp
+  - vb
+  name: LOAD_LIBRARY_AS_IMAGE_RESOURCE
+  nameWithType: LoadLibraryFlags.LOAD_LIBRARY_AS_IMAGE_RESOURCE
+  fullName: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_AS_IMAGE_RESOURCE
+  type: Field
+  source:
+    id: LOAD_LIBRARY_AS_IMAGE_RESOURCE
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2141
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLOAD_LIBRARY_AS_IMAGE_RESOURCE\n"
+  example: []
+  syntax:
+    content: LOAD_LIBRARY_AS_IMAGE_RESOURCE = 32U
+    return:
+      type: ERC.Structures.LoadLibraryFlags
+    content.vb: LOAD_LIBRARY_AS_IMAGE_RESOURCE = 32UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_APPLICATION_DIR
+  commentId: F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_APPLICATION_DIR
+  id: LOAD_LIBRARY_SEARCH_APPLICATION_DIR
+  parent: ERC.Structures.LoadLibraryFlags
+  langs:
+  - csharp
+  - vb
+  name: LOAD_LIBRARY_SEARCH_APPLICATION_DIR
+  nameWithType: LoadLibraryFlags.LOAD_LIBRARY_SEARCH_APPLICATION_DIR
+  fullName: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_APPLICATION_DIR
+  type: Field
+  source:
+    id: LOAD_LIBRARY_SEARCH_APPLICATION_DIR
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2145
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLOAD_LIBRARY_SEARCH_APPLICATION_DIR\n"
+  example: []
+  syntax:
+    content: LOAD_LIBRARY_SEARCH_APPLICATION_DIR = 512U
+    return:
+      type: ERC.Structures.LoadLibraryFlags
+    content.vb: LOAD_LIBRARY_SEARCH_APPLICATION_DIR = 512UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+  commentId: F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+  id: LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+  parent: ERC.Structures.LoadLibraryFlags
+  langs:
+  - csharp
+  - vb
+  name: LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+  nameWithType: LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+  fullName: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+  type: Field
+  source:
+    id: LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2149
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLOAD_LIBRARY_SEARCH_DEFAULT_DIRS\n"
+  example: []
+  syntax:
+    content: LOAD_LIBRARY_SEARCH_DEFAULT_DIRS = 4096U
+    return:
+      type: ERC.Structures.LoadLibraryFlags
+    content.vb: LOAD_LIBRARY_SEARCH_DEFAULT_DIRS = 4096UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR
+  commentId: F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR
+  id: LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR
+  parent: ERC.Structures.LoadLibraryFlags
+  langs:
+  - csharp
+  - vb
+  name: LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR
+  nameWithType: LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR
+  fullName: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR
+  type: Field
+  source:
+    id: LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2153
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLOAD_LIBRARY_SEARCH_DLL_LOAD_DIR\n"
+  example: []
+  syntax:
+    content: LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR = 256U
+    return:
+      type: ERC.Structures.LoadLibraryFlags
+    content.vb: LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR = 256UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_SYSTEM32
+  commentId: F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_SYSTEM32
+  id: LOAD_LIBRARY_SEARCH_SYSTEM32
+  parent: ERC.Structures.LoadLibraryFlags
+  langs:
+  - csharp
+  - vb
+  name: LOAD_LIBRARY_SEARCH_SYSTEM32
+  nameWithType: LoadLibraryFlags.LOAD_LIBRARY_SEARCH_SYSTEM32
+  fullName: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_SYSTEM32
+  type: Field
+  source:
+    id: LOAD_LIBRARY_SEARCH_SYSTEM32
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2157
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLOAD_LIBRARY_SEARCH_SYSTEM32\n"
+  example: []
+  syntax:
+    content: LOAD_LIBRARY_SEARCH_SYSTEM32 = 2048U
+    return:
+      type: ERC.Structures.LoadLibraryFlags
+    content.vb: LOAD_LIBRARY_SEARCH_SYSTEM32 = 2048UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_USER_DIRS
+  commentId: F:ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_USER_DIRS
+  id: LOAD_LIBRARY_SEARCH_USER_DIRS
+  parent: ERC.Structures.LoadLibraryFlags
+  langs:
+  - csharp
+  - vb
+  name: LOAD_LIBRARY_SEARCH_USER_DIRS
+  nameWithType: LoadLibraryFlags.LOAD_LIBRARY_SEARCH_USER_DIRS
+  fullName: ERC.Structures.LoadLibraryFlags.LOAD_LIBRARY_SEARCH_USER_DIRS
+  type: Field
+  source:
+    id: LOAD_LIBRARY_SEARCH_USER_DIRS
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2161
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLOAD_LIBRARY_SEARCH_USER_DIRS\n"
+  example: []
+  syntax:
+    content: LOAD_LIBRARY_SEARCH_USER_DIRS = 1024U
+    return:
+      type: ERC.Structures.LoadLibraryFlags
+    content.vb: LOAD_LIBRARY_SEARCH_USER_DIRS = 1024UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.LoadLibraryFlags.LOAD_WITH_ALTERED_SEARCH_PATH
+  commentId: F:ERC.Structures.LoadLibraryFlags.LOAD_WITH_ALTERED_SEARCH_PATH
+  id: LOAD_WITH_ALTERED_SEARCH_PATH
+  parent: ERC.Structures.LoadLibraryFlags
+  langs:
+  - csharp
+  - vb
+  name: LOAD_WITH_ALTERED_SEARCH_PATH
+  nameWithType: LoadLibraryFlags.LOAD_WITH_ALTERED_SEARCH_PATH
+  fullName: ERC.Structures.LoadLibraryFlags.LOAD_WITH_ALTERED_SEARCH_PATH
+  type: Field
+  source:
+    id: LOAD_WITH_ALTERED_SEARCH_PATH
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2165
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLOAD_WITH_ALTERED_SEARCH_PATH\n"
+  example: []
+  syntax:
+    content: LOAD_WITH_ALTERED_SEARCH_PATH = 8U
+    return:
+      type: ERC.Structures.LoadLibraryFlags
+    content.vb: LOAD_WITH_ALTERED_SEARCH_PATH = 8UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: ERC.Structures
+  commentId: N:ERC.Structures
+  name: ERC.Structures
+  nameWithType: ERC.Structures
+  fullName: ERC.Structures
+- uid: ERC.Structures.LoadLibraryFlags
+  commentId: T:ERC.Structures.LoadLibraryFlags
+  parent: ERC.Structures
+  name: LoadLibraryFlags
+  nameWithType: LoadLibraryFlags
+  fullName: ERC.Structures.LoadLibraryFlags

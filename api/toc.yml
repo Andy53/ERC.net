@@ -1,0 +1,127 @@
+### YamlMime:TableOfContent
+- uid: ERC
+  name: ERC
+  items:
+  - uid: ERC.DisplayOutput
+    name: DisplayOutput
+  - uid: ERC.ErcCore
+    name: ErcCore
+  - uid: ERC.ERCException
+    name: ERCException
+  - uid: ERC.ErcResult`1
+    name: ErcResult<T>
+    name.vb: ErcResult(Of T)
+  - uid: ERC.HeapInfo
+    name: HeapInfo
+  - uid: ERC.MachineType
+    name: MachineType
+  - uid: ERC.ModuleInfo
+    name: ModuleInfo
+  - uid: ERC.ProcessInfo
+    name: ProcessInfo
+  - uid: ERC.ThreadInfo
+    name: ThreadInfo
+- uid: ERC.Structures
+  name: ERC.Structures
+  items:
+  - uid: ERC.Structures.AllocationProtect
+    name: AllocationProtect
+  - uid: ERC.Structures.ClientID
+    name: ClientID
+  - uid: ERC.Structures.CONTEXT_FLAGS
+    name: CONTEXT_FLAGS
+  - uid: ERC.Structures.CONTEXT32
+    name: CONTEXT32
+  - uid: ERC.Structures.CONTEXT64
+    name: CONTEXT64
+  - uid: ERC.Structures.FLOATING_SAVE_AREA
+    name: FLOATING_SAVE_AREA
+  - uid: ERC.Structures.HEAPENTRY32
+    name: HEAPENTRY32
+  - uid: ERC.Structures.HEAPLIST32
+    name: HEAPLIST32
+  - uid: ERC.Structures.IMAGE_DATA_DIRECTORY
+    name: IMAGE_DATA_DIRECTORY
+  - uid: ERC.Structures.IMAGE_DOS_HEADER
+    name: IMAGE_DOS_HEADER
+  - uid: ERC.Structures.IMAGE_FILE_HEADER
+    name: IMAGE_FILE_HEADER
+  - uid: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+    name: IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  - uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY32
+    name: IMAGE_LOAD_CONFIG_DIRECTORY32
+  - uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+    name: IMAGE_LOAD_CONFIG_DIRECTORY64
+  - uid: ERC.Structures.IMAGE_NT_HEADERS32
+    name: IMAGE_NT_HEADERS32
+  - uid: ERC.Structures.IMAGE_NT_HEADERS64
+    name: IMAGE_NT_HEADERS64
+  - uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+    name: IMAGE_OPTIONAL_HEADER32
+  - uid: ERC.Structures.IMAGE_OPTIONAL_HEADER64
+    name: IMAGE_OPTIONAL_HEADER64
+  - uid: ERC.Structures.LIST_ENTRY
+    name: LIST_ENTRY
+  - uid: ERC.Structures.LOADED_IMAGE
+    name: LOADED_IMAGE
+  - uid: ERC.Structures.LoadLibraryFlags
+    name: LoadLibraryFlags
+  - uid: ERC.Structures.M128A
+    name: M128A
+  - uid: ERC.Structures.MagicType
+    name: MagicType
+  - uid: ERC.Structures.MEMORY_BASIC_INFORMATION32
+    name: MEMORY_BASIC_INFORMATION32
+  - uid: ERC.Structures.MEMORY_BASIC_INFORMATION64
+    name: MEMORY_BASIC_INFORMATION64
+  - uid: ERC.Structures.ProcessAccessFlags
+    name: ProcessAccessFlags
+  - uid: ERC.Structures.PROCESSENTRY32
+    name: PROCESSENTRY32
+  - uid: ERC.Structures.RegisterInfo
+    name: RegisterInfo
+  - uid: ERC.Structures.SnapshotFlags
+    name: SnapshotFlags
+  - uid: ERC.Structures.StateEnum
+    name: StateEnum
+  - uid: ERC.Structures.SubSystemType
+    name: SubSystemType
+  - uid: ERC.Structures.TEB
+    name: TEB
+  - uid: ERC.Structures.ThreadAccess
+    name: ThreadAccess
+  - uid: ERC.Structures.ThreadBasicInformation
+    name: ThreadBasicInformation
+  - uid: ERC.Structures.TypeEnum
+    name: TypeEnum
+  - uid: ERC.Structures.XSAVE_FORMAT64
+    name: XSAVE_FORMAT64
+- uid: ERC.Utilities
+  name: ERC.Utilities
+  items:
+  - uid: ERC.Utilities.Convert
+    name: Convert
+  - uid: ERC.Utilities.OpcodeAssembler
+    name: OpcodeAssembler
+  - uid: ERC.Utilities.OpcodeDisassembler
+    name: OpcodeDisassembler
+  - uid: ERC.Utilities.PatternTools
+    name: PatternTools
+  - uid: ERC.Utilities.Payloads
+    name: Payloads
+  - uid: ERC.Utilities.PtrRemover
+    name: PtrRemover
+  - uid: ERC.Utilities.RopChainGenerator32
+    name: RopChainGenerator32
+  - uid: ERC.Utilities.RopChainGenerator32.RopMethod
+    name: RopChainGenerator32.RopMethod
+  - uid: ERC.Utilities.RopChainGenerator32.X86Lists
+    name: RopChainGenerator32.X86Lists
+  - uid: ERC.Utilities.RopChainGenerator64
+    name: RopChainGenerator64
+  - uid: ERC.Utilities.RopChainGenerator64.RopMethod
+    name: RopChainGenerator64.RopMethod
+  - uid: ERC.Utilities.RopChainGenerator64.X64Lists
+    name: RopChainGenerator64.X64Lists
+  - uid: ERC.Utilities.Win32Errors
+    name: Win32Errors

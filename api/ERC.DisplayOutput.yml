@@ -1,0 +1,1946 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.DisplayOutput
+  commentId: T:ERC.DisplayOutput
+  id: DisplayOutput
+  parent: ERC
+  children:
+  - ERC.DisplayOutput.AssembleOpcodes(System.String[],ERC.MachineType)
+  - ERC.DisplayOutput.AssembleOpcodes(System.String[],System.UInt32)
+  - ERC.DisplayOutput.CompareByteArrayToMemoryRegion(ERC.ProcessInfo,System.IntPtr,System.Byte[])
+  - ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],ERC.MachineType)
+  - ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],System.UInt32)
+  - ERC.DisplayOutput.DisplayProcessInfo(ERC.ProcessInfo,System.Boolean)
+  - ERC.DisplayOutput.DisplayThreadInfo(ERC.ProcessInfo,System.Boolean)
+  - ERC.DisplayOutput.DumpHeap(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)
+  - ERC.DisplayOutput.DumpMemory(ERC.ProcessInfo,System.IntPtr,System.Int32,System.Boolean)
+  - ERC.DisplayOutput.GenerateByteArray(ERC.ErcCore,System.Byte[])
+  - ERC.DisplayOutput.GenerateEggHunters(ERC.ErcCore,System.String)
+  - ERC.DisplayOutput.GenerateFindNRPTable(ERC.ProcessInfo,System.Int32,System.Boolean)
+  - ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo,System.Boolean)
+  - ERC.DisplayOutput.GeneratePattern(System.Int32,ERC.ErcCore,System.Boolean)
+  - ERC.DisplayOutput.GetSEHJumps(ERC.ProcessInfo,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
+  - ERC.DisplayOutput.GetSEHJumps(ERC.ProcessInfo,System.Byte[],System.Collections.Generic.List{System.String})
+  - ERC.DisplayOutput.GetSEHJumpsUnicode(ERC.ProcessInfo,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
+  - ERC.DisplayOutput.HeapStats(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)
+  - ERC.DisplayOutput.ListHeapIDs(ERC.HeapInfo)
+  - ERC.DisplayOutput.ListLocalProcesses
+  - ERC.DisplayOutput.ListRemoteProcesses(System.String)
+  - ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32,System.Boolean)
+  - ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64,System.Boolean)
+  - ERC.DisplayOutput.SearchHeap(ERC.HeapInfo,System.Byte[],System.UInt64,System.String,System.Boolean)
+  - ERC.DisplayOutput.SearchMemory(ERC.ProcessInfo,System.Int32,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
+  - ERC.DisplayOutput.SearchModules(ERC.ProcessInfo,System.Int32,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.Collections.Generic.List{System.String},System.String)
+  - ERC.DisplayOutput.WriteToFile(System.String,System.String,System.String,System.Collections.Generic.List{System.String})
+  langs:
+  - csharp
+  - vb
+  name: DisplayOutput
+  nameWithType: DisplayOutput
+  fullName: ERC.DisplayOutput
+  type: Class
+  source:
+    id: DisplayOutput
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 12
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: 'Provides output in various human readable formats of data from the library. '
+  example: []
+  syntax:
+    content: public static class DisplayOutput
+    content.vb: Public Module DisplayOutput
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: ERC.DisplayOutput.WriteToFile(System.String,System.String,System.String,System.Collections.Generic.List{System.String})
+  commentId: M:ERC.DisplayOutput.WriteToFile(System.String,System.String,System.String,System.Collections.Generic.List{System.String})
+  id: WriteToFile(System.String,System.String,System.String,System.Collections.Generic.List{System.String})
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: WriteToFile(String, String, String, List<String>)
+  nameWithType: DisplayOutput.WriteToFile(String, String, String, List<String>)
+  fullName: ERC.DisplayOutput.WriteToFile(System.String, System.String, System.String, System.Collections.Generic.List<System.String>)
+  type: Method
+  source:
+    id: WriteToFile
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 57
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nWrites a list of strings to a file. Takes a directory, filename and prefix along with a List of strings.\n"
+  example: []
+  syntax:
+    content: public static void WriteToFile(string directory, string prefix, string extension, List<string> content)
+    parameters:
+    - id: directory
+      type: System.String
+      description: The directory to be used
+    - id: prefix
+      type: System.String
+      description: A prefix for the file name e.g. &quot;modules_&quot; or &quot;Pattern_&quot; etc
+    - id: extension
+      type: System.String
+      description: 'The file extension to be used e.g. &quot;.txt&quot; '
+    - id: content
+      type: System.Collections.Generic.List{System.String}
+      description: 'A list of strings to be written to disk '
+    content.vb: Public Shared Sub WriteToFile(directory As String, prefix As String, extension As String, content As List(Of String))
+  overload: ERC.DisplayOutput.WriteToFile*
+  nameWithType.vb: DisplayOutput.WriteToFile(String, String, String, List(Of String))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.DisplayOutput.WriteToFile(System.String, System.String, System.String, System.Collections.Generic.List(Of System.String))
+  name.vb: WriteToFile(String, String, String, List(Of String))
+- uid: ERC.DisplayOutput.GeneratePattern(System.Int32,ERC.ErcCore,System.Boolean)
+  commentId: M:ERC.DisplayOutput.GeneratePattern(System.Int32,ERC.ErcCore,System.Boolean)
+  id: GeneratePattern(System.Int32,ERC.ErcCore,System.Boolean)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: GeneratePattern(Int32, ErcCore, Boolean)
+  nameWithType: DisplayOutput.GeneratePattern(Int32, ErcCore, Boolean)
+  fullName: ERC.DisplayOutput.GeneratePattern(System.Int32, ERC.ErcCore, System.Boolean)
+  type: Method
+  source:
+    id: GeneratePattern
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 77
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nCreates a file in the ErcCore working directory containing a string of non repeating characters. \n"
+  example: []
+  syntax:
+    content: public static string GeneratePattern(int length, ErcCore core, bool extended = false)
+    parameters:
+    - id: length
+      type: System.Int32
+      description: The length of the string to be created
+    - id: core
+      type: ERC.ErcCore
+      description: An ErcCore object
+    - id: extended
+      type: System.Boolean
+      description: A optional boolean specifying whether to use the extended character set. Default is false.
+    return:
+      type: System.String
+      description: Returns a string containing the pattern generated.
+    content.vb: Public Shared Function GeneratePattern(length As Integer, core As ErcCore, extended As Boolean = False) As String
+  overload: ERC.DisplayOutput.GeneratePattern*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.ListLocalProcesses
+  commentId: M:ERC.DisplayOutput.ListLocalProcesses
+  id: ListLocalProcesses
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: ListLocalProcesses()
+  nameWithType: DisplayOutput.ListLocalProcesses()
+  fullName: ERC.DisplayOutput.ListLocalProcesses()
+  type: Method
+  source:
+    id: ListLocalProcesses
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 151
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nLists usable processes running on the local machine.\n"
+  example: []
+  syntax:
+    content: public static string ListLocalProcesses()
+    return:
+      type: System.String
+      description: A string containing details of processes running on the local machine.
+    content.vb: Public Shared Function ListLocalProcesses As String
+  overload: ERC.DisplayOutput.ListLocalProcesses*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.ListRemoteProcesses(System.String)
+  commentId: M:ERC.DisplayOutput.ListRemoteProcesses(System.String)
+  id: ListRemoteProcesses(System.String)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: ListRemoteProcesses(String)
+  nameWithType: DisplayOutput.ListRemoteProcesses(String)
+  fullName: ERC.DisplayOutput.ListRemoteProcesses(System.String)
+  type: Method
+  source:
+    id: ListRemoteProcesses
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 173
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nLists usable processes running on the remote machine.\n"
+  example: []
+  syntax:
+    content: public static string ListRemoteProcesses(string machineName)
+    parameters:
+    - id: machineName
+      type: System.String
+    return:
+      type: System.String
+      description: A string containing details of processes running on the remote machine.
+    content.vb: Public Shared Function ListRemoteProcesses(machineName As String) As String
+  overload: ERC.DisplayOutput.ListRemoteProcesses*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.DisplayProcessInfo(ERC.ProcessInfo,System.Boolean)
+  commentId: M:ERC.DisplayOutput.DisplayProcessInfo(ERC.ProcessInfo,System.Boolean)
+  id: DisplayProcessInfo(ERC.ProcessInfo,System.Boolean)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: DisplayProcessInfo(ProcessInfo, Boolean)
+  nameWithType: DisplayOutput.DisplayProcessInfo(ProcessInfo, Boolean)
+  fullName: ERC.DisplayOutput.DisplayProcessInfo(ERC.ProcessInfo, System.Boolean)
+  type: Method
+  source:
+    id: DisplayProcessInfo
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 197
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nDisplays information related to the provided ProcessInfo object.\n"
+  example: []
+  syntax:
+    content: public static string DisplayProcessInfo(ProcessInfo info, bool outputToFile = true)
+    parameters:
+    - id: info
+      type: ERC.ProcessInfo
+      description: The ProcessInfo object of which the module information will be displayed
+    - id: outputToFile
+      type: System.Boolean
+      description: Set to false to surpress file output.
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Shared Function DisplayProcessInfo(info As ProcessInfo, outputToFile As Boolean = True) As String
+  overload: ERC.DisplayOutput.DisplayProcessInfo*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.DisplayThreadInfo(ERC.ProcessInfo,System.Boolean)
+  commentId: M:ERC.DisplayOutput.DisplayThreadInfo(ERC.ProcessInfo,System.Boolean)
+  id: DisplayThreadInfo(ERC.ProcessInfo,System.Boolean)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: DisplayThreadInfo(ProcessInfo, Boolean)
+  nameWithType: DisplayOutput.DisplayThreadInfo(ProcessInfo, Boolean)
+  fullName: ERC.DisplayOutput.DisplayThreadInfo(ERC.ProcessInfo, System.Boolean)
+  type: Method
+  source:
+    id: DisplayThreadInfo
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 223
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nDisplays information about all threads related to a specific process.\n"
+  example: []
+  syntax:
+    content: public static string DisplayThreadInfo(ProcessInfo info, bool outputToFile = true)
+    parameters:
+    - id: info
+      type: ERC.ProcessInfo
+      description: ''
+    - id: outputToFile
+      type: System.Boolean
+      description: ''
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Shared Function DisplayThreadInfo(info As ProcessInfo, outputToFile As Boolean = True) As String
+  overload: ERC.DisplayOutput.DisplayThreadInfo*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo,System.Boolean)
+  commentId: M:ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo,System.Boolean)
+  id: GenerateModuleInfoTable(ERC.ProcessInfo,System.Boolean)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: GenerateModuleInfoTable(ProcessInfo, Boolean)
+  nameWithType: DisplayOutput.GenerateModuleInfoTable(ProcessInfo, Boolean)
+  fullName: ERC.DisplayOutput.GenerateModuleInfoTable(ERC.ProcessInfo, System.Boolean)
+  type: Method
+  source:
+    id: GenerateModuleInfoTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 383
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nAquires filename and writes out all module data to the current working directory. Requires a Process_Info object to be passed as a parameter.\n"
+  example: []
+  syntax:
+    content: public static string GenerateModuleInfoTable(ProcessInfo info, bool outputToFile = true)
+    parameters:
+    - id: info
+      type: ERC.ProcessInfo
+      description: The ProcessInfo object of which the module information will be displayed
+    - id: outputToFile
+      type: System.Boolean
+      description: Set to false to surpress file output.
+    return:
+      type: System.String
+      description: Returns a formatted string of all results
+    content.vb: Public Shared Function GenerateModuleInfoTable(info As ProcessInfo, outputToFile As Boolean = True) As String
+  overload: ERC.DisplayOutput.GenerateModuleInfoTable*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.SearchMemory(ERC.ProcessInfo,System.Int32,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
+  commentId: M:ERC.DisplayOutput.SearchMemory(ERC.ProcessInfo,System.Int32,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
+  id: SearchMemory(ERC.ProcessInfo,System.Int32,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: SearchMemory(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], String)
+  nameWithType: DisplayOutput.SearchMemory(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], String)
+  fullName: ERC.DisplayOutput.SearchMemory(ERC.ProcessInfo, System.Int32, System.String, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Byte[], System.String)
+  type: Method
+  source:
+    id: SearchMemory
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 410
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nSearches the memory of a process and it&apos;s loaded modules for a string or byte combination.\n"
+  example: []
+  syntax:
+    content: public static string[] SearchMemory(ProcessInfo info, int searchType, string searchString, bool aslr = false, bool safeseh = false, bool rebase = false, bool nxcompat = false, bool osdll = false, byte[] unwantedBytes = null, string protection = "exec")
+    parameters:
+    - id: info
+      type: ERC.ProcessInfo
+      description: The processInfo object for the process
+    - id: searchType
+      type: System.Int32
+      description: The type of data to be searched for.
+    - id: searchString
+      type: System.String
+      description: The string to search for.
+    - id: aslr
+      type: System.Boolean
+      description: Remove ASLR libraries.
+    - id: safeseh
+      type: System.Boolean
+      description: Remove SafeSEH libraries.
+    - id: rebase
+      type: System.Boolean
+      description: Remove rebasable libraries.
+    - id: nxcompat
+      type: System.Boolean
+      description: Remove NXCompat libraries.
+    - id: osdll
+      type: System.Boolean
+      description: Remove OS Dlls.
+    - id: unwantedBytes
+      type: System.Byte[]
+      description: Addresses containing values in this byte array will be ignored.
+    - id: protection
+      type: System.String
+      description: String array containing protection level returned pointers will.
+    return:
+      type: System.String[]
+      description: ''
+    content.vb: Public Shared Function SearchMemory(info As ProcessInfo, searchType As Integer, searchString As String, aslr As Boolean = False, safeseh As Boolean = False, rebase As Boolean = False, nxcompat As Boolean = False, osdll As Boolean = False, unwantedBytes As Byte() = Nothing, protection As String = "exec") As String()
+  overload: ERC.DisplayOutput.SearchMemory*
+  nameWithType.vb: DisplayOutput.SearchMemory(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte(), String)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.DisplayOutput.SearchMemory(ERC.ProcessInfo, System.Int32, System.String, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Byte(), System.String)
+  name.vb: SearchMemory(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte(), String)
+- uid: ERC.DisplayOutput.SearchModules(ERC.ProcessInfo,System.Int32,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.Collections.Generic.List{System.String},System.String)
+  commentId: M:ERC.DisplayOutput.SearchModules(ERC.ProcessInfo,System.Int32,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.Collections.Generic.List{System.String},System.String)
+  id: SearchModules(ERC.ProcessInfo,System.Int32,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.Collections.Generic.List{System.String},System.String)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: SearchModules(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], List<String>, String)
+  nameWithType: DisplayOutput.SearchModules(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], List<String>, String)
+  fullName: ERC.DisplayOutput.SearchModules(ERC.ProcessInfo, System.Int32, System.String, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Byte[], System.Collections.Generic.List<System.String>, System.String)
+  type: Method
+  source:
+    id: SearchModules
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 522
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nSearches the loaded modules of a process for a string or byte combination.\n"
+  example: []
+  syntax:
+    content: public static string[] SearchModules(ProcessInfo info, int searchType, string searchString, bool aslr = false, bool safeseh = false, bool rebase = false, bool nxcompat = false, bool osdll = false, byte[] unwantedBytes = null, List<string> modules = null, string protection = "exec")
+    parameters:
+    - id: info
+      type: ERC.ProcessInfo
+      description: The processInfo object for the process
+    - id: searchType
+      type: System.Int32
+      description: The type of data to be searched for.
+    - id: searchString
+      type: System.String
+      description: The string to search for.
+    - id: aslr
+      type: System.Boolean
+      description: Remove ASLR libraries.
+    - id: safeseh
+      type: System.Boolean
+      description: Remove SafeSEH libraries.
+    - id: rebase
+      type: System.Boolean
+      description: Remove rebasable libraries.
+    - id: nxcompat
+      type: System.Boolean
+      description: Remove NXCompat libraries.
+    - id: osdll
+      type: System.Boolean
+      description: Remove OS Dlls.
+    - id: unwantedBytes
+      type: System.Byte[]
+      description: Addresses containing values in this byte array will be ignored.
+    - id: modules
+      type: System.Collections.Generic.List{System.String}
+      description: List of modules to be searched
+    - id: protection
+      type: System.String
+      description: String array containing protection level returned pointers will.
+    return:
+      type: System.String[]
+      description: ''
+    content.vb: Public Shared Function SearchModules(info As ProcessInfo, searchType As Integer, searchString As String, aslr As Boolean = False, safeseh As Boolean = False, rebase As Boolean = False, nxcompat As Boolean = False, osdll As Boolean = False, unwantedBytes As Byte() = Nothing, modules As List(Of String) = Nothing, protection As String = "exec") As String()
+  overload: ERC.DisplayOutput.SearchModules*
+  nameWithType.vb: DisplayOutput.SearchModules(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte(), List(Of String), String)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.DisplayOutput.SearchModules(ERC.ProcessInfo, System.Int32, System.String, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Byte(), System.Collections.Generic.List(Of System.String), System.String)
+  name.vb: SearchModules(ProcessInfo, Int32, String, Boolean, Boolean, Boolean, Boolean, Boolean, Byte(), List(Of String), String)
+- uid: ERC.DisplayOutput.GetSEHJumps(ERC.ProcessInfo,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
+  commentId: M:ERC.DisplayOutput.GetSEHJumps(ERC.ProcessInfo,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
+  id: GetSEHJumps(ERC.ProcessInfo,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: GetSEHJumps(ProcessInfo, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], String)
+  nameWithType: DisplayOutput.GetSEHJumps(ProcessInfo, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], String)
+  fullName: ERC.DisplayOutput.GetSEHJumps(ERC.ProcessInfo, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Byte[], System.String)
+  type: Method
+  source:
+    id: GetSEHJumps
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 633
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nSearches all memory associated with a given process and associated modules for POP X POP X RET instructions. \nPassing a list of module paths or names will exclude those modules from the search. \nSimilar to Search_All_Memory_PPR however provides output in an easily readable format.\n"
+  example: []
+  syntax:
+    content: public static string[] GetSEHJumps(ProcessInfo info, bool aslr = false, bool safeseh = false, bool rebase = false, bool nxcompat = false, bool osdll = false, byte[] unwantedBytes = null, string protection = "exec")
+    parameters:
+    - id: info
+      type: ERC.ProcessInfo
+      description: The ProcessInfo object which will be searched for POP POP RET instructions.
+    - id: aslr
+      type: System.Boolean
+      description: Remove ASLR libraries.
+    - id: safeseh
+      type: System.Boolean
+      description: Remove SafeSEH libraries.
+    - id: rebase
+      type: System.Boolean
+      description: Remove rebasable libraries.
+    - id: nxcompat
+      type: System.Boolean
+      description: Remove NXCompat libraries.
+    - id: osdll
+      type: System.Boolean
+      description: Remove OS Dlls.
+    - id: unwantedBytes
+      type: System.Byte[]
+      description: Addresses containing values in this byte array will be ignored.
+    - id: protection
+      type: System.String
+      description: String containing protection level returned pointers will.
+    return:
+      type: System.String[]
+      description: Returns an array of strings detailing the pointers, opcodes and base files of suitable instruction sets.
+    content.vb: Public Shared Function GetSEHJumps(info As ProcessInfo, aslr As Boolean = False, safeseh As Boolean = False, rebase As Boolean = False, nxcompat As Boolean = False, osdll As Boolean = False, unwantedBytes As Byte() = Nothing, protection As String = "exec") As String()
+  overload: ERC.DisplayOutput.GetSEHJumps*
+  nameWithType.vb: DisplayOutput.GetSEHJumps(ProcessInfo, Boolean, Boolean, Boolean, Boolean, Boolean, Byte(), String)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.DisplayOutput.GetSEHJumps(ERC.ProcessInfo, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Byte(), System.String)
+  name.vb: GetSEHJumps(ProcessInfo, Boolean, Boolean, Boolean, Boolean, Boolean, Byte(), String)
+- uid: ERC.DisplayOutput.GetSEHJumps(ERC.ProcessInfo,System.Byte[],System.Collections.Generic.List{System.String})
+  commentId: M:ERC.DisplayOutput.GetSEHJumps(ERC.ProcessInfo,System.Byte[],System.Collections.Generic.List{System.String})
+  id: GetSEHJumps(ERC.ProcessInfo,System.Byte[],System.Collections.Generic.List{System.String})
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: GetSEHJumps(ProcessInfo, Byte[], List<String>)
+  nameWithType: DisplayOutput.GetSEHJumps(ProcessInfo, Byte[], List<String>)
+  fullName: ERC.DisplayOutput.GetSEHJumps(ERC.ProcessInfo, System.Byte[], System.Collections.Generic.List<System.String>)
+  type: Method
+  source:
+    id: GetSEHJumps
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 779
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nSearches all memory associated with a given process and associated modules for POP X POP X RET instructions. \nPassing a list of module paths or names will exclude those modules from the search. \nSimilar to Search_All_Memory_PPR however provides output in an easily readable format.\n"
+  example: []
+  syntax:
+    content: public static string[] GetSEHJumps(ProcessInfo info, byte[] ptrsToExclude, List<string> excludes = null)
+    parameters:
+    - id: info
+      type: ERC.ProcessInfo
+      description: The ProcessInfo object which will be searched for POP POP RET instructions
+    - id: ptrsToExclude
+      type: System.Byte[]
+      description: Ptrs containing these byte values will be discarded.
+    - id: excludes
+      type: System.Collections.Generic.List{System.String}
+      description: Modules to be ignored when searching for the instruction sets.
+    return:
+      type: System.String[]
+      description: Returns an array of strings detailing the pointers, opcodes and base files of suitable instruction sets.
+    content.vb: Public Shared Function GetSEHJumps(info As ProcessInfo, ptrsToExclude As Byte(), excludes As List(Of String) = Nothing) As String()
+  overload: ERC.DisplayOutput.GetSEHJumps*
+  nameWithType.vb: DisplayOutput.GetSEHJumps(ProcessInfo, Byte(), List(Of String))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.DisplayOutput.GetSEHJumps(ERC.ProcessInfo, System.Byte(), System.Collections.Generic.List(Of System.String))
+  name.vb: GetSEHJumps(ProcessInfo, Byte(), List(Of String))
+- uid: ERC.DisplayOutput.GetSEHJumpsUnicode(ERC.ProcessInfo,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
+  commentId: M:ERC.DisplayOutput.GetSEHJumpsUnicode(ERC.ProcessInfo,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
+  id: GetSEHJumpsUnicode(ERC.ProcessInfo,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte[],System.String)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: GetSEHJumpsUnicode(ProcessInfo, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], String)
+  nameWithType: DisplayOutput.GetSEHJumpsUnicode(ProcessInfo, Boolean, Boolean, Boolean, Boolean, Boolean, Byte[], String)
+  fullName: ERC.DisplayOutput.GetSEHJumpsUnicode(ERC.ProcessInfo, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Byte[], System.String)
+  type: Method
+  source:
+    id: GetSEHJumpsUnicode
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 890
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nSearches all memory associated with a given process and associated modules for POP X POP X RET instructions. \nPassing a list of module paths or names will exclude those modules from the search. \nSimilar to Search_All_Memory_PPR however provides output in an easily readable format. This version only returns unicode compliant pointers.\n"
+  example: []
+  syntax:
+    content: public static string[] GetSEHJumpsUnicode(ProcessInfo info, bool aslr = false, bool safeseh = false, bool rebase = false, bool nxcompat = false, bool osdll = false, byte[] unwantedBytes = null, string protection = "exec")
+    parameters:
+    - id: info
+      type: ERC.ProcessInfo
+      description: The ProcessInfo object which will be searched for POP POP RET instructions.
+    - id: aslr
+      type: System.Boolean
+      description: Remove ASLR libraries.
+    - id: safeseh
+      type: System.Boolean
+      description: Remove SafeSEH libraries.
+    - id: rebase
+      type: System.Boolean
+      description: Remove rebasable libraries.
+    - id: nxcompat
+      type: System.Boolean
+      description: Remove NXCompat libraries.
+    - id: osdll
+      type: System.Boolean
+      description: Remove OS Dlls.
+    - id: unwantedBytes
+      type: System.Byte[]
+      description: Addresses containing values in this byte array will be ignored.
+    - id: protection
+      type: System.String
+      description: String containing protection level returned pointers will.
+    return:
+      type: System.String[]
+      description: Returns an array of strings detailing the pointers, opcodes and base files of suitable instruction sets.
+    content.vb: Public Shared Function GetSEHJumpsUnicode(info As ProcessInfo, aslr As Boolean = False, safeseh As Boolean = False, rebase As Boolean = False, nxcompat As Boolean = False, osdll As Boolean = False, unwantedBytes As Byte() = Nothing, protection As String = "exec") As String()
+  overload: ERC.DisplayOutput.GetSEHJumpsUnicode*
+  nameWithType.vb: DisplayOutput.GetSEHJumpsUnicode(ProcessInfo, Boolean, Boolean, Boolean, Boolean, Boolean, Byte(), String)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.DisplayOutput.GetSEHJumpsUnicode(ERC.ProcessInfo, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Boolean, System.Byte(), System.String)
+  name.vb: GetSEHJumpsUnicode(ProcessInfo, Boolean, Boolean, Boolean, Boolean, Boolean, Byte(), String)
+- uid: ERC.DisplayOutput.GenerateByteArray(ERC.ErcCore,System.Byte[])
+  commentId: M:ERC.DisplayOutput.GenerateByteArray(ERC.ErcCore,System.Byte[])
+  id: GenerateByteArray(ERC.ErcCore,System.Byte[])
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: GenerateByteArray(ErcCore, Byte[])
+  nameWithType: DisplayOutput.GenerateByteArray(ErcCore, Byte[])
+  fullName: ERC.DisplayOutput.GenerateByteArray(ERC.ErcCore, System.Byte[])
+  type: Method
+  source:
+    id: GenerateByteArray
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 1046
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nGenerates an array of all possible bytes for use when identifying bad characters. Writes the output to disk in the working directory.\n"
+  example: []
+  syntax:
+    content: public static byte[] GenerateByteArray(ErcCore core, byte[] unwantedBytes = null)
+    parameters:
+    - id: core
+      type: ERC.ErcCore
+      description: An ErcCore object
+    - id: unwantedBytes
+      type: System.Byte[]
+      description: An array of bytes to be excluded from the final byte array
+    return:
+      type: System.Byte[]
+      description: Returns a byte array of all possible bytes.
+    content.vb: Public Shared Function GenerateByteArray(core As ErcCore, unwantedBytes As Byte() = Nothing) As Byte()
+  overload: ERC.DisplayOutput.GenerateByteArray*
+  nameWithType.vb: DisplayOutput.GenerateByteArray(ErcCore, Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.DisplayOutput.GenerateByteArray(ERC.ErcCore, System.Byte())
+  name.vb: GenerateByteArray(ErcCore, Byte())
+- uid: ERC.DisplayOutput.CompareByteArrayToMemoryRegion(ERC.ProcessInfo,System.IntPtr,System.Byte[])
+  commentId: M:ERC.DisplayOutput.CompareByteArrayToMemoryRegion(ERC.ProcessInfo,System.IntPtr,System.Byte[])
+  id: CompareByteArrayToMemoryRegion(ERC.ProcessInfo,System.IntPtr,System.Byte[])
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: CompareByteArrayToMemoryRegion(ProcessInfo, IntPtr, Byte[])
+  nameWithType: DisplayOutput.CompareByteArrayToMemoryRegion(ProcessInfo, IntPtr, Byte[])
+  fullName: ERC.DisplayOutput.CompareByteArrayToMemoryRegion(ERC.ProcessInfo, System.IntPtr, System.Byte[])
+  type: Method
+  source:
+    id: CompareByteArrayToMemoryRegion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 1131
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nCompares a the values contained in a memory region to the values in the supplied byte array.\n"
+  example: []
+  syntax:
+    content: public static string[] CompareByteArrayToMemoryRegion(ProcessInfo info, IntPtr startAddress, byte[] byteArray)
+    parameters:
+    - id: info
+      type: ERC.ProcessInfo
+      description: The processInfo object that contains the memory region.
+    - id: startAddress
+      type: System.IntPtr
+      description: The memory address to start the search at.
+    - id: byteArray
+      type: System.Byte[]
+      description: The byte array the region will be compared against.
+    return:
+      type: System.String[]
+      description: Returns a string detailing differences between the two.
+    content.vb: Public Shared Function CompareByteArrayToMemoryRegion(info As ProcessInfo, startAddress As IntPtr, byteArray As Byte()) As String()
+  overload: ERC.DisplayOutput.CompareByteArrayToMemoryRegion*
+  nameWithType.vb: DisplayOutput.CompareByteArrayToMemoryRegion(ProcessInfo, IntPtr, Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.DisplayOutput.CompareByteArrayToMemoryRegion(ERC.ProcessInfo, System.IntPtr, System.Byte())
+  name.vb: CompareByteArrayToMemoryRegion(ProcessInfo, IntPtr, Byte())
+- uid: ERC.DisplayOutput.GenerateEggHunters(ERC.ErcCore,System.String)
+  commentId: M:ERC.DisplayOutput.GenerateEggHunters(ERC.ErcCore,System.String)
+  id: GenerateEggHunters(ERC.ErcCore,System.String)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: GenerateEggHunters(ErcCore, String)
+  nameWithType: DisplayOutput.GenerateEggHunters(ErcCore, String)
+  fullName: ERC.DisplayOutput.GenerateEggHunters(ERC.ErcCore, System.String)
+  type: Method
+  source:
+    id: GenerateEggHunters
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 1209
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nGenerates a collection of EggHunter payloads.\n"
+  example: []
+  syntax:
+    content: public static string GenerateEggHunters(ErcCore core = null, string tag = null)
+    parameters:
+    - id: core
+      type: ERC.ErcCore
+      description: '(Optional) If an ErcCore object is provided the output will also be written out to the working directory '
+    - id: tag
+      type: System.String
+      description: (Optional) If a tag is provided the payloads will be altered to search for that tag, the default tag is ERCD
+    return:
+      type: System.String
+      description: 'Returns a string containing all EggHunters '
+    content.vb: Public Shared Function GenerateEggHunters(core As ErcCore = Nothing, tag As String = Nothing) As String
+  overload: ERC.DisplayOutput.GenerateEggHunters*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.GenerateFindNRPTable(ERC.ProcessInfo,System.Int32,System.Boolean)
+  commentId: M:ERC.DisplayOutput.GenerateFindNRPTable(ERC.ProcessInfo,System.Int32,System.Boolean)
+  id: GenerateFindNRPTable(ERC.ProcessInfo,System.Int32,System.Boolean)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: GenerateFindNRPTable(ProcessInfo, Int32, Boolean)
+  nameWithType: DisplayOutput.GenerateFindNRPTable(ProcessInfo, Int32, Boolean)
+  fullName: ERC.DisplayOutput.GenerateFindNRPTable(ERC.ProcessInfo, System.Int32, System.Boolean)
+  type: Method
+  source:
+    id: GenerateFindNRPTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 1275
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nSearches the memory of a process for a non repeating pattern.\n"
+  example: []
+  syntax:
+    content: public static string[] GenerateFindNRPTable(ProcessInfo info, int searchType = 0, bool extended = false)
+    parameters:
+    - id: info
+      type: ERC.ProcessInfo
+      description: The ProcessInfo object of the process to be searched
+    - id: searchType
+      type: System.Int32
+      description: 'Integer specifiying the format of the string: 0 = search term is in bytes\n1 = search term is in unicode\n2 = search term is in ASCII\n3 = Search term is in UTF8\n4 = Search term is in UTF7\n5 = Search term is in UTF32'
+    - id: extended
+      type: System.Boolean
+      description: Whether the extended character range is to be used when searching for the non repeating pattern
+    return:
+      type: System.String[]
+      description: Returns a List of strings containing the locations the repeating pattern was identified
+    content.vb: Public Shared Function GenerateFindNRPTable(info As ProcessInfo, searchType As Integer = 0, extended As Boolean = False) As String()
+  overload: ERC.DisplayOutput.GenerateFindNRPTable*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32,System.Boolean)
+  commentId: M:ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32,System.Boolean)
+  id: RopChainGadgets32(ERC.Utilities.RopChainGenerator32,System.Boolean)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: RopChainGadgets32(RopChainGenerator32, Boolean)
+  nameWithType: DisplayOutput.RopChainGadgets32(RopChainGenerator32, Boolean)
+  fullName: ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32, System.Boolean)
+  type: Method
+  source:
+    id: RopChainGadgets32
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 1355
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nProduces output files containing information about the associated ROP chain, produces files containing ROP gadgets and the associated ROP chain.\n"
+  example: []
+  syntax:
+    content: public static string[] RopChainGadgets32(RopChainGenerator32 rcg, bool gadgetsOnly = false)
+    parameters:
+    - id: rcg
+      type: ERC.Utilities.RopChainGenerator32
+      description: The ROP chain generator object
+    - id: gadgetsOnly
+      type: System.Boolean
+      description: Bool to indicate if ROP chains should be included or just gadget lists generated
+    return:
+      type: System.String[]
+      description: Returns an array of strings
+    content.vb: Public Shared Function RopChainGadgets32(rcg As RopChainGenerator32, gadgetsOnly As Boolean = False) As String()
+  overload: ERC.DisplayOutput.RopChainGadgets32*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64,System.Boolean)
+  commentId: M:ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64,System.Boolean)
+  id: RopChainGadgets64(ERC.Utilities.RopChainGenerator64,System.Boolean)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: RopChainGadgets64(RopChainGenerator64, Boolean)
+  nameWithType: DisplayOutput.RopChainGadgets64(RopChainGenerator64, Boolean)
+  fullName: ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64, System.Boolean)
+  type: Method
+  source:
+    id: RopChainGadgets64
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 2059
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nProduces output files containing information about the associated ROP chain, produces files containing ROP gadgets and the associated ROP chain.\n"
+  example: []
+  syntax:
+    content: public static string[] RopChainGadgets64(RopChainGenerator64 rcg, bool gadgetsOnly = false)
+    parameters:
+    - id: rcg
+      type: ERC.Utilities.RopChainGenerator64
+      description: The ROP chain generator object
+    - id: gadgetsOnly
+      type: System.Boolean
+      description: Bool to indicate if ROP chains should be included or just gadget lists generated
+    return:
+      type: System.String[]
+      description: Returns an array of strings
+    content.vb: Public Shared Function RopChainGadgets64(rcg As RopChainGenerator64, gadgetsOnly As Boolean = False) As String()
+  overload: ERC.DisplayOutput.RopChainGadgets64*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.AssembleOpcodes(System.String[],System.UInt32)
+  commentId: M:ERC.DisplayOutput.AssembleOpcodes(System.String[],System.UInt32)
+  id: AssembleOpcodes(System.String[],System.UInt32)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: AssembleOpcodes(String[], UInt32)
+  nameWithType: DisplayOutput.AssembleOpcodes(String[], UInt32)
+  fullName: ERC.DisplayOutput.AssembleOpcodes(System.String[], System.UInt32)
+  type: Method
+  source:
+    id: AssembleOpcodes
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 2732
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nConverts a collection of instructions into the associated opcodes.\n"
+  example: []
+  syntax:
+    content: public static string[] AssembleOpcodes(string[] instructions, uint machine)
+    parameters:
+    - id: instructions
+      type: System.String[]
+      description: An array containing either x86 or x64 instructions.
+    - id: machine
+      type: System.UInt32
+      description: Uint representing the machine type (x86 = 0, x64 = 1)
+    return:
+      type: System.String[]
+      description: Returns null if the method fails.
+    content.vb: Public Shared Function AssembleOpcodes(instructions As String(), machine As UInteger) As String()
+  overload: ERC.DisplayOutput.AssembleOpcodes*
+  nameWithType.vb: DisplayOutput.AssembleOpcodes(String(), UInt32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.DisplayOutput.AssembleOpcodes(System.String(), System.UInt32)
+  name.vb: AssembleOpcodes(String(), UInt32)
+- uid: ERC.DisplayOutput.AssembleOpcodes(System.String[],ERC.MachineType)
+  commentId: M:ERC.DisplayOutput.AssembleOpcodes(System.String[],ERC.MachineType)
+  id: AssembleOpcodes(System.String[],ERC.MachineType)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: AssembleOpcodes(String[], MachineType)
+  nameWithType: DisplayOutput.AssembleOpcodes(String[], MachineType)
+  fullName: ERC.DisplayOutput.AssembleOpcodes(System.String[], ERC.MachineType)
+  type: Method
+  source:
+    id: AssembleOpcodes
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 2765
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nConverts a collection of instructions into the associated opcodes.\n"
+  example: []
+  syntax:
+    content: public static string[] AssembleOpcodes(string[] instructions, MachineType machine)
+    parameters:
+    - id: instructions
+      type: System.String[]
+      description: An array containing either x86 or x64 instructions.
+    - id: machine
+      type: ERC.MachineType
+      description: MachineType of the instruction set to be assembled.
+    return:
+      type: System.String[]
+      description: Returns null if the method fails.
+    content.vb: Public Shared Function AssembleOpcodes(instructions As String(), machine As MachineType) As String()
+  overload: ERC.DisplayOutput.AssembleOpcodes*
+  nameWithType.vb: DisplayOutput.AssembleOpcodes(String(), MachineType)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.DisplayOutput.AssembleOpcodes(System.String(), ERC.MachineType)
+  name.vb: AssembleOpcodes(String(), MachineType)
+- uid: ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],System.UInt32)
+  commentId: M:ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],System.UInt32)
+  id: DisassembleOpcodes(System.Byte[],System.UInt32)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: DisassembleOpcodes(Byte[], UInt32)
+  nameWithType: DisplayOutput.DisassembleOpcodes(Byte[], UInt32)
+  fullName: ERC.DisplayOutput.DisassembleOpcodes(System.Byte[], System.UInt32)
+  type: Method
+  source:
+    id: DisassembleOpcodes
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 2791
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nConverts a collection of opcodes into the associated instructions.\n"
+  example: []
+  syntax:
+    content: public static string[] DisassembleOpcodes(byte[] opcodes, uint machine)
+    parameters:
+    - id: opcodes
+      type: System.Byte[]
+      description: An array containing either x86 or x64 opcodes.
+    - id: machine
+      type: System.UInt32
+      description: Uint representing the machine type (x86 = 0, x64 = 1)
+    return:
+      type: System.String[]
+      description: Returns null if the method fails.
+    content.vb: Public Shared Function DisassembleOpcodes(opcodes As Byte(), machine As UInteger) As String()
+  overload: ERC.DisplayOutput.DisassembleOpcodes*
+  nameWithType.vb: DisplayOutput.DisassembleOpcodes(Byte(), UInt32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.DisplayOutput.DisassembleOpcodes(System.Byte(), System.UInt32)
+  name.vb: DisassembleOpcodes(Byte(), UInt32)
+- uid: ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],ERC.MachineType)
+  commentId: M:ERC.DisplayOutput.DisassembleOpcodes(System.Byte[],ERC.MachineType)
+  id: DisassembleOpcodes(System.Byte[],ERC.MachineType)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: DisassembleOpcodes(Byte[], MachineType)
+  nameWithType: DisplayOutput.DisassembleOpcodes(Byte[], MachineType)
+  fullName: ERC.DisplayOutput.DisassembleOpcodes(System.Byte[], ERC.MachineType)
+  type: Method
+  source:
+    id: DisassembleOpcodes
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 2823
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nConverts a collection of opcodes into the associated instructions.\n"
+  example: []
+  syntax:
+    content: public static string[] DisassembleOpcodes(byte[] opcodes, MachineType machine)
+    parameters:
+    - id: opcodes
+      type: System.Byte[]
+      description: An array containing either x86 or x64 opcodes.
+    - id: machine
+      type: ERC.MachineType
+      description: MachineType of the instruction set to be assembled.
+    return:
+      type: System.String[]
+      description: Returns null if the method fails.
+    content.vb: Public Shared Function DisassembleOpcodes(opcodes As Byte(), machine As MachineType) As String()
+  overload: ERC.DisplayOutput.DisassembleOpcodes*
+  nameWithType.vb: DisplayOutput.DisassembleOpcodes(Byte(), MachineType)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.DisplayOutput.DisassembleOpcodes(System.Byte(), ERC.MachineType)
+  name.vb: DisassembleOpcodes(Byte(), MachineType)
+- uid: ERC.DisplayOutput.DumpMemory(ERC.ProcessInfo,System.IntPtr,System.Int32,System.Boolean)
+  commentId: M:ERC.DisplayOutput.DumpMemory(ERC.ProcessInfo,System.IntPtr,System.Int32,System.Boolean)
+  id: DumpMemory(ERC.ProcessInfo,System.IntPtr,System.Int32,System.Boolean)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: DumpMemory(ProcessInfo, IntPtr, Int32, Boolean)
+  nameWithType: DisplayOutput.DumpMemory(ProcessInfo, IntPtr, Int32, Boolean)
+  fullName: ERC.DisplayOutput.DumpMemory(ERC.ProcessInfo, System.IntPtr, System.Int32, System.Boolean)
+  type: Method
+  source:
+    id: DumpMemory
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 2864
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nReads a set of bytes from process memory and provides a string contianing the results.\n"
+  example: []
+  syntax:
+    content: public static string DumpMemory(ProcessInfo info, IntPtr startAddress, int length, bool writeToFile = true)
+    parameters:
+    - id: info
+      type: ERC.ProcessInfo
+      description: ProcessInfo object
+    - id: startAddress
+      type: System.IntPtr
+      description: The address to start reading from.
+    - id: length
+      type: System.Int32
+      description: The number of bytes to read.
+    - id: writeToFile
+      type: System.Boolean
+      description: Bool indicating if output should be written to a file.
+    return:
+      type: System.String
+      description: A string containing the bytes read from memory
+    content.vb: Public Shared Function DumpMemory(info As ProcessInfo, startAddress As IntPtr, length As Integer, writeToFile As Boolean = True) As String
+  overload: ERC.DisplayOutput.DumpMemory*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.DumpHeap(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)
+  commentId: M:ERC.DisplayOutput.DumpHeap(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)
+  id: DumpHeap(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: DumpHeap(HeapInfo, UInt64, String, Boolean)
+  nameWithType: DisplayOutput.DumpHeap(HeapInfo, UInt64, String, Boolean)
+  fullName: ERC.DisplayOutput.DumpHeap(ERC.HeapInfo, System.UInt64, System.String, System.Boolean)
+  type: Method
+  source:
+    id: DumpHeap
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 2921
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nReads a set of bytes from a specific heap and provides a string contianing the results. Either HeapID or startAddress must be supplied. If both are supplied HeapID takes precedence.\n"
+  example: []
+  syntax:
+    content: public static string[] DumpHeap(HeapInfo hi, ulong heapid = 0UL, string hexStartAddress = "", bool writeToFile = true)
+    parameters:
+    - id: hi
+      type: ERC.HeapInfo
+      description: HeapInfo object
+    - id: heapid
+      type: System.UInt64
+      description: The ID of the heap to be dumped. (optional)
+    - id: hexStartAddress
+      type: System.String
+      description: The start address of the specific heap block to be dumped in hexadecimal. (optional)
+    - id: writeToFile
+      type: System.Boolean
+      description: Bool indicating if output should be written to a file.(optional)
+    return:
+      type: System.String[]
+      description: A string containing the bytes read from memory
+    content.vb: Public Shared Function DumpHeap(hi As HeapInfo, heapid As ULong = 0UL, hexStartAddress As String = "", writeToFile As Boolean = True) As String()
+  overload: ERC.DisplayOutput.DumpHeap*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.HeapStats(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)
+  commentId: M:ERC.DisplayOutput.HeapStats(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)
+  id: HeapStats(ERC.HeapInfo,System.UInt64,System.String,System.Boolean)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: HeapStats(HeapInfo, UInt64, String, Boolean)
+  nameWithType: DisplayOutput.HeapStats(HeapInfo, UInt64, String, Boolean)
+  fullName: ERC.DisplayOutput.HeapStats(ERC.HeapInfo, System.UInt64, System.String, System.Boolean)
+  type: Method
+  source:
+    id: HeapStats
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 3049
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nReturns statistics about the heap information gathered about the current process.\n"
+  example: []
+  syntax:
+    content: public static string[] HeapStats(HeapInfo hi, ulong heapID = 0UL, string hexStartAddress = "", bool extended = false)
+    parameters:
+    - id: hi
+      type: ERC.HeapInfo
+      description: HeapInfo Object
+    - id: heapID
+      type: System.UInt64
+      description: ID of the heap object
+    - id: hexStartAddress
+      type: System.String
+      description: Start address of the heap object (optional)
+    - id: extended
+      type: System.Boolean
+      description: Displays an extended set of statistics
+    return:
+      type: System.String[]
+      description: Returns an of strings
+    content.vb: Public Shared Function HeapStats(hi As HeapInfo, heapID As ULong = 0UL, hexStartAddress As String = "", extended As Boolean = False) As String()
+  overload: ERC.DisplayOutput.HeapStats*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.ListHeapIDs(ERC.HeapInfo)
+  commentId: M:ERC.DisplayOutput.ListHeapIDs(ERC.HeapInfo)
+  id: ListHeapIDs(ERC.HeapInfo)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: ListHeapIDs(HeapInfo)
+  nameWithType: DisplayOutput.ListHeapIDs(HeapInfo)
+  fullName: ERC.DisplayOutput.ListHeapIDs(ERC.HeapInfo)
+  type: Method
+  source:
+    id: ListHeapIDs
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 3070
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nReturns a list of IDs for each heap associated with the current process.\n"
+  example: []
+  syntax:
+    content: public static string[] ListHeapIDs(HeapInfo hi)
+    parameters:
+    - id: hi
+      type: ERC.HeapInfo
+      description: A HeapInfo object.
+    return:
+      type: System.String[]
+      description: Retruns an array of strings containing the heapIds.
+    content.vb: Public Shared Function ListHeapIDs(hi As HeapInfo) As String()
+  overload: ERC.DisplayOutput.ListHeapIDs*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.DisplayOutput.SearchHeap(ERC.HeapInfo,System.Byte[],System.UInt64,System.String,System.Boolean)
+  commentId: M:ERC.DisplayOutput.SearchHeap(ERC.HeapInfo,System.Byte[],System.UInt64,System.String,System.Boolean)
+  id: SearchHeap(ERC.HeapInfo,System.Byte[],System.UInt64,System.String,System.Boolean)
+  parent: ERC.DisplayOutput
+  langs:
+  - csharp
+  - vb
+  name: SearchHeap(HeapInfo, Byte[], UInt64, String, Boolean)
+  nameWithType: DisplayOutput.SearchHeap(HeapInfo, Byte[], UInt64, String, Boolean)
+  fullName: ERC.DisplayOutput.SearchHeap(ERC.HeapInfo, System.Byte[], System.UInt64, System.String, System.Boolean)
+  type: Method
+  source:
+    id: SearchHeap
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Display_Output.cs
+    startLine: 3099
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nSearches the process heap for a specific byte patters. If heapID and hexStartAddress are specified heapID takes precedence. Takes an optional bool indicating if output should be written to file.\n"
+  example: []
+  syntax:
+    content: public static string[] SearchHeap(HeapInfo hi, byte[] searchBytes, ulong heapID = 0UL, string hexStartAddress = "", bool writeToFile = true)
+    parameters:
+    - id: hi
+      type: ERC.HeapInfo
+      description: HeapInfo object.
+    - id: searchBytes
+      type: System.Byte[]
+      description: Pattern to be searched for.
+    - id: heapID
+      type: System.UInt64
+      description: Optional parameter indicating which heap to search.
+    - id: hexStartAddress
+      type: System.String
+      description: Optional parameter indicating the start address of the heap object to search
+    - id: writeToFile
+      type: System.Boolean
+      description: Bool indicating if the output should be written to file.
+    return:
+      type: System.String[]
+      description: Returns an array of strings.
+    content.vb: Public Shared Function SearchHeap(hi As HeapInfo, searchBytes As Byte(), heapID As ULong = 0UL, hexStartAddress As String = "", writeToFile As Boolean = True) As String()
+  overload: ERC.DisplayOutput.SearchHeap*
+  nameWithType.vb: DisplayOutput.SearchHeap(HeapInfo, Byte(), UInt64, String, Boolean)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.DisplayOutput.SearchHeap(ERC.HeapInfo, System.Byte(), System.UInt64, System.String, System.Boolean)
+  name.vb: SearchHeap(HeapInfo, Byte(), UInt64, String, Boolean)
+references:
+- uid: ERC
+  commentId: N:ERC
+  name: ERC
+  nameWithType: ERC
+  fullName: ERC
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ERC.DisplayOutput.WriteToFile*
+  commentId: Overload:ERC.DisplayOutput.WriteToFile
+  name: WriteToFile
+  nameWithType: DisplayOutput.WriteToFile
+  fullName: ERC.DisplayOutput.WriteToFile
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<String>
+  nameWithType: List<String>
+  fullName: System.Collections.Generic.List<System.String>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of System.String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: ERC.DisplayOutput.GeneratePattern*
+  commentId: Overload:ERC.DisplayOutput.GeneratePattern
+  name: GeneratePattern
+  nameWithType: DisplayOutput.GeneratePattern
+  fullName: ERC.DisplayOutput.GeneratePattern
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: ERC.ErcCore
+  commentId: T:ERC.ErcCore
+  parent: ERC
+  name: ErcCore
+  nameWithType: ErcCore
+  fullName: ERC.ErcCore
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: ERC.DisplayOutput.ListLocalProcesses*
+  commentId: Overload:ERC.DisplayOutput.ListLocalProcesses
+  name: ListLocalProcesses
+  nameWithType: DisplayOutput.ListLocalProcesses
+  fullName: ERC.DisplayOutput.ListLocalProcesses
+- uid: ERC.DisplayOutput.ListRemoteProcesses*
+  commentId: Overload:ERC.DisplayOutput.ListRemoteProcesses
+  name: ListRemoteProcesses
+  nameWithType: DisplayOutput.ListRemoteProcesses
+  fullName: ERC.DisplayOutput.ListRemoteProcesses
+- uid: ERC.DisplayOutput.DisplayProcessInfo*
+  commentId: Overload:ERC.DisplayOutput.DisplayProcessInfo
+  name: DisplayProcessInfo
+  nameWithType: DisplayOutput.DisplayProcessInfo
+  fullName: ERC.DisplayOutput.DisplayProcessInfo
+- uid: ERC.ProcessInfo
+  commentId: T:ERC.ProcessInfo
+  parent: ERC
+  name: ProcessInfo
+  nameWithType: ProcessInfo
+  fullName: ERC.ProcessInfo
+- uid: ERC.DisplayOutput.DisplayThreadInfo*
+  commentId: Overload:ERC.DisplayOutput.DisplayThreadInfo
+  name: DisplayThreadInfo
+  nameWithType: DisplayOutput.DisplayThreadInfo
+  fullName: ERC.DisplayOutput.DisplayThreadInfo
+- uid: ERC.DisplayOutput.GenerateModuleInfoTable*
+  commentId: Overload:ERC.DisplayOutput.GenerateModuleInfoTable
+  name: GenerateModuleInfoTable
+  nameWithType: DisplayOutput.GenerateModuleInfoTable
+  fullName: ERC.DisplayOutput.GenerateModuleInfoTable
+- uid: ERC.DisplayOutput.SearchMemory*
+  commentId: Overload:ERC.DisplayOutput.SearchMemory
+  name: SearchMemory
+  nameWithType: DisplayOutput.SearchMemory
+  fullName: ERC.DisplayOutput.SearchMemory
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.String[]
+  isExternal: true
+  name: String[]
+  nameWithType: String[]
+  fullName: System.String[]
+  nameWithType.vb: String()
+  fullName.vb: System.String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: ERC.DisplayOutput.SearchModules*
+  commentId: Overload:ERC.DisplayOutput.SearchModules
+  name: SearchModules
+  nameWithType: DisplayOutput.SearchModules
+  fullName: ERC.DisplayOutput.SearchModules
+- uid: ERC.DisplayOutput.GetSEHJumps*
+  commentId: Overload:ERC.DisplayOutput.GetSEHJumps
+  name: GetSEHJumps
+  nameWithType: DisplayOutput.GetSEHJumps
+  fullName: ERC.DisplayOutput.GetSEHJumps
+- uid: ERC.DisplayOutput.GetSEHJumpsUnicode*
+  commentId: Overload:ERC.DisplayOutput.GetSEHJumpsUnicode
+  name: GetSEHJumpsUnicode
+  nameWithType: DisplayOutput.GetSEHJumpsUnicode
+  fullName: ERC.DisplayOutput.GetSEHJumpsUnicode
+- uid: ERC.DisplayOutput.GenerateByteArray*
+  commentId: Overload:ERC.DisplayOutput.GenerateByteArray
+  name: GenerateByteArray
+  nameWithType: DisplayOutput.GenerateByteArray
+  fullName: ERC.DisplayOutput.GenerateByteArray
+- uid: ERC.DisplayOutput.CompareByteArrayToMemoryRegion*
+  commentId: Overload:ERC.DisplayOutput.CompareByteArrayToMemoryRegion
+  name: CompareByteArrayToMemoryRegion
+  nameWithType: DisplayOutput.CompareByteArrayToMemoryRegion
+  fullName: ERC.DisplayOutput.CompareByteArrayToMemoryRegion
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  name: IntPtr
+  nameWithType: IntPtr
+  fullName: System.IntPtr
+- uid: ERC.DisplayOutput.GenerateEggHunters*
+  commentId: Overload:ERC.DisplayOutput.GenerateEggHunters
+  name: GenerateEggHunters
+  nameWithType: DisplayOutput.GenerateEggHunters
+  fullName: ERC.DisplayOutput.GenerateEggHunters
+- uid: ERC.DisplayOutput.GenerateFindNRPTable*
+  commentId: Overload:ERC.DisplayOutput.GenerateFindNRPTable
+  name: GenerateFindNRPTable
+  nameWithType: DisplayOutput.GenerateFindNRPTable
+  fullName: ERC.DisplayOutput.GenerateFindNRPTable
+- uid: ERC.DisplayOutput.RopChainGadgets32*
+  commentId: Overload:ERC.DisplayOutput.RopChainGadgets32
+  name: RopChainGadgets32
+  nameWithType: DisplayOutput.RopChainGadgets32
+  fullName: ERC.DisplayOutput.RopChainGadgets32
+- uid: ERC.Utilities.RopChainGenerator32
+  commentId: T:ERC.Utilities.RopChainGenerator32
+  parent: ERC.Utilities
+  name: RopChainGenerator32
+  nameWithType: RopChainGenerator32
+  fullName: ERC.Utilities.RopChainGenerator32
+- uid: ERC.Utilities
+  commentId: N:ERC.Utilities
+  name: ERC.Utilities
+  nameWithType: ERC.Utilities
+  fullName: ERC.Utilities
+- uid: ERC.DisplayOutput.RopChainGadgets64*
+  commentId: Overload:ERC.DisplayOutput.RopChainGadgets64
+  name: RopChainGadgets64
+  nameWithType: DisplayOutput.RopChainGadgets64
+  fullName: ERC.DisplayOutput.RopChainGadgets64
+- uid: ERC.Utilities.RopChainGenerator64
+  commentId: T:ERC.Utilities.RopChainGenerator64
+  parent: ERC.Utilities
+  name: RopChainGenerator64
+  nameWithType: RopChainGenerator64
+  fullName: ERC.Utilities.RopChainGenerator64
+- uid: ERC.DisplayOutput.AssembleOpcodes*
+  commentId: Overload:ERC.DisplayOutput.AssembleOpcodes
+  name: AssembleOpcodes
+  nameWithType: DisplayOutput.AssembleOpcodes
+  fullName: ERC.DisplayOutput.AssembleOpcodes
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: ERC.MachineType
+  commentId: T:ERC.MachineType
+  parent: ERC
+  name: MachineType
+  nameWithType: MachineType
+  fullName: ERC.MachineType
+- uid: ERC.DisplayOutput.DisassembleOpcodes*
+  commentId: Overload:ERC.DisplayOutput.DisassembleOpcodes
+  name: DisassembleOpcodes
+  nameWithType: DisplayOutput.DisassembleOpcodes
+  fullName: ERC.DisplayOutput.DisassembleOpcodes
+- uid: ERC.DisplayOutput.DumpMemory*
+  commentId: Overload:ERC.DisplayOutput.DumpMemory
+  name: DumpMemory
+  nameWithType: DisplayOutput.DumpMemory
+  fullName: ERC.DisplayOutput.DumpMemory
+- uid: ERC.DisplayOutput.DumpHeap*
+  commentId: Overload:ERC.DisplayOutput.DumpHeap
+  name: DumpHeap
+  nameWithType: DisplayOutput.DumpHeap
+  fullName: ERC.DisplayOutput.DumpHeap
+- uid: ERC.HeapInfo
+  commentId: T:ERC.HeapInfo
+  parent: ERC
+  name: HeapInfo
+  nameWithType: HeapInfo
+  fullName: ERC.HeapInfo
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: ERC.DisplayOutput.HeapStats*
+  commentId: Overload:ERC.DisplayOutput.HeapStats
+  name: HeapStats
+  nameWithType: DisplayOutput.HeapStats
+  fullName: ERC.DisplayOutput.HeapStats
+- uid: ERC.DisplayOutput.ListHeapIDs*
+  commentId: Overload:ERC.DisplayOutput.ListHeapIDs
+  name: ListHeapIDs
+  nameWithType: DisplayOutput.ListHeapIDs
+  fullName: ERC.DisplayOutput.ListHeapIDs
+- uid: ERC.DisplayOutput.SearchHeap*
+  commentId: Overload:ERC.DisplayOutput.SearchHeap
+  name: SearchHeap
+  nameWithType: DisplayOutput.SearchHeap
+  fullName: ERC.DisplayOutput.SearchHeap

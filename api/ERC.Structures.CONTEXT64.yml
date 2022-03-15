@@ -1,0 +1,1796 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Structures.CONTEXT64
+  commentId: T:ERC.Structures.CONTEXT64
+  id: CONTEXT64
+  parent: ERC.Structures
+  children:
+  - ERC.Structures.CONTEXT64.ContextFlags
+  - ERC.Structures.CONTEXT64.DebugControl
+  - ERC.Structures.CONTEXT64.Dr0
+  - ERC.Structures.CONTEXT64.Dr1
+  - ERC.Structures.CONTEXT64.Dr2
+  - ERC.Structures.CONTEXT64.Dr3
+  - ERC.Structures.CONTEXT64.Dr6
+  - ERC.Structures.CONTEXT64.Dr7
+  - ERC.Structures.CONTEXT64.DUMMYUNIONNAME
+  - ERC.Structures.CONTEXT64.EFlags
+  - ERC.Structures.CONTEXT64.LastBranchFromRip
+  - ERC.Structures.CONTEXT64.LastBranchToRip
+  - ERC.Structures.CONTEXT64.LastExceptionFromRip
+  - ERC.Structures.CONTEXT64.LastExceptionToRip
+  - ERC.Structures.CONTEXT64.MxCsr
+  - ERC.Structures.CONTEXT64.P1Home
+  - ERC.Structures.CONTEXT64.P2Home
+  - ERC.Structures.CONTEXT64.P3Home
+  - ERC.Structures.CONTEXT64.P4Home
+  - ERC.Structures.CONTEXT64.P5Home
+  - ERC.Structures.CONTEXT64.P6Home
+  - ERC.Structures.CONTEXT64.R10
+  - ERC.Structures.CONTEXT64.R11
+  - ERC.Structures.CONTEXT64.R12
+  - ERC.Structures.CONTEXT64.R13
+  - ERC.Structures.CONTEXT64.R14
+  - ERC.Structures.CONTEXT64.R15
+  - ERC.Structures.CONTEXT64.R8
+  - ERC.Structures.CONTEXT64.R9
+  - ERC.Structures.CONTEXT64.Rax
+  - ERC.Structures.CONTEXT64.Rbp
+  - ERC.Structures.CONTEXT64.Rbx
+  - ERC.Structures.CONTEXT64.Rcx
+  - ERC.Structures.CONTEXT64.Rdi
+  - ERC.Structures.CONTEXT64.Rdx
+  - ERC.Structures.CONTEXT64.Rip
+  - ERC.Structures.CONTEXT64.Rsi
+  - ERC.Structures.CONTEXT64.Rsp
+  - ERC.Structures.CONTEXT64.SegCs
+  - ERC.Structures.CONTEXT64.SegDs
+  - ERC.Structures.CONTEXT64.SegEs
+  - ERC.Structures.CONTEXT64.SegFs
+  - ERC.Structures.CONTEXT64.SegGs
+  - ERC.Structures.CONTEXT64.SegSs
+  - ERC.Structures.CONTEXT64.ToString
+  - ERC.Structures.CONTEXT64.VectorControl
+  - ERC.Structures.CONTEXT64.VectorRegister
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT64
+  nameWithType: CONTEXT64
+  fullName: ERC.Structures.CONTEXT64
+  type: Struct
+  source:
+    id: CONTEXT64
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2557
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nStructure for holding x64 register values.\n"
+  example: []
+  syntax:
+    content: public struct CONTEXT64
+    content.vb: Public Structure CONTEXT64
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: ERC.Structures.CONTEXT64.P1Home
+  commentId: F:ERC.Structures.CONTEXT64.P1Home
+  id: P1Home
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: P1Home
+  nameWithType: CONTEXT64.P1Home
+  fullName: ERC.Structures.CONTEXT64.P1Home
+  type: Field
+  source:
+    id: P1Home
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2563
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nP1Home\n"
+  example: []
+  syntax:
+    content: public ulong P1Home
+    return:
+      type: System.UInt64
+    content.vb: Public P1Home As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.P2Home
+  commentId: F:ERC.Structures.CONTEXT64.P2Home
+  id: P2Home
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: P2Home
+  nameWithType: CONTEXT64.P2Home
+  fullName: ERC.Structures.CONTEXT64.P2Home
+  type: Field
+  source:
+    id: P2Home
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2567
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nP2Home\n"
+  example: []
+  syntax:
+    content: public ulong P2Home
+    return:
+      type: System.UInt64
+    content.vb: Public P2Home As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.P3Home
+  commentId: F:ERC.Structures.CONTEXT64.P3Home
+  id: P3Home
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: P3Home
+  nameWithType: CONTEXT64.P3Home
+  fullName: ERC.Structures.CONTEXT64.P3Home
+  type: Field
+  source:
+    id: P3Home
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2571
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nP3Home\n"
+  example: []
+  syntax:
+    content: public ulong P3Home
+    return:
+      type: System.UInt64
+    content.vb: Public P3Home As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.P4Home
+  commentId: F:ERC.Structures.CONTEXT64.P4Home
+  id: P4Home
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: P4Home
+  nameWithType: CONTEXT64.P4Home
+  fullName: ERC.Structures.CONTEXT64.P4Home
+  type: Field
+  source:
+    id: P4Home
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2575
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nP4Home\n"
+  example: []
+  syntax:
+    content: public ulong P4Home
+    return:
+      type: System.UInt64
+    content.vb: Public P4Home As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.P5Home
+  commentId: F:ERC.Structures.CONTEXT64.P5Home
+  id: P5Home
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: P5Home
+  nameWithType: CONTEXT64.P5Home
+  fullName: ERC.Structures.CONTEXT64.P5Home
+  type: Field
+  source:
+    id: P5Home
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2579
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nP5Home\n"
+  example: []
+  syntax:
+    content: public ulong P5Home
+    return:
+      type: System.UInt64
+    content.vb: Public P5Home As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.P6Home
+  commentId: F:ERC.Structures.CONTEXT64.P6Home
+  id: P6Home
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: P6Home
+  nameWithType: CONTEXT64.P6Home
+  fullName: ERC.Structures.CONTEXT64.P6Home
+  type: Field
+  source:
+    id: P6Home
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2583
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nP6Home\n"
+  example: []
+  syntax:
+    content: public ulong P6Home
+    return:
+      type: System.UInt64
+    content.vb: Public P6Home As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.ContextFlags
+  commentId: F:ERC.Structures.CONTEXT64.ContextFlags
+  id: ContextFlags
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: ContextFlags
+  nameWithType: CONTEXT64.ContextFlags
+  fullName: ERC.Structures.CONTEXT64.ContextFlags
+  type: Field
+  source:
+    id: ContextFlags
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2588
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nContextFlags\n"
+  example: []
+  syntax:
+    content: public CONTEXT_FLAGS ContextFlags
+    return:
+      type: ERC.Structures.CONTEXT_FLAGS
+    content.vb: Public ContextFlags As CONTEXT_FLAGS
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.MxCsr
+  commentId: F:ERC.Structures.CONTEXT64.MxCsr
+  id: MxCsr
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: MxCsr
+  nameWithType: CONTEXT64.MxCsr
+  fullName: ERC.Structures.CONTEXT64.MxCsr
+  type: Field
+  source:
+    id: MxCsr
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2592
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMxCsr\n"
+  example: []
+  syntax:
+    content: public uint MxCsr
+    return:
+      type: System.UInt32
+    content.vb: Public MxCsr As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.SegCs
+  commentId: F:ERC.Structures.CONTEXT64.SegCs
+  id: SegCs
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: SegCs
+  nameWithType: CONTEXT64.SegCs
+  fullName: ERC.Structures.CONTEXT64.SegCs
+  type: Field
+  source:
+    id: SegCs
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2597
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSegCs\n"
+  example: []
+  syntax:
+    content: public ushort SegCs
+    return:
+      type: System.UInt16
+    content.vb: Public SegCs As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.SegDs
+  commentId: F:ERC.Structures.CONTEXT64.SegDs
+  id: SegDs
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: SegDs
+  nameWithType: CONTEXT64.SegDs
+  fullName: ERC.Structures.CONTEXT64.SegDs
+  type: Field
+  source:
+    id: SegDs
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2601
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSegDs\n"
+  example: []
+  syntax:
+    content: public ushort SegDs
+    return:
+      type: System.UInt16
+    content.vb: Public SegDs As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.SegEs
+  commentId: F:ERC.Structures.CONTEXT64.SegEs
+  id: SegEs
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: SegEs
+  nameWithType: CONTEXT64.SegEs
+  fullName: ERC.Structures.CONTEXT64.SegEs
+  type: Field
+  source:
+    id: SegEs
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2605
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSegEs\n"
+  example: []
+  syntax:
+    content: public ushort SegEs
+    return:
+      type: System.UInt16
+    content.vb: Public SegEs As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.SegFs
+  commentId: F:ERC.Structures.CONTEXT64.SegFs
+  id: SegFs
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: SegFs
+  nameWithType: CONTEXT64.SegFs
+  fullName: ERC.Structures.CONTEXT64.SegFs
+  type: Field
+  source:
+    id: SegFs
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2609
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSegFs\n"
+  example: []
+  syntax:
+    content: public ushort SegFs
+    return:
+      type: System.UInt16
+    content.vb: Public SegFs As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.SegGs
+  commentId: F:ERC.Structures.CONTEXT64.SegGs
+  id: SegGs
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: SegGs
+  nameWithType: CONTEXT64.SegGs
+  fullName: ERC.Structures.CONTEXT64.SegGs
+  type: Field
+  source:
+    id: SegGs
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2613
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSegGs\n"
+  example: []
+  syntax:
+    content: public ushort SegGs
+    return:
+      type: System.UInt16
+    content.vb: Public SegGs As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.SegSs
+  commentId: F:ERC.Structures.CONTEXT64.SegSs
+  id: SegSs
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: SegSs
+  nameWithType: CONTEXT64.SegSs
+  fullName: ERC.Structures.CONTEXT64.SegSs
+  type: Field
+  source:
+    id: SegSs
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2617
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSegSs\n"
+  example: []
+  syntax:
+    content: public ushort SegSs
+    return:
+      type: System.UInt16
+    content.vb: Public SegSs As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.EFlags
+  commentId: F:ERC.Structures.CONTEXT64.EFlags
+  id: EFlags
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: EFlags
+  nameWithType: CONTEXT64.EFlags
+  fullName: ERC.Structures.CONTEXT64.EFlags
+  type: Field
+  source:
+    id: EFlags
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2621
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nEFlags\n"
+  example: []
+  syntax:
+    content: public uint EFlags
+    return:
+      type: System.UInt32
+    content.vb: Public EFlags As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Dr0
+  commentId: F:ERC.Structures.CONTEXT64.Dr0
+  id: Dr0
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Dr0
+  nameWithType: CONTEXT64.Dr0
+  fullName: ERC.Structures.CONTEXT64.Dr0
+  type: Field
+  source:
+    id: Dr0
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2626
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDr0\n"
+  example: []
+  syntax:
+    content: public ulong Dr0
+    return:
+      type: System.UInt64
+    content.vb: Public Dr0 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Dr1
+  commentId: F:ERC.Structures.CONTEXT64.Dr1
+  id: Dr1
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Dr1
+  nameWithType: CONTEXT64.Dr1
+  fullName: ERC.Structures.CONTEXT64.Dr1
+  type: Field
+  source:
+    id: Dr1
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2630
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDr1\n"
+  example: []
+  syntax:
+    content: public ulong Dr1
+    return:
+      type: System.UInt64
+    content.vb: Public Dr1 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Dr2
+  commentId: F:ERC.Structures.CONTEXT64.Dr2
+  id: Dr2
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Dr2
+  nameWithType: CONTEXT64.Dr2
+  fullName: ERC.Structures.CONTEXT64.Dr2
+  type: Field
+  source:
+    id: Dr2
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2634
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDr2\n"
+  example: []
+  syntax:
+    content: public ulong Dr2
+    return:
+      type: System.UInt64
+    content.vb: Public Dr2 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Dr3
+  commentId: F:ERC.Structures.CONTEXT64.Dr3
+  id: Dr3
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Dr3
+  nameWithType: CONTEXT64.Dr3
+  fullName: ERC.Structures.CONTEXT64.Dr3
+  type: Field
+  source:
+    id: Dr3
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2638
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDr3\n"
+  example: []
+  syntax:
+    content: public ulong Dr3
+    return:
+      type: System.UInt64
+    content.vb: Public Dr3 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Dr6
+  commentId: F:ERC.Structures.CONTEXT64.Dr6
+  id: Dr6
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Dr6
+  nameWithType: CONTEXT64.Dr6
+  fullName: ERC.Structures.CONTEXT64.Dr6
+  type: Field
+  source:
+    id: Dr6
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2642
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDr6\n"
+  example: []
+  syntax:
+    content: public ulong Dr6
+    return:
+      type: System.UInt64
+    content.vb: Public Dr6 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Dr7
+  commentId: F:ERC.Structures.CONTEXT64.Dr7
+  id: Dr7
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Dr7
+  nameWithType: CONTEXT64.Dr7
+  fullName: ERC.Structures.CONTEXT64.Dr7
+  type: Field
+  source:
+    id: Dr7
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2646
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDr7\n"
+  example: []
+  syntax:
+    content: public ulong Dr7
+    return:
+      type: System.UInt64
+    content.vb: Public Dr7 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Rax
+  commentId: F:ERC.Structures.CONTEXT64.Rax
+  id: Rax
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Rax
+  nameWithType: CONTEXT64.Rax
+  fullName: ERC.Structures.CONTEXT64.Rax
+  type: Field
+  source:
+    id: Rax
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2651
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nRax\n"
+  example: []
+  syntax:
+    content: public ulong Rax
+    return:
+      type: System.UInt64
+    content.vb: Public Rax As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Rcx
+  commentId: F:ERC.Structures.CONTEXT64.Rcx
+  id: Rcx
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Rcx
+  nameWithType: CONTEXT64.Rcx
+  fullName: ERC.Structures.CONTEXT64.Rcx
+  type: Field
+  source:
+    id: Rcx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2655
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nRcx\n"
+  example: []
+  syntax:
+    content: public ulong Rcx
+    return:
+      type: System.UInt64
+    content.vb: Public Rcx As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Rdx
+  commentId: F:ERC.Structures.CONTEXT64.Rdx
+  id: Rdx
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Rdx
+  nameWithType: CONTEXT64.Rdx
+  fullName: ERC.Structures.CONTEXT64.Rdx
+  type: Field
+  source:
+    id: Rdx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2659
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nRdx\n"
+  example: []
+  syntax:
+    content: public ulong Rdx
+    return:
+      type: System.UInt64
+    content.vb: Public Rdx As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Rbx
+  commentId: F:ERC.Structures.CONTEXT64.Rbx
+  id: Rbx
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Rbx
+  nameWithType: CONTEXT64.Rbx
+  fullName: ERC.Structures.CONTEXT64.Rbx
+  type: Field
+  source:
+    id: Rbx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2663
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nRbx\n"
+  example: []
+  syntax:
+    content: public ulong Rbx
+    return:
+      type: System.UInt64
+    content.vb: Public Rbx As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Rsp
+  commentId: F:ERC.Structures.CONTEXT64.Rsp
+  id: Rsp
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Rsp
+  nameWithType: CONTEXT64.Rsp
+  fullName: ERC.Structures.CONTEXT64.Rsp
+  type: Field
+  source:
+    id: Rsp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2667
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nRsp\n"
+  example: []
+  syntax:
+    content: public ulong Rsp
+    return:
+      type: System.UInt64
+    content.vb: Public Rsp As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Rbp
+  commentId: F:ERC.Structures.CONTEXT64.Rbp
+  id: Rbp
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Rbp
+  nameWithType: CONTEXT64.Rbp
+  fullName: ERC.Structures.CONTEXT64.Rbp
+  type: Field
+  source:
+    id: Rbp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2671
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nRbp\n"
+  example: []
+  syntax:
+    content: public ulong Rbp
+    return:
+      type: System.UInt64
+    content.vb: Public Rbp As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Rsi
+  commentId: F:ERC.Structures.CONTEXT64.Rsi
+  id: Rsi
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Rsi
+  nameWithType: CONTEXT64.Rsi
+  fullName: ERC.Structures.CONTEXT64.Rsi
+  type: Field
+  source:
+    id: Rsi
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2675
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nRsi\n"
+  example: []
+  syntax:
+    content: public ulong Rsi
+    return:
+      type: System.UInt64
+    content.vb: Public Rsi As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Rdi
+  commentId: F:ERC.Structures.CONTEXT64.Rdi
+  id: Rdi
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Rdi
+  nameWithType: CONTEXT64.Rdi
+  fullName: ERC.Structures.CONTEXT64.Rdi
+  type: Field
+  source:
+    id: Rdi
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2679
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nRdi\n"
+  example: []
+  syntax:
+    content: public ulong Rdi
+    return:
+      type: System.UInt64
+    content.vb: Public Rdi As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.R8
+  commentId: F:ERC.Structures.CONTEXT64.R8
+  id: R8
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: R8
+  nameWithType: CONTEXT64.R8
+  fullName: ERC.Structures.CONTEXT64.R8
+  type: Field
+  source:
+    id: R8
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2683
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nR8\n"
+  example: []
+  syntax:
+    content: public ulong R8
+    return:
+      type: System.UInt64
+    content.vb: Public R8 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.R9
+  commentId: F:ERC.Structures.CONTEXT64.R9
+  id: R9
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: R9
+  nameWithType: CONTEXT64.R9
+  fullName: ERC.Structures.CONTEXT64.R9
+  type: Field
+  source:
+    id: R9
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2687
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nR9\n"
+  example: []
+  syntax:
+    content: public ulong R9
+    return:
+      type: System.UInt64
+    content.vb: Public R9 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.R10
+  commentId: F:ERC.Structures.CONTEXT64.R10
+  id: R10
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: R10
+  nameWithType: CONTEXT64.R10
+  fullName: ERC.Structures.CONTEXT64.R10
+  type: Field
+  source:
+    id: R10
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2691
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nR10\n"
+  example: []
+  syntax:
+    content: public ulong R10
+    return:
+      type: System.UInt64
+    content.vb: Public R10 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.R11
+  commentId: F:ERC.Structures.CONTEXT64.R11
+  id: R11
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: R11
+  nameWithType: CONTEXT64.R11
+  fullName: ERC.Structures.CONTEXT64.R11
+  type: Field
+  source:
+    id: R11
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2695
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nR11\n"
+  example: []
+  syntax:
+    content: public ulong R11
+    return:
+      type: System.UInt64
+    content.vb: Public R11 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.R12
+  commentId: F:ERC.Structures.CONTEXT64.R12
+  id: R12
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: R12
+  nameWithType: CONTEXT64.R12
+  fullName: ERC.Structures.CONTEXT64.R12
+  type: Field
+  source:
+    id: R12
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2699
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nR12\n"
+  example: []
+  syntax:
+    content: public ulong R12
+    return:
+      type: System.UInt64
+    content.vb: Public R12 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.R13
+  commentId: F:ERC.Structures.CONTEXT64.R13
+  id: R13
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: R13
+  nameWithType: CONTEXT64.R13
+  fullName: ERC.Structures.CONTEXT64.R13
+  type: Field
+  source:
+    id: R13
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2703
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nR13\n"
+  example: []
+  syntax:
+    content: public ulong R13
+    return:
+      type: System.UInt64
+    content.vb: Public R13 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.R14
+  commentId: F:ERC.Structures.CONTEXT64.R14
+  id: R14
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: R14
+  nameWithType: CONTEXT64.R14
+  fullName: ERC.Structures.CONTEXT64.R14
+  type: Field
+  source:
+    id: R14
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2707
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nR14\n"
+  example: []
+  syntax:
+    content: public ulong R14
+    return:
+      type: System.UInt64
+    content.vb: Public R14 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.R15
+  commentId: F:ERC.Structures.CONTEXT64.R15
+  id: R15
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: R15
+  nameWithType: CONTEXT64.R15
+  fullName: ERC.Structures.CONTEXT64.R15
+  type: Field
+  source:
+    id: R15
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2711
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nR15\n"
+  example: []
+  syntax:
+    content: public ulong R15
+    return:
+      type: System.UInt64
+    content.vb: Public R15 As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.Rip
+  commentId: F:ERC.Structures.CONTEXT64.Rip
+  id: Rip
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: Rip
+  nameWithType: CONTEXT64.Rip
+  fullName: ERC.Structures.CONTEXT64.Rip
+  type: Field
+  source:
+    id: Rip
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2715
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nRip\n"
+  example: []
+  syntax:
+    content: public ulong Rip
+    return:
+      type: System.UInt64
+    content.vb: Public Rip As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.DUMMYUNIONNAME
+  commentId: F:ERC.Structures.CONTEXT64.DUMMYUNIONNAME
+  id: DUMMYUNIONNAME
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: DUMMYUNIONNAME
+  nameWithType: CONTEXT64.DUMMYUNIONNAME
+  fullName: ERC.Structures.CONTEXT64.DUMMYUNIONNAME
+  type: Field
+  source:
+    id: DUMMYUNIONNAME
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2720
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDUMMYUNIONNAME\n"
+  example: []
+  syntax:
+    content: public XSAVE_FORMAT64 DUMMYUNIONNAME
+    return:
+      type: ERC.Structures.XSAVE_FORMAT64
+    content.vb: Public DUMMYUNIONNAME As XSAVE_FORMAT64
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.VectorRegister
+  commentId: F:ERC.Structures.CONTEXT64.VectorRegister
+  id: VectorRegister
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: VectorRegister
+  nameWithType: CONTEXT64.VectorRegister
+  fullName: ERC.Structures.CONTEXT64.VectorRegister
+  type: Field
+  source:
+    id: VectorRegister
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2726
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nVectorRegister\n"
+  example: []
+  syntax:
+    content: public M128A[] VectorRegister
+    return:
+      type: ERC.Structures.M128A[]
+    content.vb: Public VectorRegister As M128A()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.VectorControl
+  commentId: F:ERC.Structures.CONTEXT64.VectorControl
+  id: VectorControl
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: VectorControl
+  nameWithType: CONTEXT64.VectorControl
+  fullName: ERC.Structures.CONTEXT64.VectorControl
+  type: Field
+  source:
+    id: VectorControl
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2730
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nVectorControl\n"
+  example: []
+  syntax:
+    content: public ulong VectorControl
+    return:
+      type: System.UInt64
+    content.vb: Public VectorControl As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.DebugControl
+  commentId: F:ERC.Structures.CONTEXT64.DebugControl
+  id: DebugControl
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: DebugControl
+  nameWithType: CONTEXT64.DebugControl
+  fullName: ERC.Structures.CONTEXT64.DebugControl
+  type: Field
+  source:
+    id: DebugControl
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2735
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDebugControl\n"
+  example: []
+  syntax:
+    content: public ulong DebugControl
+    return:
+      type: System.UInt64
+    content.vb: Public DebugControl As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.LastBranchToRip
+  commentId: F:ERC.Structures.CONTEXT64.LastBranchToRip
+  id: LastBranchToRip
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: LastBranchToRip
+  nameWithType: CONTEXT64.LastBranchToRip
+  fullName: ERC.Structures.CONTEXT64.LastBranchToRip
+  type: Field
+  source:
+    id: LastBranchToRip
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2739
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLastBranchToRip\n"
+  example: []
+  syntax:
+    content: public ulong LastBranchToRip
+    return:
+      type: System.UInt64
+    content.vb: Public LastBranchToRip As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.LastBranchFromRip
+  commentId: F:ERC.Structures.CONTEXT64.LastBranchFromRip
+  id: LastBranchFromRip
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: LastBranchFromRip
+  nameWithType: CONTEXT64.LastBranchFromRip
+  fullName: ERC.Structures.CONTEXT64.LastBranchFromRip
+  type: Field
+  source:
+    id: LastBranchFromRip
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2743
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLastBranchFromRip\n"
+  example: []
+  syntax:
+    content: public ulong LastBranchFromRip
+    return:
+      type: System.UInt64
+    content.vb: Public LastBranchFromRip As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.LastExceptionToRip
+  commentId: F:ERC.Structures.CONTEXT64.LastExceptionToRip
+  id: LastExceptionToRip
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: LastExceptionToRip
+  nameWithType: CONTEXT64.LastExceptionToRip
+  fullName: ERC.Structures.CONTEXT64.LastExceptionToRip
+  type: Field
+  source:
+    id: LastExceptionToRip
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2747
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLastExceptionToRip\n"
+  example: []
+  syntax:
+    content: public ulong LastExceptionToRip
+    return:
+      type: System.UInt64
+    content.vb: Public LastExceptionToRip As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.LastExceptionFromRip
+  commentId: F:ERC.Structures.CONTEXT64.LastExceptionFromRip
+  id: LastExceptionFromRip
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: LastExceptionFromRip
+  nameWithType: CONTEXT64.LastExceptionFromRip
+  fullName: ERC.Structures.CONTEXT64.LastExceptionFromRip
+  type: Field
+  source:
+    id: LastExceptionFromRip
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2751
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLastExceptionFromRip\n"
+  example: []
+  syntax:
+    content: public ulong LastExceptionFromRip
+    return:
+      type: System.UInt64
+    content.vb: Public LastExceptionFromRip As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.CONTEXT64.ToString
+  commentId: M:ERC.Structures.CONTEXT64.ToString
+  id: ToString
+  parent: ERC.Structures.CONTEXT64
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: CONTEXT64.ToString()
+  fullName: ERC.Structures.CONTEXT64.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2757
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nOverridden ToString method, returns register values for the current thread.\n"
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: String
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.ValueType.ToString
+  overload: ERC.Structures.CONTEXT64.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: ERC.Structures
+  commentId: N:ERC.Structures
+  name: ERC.Structures
+  nameWithType: ERC.Structures
+  fullName: ERC.Structures
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: ERC.Structures.CONTEXT_FLAGS
+  commentId: T:ERC.Structures.CONTEXT_FLAGS
+  parent: ERC.Structures
+  name: CONTEXT_FLAGS
+  nameWithType: CONTEXT_FLAGS
+  fullName: ERC.Structures.CONTEXT_FLAGS
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  name: UInt16
+  nameWithType: UInt16
+  fullName: System.UInt16
+- uid: ERC.Structures.XSAVE_FORMAT64
+  commentId: T:ERC.Structures.XSAVE_FORMAT64
+  parent: ERC.Structures
+  name: XSAVE_FORMAT64
+  nameWithType: XSAVE_FORMAT64
+  fullName: ERC.Structures.XSAVE_FORMAT64
+- uid: ERC.Structures.M128A[]
+  isExternal: true
+  name: M128A[]
+  nameWithType: M128A[]
+  fullName: ERC.Structures.M128A[]
+  nameWithType.vb: M128A()
+  fullName.vb: ERC.Structures.M128A()
+  name.vb: M128A()
+  spec.csharp:
+  - uid: ERC.Structures.M128A
+    name: M128A
+    nameWithType: M128A
+    fullName: ERC.Structures.M128A
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: ERC.Structures.M128A
+    name: M128A
+    nameWithType: M128A
+    fullName: ERC.Structures.M128A
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ERC.Structures.CONTEXT64.ToString*
+  commentId: Overload:ERC.Structures.CONTEXT64.ToString
+  name: ToString
+  nameWithType: CONTEXT64.ToString
+  fullName: ERC.Structures.CONTEXT64.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String

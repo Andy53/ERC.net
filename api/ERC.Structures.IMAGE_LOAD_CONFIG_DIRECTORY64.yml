@@ -1,0 +1,1600 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  commentId: T:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  id: IMAGE_LOAD_CONFIG_DIRECTORY64
+  parent: ERC.Structures
+  children:
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CHPEMetadataPointer
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CodeIntegrity
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CriticalSectionDefaultTimeout
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CSDVersion
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DeCommitFreeBlockThreshold
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DeCommitTotalFreeThreshold
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DependentLoadFlags
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTable
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTableOffset
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTableSection
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.EditList
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.EnclaveConfigurationPointer
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GlobalFlagsClear
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GlobalFlagsSet
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardAddressTakenIatEntryCount
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardAddressTakenIatEntryTable
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFCheckFunctionPointer
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFDispatchFunctionPointer
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFFunctionCount
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFFunctionTable
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardFlags
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardLongJumpTargetCount
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardLongJumpTargetTable
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFFailureRoutine
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFFailureRoutineFunctionPointer
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFVerifyStackPointerFunctionPointer
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.HotPatchTableOffset
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.LockPrefixTable
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MajorVersion
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MaximumAllocationSize
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MinorVersion
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.ProcessAffinityMask
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.ProcessHeapFlags
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Reserved2
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Reserved3
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SecurityCookie
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SEHandlerCount
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SEHandlerTable
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Size
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.TimeDateStamp
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.VirtualMemoryThreshold
+  - ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.VolatileMetadataPointer
+  langs:
+  - csharp
+  - vb
+  name: IMAGE_LOAD_CONFIG_DIRECTORY64
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  type: Struct
+  source:
+    id: IMAGE_LOAD_CONFIG_DIRECTORY64
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1584
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nIMAGE_LOAD_CONFIG_DIRECTORY32. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_image_load_config_directory64\n"
+  example: []
+  syntax:
+    content: public struct IMAGE_LOAD_CONFIG_DIRECTORY64
+    content.vb: Public Structure IMAGE_LOAD_CONFIG_DIRECTORY64
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Size
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Size
+  id: Size
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.Size
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Size
+  type: Field
+  source:
+    id: Size
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1590
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSize\n"
+  example: []
+  syntax:
+    content: public uint Size
+    return:
+      type: System.UInt32
+    content.vb: Public Size As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.TimeDateStamp
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.TimeDateStamp
+  id: TimeDateStamp
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: TimeDateStamp
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.TimeDateStamp
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.TimeDateStamp
+  type: Field
+  source:
+    id: TimeDateStamp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1594
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nTimeDateStamp\n"
+  example: []
+  syntax:
+    content: public uint TimeDateStamp
+    return:
+      type: System.UInt32
+    content.vb: Public TimeDateStamp As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MajorVersion
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MajorVersion
+  id: MajorVersion
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: MajorVersion
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.MajorVersion
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MajorVersion
+  type: Field
+  source:
+    id: MajorVersion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1598
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMajorVersion\n"
+  example: []
+  syntax:
+    content: public ushort MajorVersion
+    return:
+      type: System.UInt16
+    content.vb: Public MajorVersion As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MinorVersion
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MinorVersion
+  id: MinorVersion
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: MinorVersion
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.MinorVersion
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MinorVersion
+  type: Field
+  source:
+    id: MinorVersion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1602
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMinorVersion\n"
+  example: []
+  syntax:
+    content: public ushort MinorVersion
+    return:
+      type: System.UInt16
+    content.vb: Public MinorVersion As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GlobalFlagsClear
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GlobalFlagsClear
+  id: GlobalFlagsClear
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GlobalFlagsClear
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GlobalFlagsClear
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GlobalFlagsClear
+  type: Field
+  source:
+    id: GlobalFlagsClear
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1606
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGlobalFlagsClear\n"
+  example: []
+  syntax:
+    content: public uint GlobalFlagsClear
+    return:
+      type: System.UInt32
+    content.vb: Public GlobalFlagsClear As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GlobalFlagsSet
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GlobalFlagsSet
+  id: GlobalFlagsSet
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GlobalFlagsSet
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GlobalFlagsSet
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GlobalFlagsSet
+  type: Field
+  source:
+    id: GlobalFlagsSet
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1610
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGlobalFlagsSet\n"
+  example: []
+  syntax:
+    content: public uint GlobalFlagsSet
+    return:
+      type: System.UInt32
+    content.vb: Public GlobalFlagsSet As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CriticalSectionDefaultTimeout
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CriticalSectionDefaultTimeout
+  id: CriticalSectionDefaultTimeout
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: CriticalSectionDefaultTimeout
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.CriticalSectionDefaultTimeout
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CriticalSectionDefaultTimeout
+  type: Field
+  source:
+    id: CriticalSectionDefaultTimeout
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1614
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCriticalSectionDefaultTimeout\n"
+  example: []
+  syntax:
+    content: public uint CriticalSectionDefaultTimeout
+    return:
+      type: System.UInt32
+    content.vb: Public CriticalSectionDefaultTimeout As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DeCommitFreeBlockThreshold
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DeCommitFreeBlockThreshold
+  id: DeCommitFreeBlockThreshold
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: DeCommitFreeBlockThreshold
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.DeCommitFreeBlockThreshold
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DeCommitFreeBlockThreshold
+  type: Field
+  source:
+    id: DeCommitFreeBlockThreshold
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1618
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDeCommitFreeBlockThreshold\n"
+  example: []
+  syntax:
+    content: public ulong DeCommitFreeBlockThreshold
+    return:
+      type: System.UInt64
+    content.vb: Public DeCommitFreeBlockThreshold As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DeCommitTotalFreeThreshold
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DeCommitTotalFreeThreshold
+  id: DeCommitTotalFreeThreshold
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: DeCommitTotalFreeThreshold
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.DeCommitTotalFreeThreshold
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DeCommitTotalFreeThreshold
+  type: Field
+  source:
+    id: DeCommitTotalFreeThreshold
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1622
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDeCommitTotalFreeThreshold\n"
+  example: []
+  syntax:
+    content: public ulong DeCommitTotalFreeThreshold
+    return:
+      type: System.UInt64
+    content.vb: Public DeCommitTotalFreeThreshold As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.LockPrefixTable
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.LockPrefixTable
+  id: LockPrefixTable
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: LockPrefixTable
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.LockPrefixTable
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.LockPrefixTable
+  type: Field
+  source:
+    id: LockPrefixTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1626
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLockPrefixTable\n"
+  example: []
+  syntax:
+    content: public ulong LockPrefixTable
+    return:
+      type: System.UInt64
+    content.vb: Public LockPrefixTable As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MaximumAllocationSize
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MaximumAllocationSize
+  id: MaximumAllocationSize
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: MaximumAllocationSize
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.MaximumAllocationSize
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.MaximumAllocationSize
+  type: Field
+  source:
+    id: MaximumAllocationSize
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1630
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMaximumAllocationSize\n"
+  example: []
+  syntax:
+    content: public ulong MaximumAllocationSize
+    return:
+      type: System.UInt64
+    content.vb: Public MaximumAllocationSize As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.VirtualMemoryThreshold
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.VirtualMemoryThreshold
+  id: VirtualMemoryThreshold
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: VirtualMemoryThreshold
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.VirtualMemoryThreshold
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.VirtualMemoryThreshold
+  type: Field
+  source:
+    id: VirtualMemoryThreshold
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1634
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nVirtualMemoryThreshold\n"
+  example: []
+  syntax:
+    content: public ulong VirtualMemoryThreshold
+    return:
+      type: System.UInt64
+    content.vb: Public VirtualMemoryThreshold As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.ProcessAffinityMask
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.ProcessAffinityMask
+  id: ProcessAffinityMask
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: ProcessAffinityMask
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.ProcessAffinityMask
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.ProcessAffinityMask
+  type: Field
+  source:
+    id: ProcessAffinityMask
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1638
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nProcessAffinityMask\n"
+  example: []
+  syntax:
+    content: public ulong ProcessAffinityMask
+    return:
+      type: System.UInt64
+    content.vb: Public ProcessAffinityMask As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.ProcessHeapFlags
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.ProcessHeapFlags
+  id: ProcessHeapFlags
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: ProcessHeapFlags
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.ProcessHeapFlags
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.ProcessHeapFlags
+  type: Field
+  source:
+    id: ProcessHeapFlags
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1642
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nProcessHeapFlags\n"
+  example: []
+  syntax:
+    content: public uint ProcessHeapFlags
+    return:
+      type: System.UInt32
+    content.vb: Public ProcessHeapFlags As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CSDVersion
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CSDVersion
+  id: CSDVersion
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: CSDVersion
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.CSDVersion
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CSDVersion
+  type: Field
+  source:
+    id: CSDVersion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1646
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCSDVersion\n"
+  example: []
+  syntax:
+    content: public ushort CSDVersion
+    return:
+      type: System.UInt16
+    content.vb: Public CSDVersion As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DependentLoadFlags
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DependentLoadFlags
+  id: DependentLoadFlags
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: DependentLoadFlags
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.DependentLoadFlags
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DependentLoadFlags
+  type: Field
+  source:
+    id: DependentLoadFlags
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1650
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDependentLoadFlags\n"
+  example: []
+  syntax:
+    content: public ushort DependentLoadFlags
+    return:
+      type: System.UInt16
+    content.vb: Public DependentLoadFlags As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.EditList
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.EditList
+  id: EditList
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: EditList
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.EditList
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.EditList
+  type: Field
+  source:
+    id: EditList
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1654
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nEditList\n"
+  example: []
+  syntax:
+    content: public ulong EditList
+    return:
+      type: System.UInt64
+    content.vb: Public EditList As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SecurityCookie
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SecurityCookie
+  id: SecurityCookie
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: SecurityCookie
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.SecurityCookie
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SecurityCookie
+  type: Field
+  source:
+    id: SecurityCookie
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1658
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSecurityCookie\n"
+  example: []
+  syntax:
+    content: public ulong SecurityCookie
+    return:
+      type: System.UInt64
+    content.vb: Public SecurityCookie As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SEHandlerTable
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SEHandlerTable
+  id: SEHandlerTable
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: SEHandlerTable
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.SEHandlerTable
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SEHandlerTable
+  type: Field
+  source:
+    id: SEHandlerTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1662
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSEHandlerTable\n"
+  example: []
+  syntax:
+    content: public ulong SEHandlerTable
+    return:
+      type: System.UInt64
+    content.vb: Public SEHandlerTable As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SEHandlerCount
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SEHandlerCount
+  id: SEHandlerCount
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: SEHandlerCount
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.SEHandlerCount
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.SEHandlerCount
+  type: Field
+  source:
+    id: SEHandlerCount
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1666
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSEHandlerCount\n"
+  example: []
+  syntax:
+    content: public ulong SEHandlerCount
+    return:
+      type: System.UInt64
+    content.vb: Public SEHandlerCount As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFCheckFunctionPointer
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFCheckFunctionPointer
+  id: GuardCFCheckFunctionPointer
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GuardCFCheckFunctionPointer
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFCheckFunctionPointer
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFCheckFunctionPointer
+  type: Field
+  source:
+    id: GuardCFCheckFunctionPointer
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1670
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGuardCFCheckFunctionPointer\n"
+  example: []
+  syntax:
+    content: public ulong GuardCFCheckFunctionPointer
+    return:
+      type: System.UInt64
+    content.vb: Public GuardCFCheckFunctionPointer As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFDispatchFunctionPointer
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFDispatchFunctionPointer
+  id: GuardCFDispatchFunctionPointer
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GuardCFDispatchFunctionPointer
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFDispatchFunctionPointer
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFDispatchFunctionPointer
+  type: Field
+  source:
+    id: GuardCFDispatchFunctionPointer
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1674
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGuardCFDispatchFunctionPointer\n"
+  example: []
+  syntax:
+    content: public ulong GuardCFDispatchFunctionPointer
+    return:
+      type: System.UInt64
+    content.vb: Public GuardCFDispatchFunctionPointer As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFFunctionTable
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFFunctionTable
+  id: GuardCFFunctionTable
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GuardCFFunctionTable
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFFunctionTable
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFFunctionTable
+  type: Field
+  source:
+    id: GuardCFFunctionTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1678
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGuardCFFunctionTable\n"
+  example: []
+  syntax:
+    content: public ulong GuardCFFunctionTable
+    return:
+      type: System.UInt64
+    content.vb: Public GuardCFFunctionTable As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFFunctionCount
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFFunctionCount
+  id: GuardCFFunctionCount
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GuardCFFunctionCount
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFFunctionCount
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardCFFunctionCount
+  type: Field
+  source:
+    id: GuardCFFunctionCount
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1682
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGuardCFFunctionCount\n"
+  example: []
+  syntax:
+    content: public ulong GuardCFFunctionCount
+    return:
+      type: System.UInt64
+    content.vb: Public GuardCFFunctionCount As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardFlags
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardFlags
+  id: GuardFlags
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GuardFlags
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GuardFlags
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardFlags
+  type: Field
+  source:
+    id: GuardFlags
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1686
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGuardFlags\n"
+  example: []
+  syntax:
+    content: public uint GuardFlags
+    return:
+      type: System.UInt32
+    content.vb: Public GuardFlags As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CodeIntegrity
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CodeIntegrity
+  id: CodeIntegrity
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: CodeIntegrity
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.CodeIntegrity
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CodeIntegrity
+  type: Field
+  source:
+    id: CodeIntegrity
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1690
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCodeIntegrity\n"
+  example: []
+  syntax:
+    content: public IMAGE_LOAD_CONFIG_CODE_INTEGRITY CodeIntegrity
+    return:
+      type: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+    content.vb: Public CodeIntegrity As IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardAddressTakenIatEntryTable
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardAddressTakenIatEntryTable
+  id: GuardAddressTakenIatEntryTable
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GuardAddressTakenIatEntryTable
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GuardAddressTakenIatEntryTable
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardAddressTakenIatEntryTable
+  type: Field
+  source:
+    id: GuardAddressTakenIatEntryTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1694
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGuardAddressTakenIatEntryTable\n"
+  example: []
+  syntax:
+    content: public ulong GuardAddressTakenIatEntryTable
+    return:
+      type: System.UInt64
+    content.vb: Public GuardAddressTakenIatEntryTable As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardAddressTakenIatEntryCount
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardAddressTakenIatEntryCount
+  id: GuardAddressTakenIatEntryCount
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GuardAddressTakenIatEntryCount
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GuardAddressTakenIatEntryCount
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardAddressTakenIatEntryCount
+  type: Field
+  source:
+    id: GuardAddressTakenIatEntryCount
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1698
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGuardAddressTakenIatEntryCount\n"
+  example: []
+  syntax:
+    content: public ulong GuardAddressTakenIatEntryCount
+    return:
+      type: System.UInt64
+    content.vb: Public GuardAddressTakenIatEntryCount As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardLongJumpTargetTable
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardLongJumpTargetTable
+  id: GuardLongJumpTargetTable
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GuardLongJumpTargetTable
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GuardLongJumpTargetTable
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardLongJumpTargetTable
+  type: Field
+  source:
+    id: GuardLongJumpTargetTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1702
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGuardLongJumpTargetTable\n"
+  example: []
+  syntax:
+    content: public ulong GuardLongJumpTargetTable
+    return:
+      type: System.UInt64
+    content.vb: Public GuardLongJumpTargetTable As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardLongJumpTargetCount
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardLongJumpTargetCount
+  id: GuardLongJumpTargetCount
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GuardLongJumpTargetCount
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GuardLongJumpTargetCount
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardLongJumpTargetCount
+  type: Field
+  source:
+    id: GuardLongJumpTargetCount
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1706
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGuardLongJumpTargetCount\n"
+  example: []
+  syntax:
+    content: public ulong GuardLongJumpTargetCount
+    return:
+      type: System.UInt64
+    content.vb: Public GuardLongJumpTargetCount As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTable
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTable
+  id: DynamicValueRelocTable
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: DynamicValueRelocTable
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTable
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTable
+  type: Field
+  source:
+    id: DynamicValueRelocTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1710
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDynamicValueRelocTable\n"
+  example: []
+  syntax:
+    content: public ulong DynamicValueRelocTable
+    return:
+      type: System.UInt64
+    content.vb: Public DynamicValueRelocTable As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CHPEMetadataPointer
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CHPEMetadataPointer
+  id: CHPEMetadataPointer
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: CHPEMetadataPointer
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.CHPEMetadataPointer
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.CHPEMetadataPointer
+  type: Field
+  source:
+    id: CHPEMetadataPointer
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1714
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCHPEMetadataPointer\n"
+  example: []
+  syntax:
+    content: public ulong CHPEMetadataPointer
+    return:
+      type: System.UInt64
+    content.vb: Public CHPEMetadataPointer As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFFailureRoutine
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFFailureRoutine
+  id: GuardRFFailureRoutine
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GuardRFFailureRoutine
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFFailureRoutine
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFFailureRoutine
+  type: Field
+  source:
+    id: GuardRFFailureRoutine
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1718
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGuardRFFailureRoutine\n"
+  example: []
+  syntax:
+    content: public ulong GuardRFFailureRoutine
+    return:
+      type: System.UInt64
+    content.vb: Public GuardRFFailureRoutine As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFFailureRoutineFunctionPointer
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFFailureRoutineFunctionPointer
+  id: GuardRFFailureRoutineFunctionPointer
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GuardRFFailureRoutineFunctionPointer
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFFailureRoutineFunctionPointer
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFFailureRoutineFunctionPointer
+  type: Field
+  source:
+    id: GuardRFFailureRoutineFunctionPointer
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1722
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGuardRFFailureRoutineFunctionPointer\n"
+  example: []
+  syntax:
+    content: public ulong GuardRFFailureRoutineFunctionPointer
+    return:
+      type: System.UInt64
+    content.vb: Public GuardRFFailureRoutineFunctionPointer As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTableOffset
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTableOffset
+  id: DynamicValueRelocTableOffset
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: DynamicValueRelocTableOffset
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTableOffset
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTableOffset
+  type: Field
+  source:
+    id: DynamicValueRelocTableOffset
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1726
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDynamicValueRelocTableOffset\n"
+  example: []
+  syntax:
+    content: public uint DynamicValueRelocTableOffset
+    return:
+      type: System.UInt32
+    content.vb: Public DynamicValueRelocTableOffset As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTableSection
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTableSection
+  id: DynamicValueRelocTableSection
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: DynamicValueRelocTableSection
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTableSection
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.DynamicValueRelocTableSection
+  type: Field
+  source:
+    id: DynamicValueRelocTableSection
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1730
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDynamicValueRelocTableSection\n"
+  example: []
+  syntax:
+    content: public ushort DynamicValueRelocTableSection
+    return:
+      type: System.UInt16
+    content.vb: Public DynamicValueRelocTableSection As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Reserved2
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Reserved2
+  id: Reserved2
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: Reserved2
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.Reserved2
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Reserved2
+  type: Field
+  source:
+    id: Reserved2
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1734
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nReserved2\n"
+  example: []
+  syntax:
+    content: public ushort Reserved2
+    return:
+      type: System.UInt16
+    content.vb: Public Reserved2 As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFVerifyStackPointerFunctionPointer
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFVerifyStackPointerFunctionPointer
+  id: GuardRFVerifyStackPointerFunctionPointer
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: GuardRFVerifyStackPointerFunctionPointer
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFVerifyStackPointerFunctionPointer
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.GuardRFVerifyStackPointerFunctionPointer
+  type: Field
+  source:
+    id: GuardRFVerifyStackPointerFunctionPointer
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1738
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGuardRFVerifyStackPointerFunctionPointer\n"
+  example: []
+  syntax:
+    content: public ulong GuardRFVerifyStackPointerFunctionPointer
+    return:
+      type: System.UInt64
+    content.vb: Public GuardRFVerifyStackPointerFunctionPointer As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.HotPatchTableOffset
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.HotPatchTableOffset
+  id: HotPatchTableOffset
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: HotPatchTableOffset
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.HotPatchTableOffset
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.HotPatchTableOffset
+  type: Field
+  source:
+    id: HotPatchTableOffset
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1742
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nHotPatchTableOffset\n"
+  example: []
+  syntax:
+    content: public uint HotPatchTableOffset
+    return:
+      type: System.UInt32
+    content.vb: Public HotPatchTableOffset As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Reserved3
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Reserved3
+  id: Reserved3
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: Reserved3
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.Reserved3
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.Reserved3
+  type: Field
+  source:
+    id: Reserved3
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1746
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nReserved3\n"
+  example: []
+  syntax:
+    content: public uint Reserved3
+    return:
+      type: System.UInt32
+    content.vb: Public Reserved3 As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.EnclaveConfigurationPointer
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.EnclaveConfigurationPointer
+  id: EnclaveConfigurationPointer
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: EnclaveConfigurationPointer
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.EnclaveConfigurationPointer
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.EnclaveConfigurationPointer
+  type: Field
+  source:
+    id: EnclaveConfigurationPointer
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1750
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nEnclaveConfigurationPointer\n"
+  example: []
+  syntax:
+    content: public ulong EnclaveConfigurationPointer
+    return:
+      type: System.UInt64
+    content.vb: Public EnclaveConfigurationPointer As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.VolatileMetadataPointer
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.VolatileMetadataPointer
+  id: VolatileMetadataPointer
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64
+  langs:
+  - csharp
+  - vb
+  name: VolatileMetadataPointer
+  nameWithType: IMAGE_LOAD_CONFIG_DIRECTORY64.VolatileMetadataPointer
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_DIRECTORY64.VolatileMetadataPointer
+  type: Field
+  source:
+    id: VolatileMetadataPointer
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1754
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nVolatileMetadataPointer\n"
+  example: []
+  syntax:
+    content: public ulong VolatileMetadataPointer
+    return:
+      type: System.UInt64
+    content.vb: Public VolatileMetadataPointer As ULong
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: ERC.Structures
+  commentId: N:ERC.Structures
+  name: ERC.Structures
+  nameWithType: ERC.Structures
+  fullName: ERC.Structures
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  name: UInt16
+  nameWithType: UInt16
+  fullName: System.UInt16
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  commentId: T:ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  parent: ERC.Structures
+  name: IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  nameWithType: IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY

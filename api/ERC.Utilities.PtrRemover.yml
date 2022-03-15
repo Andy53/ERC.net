@@ -1,0 +1,796 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Utilities.PtrRemover
+  commentId: T:ERC.Utilities.PtrRemover
+  id: PtrRemover
+  parent: ERC.Utilities
+  children:
+  - ERC.Utilities.PtrRemover.RemovePointers(ERC.MachineType,System.Collections.Generic.Dictionary{System.IntPtr,System.String},System.Byte[])
+  - ERC.Utilities.PtrRemover.RemovePointers(ERC.MachineType,System.Collections.Generic.List{System.IntPtr},System.Byte[])
+  - ERC.Utilities.PtrRemover.RemovePointersProtection(ERC.ProcessInfo,System.Collections.Generic.List{System.IntPtr},System.String)
+  - ERC.Utilities.PtrRemover.RemovePointersProtection(ERC.ProcessInfo,System.Collections.Generic.List{System.IntPtr},System.UInt32)
+  langs:
+  - csharp
+  - vb
+  name: PtrRemover
+  nameWithType: PtrRemover
+  fullName: ERC.Utilities.PtrRemover
+  type: Class
+  source:
+    id: PtrRemover
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\PtrRemover.cs
+    startLine: 9
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nContains methods for identifying and removing pointers to unwanted data.\n"
+  example: []
+  syntax:
+    content: public static class PtrRemover
+    content.vb: Public Module PtrRemover
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: ERC.Utilities.PtrRemover.RemovePointers(ERC.MachineType,System.Collections.Generic.List{System.IntPtr},System.Byte[])
+  commentId: M:ERC.Utilities.PtrRemover.RemovePointers(ERC.MachineType,System.Collections.Generic.List{System.IntPtr},System.Byte[])
+  id: RemovePointers(ERC.MachineType,System.Collections.Generic.List{System.IntPtr},System.Byte[])
+  parent: ERC.Utilities.PtrRemover
+  langs:
+  - csharp
+  - vb
+  name: RemovePointers(MachineType, List<IntPtr>, Byte[])
+  nameWithType: PtrRemover.RemovePointers(MachineType, List<IntPtr>, Byte[])
+  fullName: ERC.Utilities.PtrRemover.RemovePointers(ERC.MachineType, System.Collections.Generic.List<System.IntPtr>, System.Byte[])
+  type: Method
+  source:
+    id: RemovePointers
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\PtrRemover.cs
+    startLine: 18
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nRemoves pointers which contain unwanted bytes. \n"
+  example: []
+  syntax:
+    content: public static List<IntPtr> RemovePointers(MachineType mt, List<IntPtr> srcList, byte[] bytes)
+    parameters:
+    - id: mt
+      type: ERC.MachineType
+      description: MachineType architecture of the associated process.
+    - id: srcList
+      type: System.Collections.Generic.List{System.IntPtr}
+      description: The list from which to remove the pointers
+    - id: bytes
+      type: System.Byte[]
+      description: If a pointer contains any of these bytes it will be discarded
+    return:
+      type: System.Collections.Generic.List{System.IntPtr}
+      description: Returns a ErcResult of List IntPtr
+    content.vb: Public Shared Function RemovePointers(mt As MachineType, srcList As List(Of IntPtr), bytes As Byte()) As List(Of IntPtr)
+  overload: ERC.Utilities.PtrRemover.RemovePointers*
+  nameWithType.vb: PtrRemover.RemovePointers(MachineType, List(Of IntPtr), Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.Utilities.PtrRemover.RemovePointers(ERC.MachineType, System.Collections.Generic.List(Of System.IntPtr), System.Byte())
+  name.vb: RemovePointers(MachineType, List(Of IntPtr), Byte())
+- uid: ERC.Utilities.PtrRemover.RemovePointers(ERC.MachineType,System.Collections.Generic.Dictionary{System.IntPtr,System.String},System.Byte[])
+  commentId: M:ERC.Utilities.PtrRemover.RemovePointers(ERC.MachineType,System.Collections.Generic.Dictionary{System.IntPtr,System.String},System.Byte[])
+  id: RemovePointers(ERC.MachineType,System.Collections.Generic.Dictionary{System.IntPtr,System.String},System.Byte[])
+  parent: ERC.Utilities.PtrRemover
+  langs:
+  - csharp
+  - vb
+  name: RemovePointers(MachineType, Dictionary<IntPtr, String>, Byte[])
+  nameWithType: PtrRemover.RemovePointers(MachineType, Dictionary<IntPtr, String>, Byte[])
+  fullName: ERC.Utilities.PtrRemover.RemovePointers(ERC.MachineType, System.Collections.Generic.Dictionary<System.IntPtr, System.String>, System.Byte[])
+  type: Method
+  source:
+    id: RemovePointers
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\PtrRemover.cs
+    startLine: 74
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nRemoves pointers which contain unwanted bytes. \n"
+  example: []
+  syntax:
+    content: public static Dictionary<IntPtr, string> RemovePointers(MachineType mt, Dictionary<IntPtr, string> srcList, byte[] bytes)
+    parameters:
+    - id: mt
+      type: ERC.MachineType
+      description: MachineType architecture of the associated process.
+    - id: srcList
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+      description: The list from which to remove the pointers
+    - id: bytes
+      type: System.Byte[]
+      description: If a pointer contains any of these bytes it will be discarded
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+      description: Returns a ErcResult of Dictionary IntPtr, String
+    content.vb: Public Shared Function RemovePointers(mt As MachineType, srcList As Dictionary(Of IntPtr, String), bytes As Byte()) As Dictionary(Of IntPtr, String)
+  overload: ERC.Utilities.PtrRemover.RemovePointers*
+  nameWithType.vb: PtrRemover.RemovePointers(MachineType, Dictionary(Of IntPtr, String), Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.Utilities.PtrRemover.RemovePointers(ERC.MachineType, System.Collections.Generic.Dictionary(Of System.IntPtr, System.String), System.Byte())
+  name.vb: RemovePointers(MachineType, Dictionary(Of IntPtr, String), Byte())
+- uid: ERC.Utilities.PtrRemover.RemovePointersProtection(ERC.ProcessInfo,System.Collections.Generic.List{System.IntPtr},System.String)
+  commentId: M:ERC.Utilities.PtrRemover.RemovePointersProtection(ERC.ProcessInfo,System.Collections.Generic.List{System.IntPtr},System.String)
+  id: RemovePointersProtection(ERC.ProcessInfo,System.Collections.Generic.List{System.IntPtr},System.String)
+  parent: ERC.Utilities.PtrRemover
+  langs:
+  - csharp
+  - vb
+  name: RemovePointersProtection(ProcessInfo, List<IntPtr>, String)
+  nameWithType: PtrRemover.RemovePointersProtection(ProcessInfo, List<IntPtr>, String)
+  fullName: ERC.Utilities.PtrRemover.RemovePointersProtection(ERC.ProcessInfo, System.Collections.Generic.List<System.IntPtr>, System.String)
+  type: Method
+  source:
+    id: RemovePointersProtection
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\PtrRemover.cs
+    startLine: 131
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nRemoves pointers from a dictionary when pointers do not have the protection level specified.\n"
+  example: []
+  syntax:
+    content: public static List<IntPtr> RemovePointersProtection(ProcessInfo info, List<IntPtr> srcList, string protection = "exec")
+    parameters:
+    - id: info
+      type: ERC.ProcessInfo
+      description: ProcessInfo object of the associated process.
+    - id: srcList
+      type: System.Collections.Generic.List{System.IntPtr}
+      description: List of pointers.
+    - id: protection
+      type: System.String
+      description: Specified protection level of pointers.
+    return:
+      type: System.Collections.Generic.List{System.IntPtr}
+      description: Returns a Dictionary of Intptr, string
+    content.vb: Public Shared Function RemovePointersProtection(info As ProcessInfo, srcList As List(Of IntPtr), protection As String = "exec") As List(Of IntPtr)
+  overload: ERC.Utilities.PtrRemover.RemovePointersProtection*
+  nameWithType.vb: PtrRemover.RemovePointersProtection(ProcessInfo, List(Of IntPtr), String)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.Utilities.PtrRemover.RemovePointersProtection(ERC.ProcessInfo, System.Collections.Generic.List(Of System.IntPtr), System.String)
+  name.vb: RemovePointersProtection(ProcessInfo, List(Of IntPtr), String)
+- uid: ERC.Utilities.PtrRemover.RemovePointersProtection(ERC.ProcessInfo,System.Collections.Generic.List{System.IntPtr},System.UInt32)
+  commentId: M:ERC.Utilities.PtrRemover.RemovePointersProtection(ERC.ProcessInfo,System.Collections.Generic.List{System.IntPtr},System.UInt32)
+  id: RemovePointersProtection(ERC.ProcessInfo,System.Collections.Generic.List{System.IntPtr},System.UInt32)
+  parent: ERC.Utilities.PtrRemover
+  langs:
+  - csharp
+  - vb
+  name: RemovePointersProtection(ProcessInfo, List<IntPtr>, UInt32)
+  nameWithType: PtrRemover.RemovePointersProtection(ProcessInfo, List<IntPtr>, UInt32)
+  fullName: ERC.Utilities.PtrRemover.RemovePointersProtection(ERC.ProcessInfo, System.Collections.Generic.List<System.IntPtr>, System.UInt32)
+  type: Method
+  source:
+    id: RemovePointersProtection
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\PtrRemover.cs
+    startLine: 295
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nRemoves pointers from a dictionary when pointers do not have the protection level specified.\n"
+  example: []
+  syntax:
+    content: public static List<IntPtr> RemovePointersProtection(ProcessInfo info, List<IntPtr> srcList, uint protection)
+    parameters:
+    - id: info
+      type: ERC.ProcessInfo
+      description: ProcessInfo object of the associated process.
+    - id: srcList
+      type: System.Collections.Generic.List{System.IntPtr}
+      description: List of pointers.
+    - id: protection
+      type: System.UInt32
+      description: Specified protection level of pointers.
+    return:
+      type: System.Collections.Generic.List{System.IntPtr}
+      description: Returns a Dictionary of Intptr, string
+    content.vb: Public Shared Function RemovePointersProtection(info As ProcessInfo, srcList As List(Of IntPtr), protection As UInteger) As List(Of IntPtr)
+  overload: ERC.Utilities.PtrRemover.RemovePointersProtection*
+  nameWithType.vb: PtrRemover.RemovePointersProtection(ProcessInfo, List(Of IntPtr), UInt32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: ERC.Utilities.PtrRemover.RemovePointersProtection(ERC.ProcessInfo, System.Collections.Generic.List(Of System.IntPtr), System.UInt32)
+  name.vb: RemovePointersProtection(ProcessInfo, List(Of IntPtr), UInt32)
+references:
+- uid: ERC.Utilities
+  commentId: N:ERC.Utilities
+  name: ERC.Utilities
+  nameWithType: ERC.Utilities
+  fullName: ERC.Utilities
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ERC.Utilities.PtrRemover.RemovePointers*
+  commentId: Overload:ERC.Utilities.PtrRemover.RemovePointers
+  name: RemovePointers
+  nameWithType: PtrRemover.RemovePointers
+  fullName: ERC.Utilities.PtrRemover.RemovePointers
+- uid: ERC.MachineType
+  commentId: T:ERC.MachineType
+  parent: ERC
+  name: MachineType
+  nameWithType: MachineType
+  fullName: ERC.MachineType
+- uid: System.Collections.Generic.List{System.IntPtr}
+  commentId: T:System.Collections.Generic.List{System.IntPtr}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<IntPtr>
+  nameWithType: List<IntPtr>
+  fullName: System.Collections.Generic.List<System.IntPtr>
+  nameWithType.vb: List(Of IntPtr)
+  fullName.vb: System.Collections.Generic.List(Of System.IntPtr)
+  name.vb: List(Of IntPtr)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.IntPtr
+    name: IntPtr
+    nameWithType: IntPtr
+    fullName: System.IntPtr
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.IntPtr
+    name: IntPtr
+    nameWithType: IntPtr
+    fullName: System.IntPtr
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: ERC
+  commentId: N:ERC
+  name: ERC
+  nameWithType: ERC
+  fullName: ERC
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+  commentId: T:System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<IntPtr, String>
+  nameWithType: Dictionary<IntPtr, String>
+  fullName: System.Collections.Generic.Dictionary<System.IntPtr, System.String>
+  nameWithType.vb: Dictionary(Of IntPtr, String)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.IntPtr, System.String)
+  name.vb: Dictionary(Of IntPtr, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.IntPtr
+    name: IntPtr
+    nameWithType: IntPtr
+    fullName: System.IntPtr
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.IntPtr
+    name: IntPtr
+    nameWithType: IntPtr
+    fullName: System.IntPtr
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ERC.Utilities.PtrRemover.RemovePointersProtection*
+  commentId: Overload:ERC.Utilities.PtrRemover.RemovePointersProtection
+  name: RemovePointersProtection
+  nameWithType: PtrRemover.RemovePointersProtection
+  fullName: ERC.Utilities.PtrRemover.RemovePointersProtection
+- uid: ERC.ProcessInfo
+  commentId: T:ERC.ProcessInfo
+  parent: ERC
+  name: ProcessInfo
+  nameWithType: ProcessInfo
+  fullName: ERC.ProcessInfo
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32

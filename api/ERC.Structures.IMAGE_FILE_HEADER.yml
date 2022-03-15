@@ -1,0 +1,537 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Structures.IMAGE_FILE_HEADER
+  commentId: T:ERC.Structures.IMAGE_FILE_HEADER
+  id: IMAGE_FILE_HEADER
+  parent: ERC.Structures
+  children:
+  - ERC.Structures.IMAGE_FILE_HEADER.Characteristics
+  - ERC.Structures.IMAGE_FILE_HEADER.Machine
+  - ERC.Structures.IMAGE_FILE_HEADER.NumberOfSections
+  - ERC.Structures.IMAGE_FILE_HEADER.NumberOfSymbols
+  - ERC.Structures.IMAGE_FILE_HEADER.PointerToSymbolTable
+  - ERC.Structures.IMAGE_FILE_HEADER.SizeOfOptionalHeader
+  - ERC.Structures.IMAGE_FILE_HEADER.TimeDateStamp
+  langs:
+  - csharp
+  - vb
+  name: IMAGE_FILE_HEADER
+  nameWithType: IMAGE_FILE_HEADER
+  fullName: ERC.Structures.IMAGE_FILE_HEADER
+  type: Struct
+  source:
+    id: IMAGE_FILE_HEADER
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 854
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nIMAGE_FILE_HEADER. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-image_file_header\n"
+  example: []
+  syntax:
+    content: public struct IMAGE_FILE_HEADER
+    content.vb: Public Structure IMAGE_FILE_HEADER
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: ERC.Structures.IMAGE_FILE_HEADER.Machine
+  commentId: F:ERC.Structures.IMAGE_FILE_HEADER.Machine
+  id: Machine
+  parent: ERC.Structures.IMAGE_FILE_HEADER
+  langs:
+  - csharp
+  - vb
+  name: Machine
+  nameWithType: IMAGE_FILE_HEADER.Machine
+  fullName: ERC.Structures.IMAGE_FILE_HEADER.Machine
+  type: Field
+  source:
+    id: Machine
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 860
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMachine\n"
+  example: []
+  syntax:
+    content: public ushort Machine
+    return:
+      type: System.UInt16
+    content.vb: Public Machine As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_FILE_HEADER.NumberOfSections
+  commentId: F:ERC.Structures.IMAGE_FILE_HEADER.NumberOfSections
+  id: NumberOfSections
+  parent: ERC.Structures.IMAGE_FILE_HEADER
+  langs:
+  - csharp
+  - vb
+  name: NumberOfSections
+  nameWithType: IMAGE_FILE_HEADER.NumberOfSections
+  fullName: ERC.Structures.IMAGE_FILE_HEADER.NumberOfSections
+  type: Field
+  source:
+    id: NumberOfSections
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 864
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nNumberOfSections\n"
+  example: []
+  syntax:
+    content: public ushort NumberOfSections
+    return:
+      type: System.UInt16
+    content.vb: Public NumberOfSections As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_FILE_HEADER.TimeDateStamp
+  commentId: F:ERC.Structures.IMAGE_FILE_HEADER.TimeDateStamp
+  id: TimeDateStamp
+  parent: ERC.Structures.IMAGE_FILE_HEADER
+  langs:
+  - csharp
+  - vb
+  name: TimeDateStamp
+  nameWithType: IMAGE_FILE_HEADER.TimeDateStamp
+  fullName: ERC.Structures.IMAGE_FILE_HEADER.TimeDateStamp
+  type: Field
+  source:
+    id: TimeDateStamp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 868
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nTimeDateStamp\n"
+  example: []
+  syntax:
+    content: public uint TimeDateStamp
+    return:
+      type: System.UInt32
+    content.vb: Public TimeDateStamp As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_FILE_HEADER.PointerToSymbolTable
+  commentId: F:ERC.Structures.IMAGE_FILE_HEADER.PointerToSymbolTable
+  id: PointerToSymbolTable
+  parent: ERC.Structures.IMAGE_FILE_HEADER
+  langs:
+  - csharp
+  - vb
+  name: PointerToSymbolTable
+  nameWithType: IMAGE_FILE_HEADER.PointerToSymbolTable
+  fullName: ERC.Structures.IMAGE_FILE_HEADER.PointerToSymbolTable
+  type: Field
+  source:
+    id: PointerToSymbolTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 872
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nPointerToSymbolTable\n"
+  example: []
+  syntax:
+    content: public uint PointerToSymbolTable
+    return:
+      type: System.UInt32
+    content.vb: Public PointerToSymbolTable As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_FILE_HEADER.NumberOfSymbols
+  commentId: F:ERC.Structures.IMAGE_FILE_HEADER.NumberOfSymbols
+  id: NumberOfSymbols
+  parent: ERC.Structures.IMAGE_FILE_HEADER
+  langs:
+  - csharp
+  - vb
+  name: NumberOfSymbols
+  nameWithType: IMAGE_FILE_HEADER.NumberOfSymbols
+  fullName: ERC.Structures.IMAGE_FILE_HEADER.NumberOfSymbols
+  type: Field
+  source:
+    id: NumberOfSymbols
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 876
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nNumberOfSymbols\n"
+  example: []
+  syntax:
+    content: public uint NumberOfSymbols
+    return:
+      type: System.UInt32
+    content.vb: Public NumberOfSymbols As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_FILE_HEADER.SizeOfOptionalHeader
+  commentId: F:ERC.Structures.IMAGE_FILE_HEADER.SizeOfOptionalHeader
+  id: SizeOfOptionalHeader
+  parent: ERC.Structures.IMAGE_FILE_HEADER
+  langs:
+  - csharp
+  - vb
+  name: SizeOfOptionalHeader
+  nameWithType: IMAGE_FILE_HEADER.SizeOfOptionalHeader
+  fullName: ERC.Structures.IMAGE_FILE_HEADER.SizeOfOptionalHeader
+  type: Field
+  source:
+    id: SizeOfOptionalHeader
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 880
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSizeOfOptionalHeader\n"
+  example: []
+  syntax:
+    content: public ushort SizeOfOptionalHeader
+    return:
+      type: System.UInt16
+    content.vb: Public SizeOfOptionalHeader As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_FILE_HEADER.Characteristics
+  commentId: F:ERC.Structures.IMAGE_FILE_HEADER.Characteristics
+  id: Characteristics
+  parent: ERC.Structures.IMAGE_FILE_HEADER
+  langs:
+  - csharp
+  - vb
+  name: Characteristics
+  nameWithType: IMAGE_FILE_HEADER.Characteristics
+  fullName: ERC.Structures.IMAGE_FILE_HEADER.Characteristics
+  type: Field
+  source:
+    id: Characteristics
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 884
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCharacteristics\n"
+  example: []
+  syntax:
+    content: public ushort Characteristics
+    return:
+      type: System.UInt16
+    content.vb: Public Characteristics As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: ERC.Structures
+  commentId: N:ERC.Structures
+  name: ERC.Structures
+  nameWithType: ERC.Structures
+  fullName: ERC.Structures
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  name: UInt16
+  nameWithType: UInt16
+  fullName: System.UInt16
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32

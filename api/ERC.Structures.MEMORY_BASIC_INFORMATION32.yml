@@ -1,0 +1,549 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Structures.MEMORY_BASIC_INFORMATION32
+  commentId: T:ERC.Structures.MEMORY_BASIC_INFORMATION32
+  id: MEMORY_BASIC_INFORMATION32
+  parent: ERC.Structures
+  children:
+  - ERC.Structures.MEMORY_BASIC_INFORMATION32.AllocationBase
+  - ERC.Structures.MEMORY_BASIC_INFORMATION32.AllocationProtect
+  - ERC.Structures.MEMORY_BASIC_INFORMATION32.BaseAddress
+  - ERC.Structures.MEMORY_BASIC_INFORMATION32.Protect
+  - ERC.Structures.MEMORY_BASIC_INFORMATION32.RegionSize
+  - ERC.Structures.MEMORY_BASIC_INFORMATION32.State
+  - ERC.Structures.MEMORY_BASIC_INFORMATION32.Type
+  langs:
+  - csharp
+  - vb
+  name: MEMORY_BASIC_INFORMATION32
+  nameWithType: MEMORY_BASIC_INFORMATION32
+  fullName: ERC.Structures.MEMORY_BASIC_INFORMATION32
+  type: Struct
+  source:
+    id: MEMORY_BASIC_INFORMATION32
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1969
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMEMORY_BASIC_INFORMATION32. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_memory_basic_information\n"
+  example: []
+  syntax:
+    content: public struct MEMORY_BASIC_INFORMATION32
+    content.vb: Public Structure MEMORY_BASIC_INFORMATION32
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: ERC.Structures.MEMORY_BASIC_INFORMATION32.BaseAddress
+  commentId: F:ERC.Structures.MEMORY_BASIC_INFORMATION32.BaseAddress
+  id: BaseAddress
+  parent: ERC.Structures.MEMORY_BASIC_INFORMATION32
+  langs:
+  - csharp
+  - vb
+  name: BaseAddress
+  nameWithType: MEMORY_BASIC_INFORMATION32.BaseAddress
+  fullName: ERC.Structures.MEMORY_BASIC_INFORMATION32.BaseAddress
+  type: Field
+  source:
+    id: BaseAddress
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1975
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nBaseAddress\n"
+  example: []
+  syntax:
+    content: public IntPtr BaseAddress
+    return:
+      type: System.IntPtr
+    content.vb: Public BaseAddress As IntPtr
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.MEMORY_BASIC_INFORMATION32.AllocationBase
+  commentId: F:ERC.Structures.MEMORY_BASIC_INFORMATION32.AllocationBase
+  id: AllocationBase
+  parent: ERC.Structures.MEMORY_BASIC_INFORMATION32
+  langs:
+  - csharp
+  - vb
+  name: AllocationBase
+  nameWithType: MEMORY_BASIC_INFORMATION32.AllocationBase
+  fullName: ERC.Structures.MEMORY_BASIC_INFORMATION32.AllocationBase
+  type: Field
+  source:
+    id: AllocationBase
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1979
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nAllocationBase\n"
+  example: []
+  syntax:
+    content: public IntPtr AllocationBase
+    return:
+      type: System.IntPtr
+    content.vb: Public AllocationBase As IntPtr
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.MEMORY_BASIC_INFORMATION32.AllocationProtect
+  commentId: F:ERC.Structures.MEMORY_BASIC_INFORMATION32.AllocationProtect
+  id: AllocationProtect
+  parent: ERC.Structures.MEMORY_BASIC_INFORMATION32
+  langs:
+  - csharp
+  - vb
+  name: AllocationProtect
+  nameWithType: MEMORY_BASIC_INFORMATION32.AllocationProtect
+  fullName: ERC.Structures.MEMORY_BASIC_INFORMATION32.AllocationProtect
+  type: Field
+  source:
+    id: AllocationProtect
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1983
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nAllocationProtec\n"
+  example: []
+  syntax:
+    content: public uint AllocationProtect
+    return:
+      type: System.UInt32
+    content.vb: Public AllocationProtect As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.MEMORY_BASIC_INFORMATION32.RegionSize
+  commentId: F:ERC.Structures.MEMORY_BASIC_INFORMATION32.RegionSize
+  id: RegionSize
+  parent: ERC.Structures.MEMORY_BASIC_INFORMATION32
+  langs:
+  - csharp
+  - vb
+  name: RegionSize
+  nameWithType: MEMORY_BASIC_INFORMATION32.RegionSize
+  fullName: ERC.Structures.MEMORY_BASIC_INFORMATION32.RegionSize
+  type: Field
+  source:
+    id: RegionSize
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1987
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nRegionSize\n"
+  example: []
+  syntax:
+    content: public IntPtr RegionSize
+    return:
+      type: System.IntPtr
+    content.vb: Public RegionSize As IntPtr
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.MEMORY_BASIC_INFORMATION32.State
+  commentId: F:ERC.Structures.MEMORY_BASIC_INFORMATION32.State
+  id: State
+  parent: ERC.Structures.MEMORY_BASIC_INFORMATION32
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: MEMORY_BASIC_INFORMATION32.State
+  fullName: ERC.Structures.MEMORY_BASIC_INFORMATION32.State
+  type: Field
+  source:
+    id: State
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1991
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nState\n"
+  example: []
+  syntax:
+    content: public StateEnum State
+    return:
+      type: ERC.Structures.StateEnum
+    content.vb: Public State As StateEnum
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.MEMORY_BASIC_INFORMATION32.Protect
+  commentId: F:ERC.Structures.MEMORY_BASIC_INFORMATION32.Protect
+  id: Protect
+  parent: ERC.Structures.MEMORY_BASIC_INFORMATION32
+  langs:
+  - csharp
+  - vb
+  name: Protect
+  nameWithType: MEMORY_BASIC_INFORMATION32.Protect
+  fullName: ERC.Structures.MEMORY_BASIC_INFORMATION32.Protect
+  type: Field
+  source:
+    id: Protect
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1995
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nProtect\n"
+  example: []
+  syntax:
+    content: public uint Protect
+    return:
+      type: System.UInt32
+    content.vb: Public Protect As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.MEMORY_BASIC_INFORMATION32.Type
+  commentId: F:ERC.Structures.MEMORY_BASIC_INFORMATION32.Type
+  id: Type
+  parent: ERC.Structures.MEMORY_BASIC_INFORMATION32
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: MEMORY_BASIC_INFORMATION32.Type
+  fullName: ERC.Structures.MEMORY_BASIC_INFORMATION32.Type
+  type: Field
+  source:
+    id: Type
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1999
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nType\n"
+  example: []
+  syntax:
+    content: public TypeEnum Type
+    return:
+      type: ERC.Structures.TypeEnum
+    content.vb: Public Type As TypeEnum
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: ERC.Structures
+  commentId: N:ERC.Structures
+  name: ERC.Structures
+  nameWithType: ERC.Structures
+  fullName: ERC.Structures
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  name: IntPtr
+  nameWithType: IntPtr
+  fullName: System.IntPtr
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: ERC.Structures.StateEnum
+  commentId: T:ERC.Structures.StateEnum
+  parent: ERC.Structures
+  name: StateEnum
+  nameWithType: StateEnum
+  fullName: ERC.Structures.StateEnum
+- uid: ERC.Structures.TypeEnum
+  commentId: T:ERC.Structures.TypeEnum
+  parent: ERC.Structures
+  name: TypeEnum
+  nameWithType: TypeEnum
+  fullName: ERC.Structures.TypeEnum

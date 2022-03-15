@@ -1,0 +1,209 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Utilities.RopChainGenerator32.RopMethod
+  commentId: T:ERC.Utilities.RopChainGenerator32.RopMethod
+  id: RopChainGenerator32.RopMethod
+  parent: ERC.Utilities
+  children:
+  - ERC.Utilities.RopChainGenerator32.RopMethod.All
+  - ERC.Utilities.RopChainGenerator32.RopMethod.HeapCreate
+  - ERC.Utilities.RopChainGenerator32.RopMethod.VirtualAlloc
+  - ERC.Utilities.RopChainGenerator32.RopMethod.VirtualProtect
+  - ERC.Utilities.RopChainGenerator32.RopMethod.WriteProcessMemory
+  langs:
+  - csharp
+  - vb
+  name: RopChainGenerator32.RopMethod
+  nameWithType: RopChainGenerator32.RopMethod
+  fullName: ERC.Utilities.RopChainGenerator32.RopMethod
+  type: Enum
+  source:
+    id: RopMethod
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator32.cs
+    startLine: 3946
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nEnum of methods which can be used to generate a ROP chain.\n"
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum RopMethod : ushort
+    content.vb: >-
+      <Flags>
+
+      Public Enum RopMethod As UShort
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: ERC.Utilities.RopChainGenerator32.RopMethod.VirtualAlloc
+  commentId: F:ERC.Utilities.RopChainGenerator32.RopMethod.VirtualAlloc
+  id: VirtualAlloc
+  parent: ERC.Utilities.RopChainGenerator32.RopMethod
+  langs:
+  - csharp
+  - vb
+  name: VirtualAlloc
+  nameWithType: RopChainGenerator32.RopMethod.VirtualAlloc
+  fullName: ERC.Utilities.RopChainGenerator32.RopMethod.VirtualAlloc
+  type: Field
+  source:
+    id: VirtualAlloc
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator32.cs
+    startLine: 3952
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nVirtualAlloc\n"
+  example: []
+  syntax:
+    content: VirtualAlloc = 1
+    return:
+      type: ERC.Utilities.RopChainGenerator32.RopMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Utilities.RopChainGenerator32.RopMethod.HeapCreate
+  commentId: F:ERC.Utilities.RopChainGenerator32.RopMethod.HeapCreate
+  id: HeapCreate
+  parent: ERC.Utilities.RopChainGenerator32.RopMethod
+  langs:
+  - csharp
+  - vb
+  name: HeapCreate
+  nameWithType: RopChainGenerator32.RopMethod.HeapCreate
+  fullName: ERC.Utilities.RopChainGenerator32.RopMethod.HeapCreate
+  type: Field
+  source:
+    id: HeapCreate
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator32.cs
+    startLine: 3956
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nHeapCreate\n"
+  example: []
+  syntax:
+    content: HeapCreate = 2
+    return:
+      type: ERC.Utilities.RopChainGenerator32.RopMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Utilities.RopChainGenerator32.RopMethod.VirtualProtect
+  commentId: F:ERC.Utilities.RopChainGenerator32.RopMethod.VirtualProtect
+  id: VirtualProtect
+  parent: ERC.Utilities.RopChainGenerator32.RopMethod
+  langs:
+  - csharp
+  - vb
+  name: VirtualProtect
+  nameWithType: RopChainGenerator32.RopMethod.VirtualProtect
+  fullName: ERC.Utilities.RopChainGenerator32.RopMethod.VirtualProtect
+  type: Field
+  source:
+    id: VirtualProtect
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator32.cs
+    startLine: 3960
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nVirtualProtect\n"
+  example: []
+  syntax:
+    content: VirtualProtect = 4
+    return:
+      type: ERC.Utilities.RopChainGenerator32.RopMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Utilities.RopChainGenerator32.RopMethod.WriteProcessMemory
+  commentId: F:ERC.Utilities.RopChainGenerator32.RopMethod.WriteProcessMemory
+  id: WriteProcessMemory
+  parent: ERC.Utilities.RopChainGenerator32.RopMethod
+  langs:
+  - csharp
+  - vb
+  name: WriteProcessMemory
+  nameWithType: RopChainGenerator32.RopMethod.WriteProcessMemory
+  fullName: ERC.Utilities.RopChainGenerator32.RopMethod.WriteProcessMemory
+  type: Field
+  source:
+    id: WriteProcessMemory
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator32.cs
+    startLine: 3964
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nWriteProcessMemory\n"
+  example: []
+  syntax:
+    content: WriteProcessMemory = 8
+    return:
+      type: ERC.Utilities.RopChainGenerator32.RopMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Utilities.RopChainGenerator32.RopMethod.All
+  commentId: F:ERC.Utilities.RopChainGenerator32.RopMethod.All
+  id: All
+  parent: ERC.Utilities.RopChainGenerator32.RopMethod
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: RopChainGenerator32.RopMethod.All
+  fullName: ERC.Utilities.RopChainGenerator32.RopMethod.All
+  type: Field
+  source:
+    id: All
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator32.cs
+    startLine: 3968
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nAll\n"
+  example: []
+  syntax:
+    content: All = 15
+    return:
+      type: ERC.Utilities.RopChainGenerator32.RopMethod
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: ERC.Utilities
+  commentId: N:ERC.Utilities
+  name: ERC.Utilities
+  nameWithType: ERC.Utilities
+  fullName: ERC.Utilities
+- uid: ERC.Utilities.RopChainGenerator32.RopMethod
+  commentId: T:ERC.Utilities.RopChainGenerator32.RopMethod
+  parent: ERC.Utilities
+  name: RopChainGenerator32.RopMethod
+  nameWithType: RopChainGenerator32.RopMethod
+  fullName: ERC.Utilities.RopChainGenerator32.RopMethod

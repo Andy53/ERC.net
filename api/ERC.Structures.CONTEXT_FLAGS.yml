@@ -1,0 +1,364 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Structures.CONTEXT_FLAGS
+  commentId: T:ERC.Structures.CONTEXT_FLAGS
+  id: CONTEXT_FLAGS
+  parent: ERC.Structures
+  children:
+  - ERC.Structures.CONTEXT_FLAGS.CONTEXT_ALL
+  - ERC.Structures.CONTEXT_FLAGS.CONTEXT_CONTROL
+  - ERC.Structures.CONTEXT_FLAGS.CONTEXT_DEBUG_REGISTERS
+  - ERC.Structures.CONTEXT_FLAGS.CONTEXT_EXTENDED_REGISTERS
+  - ERC.Structures.CONTEXT_FLAGS.CONTEXT_FLOATING_POINT
+  - ERC.Structures.CONTEXT_FLAGS.CONTEXT_FULL
+  - ERC.Structures.CONTEXT_FLAGS.CONTEXT_i386
+  - ERC.Structures.CONTEXT_FLAGS.CONTEXT_i486
+  - ERC.Structures.CONTEXT_FLAGS.CONTEXT_INTEGER
+  - ERC.Structures.CONTEXT_FLAGS.CONTEXT_SEGMENTS
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_FLAGS
+  nameWithType: CONTEXT_FLAGS
+  fullName: ERC.Structures.CONTEXT_FLAGS
+  type: Enum
+  source:
+    id: CONTEXT_FLAGS
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2227
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCONTEXT_FLAGS\n"
+  example: []
+  syntax:
+    content: 'public enum CONTEXT_FLAGS : uint'
+    content.vb: Public Enum CONTEXT_FLAGS As UInteger
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: ERC.Structures.CONTEXT_FLAGS.CONTEXT_i386
+  commentId: F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_i386
+  id: CONTEXT_i386
+  parent: ERC.Structures.CONTEXT_FLAGS
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_i386
+  nameWithType: CONTEXT_FLAGS.CONTEXT_i386
+  fullName: ERC.Structures.CONTEXT_FLAGS.CONTEXT_i386
+  type: Field
+  source:
+    id: CONTEXT_i386
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2232
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCONTEXT_i386\n"
+  example: []
+  syntax:
+    content: CONTEXT_i386 = 65536U
+    return:
+      type: ERC.Structures.CONTEXT_FLAGS
+    content.vb: CONTEXT_i386 = 65536UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.CONTEXT_FLAGS.CONTEXT_i486
+  commentId: F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_i486
+  id: CONTEXT_i486
+  parent: ERC.Structures.CONTEXT_FLAGS
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_i486
+  nameWithType: CONTEXT_FLAGS.CONTEXT_i486
+  fullName: ERC.Structures.CONTEXT_FLAGS.CONTEXT_i486
+  type: Field
+  source:
+    id: CONTEXT_i486
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2236
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCONTEXT_i486\n"
+  example: []
+  syntax:
+    content: CONTEXT_i486 = 65536U
+    return:
+      type: ERC.Structures.CONTEXT_FLAGS
+    content.vb: CONTEXT_i486 = 65536UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.CONTEXT_FLAGS.CONTEXT_CONTROL
+  commentId: F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_CONTROL
+  id: CONTEXT_CONTROL
+  parent: ERC.Structures.CONTEXT_FLAGS
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_CONTROL
+  nameWithType: CONTEXT_FLAGS.CONTEXT_CONTROL
+  fullName: ERC.Structures.CONTEXT_FLAGS.CONTEXT_CONTROL
+  type: Field
+  source:
+    id: CONTEXT_CONTROL
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2240
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCONTEXT_CONTROL\n"
+  example: []
+  syntax:
+    content: CONTEXT_CONTROL = 65537U
+    return:
+      type: ERC.Structures.CONTEXT_FLAGS
+    content.vb: CONTEXT_CONTROL = 65537UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.CONTEXT_FLAGS.CONTEXT_INTEGER
+  commentId: F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_INTEGER
+  id: CONTEXT_INTEGER
+  parent: ERC.Structures.CONTEXT_FLAGS
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_INTEGER
+  nameWithType: CONTEXT_FLAGS.CONTEXT_INTEGER
+  fullName: ERC.Structures.CONTEXT_FLAGS.CONTEXT_INTEGER
+  type: Field
+  source:
+    id: CONTEXT_INTEGER
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2244
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCONTEXT_INTEGER\n"
+  example: []
+  syntax:
+    content: CONTEXT_INTEGER = 65538U
+    return:
+      type: ERC.Structures.CONTEXT_FLAGS
+    content.vb: CONTEXT_INTEGER = 65538UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.CONTEXT_FLAGS.CONTEXT_SEGMENTS
+  commentId: F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_SEGMENTS
+  id: CONTEXT_SEGMENTS
+  parent: ERC.Structures.CONTEXT_FLAGS
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_SEGMENTS
+  nameWithType: CONTEXT_FLAGS.CONTEXT_SEGMENTS
+  fullName: ERC.Structures.CONTEXT_FLAGS.CONTEXT_SEGMENTS
+  type: Field
+  source:
+    id: CONTEXT_SEGMENTS
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2248
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCONTEXT_SEGMENTS\n"
+  example: []
+  syntax:
+    content: CONTEXT_SEGMENTS = 65540U
+    return:
+      type: ERC.Structures.CONTEXT_FLAGS
+    content.vb: CONTEXT_SEGMENTS = 65540UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.CONTEXT_FLAGS.CONTEXT_FLOATING_POINT
+  commentId: F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_FLOATING_POINT
+  id: CONTEXT_FLOATING_POINT
+  parent: ERC.Structures.CONTEXT_FLAGS
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_FLOATING_POINT
+  nameWithType: CONTEXT_FLAGS.CONTEXT_FLOATING_POINT
+  fullName: ERC.Structures.CONTEXT_FLAGS.CONTEXT_FLOATING_POINT
+  type: Field
+  source:
+    id: CONTEXT_FLOATING_POINT
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2252
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCONTEXT_FLOATING_POINT\n"
+  example: []
+  syntax:
+    content: CONTEXT_FLOATING_POINT = 65544U
+    return:
+      type: ERC.Structures.CONTEXT_FLAGS
+    content.vb: CONTEXT_FLOATING_POINT = 65544UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.CONTEXT_FLAGS.CONTEXT_DEBUG_REGISTERS
+  commentId: F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_DEBUG_REGISTERS
+  id: CONTEXT_DEBUG_REGISTERS
+  parent: ERC.Structures.CONTEXT_FLAGS
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_DEBUG_REGISTERS
+  nameWithType: CONTEXT_FLAGS.CONTEXT_DEBUG_REGISTERS
+  fullName: ERC.Structures.CONTEXT_FLAGS.CONTEXT_DEBUG_REGISTERS
+  type: Field
+  source:
+    id: CONTEXT_DEBUG_REGISTERS
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2256
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCONTEXT_DEBUG_REGISTERS\n"
+  example: []
+  syntax:
+    content: CONTEXT_DEBUG_REGISTERS = 65552U
+    return:
+      type: ERC.Structures.CONTEXT_FLAGS
+    content.vb: CONTEXT_DEBUG_REGISTERS = 65552UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.CONTEXT_FLAGS.CONTEXT_EXTENDED_REGISTERS
+  commentId: F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_EXTENDED_REGISTERS
+  id: CONTEXT_EXTENDED_REGISTERS
+  parent: ERC.Structures.CONTEXT_FLAGS
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_EXTENDED_REGISTERS
+  nameWithType: CONTEXT_FLAGS.CONTEXT_EXTENDED_REGISTERS
+  fullName: ERC.Structures.CONTEXT_FLAGS.CONTEXT_EXTENDED_REGISTERS
+  type: Field
+  source:
+    id: CONTEXT_EXTENDED_REGISTERS
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2260
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCONTEXT_EXTENDED_REGISTERS\n"
+  example: []
+  syntax:
+    content: CONTEXT_EXTENDED_REGISTERS = 65568U
+    return:
+      type: ERC.Structures.CONTEXT_FLAGS
+    content.vb: CONTEXT_EXTENDED_REGISTERS = 65568UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.CONTEXT_FLAGS.CONTEXT_FULL
+  commentId: F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_FULL
+  id: CONTEXT_FULL
+  parent: ERC.Structures.CONTEXT_FLAGS
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_FULL
+  nameWithType: CONTEXT_FLAGS.CONTEXT_FULL
+  fullName: ERC.Structures.CONTEXT_FLAGS.CONTEXT_FULL
+  type: Field
+  source:
+    id: CONTEXT_FULL
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2264
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCONTEXT_FULL\n"
+  example: []
+  syntax:
+    content: CONTEXT_FULL = 65543U
+    return:
+      type: ERC.Structures.CONTEXT_FLAGS
+    content.vb: CONTEXT_FULL = 65543UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.CONTEXT_FLAGS.CONTEXT_ALL
+  commentId: F:ERC.Structures.CONTEXT_FLAGS.CONTEXT_ALL
+  id: CONTEXT_ALL
+  parent: ERC.Structures.CONTEXT_FLAGS
+  langs:
+  - csharp
+  - vb
+  name: CONTEXT_ALL
+  nameWithType: CONTEXT_FLAGS.CONTEXT_ALL
+  fullName: ERC.Structures.CONTEXT_FLAGS.CONTEXT_ALL
+  type: Field
+  source:
+    id: CONTEXT_ALL
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 2268
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCONTEXT_ALL\n"
+  example: []
+  syntax:
+    content: CONTEXT_ALL = 65599U
+    return:
+      type: ERC.Structures.CONTEXT_FLAGS
+    content.vb: CONTEXT_ALL = 65599UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: ERC.Structures
+  commentId: N:ERC.Structures
+  name: ERC.Structures
+  nameWithType: ERC.Structures
+  fullName: ERC.Structures
+- uid: ERC.Structures.CONTEXT_FLAGS
+  commentId: T:ERC.Structures.CONTEXT_FLAGS
+  parent: ERC.Structures
+  name: CONTEXT_FLAGS
+  nameWithType: CONTEXT_FLAGS
+  fullName: ERC.Structures.CONTEXT_FLAGS

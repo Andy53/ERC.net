@@ -1,0 +1,1732 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  commentId: T:ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  id: IMAGE_OPTIONAL_HEADER32
+  parent: ERC.Structures
+  children:
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.AddressOfEntryPoint
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.Architecture
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfCode
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfData
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseRelocationTable
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.BoundImport
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.CertificateTable
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.CheckSum
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.CLRRuntimeHeader
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.Debug
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.DelayImportDescriptor
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.DllCharacteristics
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExceptionTable
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExportTable
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.FileAlignment
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.GlobalPtr
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.IAT
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImageBase
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImportTable
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoadConfigTable
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoaderFlags
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.Magic
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorImageVersion
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorLinkerVersion
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorOperatingSystemVersion
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorSubsystemVersion
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorImageVersion
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorLinkerVersion
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorOperatingSystemVersion
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorSubsystemVersion
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.NumberOfRvaAndSizes
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.Reserved
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.ResourceTable
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.SectionAlignment
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfCode
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeaders
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapCommit
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapReserve
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfImage
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfInitializedData
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackCommit
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackReserve
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfUninitializedData
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.Subsystem
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.TLSTable
+  - ERC.Structures.IMAGE_OPTIONAL_HEADER32.Win32VersionValue
+  langs:
+  - csharp
+  - vb
+  name: IMAGE_OPTIONAL_HEADER32
+  nameWithType: IMAGE_OPTIONAL_HEADER32
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  type: Struct
+  source:
+    id: IMAGE_OPTIONAL_HEADER32
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 952
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nIMAGE_OPTIONAL_HEADER 32 bit variant. See https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_image_optional_header\n"
+  example: []
+  syntax:
+    content: public struct IMAGE_OPTIONAL_HEADER32
+    content.vb: Public Structure IMAGE_OPTIONAL_HEADER32
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.Magic
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.Magic
+  id: Magic
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: Magic
+  nameWithType: IMAGE_OPTIONAL_HEADER32.Magic
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.Magic
+  type: Field
+  source:
+    id: Magic
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 958
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMagic\n"
+  example: []
+  syntax:
+    content: public MagicType Magic
+    return:
+      type: ERC.Structures.MagicType
+    content.vb: Public Magic As MagicType
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorLinkerVersion
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorLinkerVersion
+  id: MajorLinkerVersion
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: MajorLinkerVersion
+  nameWithType: IMAGE_OPTIONAL_HEADER32.MajorLinkerVersion
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorLinkerVersion
+  type: Field
+  source:
+    id: MajorLinkerVersion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 962
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMajorLinkerVersion\n"
+  example: []
+  syntax:
+    content: public byte MajorLinkerVersion
+    return:
+      type: System.Byte
+    content.vb: Public MajorLinkerVersion As Byte
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorLinkerVersion
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorLinkerVersion
+  id: MinorLinkerVersion
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: MinorLinkerVersion
+  nameWithType: IMAGE_OPTIONAL_HEADER32.MinorLinkerVersion
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorLinkerVersion
+  type: Field
+  source:
+    id: MinorLinkerVersion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 966
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMinorLinkerVersion\n"
+  example: []
+  syntax:
+    content: public byte MinorLinkerVersion
+    return:
+      type: System.Byte
+    content.vb: Public MinorLinkerVersion As Byte
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfCode
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfCode
+  id: SizeOfCode
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: SizeOfCode
+  nameWithType: IMAGE_OPTIONAL_HEADER32.SizeOfCode
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfCode
+  type: Field
+  source:
+    id: SizeOfCode
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 970
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSizeOfCode\n"
+  example: []
+  syntax:
+    content: public uint SizeOfCode
+    return:
+      type: System.UInt32
+    content.vb: Public SizeOfCode As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfInitializedData
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfInitializedData
+  id: SizeOfInitializedData
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: SizeOfInitializedData
+  nameWithType: IMAGE_OPTIONAL_HEADER32.SizeOfInitializedData
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfInitializedData
+  type: Field
+  source:
+    id: SizeOfInitializedData
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 974
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSizeOfInitializedData\n"
+  example: []
+  syntax:
+    content: public uint SizeOfInitializedData
+    return:
+      type: System.UInt32
+    content.vb: Public SizeOfInitializedData As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfUninitializedData
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfUninitializedData
+  id: SizeOfUninitializedData
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: SizeOfUninitializedData
+  nameWithType: IMAGE_OPTIONAL_HEADER32.SizeOfUninitializedData
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfUninitializedData
+  type: Field
+  source:
+    id: SizeOfUninitializedData
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 978
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSizeOfUninitializedData\n"
+  example: []
+  syntax:
+    content: public uint SizeOfUninitializedData
+    return:
+      type: System.UInt32
+    content.vb: Public SizeOfUninitializedData As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.AddressOfEntryPoint
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.AddressOfEntryPoint
+  id: AddressOfEntryPoint
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: AddressOfEntryPoint
+  nameWithType: IMAGE_OPTIONAL_HEADER32.AddressOfEntryPoint
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.AddressOfEntryPoint
+  type: Field
+  source:
+    id: AddressOfEntryPoint
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 982
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nAddressOfEntryPoint\n"
+  example: []
+  syntax:
+    content: public uint AddressOfEntryPoint
+    return:
+      type: System.UInt32
+    content.vb: Public AddressOfEntryPoint As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfCode
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfCode
+  id: BaseOfCode
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: BaseOfCode
+  nameWithType: IMAGE_OPTIONAL_HEADER32.BaseOfCode
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfCode
+  type: Field
+  source:
+    id: BaseOfCode
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 986
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nBaseOfCode\n"
+  example: []
+  syntax:
+    content: public uint BaseOfCode
+    return:
+      type: System.UInt32
+    content.vb: Public BaseOfCode As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfData
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfData
+  id: BaseOfData
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: BaseOfData
+  nameWithType: IMAGE_OPTIONAL_HEADER32.BaseOfData
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfData
+  type: Field
+  source:
+    id: BaseOfData
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 990
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nBaseOfData\n"
+  example: []
+  syntax:
+    content: public uint BaseOfData
+    return:
+      type: System.UInt32
+    content.vb: Public BaseOfData As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImageBase
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImageBase
+  id: ImageBase
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: ImageBase
+  nameWithType: IMAGE_OPTIONAL_HEADER32.ImageBase
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImageBase
+  type: Field
+  source:
+    id: ImageBase
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 994
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nImageBase\n"
+  example: []
+  syntax:
+    content: public uint ImageBase
+    return:
+      type: System.UInt32
+    content.vb: Public ImageBase As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SectionAlignment
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SectionAlignment
+  id: SectionAlignment
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: SectionAlignment
+  nameWithType: IMAGE_OPTIONAL_HEADER32.SectionAlignment
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SectionAlignment
+  type: Field
+  source:
+    id: SectionAlignment
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 998
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSectionAlignment\n"
+  example: []
+  syntax:
+    content: public uint SectionAlignment
+    return:
+      type: System.UInt32
+    content.vb: Public SectionAlignment As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.FileAlignment
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.FileAlignment
+  id: FileAlignment
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: FileAlignment
+  nameWithType: IMAGE_OPTIONAL_HEADER32.FileAlignment
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.FileAlignment
+  type: Field
+  source:
+    id: FileAlignment
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1002
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nFileAlignment\n"
+  example: []
+  syntax:
+    content: public uint FileAlignment
+    return:
+      type: System.UInt32
+    content.vb: Public FileAlignment As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorOperatingSystemVersion
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorOperatingSystemVersion
+  id: MajorOperatingSystemVersion
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: MajorOperatingSystemVersion
+  nameWithType: IMAGE_OPTIONAL_HEADER32.MajorOperatingSystemVersion
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorOperatingSystemVersion
+  type: Field
+  source:
+    id: MajorOperatingSystemVersion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1006
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMajorOperatingSystemVersion\n"
+  example: []
+  syntax:
+    content: public ushort MajorOperatingSystemVersion
+    return:
+      type: System.UInt16
+    content.vb: Public MajorOperatingSystemVersion As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorOperatingSystemVersion
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorOperatingSystemVersion
+  id: MinorOperatingSystemVersion
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: MinorOperatingSystemVersion
+  nameWithType: IMAGE_OPTIONAL_HEADER32.MinorOperatingSystemVersion
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorOperatingSystemVersion
+  type: Field
+  source:
+    id: MinorOperatingSystemVersion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1010
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMinorOperatingSystemVersion\n"
+  example: []
+  syntax:
+    content: public ushort MinorOperatingSystemVersion
+    return:
+      type: System.UInt16
+    content.vb: Public MinorOperatingSystemVersion As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorImageVersion
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorImageVersion
+  id: MajorImageVersion
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: MajorImageVersion
+  nameWithType: IMAGE_OPTIONAL_HEADER32.MajorImageVersion
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorImageVersion
+  type: Field
+  source:
+    id: MajorImageVersion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1014
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMajorImageVersion\n"
+  example: []
+  syntax:
+    content: public ushort MajorImageVersion
+    return:
+      type: System.UInt16
+    content.vb: Public MajorImageVersion As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorImageVersion
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorImageVersion
+  id: MinorImageVersion
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: MinorImageVersion
+  nameWithType: IMAGE_OPTIONAL_HEADER32.MinorImageVersion
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorImageVersion
+  type: Field
+  source:
+    id: MinorImageVersion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1018
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMinorImageVersion\n"
+  example: []
+  syntax:
+    content: public ushort MinorImageVersion
+    return:
+      type: System.UInt16
+    content.vb: Public MinorImageVersion As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorSubsystemVersion
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorSubsystemVersion
+  id: MajorSubsystemVersion
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: MajorSubsystemVersion
+  nameWithType: IMAGE_OPTIONAL_HEADER32.MajorSubsystemVersion
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorSubsystemVersion
+  type: Field
+  source:
+    id: MajorSubsystemVersion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1022
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMajorSubsystemVersion\n"
+  example: []
+  syntax:
+    content: public ushort MajorSubsystemVersion
+    return:
+      type: System.UInt16
+    content.vb: Public MajorSubsystemVersion As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorSubsystemVersion
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorSubsystemVersion
+  id: MinorSubsystemVersion
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: MinorSubsystemVersion
+  nameWithType: IMAGE_OPTIONAL_HEADER32.MinorSubsystemVersion
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorSubsystemVersion
+  type: Field
+  source:
+    id: MinorSubsystemVersion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1026
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMinorSubsystemVersion\n"
+  example: []
+  syntax:
+    content: public ushort MinorSubsystemVersion
+    return:
+      type: System.UInt16
+    content.vb: Public MinorSubsystemVersion As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.Win32VersionValue
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.Win32VersionValue
+  id: Win32VersionValue
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: Win32VersionValue
+  nameWithType: IMAGE_OPTIONAL_HEADER32.Win32VersionValue
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.Win32VersionValue
+  type: Field
+  source:
+    id: Win32VersionValue
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1030
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nWin32VersionValue\n"
+  example: []
+  syntax:
+    content: public uint Win32VersionValue
+    return:
+      type: System.UInt32
+    content.vb: Public Win32VersionValue As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfImage
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfImage
+  id: SizeOfImage
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: SizeOfImage
+  nameWithType: IMAGE_OPTIONAL_HEADER32.SizeOfImage
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfImage
+  type: Field
+  source:
+    id: SizeOfImage
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1034
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSizeOfImage\n"
+  example: []
+  syntax:
+    content: public uint SizeOfImage
+    return:
+      type: System.UInt32
+    content.vb: Public SizeOfImage As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeaders
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeaders
+  id: SizeOfHeaders
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: SizeOfHeaders
+  nameWithType: IMAGE_OPTIONAL_HEADER32.SizeOfHeaders
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeaders
+  type: Field
+  source:
+    id: SizeOfHeaders
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1038
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSizeOfHeaders\n"
+  example: []
+  syntax:
+    content: public uint SizeOfHeaders
+    return:
+      type: System.UInt32
+    content.vb: Public SizeOfHeaders As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.CheckSum
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.CheckSum
+  id: CheckSum
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: CheckSum
+  nameWithType: IMAGE_OPTIONAL_HEADER32.CheckSum
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.CheckSum
+  type: Field
+  source:
+    id: CheckSum
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1042
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCheckSum\n"
+  example: []
+  syntax:
+    content: public uint CheckSum
+    return:
+      type: System.UInt32
+    content.vb: Public CheckSum As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.Subsystem
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.Subsystem
+  id: Subsystem
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: Subsystem
+  nameWithType: IMAGE_OPTIONAL_HEADER32.Subsystem
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.Subsystem
+  type: Field
+  source:
+    id: Subsystem
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1046
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSubsystem\n"
+  example: []
+  syntax:
+    content: public SubSystemType Subsystem
+    return:
+      type: ERC.Structures.SubSystemType
+    content.vb: Public Subsystem As SubSystemType
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.DllCharacteristics
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.DllCharacteristics
+  id: DllCharacteristics
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: DllCharacteristics
+  nameWithType: IMAGE_OPTIONAL_HEADER32.DllCharacteristics
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.DllCharacteristics
+  type: Field
+  source:
+    id: DllCharacteristics
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1050
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDllCharacteristics\n"
+  example: []
+  syntax:
+    content: public ushort DllCharacteristics
+    return:
+      type: System.UInt16
+    content.vb: Public DllCharacteristics As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackReserve
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackReserve
+  id: SizeOfStackReserve
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: SizeOfStackReserve
+  nameWithType: IMAGE_OPTIONAL_HEADER32.SizeOfStackReserve
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackReserve
+  type: Field
+  source:
+    id: SizeOfStackReserve
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1054
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSizeOfStackReserve\n"
+  example: []
+  syntax:
+    content: public uint SizeOfStackReserve
+    return:
+      type: System.UInt32
+    content.vb: Public SizeOfStackReserve As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackCommit
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackCommit
+  id: SizeOfStackCommit
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: SizeOfStackCommit
+  nameWithType: IMAGE_OPTIONAL_HEADER32.SizeOfStackCommit
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackCommit
+  type: Field
+  source:
+    id: SizeOfStackCommit
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1058
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSizeOfStackCommit\n"
+  example: []
+  syntax:
+    content: public uint SizeOfStackCommit
+    return:
+      type: System.UInt32
+    content.vb: Public SizeOfStackCommit As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapReserve
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapReserve
+  id: SizeOfHeapReserve
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: SizeOfHeapReserve
+  nameWithType: IMAGE_OPTIONAL_HEADER32.SizeOfHeapReserve
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapReserve
+  type: Field
+  source:
+    id: SizeOfHeapReserve
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1062
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSizeOfHeapReserve\n"
+  example: []
+  syntax:
+    content: public uint SizeOfHeapReserve
+    return:
+      type: System.UInt32
+    content.vb: Public SizeOfHeapReserve As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapCommit
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapCommit
+  id: SizeOfHeapCommit
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: SizeOfHeapCommit
+  nameWithType: IMAGE_OPTIONAL_HEADER32.SizeOfHeapCommit
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapCommit
+  type: Field
+  source:
+    id: SizeOfHeapCommit
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1066
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSizeOfHeapCommit\n"
+  example: []
+  syntax:
+    content: public uint SizeOfHeapCommit
+    return:
+      type: System.UInt32
+    content.vb: Public SizeOfHeapCommit As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoaderFlags
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoaderFlags
+  id: LoaderFlags
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: LoaderFlags
+  nameWithType: IMAGE_OPTIONAL_HEADER32.LoaderFlags
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoaderFlags
+  type: Field
+  source:
+    id: LoaderFlags
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1070
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLoaderFlags\n"
+  example: []
+  syntax:
+    content: public uint LoaderFlags
+    return:
+      type: System.UInt32
+    content.vb: Public LoaderFlags As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.NumberOfRvaAndSizes
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.NumberOfRvaAndSizes
+  id: NumberOfRvaAndSizes
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: NumberOfRvaAndSizes
+  nameWithType: IMAGE_OPTIONAL_HEADER32.NumberOfRvaAndSizes
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.NumberOfRvaAndSizes
+  type: Field
+  source:
+    id: NumberOfRvaAndSizes
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1074
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nNumberOfRvaAndSizes\n"
+  example: []
+  syntax:
+    content: public uint NumberOfRvaAndSizes
+    return:
+      type: System.UInt32
+    content.vb: Public NumberOfRvaAndSizes As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExportTable
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExportTable
+  id: ExportTable
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: ExportTable
+  nameWithType: IMAGE_OPTIONAL_HEADER32.ExportTable
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExportTable
+  type: Field
+  source:
+    id: ExportTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1078
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nExportTable\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY ExportTable
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public ExportTable As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImportTable
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImportTable
+  id: ImportTable
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: ImportTable
+  nameWithType: IMAGE_OPTIONAL_HEADER32.ImportTable
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImportTable
+  type: Field
+  source:
+    id: ImportTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1082
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nImportTable\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY ImportTable
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public ImportTable As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.ResourceTable
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.ResourceTable
+  id: ResourceTable
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: ResourceTable
+  nameWithType: IMAGE_OPTIONAL_HEADER32.ResourceTable
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.ResourceTable
+  type: Field
+  source:
+    id: ResourceTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1086
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nResourceTable\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY ResourceTable
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public ResourceTable As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExceptionTable
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExceptionTable
+  id: ExceptionTable
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: ExceptionTable
+  nameWithType: IMAGE_OPTIONAL_HEADER32.ExceptionTable
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExceptionTable
+  type: Field
+  source:
+    id: ExceptionTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1090
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nExceptionTable\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY ExceptionTable
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public ExceptionTable As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.CertificateTable
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.CertificateTable
+  id: CertificateTable
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: CertificateTable
+  nameWithType: IMAGE_OPTIONAL_HEADER32.CertificateTable
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.CertificateTable
+  type: Field
+  source:
+    id: CertificateTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1094
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCertificateTable\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY CertificateTable
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public CertificateTable As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseRelocationTable
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseRelocationTable
+  id: BaseRelocationTable
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: BaseRelocationTable
+  nameWithType: IMAGE_OPTIONAL_HEADER32.BaseRelocationTable
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseRelocationTable
+  type: Field
+  source:
+    id: BaseRelocationTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1098
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nBaseRelocationTable\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY BaseRelocationTable
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public BaseRelocationTable As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.Debug
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.Debug
+  id: Debug
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: Debug
+  nameWithType: IMAGE_OPTIONAL_HEADER32.Debug
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.Debug
+  type: Field
+  source:
+    id: Debug
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1102
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDebug\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY Debug
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public Debug As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.Architecture
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.Architecture
+  id: Architecture
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: Architecture
+  nameWithType: IMAGE_OPTIONAL_HEADER32.Architecture
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.Architecture
+  type: Field
+  source:
+    id: Architecture
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1106
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nArchitecture\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY Architecture
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public Architecture As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.GlobalPtr
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.GlobalPtr
+  id: GlobalPtr
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: GlobalPtr
+  nameWithType: IMAGE_OPTIONAL_HEADER32.GlobalPtr
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.GlobalPtr
+  type: Field
+  source:
+    id: GlobalPtr
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1110
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nGlobalPtr\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY GlobalPtr
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public GlobalPtr As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.TLSTable
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.TLSTable
+  id: TLSTable
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: TLSTable
+  nameWithType: IMAGE_OPTIONAL_HEADER32.TLSTable
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.TLSTable
+  type: Field
+  source:
+    id: TLSTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1114
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nTLSTable\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY TLSTable
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public TLSTable As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoadConfigTable
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoadConfigTable
+  id: LoadConfigTable
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: LoadConfigTable
+  nameWithType: IMAGE_OPTIONAL_HEADER32.LoadConfigTable
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoadConfigTable
+  type: Field
+  source:
+    id: LoadConfigTable
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1118
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLoadConfigTable\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY LoadConfigTable
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public LoadConfigTable As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.BoundImport
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.BoundImport
+  id: BoundImport
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: BoundImport
+  nameWithType: IMAGE_OPTIONAL_HEADER32.BoundImport
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.BoundImport
+  type: Field
+  source:
+    id: BoundImport
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1122
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nBoundImport\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY BoundImport
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public BoundImport As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.IAT
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.IAT
+  id: IAT
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: IAT
+  nameWithType: IMAGE_OPTIONAL_HEADER32.IAT
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.IAT
+  type: Field
+  source:
+    id: IAT
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1126
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nIAT\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY IAT
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public IAT As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.DelayImportDescriptor
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.DelayImportDescriptor
+  id: DelayImportDescriptor
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: DelayImportDescriptor
+  nameWithType: IMAGE_OPTIONAL_HEADER32.DelayImportDescriptor
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.DelayImportDescriptor
+  type: Field
+  source:
+    id: DelayImportDescriptor
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1130
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nDelayImportDescriptor\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY DelayImportDescriptor
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public DelayImportDescriptor As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.CLRRuntimeHeader
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.CLRRuntimeHeader
+  id: CLRRuntimeHeader
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: CLRRuntimeHeader
+  nameWithType: IMAGE_OPTIONAL_HEADER32.CLRRuntimeHeader
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.CLRRuntimeHeader
+  type: Field
+  source:
+    id: CLRRuntimeHeader
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1134
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCLRRuntimeHeader\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY CLRRuntimeHeader
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public CLRRuntimeHeader As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_OPTIONAL_HEADER32.Reserved
+  commentId: F:ERC.Structures.IMAGE_OPTIONAL_HEADER32.Reserved
+  id: Reserved
+  parent: ERC.Structures.IMAGE_OPTIONAL_HEADER32
+  langs:
+  - csharp
+  - vb
+  name: Reserved
+  nameWithType: IMAGE_OPTIONAL_HEADER32.Reserved
+  fullName: ERC.Structures.IMAGE_OPTIONAL_HEADER32.Reserved
+  type: Field
+  source:
+    id: Reserved
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1138
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nReserved\n"
+  example: []
+  syntax:
+    content: public IMAGE_DATA_DIRECTORY Reserved
+    return:
+      type: ERC.Structures.IMAGE_DATA_DIRECTORY
+    content.vb: Public Reserved As IMAGE_DATA_DIRECTORY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: ERC.Structures
+  commentId: N:ERC.Structures
+  name: ERC.Structures
+  nameWithType: ERC.Structures
+  fullName: ERC.Structures
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ERC.Structures.MagicType
+  commentId: T:ERC.Structures.MagicType
+  parent: ERC.Structures
+  name: MagicType
+  nameWithType: MagicType
+  fullName: ERC.Structures.MagicType
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  name: Byte
+  nameWithType: Byte
+  fullName: System.Byte
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  name: UInt16
+  nameWithType: UInt16
+  fullName: System.UInt16
+- uid: ERC.Structures.SubSystemType
+  commentId: T:ERC.Structures.SubSystemType
+  parent: ERC.Structures
+  name: SubSystemType
+  nameWithType: SubSystemType
+  fullName: ERC.Structures.SubSystemType
+- uid: ERC.Structures.IMAGE_DATA_DIRECTORY
+  commentId: T:ERC.Structures.IMAGE_DATA_DIRECTORY
+  parent: ERC.Structures
+  name: IMAGE_DATA_DIRECTORY
+  nameWithType: IMAGE_DATA_DIRECTORY
+  fullName: ERC.Structures.IMAGE_DATA_DIRECTORY

@@ -1,0 +1,396 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Structures.AllocationProtect
+  commentId: T:ERC.Structures.AllocationProtect
+  id: AllocationProtect
+  parent: ERC.Structures
+  children:
+  - ERC.Structures.AllocationProtect.PAGE_EXECUTE
+  - ERC.Structures.AllocationProtect.PAGE_EXECUTE_READ
+  - ERC.Structures.AllocationProtect.PAGE_EXECUTE_READWRITE
+  - ERC.Structures.AllocationProtect.PAGE_EXECUTE_WRITECOPY
+  - ERC.Structures.AllocationProtect.PAGE_GUARD
+  - ERC.Structures.AllocationProtect.PAGE_NOACCESS
+  - ERC.Structures.AllocationProtect.PAGE_NOCACHE
+  - ERC.Structures.AllocationProtect.PAGE_READONLY
+  - ERC.Structures.AllocationProtect.PAGE_READWRITE
+  - ERC.Structures.AllocationProtect.PAGE_WRITECOMBINE
+  - ERC.Structures.AllocationProtect.PAGE_WRITECOPY
+  langs:
+  - csharp
+  - vb
+  name: AllocationProtect
+  nameWithType: AllocationProtect
+  fullName: ERC.Structures.AllocationProtect
+  type: Enum
+  source:
+    id: AllocationProtect
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1874
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nAllocationProtect.\n"
+  example: []
+  syntax:
+    content: 'public enum AllocationProtect : uint'
+    content.vb: Public Enum AllocationProtect As UInteger
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: ERC.Structures.AllocationProtect.PAGE_EXECUTE
+  commentId: F:ERC.Structures.AllocationProtect.PAGE_EXECUTE
+  id: PAGE_EXECUTE
+  parent: ERC.Structures.AllocationProtect
+  langs:
+  - csharp
+  - vb
+  name: PAGE_EXECUTE
+  nameWithType: AllocationProtect.PAGE_EXECUTE
+  fullName: ERC.Structures.AllocationProtect.PAGE_EXECUTE
+  type: Field
+  source:
+    id: PAGE_EXECUTE
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1879
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nPAGE_EXECUTE\n"
+  example: []
+  syntax:
+    content: PAGE_EXECUTE = 16U
+    return:
+      type: ERC.Structures.AllocationProtect
+    content.vb: PAGE_EXECUTE = 16UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.AllocationProtect.PAGE_EXECUTE_READ
+  commentId: F:ERC.Structures.AllocationProtect.PAGE_EXECUTE_READ
+  id: PAGE_EXECUTE_READ
+  parent: ERC.Structures.AllocationProtect
+  langs:
+  - csharp
+  - vb
+  name: PAGE_EXECUTE_READ
+  nameWithType: AllocationProtect.PAGE_EXECUTE_READ
+  fullName: ERC.Structures.AllocationProtect.PAGE_EXECUTE_READ
+  type: Field
+  source:
+    id: PAGE_EXECUTE_READ
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1883
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nPAGE_EXECUTE_READ\n"
+  example: []
+  syntax:
+    content: PAGE_EXECUTE_READ = 32U
+    return:
+      type: ERC.Structures.AllocationProtect
+    content.vb: PAGE_EXECUTE_READ = 32UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.AllocationProtect.PAGE_EXECUTE_READWRITE
+  commentId: F:ERC.Structures.AllocationProtect.PAGE_EXECUTE_READWRITE
+  id: PAGE_EXECUTE_READWRITE
+  parent: ERC.Structures.AllocationProtect
+  langs:
+  - csharp
+  - vb
+  name: PAGE_EXECUTE_READWRITE
+  nameWithType: AllocationProtect.PAGE_EXECUTE_READWRITE
+  fullName: ERC.Structures.AllocationProtect.PAGE_EXECUTE_READWRITE
+  type: Field
+  source:
+    id: PAGE_EXECUTE_READWRITE
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1887
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nPAGE_EXECUTE_READWRITE\n"
+  example: []
+  syntax:
+    content: PAGE_EXECUTE_READWRITE = 64U
+    return:
+      type: ERC.Structures.AllocationProtect
+    content.vb: PAGE_EXECUTE_READWRITE = 64UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.AllocationProtect.PAGE_EXECUTE_WRITECOPY
+  commentId: F:ERC.Structures.AllocationProtect.PAGE_EXECUTE_WRITECOPY
+  id: PAGE_EXECUTE_WRITECOPY
+  parent: ERC.Structures.AllocationProtect
+  langs:
+  - csharp
+  - vb
+  name: PAGE_EXECUTE_WRITECOPY
+  nameWithType: AllocationProtect.PAGE_EXECUTE_WRITECOPY
+  fullName: ERC.Structures.AllocationProtect.PAGE_EXECUTE_WRITECOPY
+  type: Field
+  source:
+    id: PAGE_EXECUTE_WRITECOPY
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1891
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nPAGE_EXECUTE_WRITECOPY\n"
+  example: []
+  syntax:
+    content: PAGE_EXECUTE_WRITECOPY = 128U
+    return:
+      type: ERC.Structures.AllocationProtect
+    content.vb: PAGE_EXECUTE_WRITECOPY = 128UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.AllocationProtect.PAGE_NOACCESS
+  commentId: F:ERC.Structures.AllocationProtect.PAGE_NOACCESS
+  id: PAGE_NOACCESS
+  parent: ERC.Structures.AllocationProtect
+  langs:
+  - csharp
+  - vb
+  name: PAGE_NOACCESS
+  nameWithType: AllocationProtect.PAGE_NOACCESS
+  fullName: ERC.Structures.AllocationProtect.PAGE_NOACCESS
+  type: Field
+  source:
+    id: PAGE_NOACCESS
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1895
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nPAGE_NOACCESS\n"
+  example: []
+  syntax:
+    content: PAGE_NOACCESS = 1U
+    return:
+      type: ERC.Structures.AllocationProtect
+    content.vb: PAGE_NOACCESS = 1UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.AllocationProtect.PAGE_READONLY
+  commentId: F:ERC.Structures.AllocationProtect.PAGE_READONLY
+  id: PAGE_READONLY
+  parent: ERC.Structures.AllocationProtect
+  langs:
+  - csharp
+  - vb
+  name: PAGE_READONLY
+  nameWithType: AllocationProtect.PAGE_READONLY
+  fullName: ERC.Structures.AllocationProtect.PAGE_READONLY
+  type: Field
+  source:
+    id: PAGE_READONLY
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1899
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nPAGE_READONLY\n"
+  example: []
+  syntax:
+    content: PAGE_READONLY = 2U
+    return:
+      type: ERC.Structures.AllocationProtect
+    content.vb: PAGE_READONLY = 2UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.AllocationProtect.PAGE_READWRITE
+  commentId: F:ERC.Structures.AllocationProtect.PAGE_READWRITE
+  id: PAGE_READWRITE
+  parent: ERC.Structures.AllocationProtect
+  langs:
+  - csharp
+  - vb
+  name: PAGE_READWRITE
+  nameWithType: AllocationProtect.PAGE_READWRITE
+  fullName: ERC.Structures.AllocationProtect.PAGE_READWRITE
+  type: Field
+  source:
+    id: PAGE_READWRITE
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1903
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nPAGE_READWRITE\n"
+  example: []
+  syntax:
+    content: PAGE_READWRITE = 4U
+    return:
+      type: ERC.Structures.AllocationProtect
+    content.vb: PAGE_READWRITE = 4UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.AllocationProtect.PAGE_WRITECOPY
+  commentId: F:ERC.Structures.AllocationProtect.PAGE_WRITECOPY
+  id: PAGE_WRITECOPY
+  parent: ERC.Structures.AllocationProtect
+  langs:
+  - csharp
+  - vb
+  name: PAGE_WRITECOPY
+  nameWithType: AllocationProtect.PAGE_WRITECOPY
+  fullName: ERC.Structures.AllocationProtect.PAGE_WRITECOPY
+  type: Field
+  source:
+    id: PAGE_WRITECOPY
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1907
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nPAGE_WRITECOPY\n"
+  example: []
+  syntax:
+    content: PAGE_WRITECOPY = 8U
+    return:
+      type: ERC.Structures.AllocationProtect
+    content.vb: PAGE_WRITECOPY = 8UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.AllocationProtect.PAGE_GUARD
+  commentId: F:ERC.Structures.AllocationProtect.PAGE_GUARD
+  id: PAGE_GUARD
+  parent: ERC.Structures.AllocationProtect
+  langs:
+  - csharp
+  - vb
+  name: PAGE_GUARD
+  nameWithType: AllocationProtect.PAGE_GUARD
+  fullName: ERC.Structures.AllocationProtect.PAGE_GUARD
+  type: Field
+  source:
+    id: PAGE_GUARD
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1911
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nPAGE_GUARD\n"
+  example: []
+  syntax:
+    content: PAGE_GUARD = 256U
+    return:
+      type: ERC.Structures.AllocationProtect
+    content.vb: PAGE_GUARD = 256UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.AllocationProtect.PAGE_NOCACHE
+  commentId: F:ERC.Structures.AllocationProtect.PAGE_NOCACHE
+  id: PAGE_NOCACHE
+  parent: ERC.Structures.AllocationProtect
+  langs:
+  - csharp
+  - vb
+  name: PAGE_NOCACHE
+  nameWithType: AllocationProtect.PAGE_NOCACHE
+  fullName: ERC.Structures.AllocationProtect.PAGE_NOCACHE
+  type: Field
+  source:
+    id: PAGE_NOCACHE
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1915
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nPAGE_NOCACHE\n"
+  example: []
+  syntax:
+    content: PAGE_NOCACHE = 512U
+    return:
+      type: ERC.Structures.AllocationProtect
+    content.vb: PAGE_NOCACHE = 512UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.AllocationProtect.PAGE_WRITECOMBINE
+  commentId: F:ERC.Structures.AllocationProtect.PAGE_WRITECOMBINE
+  id: PAGE_WRITECOMBINE
+  parent: ERC.Structures.AllocationProtect
+  langs:
+  - csharp
+  - vb
+  name: PAGE_WRITECOMBINE
+  nameWithType: AllocationProtect.PAGE_WRITECOMBINE
+  fullName: ERC.Structures.AllocationProtect.PAGE_WRITECOMBINE
+  type: Field
+  source:
+    id: PAGE_WRITECOMBINE
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1919
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nPAGE_WRITECOMBINE\n"
+  example: []
+  syntax:
+    content: PAGE_WRITECOMBINE = 1024U
+    return:
+      type: ERC.Structures.AllocationProtect
+    content.vb: PAGE_WRITECOMBINE = 1024UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: ERC.Structures
+  commentId: N:ERC.Structures
+  name: ERC.Structures
+  nameWithType: ERC.Structures
+  fullName: ERC.Structures
+- uid: ERC.Structures.AllocationProtect
+  commentId: T:ERC.Structures.AllocationProtect
+  parent: ERC.Structures
+  name: AllocationProtect
+  nameWithType: AllocationProtect
+  fullName: ERC.Structures.AllocationProtect

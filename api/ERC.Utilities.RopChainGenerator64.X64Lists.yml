@@ -1,0 +1,3067 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists
+  commentId: T:ERC.Utilities.RopChainGenerator64.X64Lists
+  id: RopChainGenerator64.X64Lists
+  parent: ERC.Utilities
+  children:
+  - ERC.Utilities.RopChainGenerator64.X64Lists.add
+  - ERC.Utilities.RopChainGenerator64.X64Lists.callRax
+  - ERC.Utilities.RopChainGenerator64.X64Lists.callRsp
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decR10
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decR11
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decR12
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decR13
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decR14
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decR15
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decR8
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decR9
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decRax
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decRbp
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decRbx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decRcx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decRdi
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decRdx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decRsi
+  - ERC.Utilities.RopChainGenerator64.X64Lists.decRsp
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incR10
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incR11
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incR12
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incR13
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incR14
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incR15
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incR8
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incR9
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incRax
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incRbp
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incRbx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incRcx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incRdi
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incRdx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incRsi
+  - ERC.Utilities.RopChainGenerator64.X64Lists.incRsp
+  - ERC.Utilities.RopChainGenerator64.X64Lists.jmpRax
+  - ERC.Utilities.RopChainGenerator64.X64Lists.jmpRsp
+  - ERC.Utilities.RopChainGenerator64.X64Lists.mov
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popR10
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popR11
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popR12
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popR13
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popR14
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popR15
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popR8
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popR9
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popRax
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popRbp
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popRbx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popRcx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popRdi
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popRdx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popRsi
+  - ERC.Utilities.RopChainGenerator64.X64Lists.popRsp
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushR10
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushR11
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushR12
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushR13
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushR14
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushR15
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushR8
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushR9
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushRax
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushRbp
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushRbx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushRcx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushRdi
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushRdx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushRsi
+  - ERC.Utilities.RopChainGenerator64.X64Lists.pushRsp
+  - ERC.Utilities.RopChainGenerator64.X64Lists.sub
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorR10
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorR11
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorR12
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorR13
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorR14
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorR15
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorR8
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorR9
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorRax
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorRbp
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorRbx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorRcx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorRdi
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorRdx
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorRsi
+  - ERC.Utilities.RopChainGenerator64.X64Lists.xorRsp
+  langs:
+  - csharp
+  - vb
+  name: RopChainGenerator64.X64Lists
+  nameWithType: RopChainGenerator64.X64Lists
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists
+  type: Class
+  source:
+    id: X64Lists
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4557
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nContains lists of instructions for specific registers.\n"
+  example: []
+  syntax:
+    content: public class X64Lists
+    content.vb: Public Class X64Lists
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushRax
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRax
+  id: pushRax
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushRax
+  nameWithType: RopChainGenerator64.X64Lists.pushRax
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushRax
+  type: Field
+  source:
+    id: pushRax
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4562
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushRax list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushRax
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushRax As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushRcx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRcx
+  id: pushRcx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushRcx
+  nameWithType: RopChainGenerator64.X64Lists.pushRcx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushRcx
+  type: Field
+  source:
+    id: pushRcx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4566
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushRcx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushRcx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushRcx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushRdx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRdx
+  id: pushRdx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushRdx
+  nameWithType: RopChainGenerator64.X64Lists.pushRdx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushRdx
+  type: Field
+  source:
+    id: pushRdx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4570
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushRdx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushRdx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushRdx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushRbx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRbx
+  id: pushRbx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushRbx
+  nameWithType: RopChainGenerator64.X64Lists.pushRbx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushRbx
+  type: Field
+  source:
+    id: pushRbx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4574
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushRbx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushRbx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushRbx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushRsp
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRsp
+  id: pushRsp
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushRsp
+  nameWithType: RopChainGenerator64.X64Lists.pushRsp
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushRsp
+  type: Field
+  source:
+    id: pushRsp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4578
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushRsp list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushRsp
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushRsp As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushRbp
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRbp
+  id: pushRbp
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushRbp
+  nameWithType: RopChainGenerator64.X64Lists.pushRbp
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushRbp
+  type: Field
+  source:
+    id: pushRbp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4582
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushRbp list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushRbp
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushRbp As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushRsi
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRsi
+  id: pushRsi
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushRsi
+  nameWithType: RopChainGenerator64.X64Lists.pushRsi
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushRsi
+  type: Field
+  source:
+    id: pushRsi
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4586
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushRsi list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushRsi
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushRsi As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushRdi
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushRdi
+  id: pushRdi
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushRdi
+  nameWithType: RopChainGenerator64.X64Lists.pushRdi
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushRdi
+  type: Field
+  source:
+    id: pushRdi
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4590
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushRdi list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushRdi
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushRdi As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushR8
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR8
+  id: pushR8
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushR8
+  nameWithType: RopChainGenerator64.X64Lists.pushR8
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushR8
+  type: Field
+  source:
+    id: pushR8
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4594
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushR8 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushR8
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushR8 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushR9
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR9
+  id: pushR9
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushR9
+  nameWithType: RopChainGenerator64.X64Lists.pushR9
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushR9
+  type: Field
+  source:
+    id: pushR9
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4598
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushR9 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushR9
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushR9 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushR10
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR10
+  id: pushR10
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushR10
+  nameWithType: RopChainGenerator64.X64Lists.pushR10
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushR10
+  type: Field
+  source:
+    id: pushR10
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4602
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushR10 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushR10
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushR10 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushR11
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR11
+  id: pushR11
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushR11
+  nameWithType: RopChainGenerator64.X64Lists.pushR11
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushR11
+  type: Field
+  source:
+    id: pushR11
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4606
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushR11 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushR11
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushR11 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushR12
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR12
+  id: pushR12
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushR12
+  nameWithType: RopChainGenerator64.X64Lists.pushR12
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushR12
+  type: Field
+  source:
+    id: pushR12
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4610
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushR12 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushR12
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushR12 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushR13
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR13
+  id: pushR13
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushR13
+  nameWithType: RopChainGenerator64.X64Lists.pushR13
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushR13
+  type: Field
+  source:
+    id: pushR13
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4614
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushR13 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushR13
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushR13 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushR14
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR14
+  id: pushR14
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushR14
+  nameWithType: RopChainGenerator64.X64Lists.pushR14
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushR14
+  type: Field
+  source:
+    id: pushR14
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4618
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushR14 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushR14
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushR14 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.pushR15
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.pushR15
+  id: pushR15
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: pushR15
+  nameWithType: RopChainGenerator64.X64Lists.pushR15
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.pushR15
+  type: Field
+  source:
+    id: pushR15
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4622
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npushR15 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> pushR15
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public pushR15 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popRax
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popRax
+  id: popRax
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popRax
+  nameWithType: RopChainGenerator64.X64Lists.popRax
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popRax
+  type: Field
+  source:
+    id: popRax
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4626
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopRax list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popRax
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popRax As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popRbx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popRbx
+  id: popRbx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popRbx
+  nameWithType: RopChainGenerator64.X64Lists.popRbx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popRbx
+  type: Field
+  source:
+    id: popRbx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4630
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopRbx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popRbx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popRbx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popRcx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popRcx
+  id: popRcx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popRcx
+  nameWithType: RopChainGenerator64.X64Lists.popRcx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popRcx
+  type: Field
+  source:
+    id: popRcx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4634
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopRcx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popRcx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popRcx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popRdx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popRdx
+  id: popRdx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popRdx
+  nameWithType: RopChainGenerator64.X64Lists.popRdx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popRdx
+  type: Field
+  source:
+    id: popRdx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4638
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopRdx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popRdx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popRdx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popRsp
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popRsp
+  id: popRsp
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popRsp
+  nameWithType: RopChainGenerator64.X64Lists.popRsp
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popRsp
+  type: Field
+  source:
+    id: popRsp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4642
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopRsp list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popRsp
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popRsp As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popRbp
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popRbp
+  id: popRbp
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popRbp
+  nameWithType: RopChainGenerator64.X64Lists.popRbp
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popRbp
+  type: Field
+  source:
+    id: popRbp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4646
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopRbp list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popRbp
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popRbp As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popRsi
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popRsi
+  id: popRsi
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popRsi
+  nameWithType: RopChainGenerator64.X64Lists.popRsi
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popRsi
+  type: Field
+  source:
+    id: popRsi
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4650
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopRsi list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popRsi
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popRsi As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popRdi
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popRdi
+  id: popRdi
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popRdi
+  nameWithType: RopChainGenerator64.X64Lists.popRdi
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popRdi
+  type: Field
+  source:
+    id: popRdi
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4654
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopRdi list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popRdi
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popRdi As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popR8
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popR8
+  id: popR8
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popR8
+  nameWithType: RopChainGenerator64.X64Lists.popR8
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popR8
+  type: Field
+  source:
+    id: popR8
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4658
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopR8 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popR8
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popR8 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popR9
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popR9
+  id: popR9
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popR9
+  nameWithType: RopChainGenerator64.X64Lists.popR9
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popR9
+  type: Field
+  source:
+    id: popR9
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4662
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopR9 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popR9
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popR9 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popR10
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popR10
+  id: popR10
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popR10
+  nameWithType: RopChainGenerator64.X64Lists.popR10
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popR10
+  type: Field
+  source:
+    id: popR10
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4666
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopR10 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popR10
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popR10 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popR11
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popR11
+  id: popR11
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popR11
+  nameWithType: RopChainGenerator64.X64Lists.popR11
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popR11
+  type: Field
+  source:
+    id: popR11
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4670
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopR11 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popR11
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popR11 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popR12
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popR12
+  id: popR12
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popR12
+  nameWithType: RopChainGenerator64.X64Lists.popR12
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popR12
+  type: Field
+  source:
+    id: popR12
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4674
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopR12 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popR12
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popR12 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popR13
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popR13
+  id: popR13
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popR13
+  nameWithType: RopChainGenerator64.X64Lists.popR13
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popR13
+  type: Field
+  source:
+    id: popR13
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4678
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopR13 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popR13
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popR13 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popR14
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popR14
+  id: popR14
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popR14
+  nameWithType: RopChainGenerator64.X64Lists.popR14
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popR14
+  type: Field
+  source:
+    id: popR14
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4682
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopR14 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popR14
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popR14 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.popR15
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.popR15
+  id: popR15
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: popR15
+  nameWithType: RopChainGenerator64.X64Lists.popR15
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.popR15
+  type: Field
+  source:
+    id: popR15
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4686
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\npopR15 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> popR15
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public popR15 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorRax
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRax
+  id: xorRax
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorRax
+  nameWithType: RopChainGenerator64.X64Lists.xorRax
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorRax
+  type: Field
+  source:
+    id: xorRax
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4690
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorRax list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorRax
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorRax As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorRbx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRbx
+  id: xorRbx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorRbx
+  nameWithType: RopChainGenerator64.X64Lists.xorRbx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorRbx
+  type: Field
+  source:
+    id: xorRbx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4694
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorRbx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorRbx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorRbx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorRcx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRcx
+  id: xorRcx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorRcx
+  nameWithType: RopChainGenerator64.X64Lists.xorRcx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorRcx
+  type: Field
+  source:
+    id: xorRcx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4698
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorRcx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorRcx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorRcx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorRdx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRdx
+  id: xorRdx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorRdx
+  nameWithType: RopChainGenerator64.X64Lists.xorRdx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorRdx
+  type: Field
+  source:
+    id: xorRdx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4702
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorRdx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorRdx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorRdx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorRsi
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRsi
+  id: xorRsi
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorRsi
+  nameWithType: RopChainGenerator64.X64Lists.xorRsi
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorRsi
+  type: Field
+  source:
+    id: xorRsi
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4706
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorRsi list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorRsi
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorRsi As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorRdi
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRdi
+  id: xorRdi
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorRdi
+  nameWithType: RopChainGenerator64.X64Lists.xorRdi
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorRdi
+  type: Field
+  source:
+    id: xorRdi
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4710
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorRdi list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorRdi
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorRdi As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorRsp
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRsp
+  id: xorRsp
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorRsp
+  nameWithType: RopChainGenerator64.X64Lists.xorRsp
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorRsp
+  type: Field
+  source:
+    id: xorRsp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4714
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorRsp list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorRsp
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorRsp As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorRbp
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorRbp
+  id: xorRbp
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorRbp
+  nameWithType: RopChainGenerator64.X64Lists.xorRbp
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorRbp
+  type: Field
+  source:
+    id: xorRbp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4718
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorRbp list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorRbp
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorRbp As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorR8
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR8
+  id: xorR8
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorR8
+  nameWithType: RopChainGenerator64.X64Lists.xorR8
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorR8
+  type: Field
+  source:
+    id: xorR8
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4722
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorR8 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorR8
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorR8 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorR9
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR9
+  id: xorR9
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorR9
+  nameWithType: RopChainGenerator64.X64Lists.xorR9
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorR9
+  type: Field
+  source:
+    id: xorR9
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4726
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorR9 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorR9
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorR9 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorR10
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR10
+  id: xorR10
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorR10
+  nameWithType: RopChainGenerator64.X64Lists.xorR10
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorR10
+  type: Field
+  source:
+    id: xorR10
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4730
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorR10 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorR10
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorR10 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorR11
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR11
+  id: xorR11
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorR11
+  nameWithType: RopChainGenerator64.X64Lists.xorR11
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorR11
+  type: Field
+  source:
+    id: xorR11
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4734
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorR11 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorR11
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorR11 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorR12
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR12
+  id: xorR12
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorR12
+  nameWithType: RopChainGenerator64.X64Lists.xorR12
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorR12
+  type: Field
+  source:
+    id: xorR12
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4738
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorR12 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorR12
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorR12 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorR13
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR13
+  id: xorR13
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorR13
+  nameWithType: RopChainGenerator64.X64Lists.xorR13
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorR13
+  type: Field
+  source:
+    id: xorR13
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4742
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorR13 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorR13
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorR13 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorR14
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR14
+  id: xorR14
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorR14
+  nameWithType: RopChainGenerator64.X64Lists.xorR14
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorR14
+  type: Field
+  source:
+    id: xorR14
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4746
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorR14 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorR14
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorR14 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.xorR15
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.xorR15
+  id: xorR15
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: xorR15
+  nameWithType: RopChainGenerator64.X64Lists.xorR15
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.xorR15
+  type: Field
+  source:
+    id: xorR15
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4750
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nxorR15 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> xorR15
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public xorR15 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.jmpRsp
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.jmpRsp
+  id: jmpRsp
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: jmpRsp
+  nameWithType: RopChainGenerator64.X64Lists.jmpRsp
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.jmpRsp
+  type: Field
+  source:
+    id: jmpRsp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4754
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\njmpRsp list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> jmpRsp
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public jmpRsp As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.callRsp
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.callRsp
+  id: callRsp
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: callRsp
+  nameWithType: RopChainGenerator64.X64Lists.callRsp
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.callRsp
+  type: Field
+  source:
+    id: callRsp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4758
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ncallRsp list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> callRsp
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public callRsp As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incRax
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incRax
+  id: incRax
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incRax
+  nameWithType: RopChainGenerator64.X64Lists.incRax
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incRax
+  type: Field
+  source:
+    id: incRax
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4762
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincRax list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incRax
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incRax As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incRbx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incRbx
+  id: incRbx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incRbx
+  nameWithType: RopChainGenerator64.X64Lists.incRbx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incRbx
+  type: Field
+  source:
+    id: incRbx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4766
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincRbx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incRbx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incRbx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incRcx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incRcx
+  id: incRcx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incRcx
+  nameWithType: RopChainGenerator64.X64Lists.incRcx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incRcx
+  type: Field
+  source:
+    id: incRcx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4770
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincRcx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incRcx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incRcx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incRdx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incRdx
+  id: incRdx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incRdx
+  nameWithType: RopChainGenerator64.X64Lists.incRdx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incRdx
+  type: Field
+  source:
+    id: incRdx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4774
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincRdx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incRdx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incRdx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incRbp
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incRbp
+  id: incRbp
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incRbp
+  nameWithType: RopChainGenerator64.X64Lists.incRbp
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incRbp
+  type: Field
+  source:
+    id: incRbp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4778
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincRbp list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incRbp
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incRbp As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incRsp
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incRsp
+  id: incRsp
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incRsp
+  nameWithType: RopChainGenerator64.X64Lists.incRsp
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incRsp
+  type: Field
+  source:
+    id: incRsp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4782
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincRsp list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incRsp
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incRsp As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incRsi
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incRsi
+  id: incRsi
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incRsi
+  nameWithType: RopChainGenerator64.X64Lists.incRsi
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incRsi
+  type: Field
+  source:
+    id: incRsi
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4786
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincRsi list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incRsi
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incRsi As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incRdi
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incRdi
+  id: incRdi
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incRdi
+  nameWithType: RopChainGenerator64.X64Lists.incRdi
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incRdi
+  type: Field
+  source:
+    id: incRdi
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4790
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincRdi list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incRdi
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incRdi As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incR8
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incR8
+  id: incR8
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incR8
+  nameWithType: RopChainGenerator64.X64Lists.incR8
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incR8
+  type: Field
+  source:
+    id: incR8
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4794
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincR8 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incR8
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incR8 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incR9
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incR9
+  id: incR9
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incR9
+  nameWithType: RopChainGenerator64.X64Lists.incR9
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incR9
+  type: Field
+  source:
+    id: incR9
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4798
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincR9 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incR9
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incR9 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incR10
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incR10
+  id: incR10
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incR10
+  nameWithType: RopChainGenerator64.X64Lists.incR10
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incR10
+  type: Field
+  source:
+    id: incR10
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4802
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincR10 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incR10
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incR10 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incR11
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incR11
+  id: incR11
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incR11
+  nameWithType: RopChainGenerator64.X64Lists.incR11
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incR11
+  type: Field
+  source:
+    id: incR11
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4806
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincR11 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incR11
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incR11 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incR12
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incR12
+  id: incR12
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incR12
+  nameWithType: RopChainGenerator64.X64Lists.incR12
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incR12
+  type: Field
+  source:
+    id: incR12
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4810
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincR12 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incR12
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incR12 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incR13
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incR13
+  id: incR13
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incR13
+  nameWithType: RopChainGenerator64.X64Lists.incR13
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incR13
+  type: Field
+  source:
+    id: incR13
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4814
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincR13 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incR13
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incR13 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incR14
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incR14
+  id: incR14
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incR14
+  nameWithType: RopChainGenerator64.X64Lists.incR14
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incR14
+  type: Field
+  source:
+    id: incR14
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4818
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincR14 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incR14
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incR14 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.incR15
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.incR15
+  id: incR15
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: incR15
+  nameWithType: RopChainGenerator64.X64Lists.incR15
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.incR15
+  type: Field
+  source:
+    id: incR15
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4822
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nincR15 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> incR15
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public incR15 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decRax
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decRax
+  id: decRax
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decRax
+  nameWithType: RopChainGenerator64.X64Lists.decRax
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decRax
+  type: Field
+  source:
+    id: decRax
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4826
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecRax list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decRax
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decRax As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decRbx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decRbx
+  id: decRbx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decRbx
+  nameWithType: RopChainGenerator64.X64Lists.decRbx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decRbx
+  type: Field
+  source:
+    id: decRbx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4830
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecRbx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decRbx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decRbx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decRcx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decRcx
+  id: decRcx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decRcx
+  nameWithType: RopChainGenerator64.X64Lists.decRcx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decRcx
+  type: Field
+  source:
+    id: decRcx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4834
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecRcx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decRcx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decRcx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decRdx
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decRdx
+  id: decRdx
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decRdx
+  nameWithType: RopChainGenerator64.X64Lists.decRdx
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decRdx
+  type: Field
+  source:
+    id: decRdx
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4838
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecRdx list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decRdx
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decRdx As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decRbp
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decRbp
+  id: decRbp
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decRbp
+  nameWithType: RopChainGenerator64.X64Lists.decRbp
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decRbp
+  type: Field
+  source:
+    id: decRbp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4842
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecRbp list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decRbp
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decRbp As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decRsp
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decRsp
+  id: decRsp
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decRsp
+  nameWithType: RopChainGenerator64.X64Lists.decRsp
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decRsp
+  type: Field
+  source:
+    id: decRsp
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4846
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecRsp list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decRsp
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decRsp As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decRsi
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decRsi
+  id: decRsi
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decRsi
+  nameWithType: RopChainGenerator64.X64Lists.decRsi
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decRsi
+  type: Field
+  source:
+    id: decRsi
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4850
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecRsi list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decRsi
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decRsi As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decRdi
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decRdi
+  id: decRdi
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decRdi
+  nameWithType: RopChainGenerator64.X64Lists.decRdi
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decRdi
+  type: Field
+  source:
+    id: decRdi
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4854
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecRdi list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decRdi
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decRdi As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decR8
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decR8
+  id: decR8
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decR8
+  nameWithType: RopChainGenerator64.X64Lists.decR8
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decR8
+  type: Field
+  source:
+    id: decR8
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4858
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecR8 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decR8
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decR8 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decR9
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decR9
+  id: decR9
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decR9
+  nameWithType: RopChainGenerator64.X64Lists.decR9
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decR9
+  type: Field
+  source:
+    id: decR9
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4862
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecR9 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decR9
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decR9 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decR10
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decR10
+  id: decR10
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decR10
+  nameWithType: RopChainGenerator64.X64Lists.decR10
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decR10
+  type: Field
+  source:
+    id: decR10
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4866
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecR10 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decR10
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decR10 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decR11
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decR11
+  id: decR11
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decR11
+  nameWithType: RopChainGenerator64.X64Lists.decR11
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decR11
+  type: Field
+  source:
+    id: decR11
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4870
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecR11 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decR11
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decR11 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decR12
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decR12
+  id: decR12
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decR12
+  nameWithType: RopChainGenerator64.X64Lists.decR12
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decR12
+  type: Field
+  source:
+    id: decR12
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4874
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecR12 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decR12
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decR12 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decR13
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decR13
+  id: decR13
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decR13
+  nameWithType: RopChainGenerator64.X64Lists.decR13
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decR13
+  type: Field
+  source:
+    id: decR13
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4878
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecR13 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decR13
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decR13 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decR14
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decR14
+  id: decR14
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decR14
+  nameWithType: RopChainGenerator64.X64Lists.decR14
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decR14
+  type: Field
+  source:
+    id: decR14
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4882
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecR14 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decR14
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decR14 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.decR15
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.decR15
+  id: decR15
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: decR15
+  nameWithType: RopChainGenerator64.X64Lists.decR15
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.decR15
+  type: Field
+  source:
+    id: decR15
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4886
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ndecR15 list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> decR15
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public decR15 As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.add
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.add
+  id: add
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: add
+  nameWithType: RopChainGenerator64.X64Lists.add
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.add
+  type: Field
+  source:
+    id: add
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4890
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nadd list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> add
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public add As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.mov
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.mov
+  id: mov
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: mov
+  nameWithType: RopChainGenerator64.X64Lists.mov
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.mov
+  type: Field
+  source:
+    id: mov
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4894
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nmov list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> mov
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public mov As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.sub
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.sub
+  id: sub
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: sub
+  nameWithType: RopChainGenerator64.X64Lists.sub
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.sub
+  type: Field
+  source:
+    id: sub
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4898
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nsub list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> sub
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public sub As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.callRax
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.callRax
+  id: callRax
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: callRax
+  nameWithType: RopChainGenerator64.X64Lists.callRax
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.callRax
+  type: Field
+  source:
+    id: callRax
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4902
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\njmpRax list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> callRax
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public callRax As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Utilities.RopChainGenerator64.X64Lists.jmpRax
+  commentId: F:ERC.Utilities.RopChainGenerator64.X64Lists.jmpRax
+  id: jmpRax
+  parent: ERC.Utilities.RopChainGenerator64.X64Lists
+  langs:
+  - csharp
+  - vb
+  name: jmpRax
+  nameWithType: RopChainGenerator64.X64Lists.jmpRax
+  fullName: ERC.Utilities.RopChainGenerator64.X64Lists.jmpRax
+  type: Field
+  source:
+    id: jmpRax
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\RopChainGenerator64.cs
+    startLine: 4906
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\ncallRax list.\n"
+  example: []
+  syntax:
+    content: public Dictionary<IntPtr, string> jmpRax
+    return:
+      type: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+    content.vb: Public jmpRax As Dictionary(Of IntPtr, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: ERC.Utilities
+  commentId: N:ERC.Utilities
+  name: ERC.Utilities
+  nameWithType: ERC.Utilities
+  fullName: ERC.Utilities
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+  commentId: T:System.Collections.Generic.Dictionary{System.IntPtr,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<IntPtr, String>
+  nameWithType: Dictionary<IntPtr, String>
+  fullName: System.Collections.Generic.Dictionary<System.IntPtr, System.String>
+  nameWithType.vb: Dictionary(Of IntPtr, String)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.IntPtr, System.String)
+  name.vb: Dictionary(Of IntPtr, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.IntPtr
+    name: IntPtr
+    nameWithType: IntPtr
+    fullName: System.IntPtr
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.IntPtr
+    name: IntPtr
+    nameWithType: IntPtr
+    fullName: System.IntPtr
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

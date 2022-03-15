@@ -1,0 +1,110 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC
+  commentId: N:ERC
+  id: ERC
+  children:
+  - ERC.DisplayOutput
+  - ERC.ErcCore
+  - ERC.ERCException
+  - ERC.ErcResult`1
+  - ERC.HeapInfo
+  - ERC.MachineType
+  - ERC.ModuleInfo
+  - ERC.ProcessInfo
+  - ERC.ThreadInfo
+  langs:
+  - csharp
+  - vb
+  name: ERC
+  nameWithType: ERC
+  fullName: ERC
+  type: Namespace
+  assemblies:
+  - ERC.Net
+references:
+- uid: ERC.DisplayOutput
+  commentId: T:ERC.DisplayOutput
+  name: DisplayOutput
+  nameWithType: DisplayOutput
+  fullName: ERC.DisplayOutput
+- uid: ERC.ERCException
+  commentId: T:ERC.ERCException
+  name: ERCException
+  nameWithType: ERCException
+  fullName: ERC.ERCException
+- uid: ERC.ErcCore
+  commentId: T:ERC.ErcCore
+  parent: ERC
+  name: ErcCore
+  nameWithType: ErcCore
+  fullName: ERC.ErcCore
+- uid: ERC.ErcResult`1
+  commentId: T:ERC.ErcResult`1
+  name: ErcResult<T>
+  nameWithType: ErcResult<T>
+  fullName: ERC.ErcResult<T>
+  nameWithType.vb: ErcResult(Of T)
+  fullName.vb: ERC.ErcResult(Of T)
+  name.vb: ErcResult(Of T)
+  spec.csharp:
+  - uid: ERC.ErcResult`1
+    name: ErcResult
+    nameWithType: ErcResult
+    fullName: ERC.ErcResult
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: ERC.ErcResult`1
+    name: ErcResult
+    nameWithType: ErcResult
+    fullName: ERC.ErcResult
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ERC.MachineType
+  commentId: T:ERC.MachineType
+  parent: ERC
+  name: MachineType
+  nameWithType: MachineType
+  fullName: ERC.MachineType
+- uid: ERC.HeapInfo
+  commentId: T:ERC.HeapInfo
+  parent: ERC
+  name: HeapInfo
+  nameWithType: HeapInfo
+  fullName: ERC.HeapInfo
+- uid: ERC.ModuleInfo
+  commentId: T:ERC.ModuleInfo
+  name: ModuleInfo
+  nameWithType: ModuleInfo
+  fullName: ERC.ModuleInfo
+- uid: ERC.ProcessInfo
+  commentId: T:ERC.ProcessInfo
+  parent: ERC
+  name: ProcessInfo
+  nameWithType: ProcessInfo
+  fullName: ERC.ProcessInfo
+- uid: ERC.ThreadInfo
+  commentId: T:ERC.ThreadInfo
+  name: ThreadInfo
+  nameWithType: ThreadInfo
+  fullName: ERC.ThreadInfo
+- uid: ERC
+  commentId: N:ERC
+  name: ERC
+  nameWithType: ERC
+  fullName: ERC

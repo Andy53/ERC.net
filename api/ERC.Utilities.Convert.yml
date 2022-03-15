@@ -1,0 +1,890 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Utilities.Convert
+  commentId: T:ERC.Utilities.Convert
+  id: Convert
+  parent: ERC.Utilities
+  children:
+  - ERC.Utilities.Convert.AsciiToBytes(System.String)
+  - ERC.Utilities.Convert.AsciiToHex(System.String)
+  - ERC.Utilities.Convert.HexToAscii(System.String)
+  - ERC.Utilities.Convert.HexToBytes(System.String)
+  - ERC.Utilities.Convert.UnicodeToBytes(System.String)
+  - ERC.Utilities.Convert.UnicodeToHex(System.String)
+  - ERC.Utilities.Convert.UTF32ToBytes(System.String)
+  - ERC.Utilities.Convert.UTF32ToHex(System.String)
+  - ERC.Utilities.Convert.UTF7ToBytes(System.String)
+  - ERC.Utilities.Convert.UTF7ToHex(System.String)
+  - ERC.Utilities.Convert.UTF8ToBytes(System.String)
+  - ERC.Utilities.Convert.UTF8ToHex(System.String)
+  langs:
+  - csharp
+  - vb
+  name: Convert
+  nameWithType: Convert
+  fullName: ERC.Utilities.Convert
+  type: Class
+  source:
+    id: Convert
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Convert.cs
+    startLine: 10
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nStatic class containing methods for common conversions.\n"
+  example: []
+  syntax:
+    content: public static class Convert
+    content.vb: Public Module Convert
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: ERC.Utilities.Convert.HexToAscii(System.String)
+  commentId: M:ERC.Utilities.Convert.HexToAscii(System.String)
+  id: HexToAscii(System.String)
+  parent: ERC.Utilities.Convert
+  langs:
+  - csharp
+  - vb
+  name: HexToAscii(String)
+  nameWithType: Convert.HexToAscii(String)
+  fullName: ERC.Utilities.Convert.HexToAscii(System.String)
+  type: Method
+  source:
+    id: HexToAscii
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Convert.cs
+    startLine: 20
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nConverts a hex string to ASCII.&quot;\n"
+  example: []
+  syntax:
+    content: public static string HexToAscii(string hex)
+    parameters:
+    - id: hex
+      type: System.String
+      description: A string containing hex characters.
+    return:
+      type: System.String
+      description: A string containing the equivalent ASCII values
+    content.vb: Public Shared Function HexToAscii(hex As String) As String
+  overload: ERC.Utilities.Convert.HexToAscii*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.Utilities.Convert.HexToBytes(System.String)
+  commentId: M:ERC.Utilities.Convert.HexToBytes(System.String)
+  id: HexToBytes(System.String)
+  parent: ERC.Utilities.Convert
+  langs:
+  - csharp
+  - vb
+  name: HexToBytes(String)
+  nameWithType: Convert.HexToBytes(String)
+  fullName: ERC.Utilities.Convert.HexToBytes(System.String)
+  type: Method
+  source:
+    id: HexToBytes
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Convert.cs
+    startLine: 62
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nConverts a hex string to the equivalent bytes.\n"
+  example: []
+  syntax:
+    content: public static byte[] HexToBytes(string hex)
+    parameters:
+    - id: hex
+      type: System.String
+      description: A string containing hex characters.
+    return:
+      type: System.Byte[]
+      description: A byte array containing the associated values.
+    content.vb: Public Shared Function HexToBytes(hex As String) As Byte()
+  overload: ERC.Utilities.Convert.HexToBytes*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.Utilities.Convert.AsciiToBytes(System.String)
+  commentId: M:ERC.Utilities.Convert.AsciiToBytes(System.String)
+  id: AsciiToBytes(System.String)
+  parent: ERC.Utilities.Convert
+  langs:
+  - csharp
+  - vb
+  name: AsciiToBytes(String)
+  nameWithType: Convert.AsciiToBytes(String)
+  fullName: ERC.Utilities.Convert.AsciiToBytes(System.String)
+  type: Method
+  source:
+    id: AsciiToBytes
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Convert.cs
+    startLine: 86
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nConverts an ASCII string to a byte array.\n"
+  example: []
+  syntax:
+    content: public static byte[] AsciiToBytes(string ascii)
+    parameters:
+    - id: ascii
+      type: System.String
+      description: An ASCII string.
+    return:
+      type: System.Byte[]
+      description: A byte array containing the associated values.
+    content.vb: Public Shared Function AsciiToBytes(ascii As String) As Byte()
+  overload: ERC.Utilities.Convert.AsciiToBytes*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.Utilities.Convert.AsciiToHex(System.String)
+  commentId: M:ERC.Utilities.Convert.AsciiToHex(System.String)
+  id: AsciiToHex(System.String)
+  parent: ERC.Utilities.Convert
+  langs:
+  - csharp
+  - vb
+  name: AsciiToHex(String)
+  nameWithType: Convert.AsciiToHex(String)
+  fullName: ERC.Utilities.Convert.AsciiToHex(System.String)
+  type: Method
+  source:
+    id: AsciiToHex
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Convert.cs
+    startLine: 96
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nConverts an ASCII string to a hex string\n"
+  example: []
+  syntax:
+    content: public static string AsciiToHex(string ascii)
+    parameters:
+    - id: ascii
+      type: System.String
+      description: An ASCII string.
+    return:
+      type: System.String
+      description: A hex string.
+    content.vb: Public Shared Function AsciiToHex(ascii As String) As String
+  overload: ERC.Utilities.Convert.AsciiToHex*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.Utilities.Convert.UnicodeToBytes(System.String)
+  commentId: M:ERC.Utilities.Convert.UnicodeToBytes(System.String)
+  id: UnicodeToBytes(System.String)
+  parent: ERC.Utilities.Convert
+  langs:
+  - csharp
+  - vb
+  name: UnicodeToBytes(String)
+  nameWithType: Convert.UnicodeToBytes(String)
+  fullName: ERC.Utilities.Convert.UnicodeToBytes(System.String)
+  type: Method
+  source:
+    id: UnicodeToBytes
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Convert.cs
+    startLine: 108
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nConverts a Unicode string to a byte array.\n"
+  example: []
+  syntax:
+    content: public static byte[] UnicodeToBytes(string unicode)
+    parameters:
+    - id: unicode
+      type: System.String
+      description: A Unicode string.
+    return:
+      type: System.Byte[]
+      description: A byte array.
+    content.vb: Public Shared Function UnicodeToBytes(unicode As String) As Byte()
+  overload: ERC.Utilities.Convert.UnicodeToBytes*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.Utilities.Convert.UnicodeToHex(System.String)
+  commentId: M:ERC.Utilities.Convert.UnicodeToHex(System.String)
+  id: UnicodeToHex(System.String)
+  parent: ERC.Utilities.Convert
+  langs:
+  - csharp
+  - vb
+  name: UnicodeToHex(String)
+  nameWithType: Convert.UnicodeToHex(String)
+  fullName: ERC.Utilities.Convert.UnicodeToHex(System.String)
+  type: Method
+  source:
+    id: UnicodeToHex
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Convert.cs
+    startLine: 118
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nConverts a Unicode string to a hex string.\n"
+  example: []
+  syntax:
+    content: public static string UnicodeToHex(string unicode)
+    parameters:
+    - id: unicode
+      type: System.String
+      description: A Unicode string.
+    return:
+      type: System.String
+      description: A hex string.
+    content.vb: Public Shared Function UnicodeToHex(unicode As String) As String
+  overload: ERC.Utilities.Convert.UnicodeToHex*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.Utilities.Convert.UTF7ToBytes(System.String)
+  commentId: M:ERC.Utilities.Convert.UTF7ToBytes(System.String)
+  id: UTF7ToBytes(System.String)
+  parent: ERC.Utilities.Convert
+  langs:
+  - csharp
+  - vb
+  name: UTF7ToBytes(String)
+  nameWithType: Convert.UTF7ToBytes(String)
+  fullName: ERC.Utilities.Convert.UTF7ToBytes(System.String)
+  type: Method
+  source:
+    id: UTF7ToBytes
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Convert.cs
+    startLine: 130
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nConverts a UTF-7 string to a byte array.\n"
+  example: []
+  syntax:
+    content: public static byte[] UTF7ToBytes(string utf7)
+    parameters:
+    - id: utf7
+      type: System.String
+      description: A UTF-7 string.
+    return:
+      type: System.Byte[]
+      description: A byte array.
+    content.vb: Public Shared Function UTF7ToBytes(utf7 As String) As Byte()
+  overload: ERC.Utilities.Convert.UTF7ToBytes*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.Utilities.Convert.UTF7ToHex(System.String)
+  commentId: M:ERC.Utilities.Convert.UTF7ToHex(System.String)
+  id: UTF7ToHex(System.String)
+  parent: ERC.Utilities.Convert
+  langs:
+  - csharp
+  - vb
+  name: UTF7ToHex(String)
+  nameWithType: Convert.UTF7ToHex(String)
+  fullName: ERC.Utilities.Convert.UTF7ToHex(System.String)
+  type: Method
+  source:
+    id: UTF7ToHex
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Convert.cs
+    startLine: 140
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nConverts a UTF-7 string to a hex string.\n"
+  example: []
+  syntax:
+    content: public static string UTF7ToHex(string utf7)
+    parameters:
+    - id: utf7
+      type: System.String
+      description: A UTF-7 string.
+    return:
+      type: System.String
+      description: A hex string.
+    content.vb: Public Shared Function UTF7ToHex(utf7 As String) As String
+  overload: ERC.Utilities.Convert.UTF7ToHex*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.Utilities.Convert.UTF8ToBytes(System.String)
+  commentId: M:ERC.Utilities.Convert.UTF8ToBytes(System.String)
+  id: UTF8ToBytes(System.String)
+  parent: ERC.Utilities.Convert
+  langs:
+  - csharp
+  - vb
+  name: UTF8ToBytes(String)
+  nameWithType: Convert.UTF8ToBytes(String)
+  fullName: ERC.Utilities.Convert.UTF8ToBytes(System.String)
+  type: Method
+  source:
+    id: UTF8ToBytes
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Convert.cs
+    startLine: 152
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nConverts a UTF-8 string to a byte array.\n"
+  example: []
+  syntax:
+    content: public static byte[] UTF8ToBytes(string utf8)
+    parameters:
+    - id: utf8
+      type: System.String
+      description: A UTF-8 string.
+    return:
+      type: System.Byte[]
+      description: A byte array.
+    content.vb: Public Shared Function UTF8ToBytes(utf8 As String) As Byte()
+  overload: ERC.Utilities.Convert.UTF8ToBytes*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.Utilities.Convert.UTF8ToHex(System.String)
+  commentId: M:ERC.Utilities.Convert.UTF8ToHex(System.String)
+  id: UTF8ToHex(System.String)
+  parent: ERC.Utilities.Convert
+  langs:
+  - csharp
+  - vb
+  name: UTF8ToHex(String)
+  nameWithType: Convert.UTF8ToHex(String)
+  fullName: ERC.Utilities.Convert.UTF8ToHex(System.String)
+  type: Method
+  source:
+    id: UTF8ToHex
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Convert.cs
+    startLine: 162
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nConverts a UTF-8 string to a hex string.\n"
+  example: []
+  syntax:
+    content: public static string UTF8ToHex(string utf8)
+    parameters:
+    - id: utf8
+      type: System.String
+      description: A UTF-8 string.
+    return:
+      type: System.String
+      description: A hex string.
+    content.vb: Public Shared Function UTF8ToHex(utf8 As String) As String
+  overload: ERC.Utilities.Convert.UTF8ToHex*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.Utilities.Convert.UTF32ToBytes(System.String)
+  commentId: M:ERC.Utilities.Convert.UTF32ToBytes(System.String)
+  id: UTF32ToBytes(System.String)
+  parent: ERC.Utilities.Convert
+  langs:
+  - csharp
+  - vb
+  name: UTF32ToBytes(String)
+  nameWithType: Convert.UTF32ToBytes(String)
+  fullName: ERC.Utilities.Convert.UTF32ToBytes(System.String)
+  type: Method
+  source:
+    id: UTF32ToBytes
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Convert.cs
+    startLine: 174
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nConverts a UTF-32 string to a byte array.\n"
+  example: []
+  syntax:
+    content: public static byte[] UTF32ToBytes(string utf32)
+    parameters:
+    - id: utf32
+      type: System.String
+      description: A UTF-32 string.
+    return:
+      type: System.Byte[]
+      description: A byte array.
+    content.vb: Public Shared Function UTF32ToBytes(utf32 As String) As Byte()
+  overload: ERC.Utilities.Convert.UTF32ToBytes*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: ERC.Utilities.Convert.UTF32ToHex(System.String)
+  commentId: M:ERC.Utilities.Convert.UTF32ToHex(System.String)
+  id: UTF32ToHex(System.String)
+  parent: ERC.Utilities.Convert
+  langs:
+  - csharp
+  - vb
+  name: UTF32ToHex(String)
+  nameWithType: Convert.UTF32ToHex(String)
+  fullName: ERC.Utilities.Convert.UTF32ToHex(System.String)
+  type: Method
+  source:
+    id: UTF32ToHex
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Convert.cs
+    startLine: 184
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Utilities
+  summary: "\nConverts a UTF-32 string to a hex string.\n"
+  example: []
+  syntax:
+    content: public static string UTF32ToHex(string utf32)
+    parameters:
+    - id: utf32
+      type: System.String
+      description: A UTF-32 string.
+    return:
+      type: System.String
+      description: A hex string.
+    content.vb: Public Shared Function UTF32ToHex(utf32 As String) As String
+  overload: ERC.Utilities.Convert.UTF32ToHex*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: ERC.Utilities
+  commentId: N:ERC.Utilities
+  name: ERC.Utilities
+  nameWithType: ERC.Utilities
+  fullName: ERC.Utilities
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ERC.Utilities.Convert.HexToAscii*
+  commentId: Overload:ERC.Utilities.Convert.HexToAscii
+  name: HexToAscii
+  nameWithType: Convert.HexToAscii
+  fullName: ERC.Utilities.Convert.HexToAscii
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: ERC.Utilities.Convert.HexToBytes*
+  commentId: Overload:ERC.Utilities.Convert.HexToBytes
+  name: HexToBytes
+  nameWithType: Convert.HexToBytes
+  fullName: ERC.Utilities.Convert.HexToBytes
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: ERC.Utilities.Convert.AsciiToBytes*
+  commentId: Overload:ERC.Utilities.Convert.AsciiToBytes
+  name: AsciiToBytes
+  nameWithType: Convert.AsciiToBytes
+  fullName: ERC.Utilities.Convert.AsciiToBytes
+- uid: ERC.Utilities.Convert.AsciiToHex*
+  commentId: Overload:ERC.Utilities.Convert.AsciiToHex
+  name: AsciiToHex
+  nameWithType: Convert.AsciiToHex
+  fullName: ERC.Utilities.Convert.AsciiToHex
+- uid: ERC.Utilities.Convert.UnicodeToBytes*
+  commentId: Overload:ERC.Utilities.Convert.UnicodeToBytes
+  name: UnicodeToBytes
+  nameWithType: Convert.UnicodeToBytes
+  fullName: ERC.Utilities.Convert.UnicodeToBytes
+- uid: ERC.Utilities.Convert.UnicodeToHex*
+  commentId: Overload:ERC.Utilities.Convert.UnicodeToHex
+  name: UnicodeToHex
+  nameWithType: Convert.UnicodeToHex
+  fullName: ERC.Utilities.Convert.UnicodeToHex
+- uid: ERC.Utilities.Convert.UTF7ToBytes*
+  commentId: Overload:ERC.Utilities.Convert.UTF7ToBytes
+  name: UTF7ToBytes
+  nameWithType: Convert.UTF7ToBytes
+  fullName: ERC.Utilities.Convert.UTF7ToBytes
+- uid: ERC.Utilities.Convert.UTF7ToHex*
+  commentId: Overload:ERC.Utilities.Convert.UTF7ToHex
+  name: UTF7ToHex
+  nameWithType: Convert.UTF7ToHex
+  fullName: ERC.Utilities.Convert.UTF7ToHex
+- uid: ERC.Utilities.Convert.UTF8ToBytes*
+  commentId: Overload:ERC.Utilities.Convert.UTF8ToBytes
+  name: UTF8ToBytes
+  nameWithType: Convert.UTF8ToBytes
+  fullName: ERC.Utilities.Convert.UTF8ToBytes
+- uid: ERC.Utilities.Convert.UTF8ToHex*
+  commentId: Overload:ERC.Utilities.Convert.UTF8ToHex
+  name: UTF8ToHex
+  nameWithType: Convert.UTF8ToHex
+  fullName: ERC.Utilities.Convert.UTF8ToHex
+- uid: ERC.Utilities.Convert.UTF32ToBytes*
+  commentId: Overload:ERC.Utilities.Convert.UTF32ToBytes
+  name: UTF32ToBytes
+  nameWithType: Convert.UTF32ToBytes
+  fullName: ERC.Utilities.Convert.UTF32ToBytes
+- uid: ERC.Utilities.Convert.UTF32ToHex*
+  commentId: Overload:ERC.Utilities.Convert.UTF32ToHex
+  name: UTF32ToHex
+  nameWithType: Convert.UTF32ToHex
+  fullName: ERC.Utilities.Convert.UTF32ToHex

@@ -1,0 +1,140 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Structures.TypeEnum
+  commentId: T:ERC.Structures.TypeEnum
+  id: TypeEnum
+  parent: ERC.Structures
+  children:
+  - ERC.Structures.TypeEnum.MEM_IMAGE
+  - ERC.Structures.TypeEnum.MEM_MAPPED
+  - ERC.Structures.TypeEnum.MEM_PRIVATE
+  langs:
+  - csharp
+  - vb
+  name: TypeEnum
+  nameWithType: TypeEnum
+  fullName: ERC.Structures.TypeEnum
+  type: Enum
+  source:
+    id: TypeEnum
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1948
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nTypeEnum\n"
+  example: []
+  syntax:
+    content: 'public enum TypeEnum : uint'
+    content.vb: Public Enum TypeEnum As UInteger
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: ERC.Structures.TypeEnum.MEM_IMAGE
+  commentId: F:ERC.Structures.TypeEnum.MEM_IMAGE
+  id: MEM_IMAGE
+  parent: ERC.Structures.TypeEnum
+  langs:
+  - csharp
+  - vb
+  name: MEM_IMAGE
+  nameWithType: TypeEnum.MEM_IMAGE
+  fullName: ERC.Structures.TypeEnum.MEM_IMAGE
+  type: Field
+  source:
+    id: MEM_IMAGE
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1953
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMEM_IMAGE\n"
+  example: []
+  syntax:
+    content: MEM_IMAGE = 16777216U
+    return:
+      type: ERC.Structures.TypeEnum
+    content.vb: MEM_IMAGE = 16777216UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.TypeEnum.MEM_MAPPED
+  commentId: F:ERC.Structures.TypeEnum.MEM_MAPPED
+  id: MEM_MAPPED
+  parent: ERC.Structures.TypeEnum
+  langs:
+  - csharp
+  - vb
+  name: MEM_MAPPED
+  nameWithType: TypeEnum.MEM_MAPPED
+  fullName: ERC.Structures.TypeEnum.MEM_MAPPED
+  type: Field
+  source:
+    id: MEM_MAPPED
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1957
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMEM_MAPPED\n"
+  example: []
+  syntax:
+    content: MEM_MAPPED = 262144U
+    return:
+      type: ERC.Structures.TypeEnum
+    content.vb: MEM_MAPPED = 262144UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: ERC.Structures.TypeEnum.MEM_PRIVATE
+  commentId: F:ERC.Structures.TypeEnum.MEM_PRIVATE
+  id: MEM_PRIVATE
+  parent: ERC.Structures.TypeEnum
+  langs:
+  - csharp
+  - vb
+  name: MEM_PRIVATE
+  nameWithType: TypeEnum.MEM_PRIVATE
+  fullName: ERC.Structures.TypeEnum.MEM_PRIVATE
+  type: Field
+  source:
+    id: MEM_PRIVATE
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1961
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMEM_PRIVATE\n"
+  example: []
+  syntax:
+    content: MEM_PRIVATE = 131072U
+    return:
+      type: ERC.Structures.TypeEnum
+    content.vb: MEM_PRIVATE = 131072UI
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: ERC.Structures
+  commentId: N:ERC.Structures
+  name: ERC.Structures
+  nameWithType: ERC.Structures
+  fullName: ERC.Structures
+- uid: ERC.Structures.TypeEnum
+  commentId: T:ERC.Structures.TypeEnum
+  parent: ERC.Structures
+  name: TypeEnum
+  nameWithType: TypeEnum
+  fullName: ERC.Structures.TypeEnum

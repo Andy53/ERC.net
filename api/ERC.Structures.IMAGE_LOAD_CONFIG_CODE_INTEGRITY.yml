@@ -1,0 +1,447 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  commentId: T:ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  id: IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  parent: ERC.Structures
+  children:
+  - ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Catalog
+  - ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.CatalogOffset
+  - ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Flags
+  - ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Reserved
+  langs:
+  - csharp
+  - vb
+  name: IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  nameWithType: IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  type: Struct
+  source:
+    id: IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1762
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nIMAGE_LOAD_CONFIG_CODE_INTEGRITY.\n"
+  example: []
+  syntax:
+    content: public struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+    content.vb: Public Structure IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Flags
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Flags
+  id: Flags
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  langs:
+  - csharp
+  - vb
+  name: Flags
+  nameWithType: IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Flags
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Flags
+  type: Field
+  source:
+    id: Flags
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1768
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nFlags\n"
+  example: []
+  syntax:
+    content: public ushort Flags
+    return:
+      type: System.UInt16
+    content.vb: Public Flags As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Catalog
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Catalog
+  id: Catalog
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  langs:
+  - csharp
+  - vb
+  name: Catalog
+  nameWithType: IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Catalog
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Catalog
+  type: Field
+  source:
+    id: Catalog
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1772
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCatalog\n"
+  example: []
+  syntax:
+    content: public ushort Catalog
+    return:
+      type: System.UInt16
+    content.vb: Public Catalog As UShort
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.CatalogOffset
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.CatalogOffset
+  id: CatalogOffset
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  langs:
+  - csharp
+  - vb
+  name: CatalogOffset
+  nameWithType: IMAGE_LOAD_CONFIG_CODE_INTEGRITY.CatalogOffset
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.CatalogOffset
+  type: Field
+  source:
+    id: CatalogOffset
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1776
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCatalogOffset\n"
+  example: []
+  syntax:
+    content: public uint CatalogOffset
+    return:
+      type: System.UInt32
+    content.vb: Public CatalogOffset As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Reserved
+  commentId: F:ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Reserved
+  id: Reserved
+  parent: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+  langs:
+  - csharp
+  - vb
+  name: Reserved
+  nameWithType: IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Reserved
+  fullName: ERC.Structures.IMAGE_LOAD_CONFIG_CODE_INTEGRITY.Reserved
+  type: Field
+  source:
+    id: Reserved
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1780
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nReserved\n"
+  example: []
+  syntax:
+    content: public uint Reserved
+    return:
+      type: System.UInt32
+    content.vb: Public Reserved As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: ERC.Structures
+  commentId: N:ERC.Structures
+  name: ERC.Structures
+  nameWithType: ERC.Structures
+  fullName: ERC.Structures
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  name: UInt16
+  nameWithType: UInt16
+  fullName: System.UInt16
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32

@@ -1,0 +1,767 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.Structures.LOADED_IMAGE
+  commentId: T:ERC.Structures.LOADED_IMAGE
+  id: LOADED_IMAGE
+  parent: ERC.Structures
+  children:
+  - ERC.Structures.LOADED_IMAGE.Characteristics
+  - ERC.Structures.LOADED_IMAGE.fDOSImage
+  - ERC.Structures.LOADED_IMAGE.FileHeader
+  - ERC.Structures.LOADED_IMAGE.fReadOnly
+  - ERC.Structures.LOADED_IMAGE.fSystemImage
+  - ERC.Structures.LOADED_IMAGE.hFile
+  - ERC.Structures.LOADED_IMAGE.LastRvaSection
+  - ERC.Structures.LOADED_IMAGE.Links
+  - ERC.Structures.LOADED_IMAGE.MappedAddress
+  - ERC.Structures.LOADED_IMAGE.ModuleName
+  - ERC.Structures.LOADED_IMAGE.NumberOfSections
+  - ERC.Structures.LOADED_IMAGE.Sections
+  - ERC.Structures.LOADED_IMAGE.SizeOfImage
+  - ERC.Structures.LOADED_IMAGE.Version
+  langs:
+  - csharp
+  - vb
+  name: LOADED_IMAGE
+  nameWithType: LOADED_IMAGE
+  fullName: ERC.Structures.LOADED_IMAGE
+  type: Struct
+  source:
+    id: LOADED_IMAGE
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1788
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLOADED_IMAGE. See https://docs.microsoft.com/en-us/windows/win32/api/dbghelp/ns-dbghelp-_loaded_image\n"
+  example: []
+  syntax:
+    content: public struct LOADED_IMAGE
+    content.vb: Public Structure LOADED_IMAGE
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: ERC.Structures.LOADED_IMAGE.ModuleName
+  commentId: F:ERC.Structures.LOADED_IMAGE.ModuleName
+  id: ModuleName
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: ModuleName
+  nameWithType: LOADED_IMAGE.ModuleName
+  fullName: ERC.Structures.LOADED_IMAGE.ModuleName
+  type: Field
+  source:
+    id: ModuleName
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1793
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nModuleName\n"
+  example: []
+  syntax:
+    content: public IntPtr ModuleName
+    return:
+      type: System.IntPtr
+    content.vb: Public ModuleName As IntPtr
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.LOADED_IMAGE.hFile
+  commentId: F:ERC.Structures.LOADED_IMAGE.hFile
+  id: hFile
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: hFile
+  nameWithType: LOADED_IMAGE.hFile
+  fullName: ERC.Structures.LOADED_IMAGE.hFile
+  type: Field
+  source:
+    id: hFile
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1797
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nhFile\n"
+  example: []
+  syntax:
+    content: public IntPtr hFile
+    return:
+      type: System.IntPtr
+    content.vb: Public hFile As IntPtr
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.LOADED_IMAGE.MappedAddress
+  commentId: F:ERC.Structures.LOADED_IMAGE.MappedAddress
+  id: MappedAddress
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: MappedAddress
+  nameWithType: LOADED_IMAGE.MappedAddress
+  fullName: ERC.Structures.LOADED_IMAGE.MappedAddress
+  type: Field
+  source:
+    id: MappedAddress
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1801
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nMappedAddress\n"
+  example: []
+  syntax:
+    content: public IntPtr MappedAddress
+    return:
+      type: System.IntPtr
+    content.vb: Public MappedAddress As IntPtr
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.LOADED_IMAGE.FileHeader
+  commentId: F:ERC.Structures.LOADED_IMAGE.FileHeader
+  id: FileHeader
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: FileHeader
+  nameWithType: LOADED_IMAGE.FileHeader
+  fullName: ERC.Structures.LOADED_IMAGE.FileHeader
+  type: Field
+  source:
+    id: FileHeader
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1805
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nFileHeader\n"
+  example: []
+  syntax:
+    content: public IntPtr FileHeader
+    return:
+      type: System.IntPtr
+    content.vb: Public FileHeader As IntPtr
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.LOADED_IMAGE.LastRvaSection
+  commentId: F:ERC.Structures.LOADED_IMAGE.LastRvaSection
+  id: LastRvaSection
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: LastRvaSection
+  nameWithType: LOADED_IMAGE.LastRvaSection
+  fullName: ERC.Structures.LOADED_IMAGE.LastRvaSection
+  type: Field
+  source:
+    id: LastRvaSection
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1809
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLastRvaSection\n"
+  example: []
+  syntax:
+    content: public IntPtr LastRvaSection
+    return:
+      type: System.IntPtr
+    content.vb: Public LastRvaSection As IntPtr
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.LOADED_IMAGE.NumberOfSections
+  commentId: F:ERC.Structures.LOADED_IMAGE.NumberOfSections
+  id: NumberOfSections
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: NumberOfSections
+  nameWithType: LOADED_IMAGE.NumberOfSections
+  fullName: ERC.Structures.LOADED_IMAGE.NumberOfSections
+  type: Field
+  source:
+    id: NumberOfSections
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1813
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nNumberOfSections\n"
+  example: []
+  syntax:
+    content: public uint NumberOfSections
+    return:
+      type: System.UInt32
+    content.vb: Public NumberOfSections As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.LOADED_IMAGE.Sections
+  commentId: F:ERC.Structures.LOADED_IMAGE.Sections
+  id: Sections
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: Sections
+  nameWithType: LOADED_IMAGE.Sections
+  fullName: ERC.Structures.LOADED_IMAGE.Sections
+  type: Field
+  source:
+    id: Sections
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1817
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSections\n"
+  example: []
+  syntax:
+    content: public IntPtr Sections
+    return:
+      type: System.IntPtr
+    content.vb: Public Sections As IntPtr
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.LOADED_IMAGE.Characteristics
+  commentId: F:ERC.Structures.LOADED_IMAGE.Characteristics
+  id: Characteristics
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: Characteristics
+  nameWithType: LOADED_IMAGE.Characteristics
+  fullName: ERC.Structures.LOADED_IMAGE.Characteristics
+  type: Field
+  source:
+    id: Characteristics
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1821
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nCharacteristics\n"
+  example: []
+  syntax:
+    content: public uint Characteristics
+    return:
+      type: System.UInt32
+    content.vb: Public Characteristics As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.LOADED_IMAGE.fSystemImage
+  commentId: F:ERC.Structures.LOADED_IMAGE.fSystemImage
+  id: fSystemImage
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: fSystemImage
+  nameWithType: LOADED_IMAGE.fSystemImage
+  fullName: ERC.Structures.LOADED_IMAGE.fSystemImage
+  type: Field
+  source:
+    id: fSystemImage
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1825
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nfSystemImage\n"
+  example: []
+  syntax:
+    content: public bool fSystemImage
+    return:
+      type: System.Boolean
+    content.vb: Public fSystemImage As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.LOADED_IMAGE.fDOSImage
+  commentId: F:ERC.Structures.LOADED_IMAGE.fDOSImage
+  id: fDOSImage
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: fDOSImage
+  nameWithType: LOADED_IMAGE.fDOSImage
+  fullName: ERC.Structures.LOADED_IMAGE.fDOSImage
+  type: Field
+  source:
+    id: fDOSImage
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1829
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nfDOSImage\n"
+  example: []
+  syntax:
+    content: public bool fDOSImage
+    return:
+      type: System.Boolean
+    content.vb: Public fDOSImage As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.LOADED_IMAGE.fReadOnly
+  commentId: F:ERC.Structures.LOADED_IMAGE.fReadOnly
+  id: fReadOnly
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: fReadOnly
+  nameWithType: LOADED_IMAGE.fReadOnly
+  fullName: ERC.Structures.LOADED_IMAGE.fReadOnly
+  type: Field
+  source:
+    id: fReadOnly
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1833
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nfReadOnly\n"
+  example: []
+  syntax:
+    content: public bool fReadOnly
+    return:
+      type: System.Boolean
+    content.vb: Public fReadOnly As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.LOADED_IMAGE.Version
+  commentId: F:ERC.Structures.LOADED_IMAGE.Version
+  id: Version
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: LOADED_IMAGE.Version
+  fullName: ERC.Structures.LOADED_IMAGE.Version
+  type: Field
+  source:
+    id: Version
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1837
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nVersion\n"
+  example: []
+  syntax:
+    content: public byte Version
+    return:
+      type: System.Byte
+    content.vb: Public Version As Byte
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.LOADED_IMAGE.Links
+  commentId: F:ERC.Structures.LOADED_IMAGE.Links
+  id: Links
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: Links
+  nameWithType: LOADED_IMAGE.Links
+  fullName: ERC.Structures.LOADED_IMAGE.Links
+  type: Field
+  source:
+    id: Links
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1841
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nLinks\n"
+  example: []
+  syntax:
+    content: public LIST_ENTRY Links
+    return:
+      type: ERC.Structures.LIST_ENTRY
+    content.vb: Public Links As LIST_ENTRY
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.Structures.LOADED_IMAGE.SizeOfImage
+  commentId: F:ERC.Structures.LOADED_IMAGE.SizeOfImage
+  id: SizeOfImage
+  parent: ERC.Structures.LOADED_IMAGE
+  langs:
+  - csharp
+  - vb
+  name: SizeOfImage
+  nameWithType: LOADED_IMAGE.SizeOfImage
+  fullName: ERC.Structures.LOADED_IMAGE.SizeOfImage
+  type: Field
+  source:
+    id: SizeOfImage
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\ERC_Core.cs
+    startLine: 1845
+  assemblies:
+  - ERC.Net
+  namespace: ERC.Structures
+  summary: "\nSizeOfImage\n"
+  example: []
+  syntax:
+    content: public uint SizeOfImage
+    return:
+      type: System.UInt32
+    content.vb: Public SizeOfImage As UInteger
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: ERC.Structures
+  commentId: N:ERC.Structures
+  name: ERC.Structures
+  nameWithType: ERC.Structures
+  fullName: ERC.Structures
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  name: IntPtr
+  nameWithType: IntPtr
+  fullName: System.IntPtr
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  name: Byte
+  nameWithType: Byte
+  fullName: System.Byte
+- uid: ERC.Structures.LIST_ENTRY
+  commentId: T:ERC.Structures.LIST_ENTRY
+  parent: ERC.Structures
+  name: LIST_ENTRY
+  nameWithType: LIST_ENTRY
+  fullName: ERC.Structures.LIST_ENTRY

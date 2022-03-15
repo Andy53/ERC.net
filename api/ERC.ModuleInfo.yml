@@ -1,0 +1,1302 @@
+### YamlMime:ManagedReference
+items:
+- uid: ERC.ModuleInfo
+  commentId: T:ERC.ModuleInfo
+  id: ModuleInfo
+  parent: ERC
+  children:
+  - ERC.ModuleInfo.ModuleASLR
+  - ERC.ModuleInfo.ModuleBase
+  - ERC.ModuleInfo.ModuleCore
+  - ERC.ModuleInfo.ModuleEntry
+  - ERC.ModuleInfo.ModuleFailed
+  - ERC.ModuleInfo.ModuleImageBase
+  - ERC.ModuleInfo.ModuleMachineType
+  - ERC.ModuleInfo.ModuleName
+  - ERC.ModuleInfo.ModuleNXCompat
+  - ERC.ModuleInfo.ModuleOsDll
+  - ERC.ModuleInfo.ModulePath
+  - ERC.ModuleInfo.ModuleProcess
+  - ERC.ModuleInfo.ModuleProduct
+  - ERC.ModuleInfo.ModuleProtection
+  - ERC.ModuleInfo.ModuleRebase
+  - ERC.ModuleInfo.ModuleSafeSEH
+  - ERC.ModuleInfo.ModuleSize
+  - ERC.ModuleInfo.ModuleVersion
+  - ERC.ModuleInfo.SearchModule(System.Byte[])
+  - ERC.ModuleInfo.ToString
+  langs:
+  - csharp
+  - vb
+  name: ModuleInfo
+  nameWithType: ModuleInfo
+  fullName: ERC.ModuleInfo
+  type: Class
+  source:
+    id: ModuleInfo
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 14
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nContains all information relating to a specific module.\n"
+  example: []
+  syntax:
+    content: public class ModuleInfo
+    content.vb: Public Class ModuleInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: ERC.ModuleInfo.ModuleName
+  commentId: P:ERC.ModuleInfo.ModuleName
+  id: ModuleName
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleName
+  nameWithType: ModuleInfo.ModuleName
+  fullName: ERC.ModuleInfo.ModuleName
+  type: Property
+  source:
+    id: ModuleName
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 20
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nModule name.\n"
+  example: []
+  syntax:
+    content: public string ModuleName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ModuleName As String
+  overload: ERC.ModuleInfo.ModuleName*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModulePath
+  commentId: P:ERC.ModuleInfo.ModulePath
+  id: ModulePath
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModulePath
+  nameWithType: ModuleInfo.ModulePath
+  fullName: ERC.ModuleInfo.ModulePath
+  type: Property
+  source:
+    id: ModulePath
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 24
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nModule path.\n"
+  example: []
+  syntax:
+    content: public string ModulePath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ModulePath As String
+  overload: ERC.ModuleInfo.ModulePath*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleVersion
+  commentId: P:ERC.ModuleInfo.ModuleVersion
+  id: ModuleVersion
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleVersion
+  nameWithType: ModuleInfo.ModuleVersion
+  fullName: ERC.ModuleInfo.ModuleVersion
+  type: Property
+  source:
+    id: ModuleVersion
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 28
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nModule version.\n"
+  example: []
+  syntax:
+    content: public string ModuleVersion { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ModuleVersion As String
+  overload: ERC.ModuleInfo.ModuleVersion*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleProduct
+  commentId: P:ERC.ModuleInfo.ModuleProduct
+  id: ModuleProduct
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleProduct
+  nameWithType: ModuleInfo.ModuleProduct
+  fullName: ERC.ModuleInfo.ModuleProduct
+  type: Property
+  source:
+    id: ModuleProduct
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 32
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nModule product.\n"
+  example: []
+  syntax:
+    content: public string ModuleProduct { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ModuleProduct As String
+  overload: ERC.ModuleInfo.ModuleProduct*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleProtection
+  commentId: P:ERC.ModuleInfo.ModuleProtection
+  id: ModuleProtection
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleProtection
+  nameWithType: ModuleInfo.ModuleProtection
+  fullName: ERC.ModuleInfo.ModuleProtection
+  type: Property
+  source:
+    id: ModuleProtection
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 37
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nMemory protection of this module.\n"
+  example: []
+  syntax:
+    content: public uint ModuleProtection { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public ReadOnly Property ModuleProtection As UInteger
+  overload: ERC.ModuleInfo.ModuleProtection*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleBase
+  commentId: P:ERC.ModuleInfo.ModuleBase
+  id: ModuleBase
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleBase
+  nameWithType: ModuleInfo.ModuleBase
+  fullName: ERC.ModuleInfo.ModuleBase
+  type: Property
+  source:
+    id: ModuleBase
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 42
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nModule base pointer.\n"
+  example: []
+  syntax:
+    content: public IntPtr ModuleBase { get; }
+    parameters: []
+    return:
+      type: System.IntPtr
+    content.vb: Public ReadOnly Property ModuleBase As IntPtr
+  overload: ERC.ModuleInfo.ModuleBase*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleEntry
+  commentId: P:ERC.ModuleInfo.ModuleEntry
+  id: ModuleEntry
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleEntry
+  nameWithType: ModuleInfo.ModuleEntry
+  fullName: ERC.ModuleInfo.ModuleEntry
+  type: Property
+  source:
+    id: ModuleEntry
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 46
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nModule entry point.\n"
+  example: []
+  syntax:
+    content: public IntPtr ModuleEntry { get; }
+    parameters: []
+    return:
+      type: System.IntPtr
+    content.vb: Public ReadOnly Property ModuleEntry As IntPtr
+  overload: ERC.ModuleInfo.ModuleEntry*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleImageBase
+  commentId: P:ERC.ModuleInfo.ModuleImageBase
+  id: ModuleImageBase
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleImageBase
+  nameWithType: ModuleInfo.ModuleImageBase
+  fullName: ERC.ModuleInfo.ModuleImageBase
+  type: Property
+  source:
+    id: ModuleImageBase
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 50
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nModule image base.\n"
+  example: []
+  syntax:
+    content: public IntPtr ModuleImageBase { get; }
+    parameters: []
+    return:
+      type: System.IntPtr
+    content.vb: Public ReadOnly Property ModuleImageBase As IntPtr
+  overload: ERC.ModuleInfo.ModuleImageBase*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleSize
+  commentId: P:ERC.ModuleInfo.ModuleSize
+  id: ModuleSize
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleSize
+  nameWithType: ModuleInfo.ModuleSize
+  fullName: ERC.ModuleInfo.ModuleSize
+  type: Property
+  source:
+    id: ModuleSize
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 54
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nModule size.\n"
+  example: []
+  syntax:
+    content: public int ModuleSize { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property ModuleSize As Integer
+  overload: ERC.ModuleInfo.ModuleSize*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleASLR
+  commentId: P:ERC.ModuleInfo.ModuleASLR
+  id: ModuleASLR
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleASLR
+  nameWithType: ModuleInfo.ModuleASLR
+  fullName: ERC.ModuleInfo.ModuleASLR
+  type: Property
+  source:
+    id: ModuleASLR
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 59
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nModule supports ASLR.\n"
+  example: []
+  syntax:
+    content: public bool ModuleASLR { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property ModuleASLR As Boolean
+  overload: ERC.ModuleInfo.ModuleASLR*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleSafeSEH
+  commentId: P:ERC.ModuleInfo.ModuleSafeSEH
+  id: ModuleSafeSEH
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleSafeSEH
+  nameWithType: ModuleInfo.ModuleSafeSEH
+  fullName: ERC.ModuleInfo.ModuleSafeSEH
+  type: Property
+  source:
+    id: ModuleSafeSEH
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 63
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nModule supports SafeSEH\n"
+  example: []
+  syntax:
+    content: public bool ModuleSafeSEH { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property ModuleSafeSEH As Boolean
+  overload: ERC.ModuleInfo.ModuleSafeSEH*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleRebase
+  commentId: P:ERC.ModuleInfo.ModuleRebase
+  id: ModuleRebase
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleRebase
+  nameWithType: ModuleInfo.ModuleRebase
+  fullName: ERC.ModuleInfo.ModuleRebase
+  type: Property
+  source:
+    id: ModuleRebase
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 67
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nModule can be rebased.\n"
+  example: []
+  syntax:
+    content: public bool ModuleRebase { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property ModuleRebase As Boolean
+  overload: ERC.ModuleInfo.ModuleRebase*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleNXCompat
+  commentId: P:ERC.ModuleInfo.ModuleNXCompat
+  id: ModuleNXCompat
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleNXCompat
+  nameWithType: ModuleInfo.ModuleNXCompat
+  fullName: ERC.ModuleInfo.ModuleNXCompat
+  type: Property
+  source:
+    id: ModuleNXCompat
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 71
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nModule is DEP enabled.\n"
+  example: []
+  syntax:
+    content: public bool ModuleNXCompat { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property ModuleNXCompat As Boolean
+  overload: ERC.ModuleInfo.ModuleNXCompat*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleOsDll
+  commentId: P:ERC.ModuleInfo.ModuleOsDll
+  id: ModuleOsDll
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleOsDll
+  nameWithType: ModuleInfo.ModuleOsDll
+  fullName: ERC.ModuleInfo.ModuleOsDll
+  type: Property
+  source:
+    id: ModuleOsDll
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 75
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nModule is an OS dll.\n"
+  example: []
+  syntax:
+    content: public bool ModuleOsDll { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property ModuleOsDll As Boolean
+  overload: ERC.ModuleInfo.ModuleOsDll*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleProcess
+  commentId: P:ERC.ModuleInfo.ModuleProcess
+  id: ModuleProcess
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleProcess
+  nameWithType: ModuleInfo.ModuleProcess
+  fullName: ERC.ModuleInfo.ModuleProcess
+  type: Property
+  source:
+    id: ModuleProcess
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 79
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nProcess where the module is loaded.\n"
+  example: []
+  syntax:
+    content: public Process ModuleProcess { get; }
+    parameters: []
+    return:
+      type: System.Diagnostics.Process
+    content.vb: Public ReadOnly Property ModuleProcess As Process
+  overload: ERC.ModuleInfo.ModuleProcess*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleCore
+  commentId: P:ERC.ModuleInfo.ModuleCore
+  id: ModuleCore
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleCore
+  nameWithType: ModuleInfo.ModuleCore
+  fullName: ERC.ModuleInfo.ModuleCore
+  type: Property
+  source:
+    id: ModuleCore
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 83
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nAssociated ErcCore object.\n"
+  example: []
+  syntax:
+    content: public ErcCore ModuleCore { get; }
+    parameters: []
+    return:
+      type: ERC.ErcCore
+    content.vb: Public ReadOnly Property ModuleCore As ErcCore
+  overload: ERC.ModuleInfo.ModuleCore*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleMachineType
+  commentId: P:ERC.ModuleInfo.ModuleMachineType
+  id: ModuleMachineType
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleMachineType
+  nameWithType: ModuleInfo.ModuleMachineType
+  fullName: ERC.ModuleInfo.ModuleMachineType
+  type: Property
+  source:
+    id: ModuleMachineType
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 88
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nMachine type of the module.\n"
+  example: []
+  syntax:
+    content: public MachineType ModuleMachineType { get; }
+    parameters: []
+    return:
+      type: ERC.MachineType
+    content.vb: Public ReadOnly Property ModuleMachineType As MachineType
+  overload: ERC.ModuleInfo.ModuleMachineType*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: ERC.ModuleInfo.ModuleFailed
+  commentId: F:ERC.ModuleInfo.ModuleFailed
+  id: ModuleFailed
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ModuleFailed
+  nameWithType: ModuleInfo.ModuleFailed
+  fullName: ERC.ModuleInfo.ModuleFailed
+  type: Field
+  source:
+    id: ModuleFailed
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 103
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nAn errpr was encountered whilst processing the module.\n"
+  example: []
+  syntax:
+    content: public bool ModuleFailed
+    return:
+      type: System.Boolean
+    content.vb: Public ModuleFailed As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: ERC.ModuleInfo.SearchModule(System.Byte[])
+  commentId: M:ERC.ModuleInfo.SearchModule(System.Byte[])
+  id: SearchModule(System.Byte[])
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: SearchModule(Byte[])
+  nameWithType: ModuleInfo.SearchModule(Byte[])
+  fullName: ERC.ModuleInfo.SearchModule(System.Byte[])
+  type: Method
+  source:
+    id: SearchModule
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 401
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nSearches for a string of bytes within a specific module. Takes a byte array to be searched for. \n"
+  example: []
+  syntax:
+    content: public ErcResult<List<IntPtr>> SearchModule(byte[] searchBytes)
+    parameters:
+    - id: searchBytes
+      type: System.Byte[]
+      description: A byte array to be searched for
+    return:
+      type: ERC.ErcResult{System.Collections.Generic.List{System.IntPtr}}
+      description: Returns ERC_Result of pointers to the search term
+    content.vb: Public Function SearchModule(searchBytes As Byte()) As ErcResult(Of List(Of IntPtr))
+  overload: ERC.ModuleInfo.SearchModule*
+  nameWithType.vb: ModuleInfo.SearchModule(Byte())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: ERC.ModuleInfo.SearchModule(System.Byte())
+  name.vb: SearchModule(Byte())
+- uid: ERC.ModuleInfo.ToString
+  commentId: M:ERC.ModuleInfo.ToString
+  id: ToString
+  parent: ERC.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ModuleInfo.ToString()
+  fullName: ERC.ModuleInfo.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: C:\Users\Andy\Documents\GitHub\ERC.net\ERC\Module_Info.cs
+    startLine: 450
+  assemblies:
+  - ERC.Net
+  namespace: ERC
+  summary: "\nOverride of the ToString method. Provides a data associated with the module.\n"
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string containing relevant data.
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.Object.ToString
+  overload: ERC.ModuleInfo.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: ERC
+  commentId: N:ERC
+  name: ERC
+  nameWithType: ERC
+  fullName: ERC
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ERC.ModuleInfo.ModuleName*
+  commentId: Overload:ERC.ModuleInfo.ModuleName
+  name: ModuleName
+  nameWithType: ModuleInfo.ModuleName
+  fullName: ERC.ModuleInfo.ModuleName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: ERC.ModuleInfo.ModulePath*
+  commentId: Overload:ERC.ModuleInfo.ModulePath
+  name: ModulePath
+  nameWithType: ModuleInfo.ModulePath
+  fullName: ERC.ModuleInfo.ModulePath
+- uid: ERC.ModuleInfo.ModuleVersion*
+  commentId: Overload:ERC.ModuleInfo.ModuleVersion
+  name: ModuleVersion
+  nameWithType: ModuleInfo.ModuleVersion
+  fullName: ERC.ModuleInfo.ModuleVersion
+- uid: ERC.ModuleInfo.ModuleProduct*
+  commentId: Overload:ERC.ModuleInfo.ModuleProduct
+  name: ModuleProduct
+  nameWithType: ModuleInfo.ModuleProduct
+  fullName: ERC.ModuleInfo.ModuleProduct
+- uid: ERC.ModuleInfo.ModuleProtection*
+  commentId: Overload:ERC.ModuleInfo.ModuleProtection
+  name: ModuleProtection
+  nameWithType: ModuleInfo.ModuleProtection
+  fullName: ERC.ModuleInfo.ModuleProtection
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: ERC.ModuleInfo.ModuleBase*
+  commentId: Overload:ERC.ModuleInfo.ModuleBase
+  name: ModuleBase
+  nameWithType: ModuleInfo.ModuleBase
+  fullName: ERC.ModuleInfo.ModuleBase
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  name: IntPtr
+  nameWithType: IntPtr
+  fullName: System.IntPtr
+- uid: ERC.ModuleInfo.ModuleEntry*
+  commentId: Overload:ERC.ModuleInfo.ModuleEntry
+  name: ModuleEntry
+  nameWithType: ModuleInfo.ModuleEntry
+  fullName: ERC.ModuleInfo.ModuleEntry
+- uid: ERC.ModuleInfo.ModuleImageBase*
+  commentId: Overload:ERC.ModuleInfo.ModuleImageBase
+  name: ModuleImageBase
+  nameWithType: ModuleInfo.ModuleImageBase
+  fullName: ERC.ModuleInfo.ModuleImageBase
+- uid: ERC.ModuleInfo.ModuleSize*
+  commentId: Overload:ERC.ModuleInfo.ModuleSize
+  name: ModuleSize
+  nameWithType: ModuleInfo.ModuleSize
+  fullName: ERC.ModuleInfo.ModuleSize
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: ERC.ModuleInfo.ModuleASLR*
+  commentId: Overload:ERC.ModuleInfo.ModuleASLR
+  name: ModuleASLR
+  nameWithType: ModuleInfo.ModuleASLR
+  fullName: ERC.ModuleInfo.ModuleASLR
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: ERC.ModuleInfo.ModuleSafeSEH*
+  commentId: Overload:ERC.ModuleInfo.ModuleSafeSEH
+  name: ModuleSafeSEH
+  nameWithType: ModuleInfo.ModuleSafeSEH
+  fullName: ERC.ModuleInfo.ModuleSafeSEH
+- uid: ERC.ModuleInfo.ModuleRebase*
+  commentId: Overload:ERC.ModuleInfo.ModuleRebase
+  name: ModuleRebase
+  nameWithType: ModuleInfo.ModuleRebase
+  fullName: ERC.ModuleInfo.ModuleRebase
+- uid: ERC.ModuleInfo.ModuleNXCompat*
+  commentId: Overload:ERC.ModuleInfo.ModuleNXCompat
+  name: ModuleNXCompat
+  nameWithType: ModuleInfo.ModuleNXCompat
+  fullName: ERC.ModuleInfo.ModuleNXCompat
+- uid: ERC.ModuleInfo.ModuleOsDll*
+  commentId: Overload:ERC.ModuleInfo.ModuleOsDll
+  name: ModuleOsDll
+  nameWithType: ModuleInfo.ModuleOsDll
+  fullName: ERC.ModuleInfo.ModuleOsDll
+- uid: ERC.ModuleInfo.ModuleProcess*
+  commentId: Overload:ERC.ModuleInfo.ModuleProcess
+  name: ModuleProcess
+  nameWithType: ModuleInfo.ModuleProcess
+  fullName: ERC.ModuleInfo.ModuleProcess
+- uid: System.Diagnostics.Process
+  commentId: T:System.Diagnostics.Process
+  parent: System.Diagnostics
+  isExternal: true
+  name: Process
+  nameWithType: Process
+  fullName: System.Diagnostics.Process
+- uid: System.Diagnostics
+  commentId: N:System.Diagnostics
+  isExternal: true
+  name: System.Diagnostics
+  nameWithType: System.Diagnostics
+  fullName: System.Diagnostics
+- uid: ERC.ModuleInfo.ModuleCore*
+  commentId: Overload:ERC.ModuleInfo.ModuleCore
+  name: ModuleCore
+  nameWithType: ModuleInfo.ModuleCore
+  fullName: ERC.ModuleInfo.ModuleCore
+- uid: ERC.ErcCore
+  commentId: T:ERC.ErcCore
+  parent: ERC
+  name: ErcCore
+  nameWithType: ErcCore
+  fullName: ERC.ErcCore
+- uid: ERC.ModuleInfo.ModuleMachineType*
+  commentId: Overload:ERC.ModuleInfo.ModuleMachineType
+  name: ModuleMachineType
+  nameWithType: ModuleInfo.ModuleMachineType
+  fullName: ERC.ModuleInfo.ModuleMachineType
+- uid: ERC.MachineType
+  commentId: T:ERC.MachineType
+  parent: ERC
+  name: MachineType
+  nameWithType: MachineType
+  fullName: ERC.MachineType
+- uid: ERC.ModuleInfo.SearchModule*
+  commentId: Overload:ERC.ModuleInfo.SearchModule
+  name: SearchModule
+  nameWithType: ModuleInfo.SearchModule
+  fullName: ERC.ModuleInfo.SearchModule
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: ERC.ErcResult{System.Collections.Generic.List{System.IntPtr}}
+  commentId: T:ERC.ErcResult{System.Collections.Generic.List{System.IntPtr}}
+  parent: ERC
+  definition: ERC.ErcResult`1
+  name: ErcResult<List<IntPtr>>
+  nameWithType: ErcResult<List<IntPtr>>
+  fullName: ERC.ErcResult<System.Collections.Generic.List<System.IntPtr>>
+  nameWithType.vb: ErcResult(Of List(Of IntPtr))
+  fullName.vb: ERC.ErcResult(Of System.Collections.Generic.List(Of System.IntPtr))
+  name.vb: ErcResult(Of List(Of IntPtr))
+  spec.csharp:
+  - uid: ERC.ErcResult`1
+    name: ErcResult
+    nameWithType: ErcResult
+    fullName: ERC.ErcResult
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.IntPtr
+    name: IntPtr
+    nameWithType: IntPtr
+    fullName: System.IntPtr
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: ERC.ErcResult`1
+    name: ErcResult
+    nameWithType: ErcResult
+    fullName: ERC.ErcResult
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.IntPtr
+    name: IntPtr
+    nameWithType: IntPtr
+    fullName: System.IntPtr
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ERC.ErcResult`1
+  commentId: T:ERC.ErcResult`1
+  name: ErcResult<T>
+  nameWithType: ErcResult<T>
+  fullName: ERC.ErcResult<T>
+  nameWithType.vb: ErcResult(Of T)
+  fullName.vb: ERC.ErcResult(Of T)
+  name.vb: ErcResult(Of T)
+  spec.csharp:
+  - uid: ERC.ErcResult`1
+    name: ErcResult
+    nameWithType: ErcResult
+    fullName: ERC.ErcResult
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: ERC.ErcResult`1
+    name: ErcResult
+    nameWithType: ErcResult
+    fullName: ERC.ErcResult
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: ERC.ModuleInfo.ToString*
+  commentId: Overload:ERC.ModuleInfo.ToString
+  name: ToString
+  nameWithType: ModuleInfo.ToString
+  fullName: ERC.ModuleInfo.ToString
