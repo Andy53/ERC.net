@@ -5,6 +5,9 @@ using ERC.Structures;
 
 namespace ERC
 {
+    /// <summary>
+    /// Contains all information relating to a specific heap.
+    /// </summary>
     public class HeapInfo
     {
         #region Variables
@@ -15,6 +18,11 @@ namespace ERC
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// HeapInfo Constructor
+        /// </summary>
+        /// <param name="info">ProcessInfo object for the associated process.</param>
+        /// <exception cref="ERCException">Throws an ERCException if the provided handle or response are invalid.</exception>
         public HeapInfo(ProcessInfo info)
         {
             HeapProcess = info;
@@ -217,10 +225,10 @@ namespace ERC
         /// <summary>
         /// Returns a collections of stats related to the heap of the current process object. If both heapID and startAddress are specified heapID takes precedence.
         /// </summary>
-        /// <param name="extended">display an extended set of </param>
+        /// <param name="extended">display an extended set of stats</param>
         /// <param name="heapID">The ID of the heap to display stats for. (optional)</param>
         /// <param name="hexStartAddress">The start address of the specific heap block to display stats for in hexadecimal. (optional)</param>
-        /// <returns>returns a List<string> object</returns>
+        /// <returns>returns a List string object</returns>
         public ErcResult<List<string>> HeapStatistics(bool extended = false, ulong heapID = 0, string hexStartAddress = "")
         {
             ErcResult<List<string>> result = new ErcResult<List<string>>(HeapProcess);
@@ -439,7 +447,7 @@ namespace ERC
         /// <summary>
         /// Lists all HeapIDs associated with a process.
         /// </summary>
-        /// <returns>Returns an ErcResult<List<ulong>>"</returns>
+        /// <returns>Returns an ErcResult List ulong"</returns>
         public ErcResult<List<ulong>> HeapIDs()
         {
             ErcResult<List<ulong>> result = new ErcResult<List<ulong>>(HeapProcess);

@@ -50,8 +50,7 @@ namespace ERC.Utilities
         /// <summary>
         /// Constructor.
         /// </summary>
-        /// <param name="_info">The ProcessInfo object.</param
-        /// <param name="methods">Integer identifying which Rop mehtods to use</param>
+        /// <param name="_info">The ProcessInfo object.</param>
         public RopChainGenerator32(ProcessInfo _info)
         {
             if (_info.ProcessMachineType == MachineType.I386)
@@ -253,6 +252,7 @@ namespace ERC.Utilities
         /// <param name="ptrsToExclude">Takes a byte array of values used to disqualify ROP gadgets</param>
         /// <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
         /// <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+        /// <param name="methods">RopMethod onject indicating which method to use. Can be omitted for all methods.</param>
         /// <returns>Returns an ErcResult string containing</returns>
         public ErcResult<string> GenerateRopChain32(byte[] ptrsToExclude, byte[] startAddress = null, List<string> excludes = null, RopMethod methods = RopMethod.All)
         {
@@ -3947,10 +3947,25 @@ namespace ERC.Utilities
         [Flags]
         public enum RopMethod : ushort
         {
+            /// <summary>
+            /// VirtualAlloc
+            /// </summary>
             [Description(" VirtualAlloc")]          VirtualAlloc        = 1, 
+            /// <summary>
+            /// HeapCreate
+            /// </summary>
             [Description(" HeapCreate")]            HeapCreate          = 2, 
+            /// <summary>
+            /// VirtualProtect
+            /// </summary>
             [Description(" VirtualProtect")]        VirtualProtect      = 4, 
+            /// <summary>
+            /// WriteProcessMemory
+            /// </summary>
             [Description(" WriteProcessMemory")]    WriteProcessMemory  = 8, 
+            /// <summary>
+            /// All
+            /// </summary>
             [Description(" All")]                   All                 = 15  
         }
     }

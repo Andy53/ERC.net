@@ -389,6 +389,7 @@ namespace ERC.Utilities
         /// <param name="ptrsToExclude">Takes a byte array of values used to disqualify ROP gadgets</param>
         /// <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
         /// <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+        /// <param name="methods">ushort indicating the ROP method to be utilizied. Can be omiited for all.</param>
         /// <returns>Returns an ErcResult string containing</returns>
         public ErcResult<string> GenerateRopChain64(byte[] ptrsToExclude, byte[] startAddress = null, List<string> excludes = null, RopMethod methods = RopMethod.All)
         {
@@ -559,6 +560,7 @@ namespace ERC.Utilities
         /// </summary>
         /// <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
         /// <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+        /// <param name="methods">ushort indicating the ROP method to be utilizied. Can be omiited for all.</param>
         /// <returns>Returns an ErcResult string containing</returns>
         public ErcResult<string> GenerateRopChain64(byte[] startAddress = null, List<string> excludes = null, RopMethod methods = RopMethod.All)
         {
@@ -4932,10 +4934,25 @@ namespace ERC.Utilities
         [Flags]
         public enum RopMethod : ushort
         {
+            /// <summary>
+            /// VirtualAlloc
+            /// </summary>
             [Description(" VirtualAlloc")] VirtualAlloc = 1,
+            /// <summary>
+            /// HeapCreate
+            /// </summary>
             [Description(" HeapCreate")] HeapCreate = 2,
+            /// <summary>
+            /// VirtualProtect
+            /// </summary>
             [Description(" VirtualProtect")] VirtualProtect = 4,
+            /// <summary>
+            /// WriteProcessMemory
+            /// </summary>
             [Description(" WriteProcessMemory")] WriteProcessMemory = 8,
+            /// <summary>
+            /// All
+            /// </summary>
             [Description(" All")] All = 15
         }
     }

@@ -3042,7 +3042,10 @@ namespace ERC
         /// <summary>
         /// Returns statistics about the heap information gathered about the current process.
         /// </summary>
-        /// <param name="hi"></param>
+        /// <param name="hi">HeapInfo Object</param>
+        /// <param name="heapID">ID of the heap object</param>
+        /// <param name="hexStartAddress">Start address of the heap object (optional)</param>
+        /// <param name="extended">Displays an extended set of statistics</param>
         /// <returns>Returns an of strings</returns>
         public static string[] HeapStats(HeapInfo hi, ulong heapID = 0, string hexStartAddress = "", bool extended = false)
         {

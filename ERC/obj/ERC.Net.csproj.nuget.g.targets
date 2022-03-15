@@ -2,5 +2,6 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)reloaded.assembler\1.0.5\build\Reloaded.Assembler.targets" Condition="Exists('$(NuGetPackageRoot)reloaded.assembler\1.0.5\build\Reloaded.Assembler.targets')" />
+    <Import Project="$(NuGetPackageRoot)docfx.console\2.59.0\build\docfx.console.targets" Condition="Exists('$(NuGetPackageRoot)docfx.console\2.59.0\build\docfx.console.targets')" />
   </ImportGroup>
 </Project>

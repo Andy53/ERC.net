@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zEXDQYmCYaVEwIIwzdJo7SI99RxqTTdD69mThY6nW6ZE7Wm9tu46DZvXJnCi0OCavQn6dGEkiYCyFXxekiyoDw==",
+  "dgSpecHash": "YR28QWf+E7W3g43MWomhzO4mCugHBLmVS78d/BZLYrPZ6pc89ISgHBsRDsymEMdOeeKrXRPAjjE6sFWJgs4LPQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Andy\\Documents\\GitHub\\ERC.net\\ERC\\ERC.Net.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Andy\\.nuget\\packages\\docfx.console\\2.59.0\\docfx.console.2.59.0.nupkg.sha512",
     "C:\\Users\\Andy\\.nuget\\packages\\reloaded.assembler\\1.0.5\\reloaded.assembler.1.0.5.nupkg.sha512",
     "C:\\Users\\Andy\\.nuget\\packages\\reloaded.memory\\1.2.2\\reloaded.memory.1.2.2.nupkg.sha512",
     "C:\\Users\\Andy\\.nuget\\packages\\reloaded.memory.buffers\\1.2.0\\reloaded.memory.buffers.1.2.0.nupkg.sha512",

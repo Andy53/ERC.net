@@ -3065,13 +3065,37 @@ namespace ERC
         [Flags]
         public enum SnapshotFlags : uint
         {
+            /// <summary>
+            /// HeapList
+            /// </summary>
             HeapList = 0x00000001,
+            /// <summary>
+            /// Process
+            /// </summary>
             Process = 0x00000002,
+            /// <summary>
+            /// Thread
+            /// </summary>
             Thread = 0x00000004,
+            /// <summary>
+            /// Module
+            /// </summary>
             Module = 0x00000008,
+            /// <summary>
+            /// Module32
+            /// </summary>
             Module32 = 0x00000010,
+            /// <summary>
+            /// Injerit
+            /// </summary>
             Inherit = 0x80000000,
+            /// <summary>
+            /// All
+            /// </summary>
             All = 0x0000001F,
+            /// <summary>
+            /// NoHeaps
+            /// </summary>
             NoHeaps = 0x40000000
         }
 

@@ -4,12 +4,31 @@ using System.Runtime.InteropServices;
 
 namespace ERC.Utilities
 {
+    /// <summary>
+    /// Handler for Win32 Errors.
+    /// </summary>
     public static class Win32Errors
     {
         #region definitions
+        /// <summary>
+        /// Win32 Error Handlers
+        /// </summary>
+        /// <param name="hMem">A handle to the local memory object. This handle is returned by either the LocalAlloc or LocalReAlloc function.</param>
+        /// <returns></returns>
         [DllImport("kernel32.dll", SetLastError = true)]
         static extern IntPtr LocalFree(IntPtr hMem);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dwFlags">The formatting options, and how to interpret the lpSource parameter. </param>
+        /// <param name="lpSource">The formatting options, and how to interpret the lpSource parameter. </param>
+        /// <param name="dwMessageId">The message identifier for the requested message.</param>
+        /// <param name="dwLanguageId">The language identifier for the requested message.</param>
+        /// <param name="lpBuffer">A pointer to a buffer that receives the null-terminated string that specifies the formatted message. </param>
+        /// <param name="nSize">If the FORMAT_MESSAGE_ALLOCATE_BUFFER flag is not set, this parameter specifies the size of the output buffer</param>
+        /// <param name="Arguments">An array of values that are used as insert values in the formatted message. </param>
+        /// <returns>If the function succeeds, the return value is the number of TCHARs stored in the output buffer, excluding the terminating null character.</returns>
         [DllImport("kernel32.dll", SetLastError = true)]
         static extern int FormatMessage(FormatMessageFlags dwFlags, IntPtr lpSource, uint dwMessageId, uint dwLanguageId, ref IntPtr lpBuffer, uint nSize, IntPtr Arguments);
 
