@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct IMAGE_OPTIONAL_HEADER32
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct IMAGE_OPTIONAL_HEADER32
+   ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32">
+  
+  
+  <h1 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32" class="text-break">Struct IMAGE_OPTIONAL_HEADER32
+  </h1>
+  <div class="markdown level0 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">IMAGE_OPTIONAL_HEADER 32 bit variant. See <a href="https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_image_optional_header" sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-_image_optional_header</a></p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.ValueType.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.ValueType.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.ValueType.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ERC.Structures.html">ERC.Structures</a></h6>
+  <h6><strong>Assembly</strong>: ERC.Net.dll</h6>
+  <h5 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct IMAGE_OPTIONAL_HEADER32</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_AddressOfEntryPoint.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.AddressOfEntryPoint%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L983">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_AddressOfEntryPoint" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.AddressOfEntryPoint">AddressOfEntryPoint</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">AddressOfEntryPoint</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint AddressOfEntryPoint</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_Architecture.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.Architecture%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1107">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_Architecture" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.Architecture">Architecture</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">Architecture</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY Architecture</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_BaseOfCode.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L987">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_BaseOfCode" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfCode">BaseOfCode</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">BaseOfCode</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint BaseOfCode</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_BaseOfData.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L991">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_BaseOfData" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseOfData">BaseOfData</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">BaseOfData</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint BaseOfData</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_BaseRelocationTable.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseRelocationTable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1099">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_BaseRelocationTable" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.BaseRelocationTable">BaseRelocationTable</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">BaseRelocationTable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY BaseRelocationTable</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_BoundImport.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.BoundImport%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1123">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_BoundImport" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.BoundImport">BoundImport</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">BoundImport</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY BoundImport</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_CertificateTable.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.CertificateTable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1095">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_CertificateTable" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.CertificateTable">CertificateTable</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">CertificateTable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY CertificateTable</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_CheckSum.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.CheckSum%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1043">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_CheckSum" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.CheckSum">CheckSum</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">CheckSum</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint CheckSum</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_CLRRuntimeHeader.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.CLRRuntimeHeader%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1135">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_CLRRuntimeHeader" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.CLRRuntimeHeader">CLRRuntimeHeader</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">CLRRuntimeHeader</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY CLRRuntimeHeader</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_Debug.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.Debug%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1103">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_Debug" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.Debug">Debug</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">Debug</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY Debug</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_DelayImportDescriptor.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.DelayImportDescriptor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1131">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_DelayImportDescriptor" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.DelayImportDescriptor">DelayImportDescriptor</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">DelayImportDescriptor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY DelayImportDescriptor</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_DllCharacteristics.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.DllCharacteristics%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1051">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_DllCharacteristics" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.DllCharacteristics">DllCharacteristics</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">DllCharacteristics</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort DllCharacteristics</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_ExceptionTable.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExceptionTable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1091">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_ExceptionTable" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExceptionTable">ExceptionTable</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">ExceptionTable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY ExceptionTable</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_ExportTable.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExportTable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1079">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_ExportTable" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.ExportTable">ExportTable</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">ExportTable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY ExportTable</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_FileAlignment.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.FileAlignment%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1003">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_FileAlignment" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.FileAlignment">FileAlignment</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">FileAlignment</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint FileAlignment</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_GlobalPtr.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.GlobalPtr%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1111">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_GlobalPtr" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.GlobalPtr">GlobalPtr</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">GlobalPtr</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY GlobalPtr</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_IAT.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.IAT%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1127">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_IAT" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.IAT">IAT</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">IAT</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY IAT</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_ImageBase.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImageBase%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L995">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_ImageBase" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImageBase">ImageBase</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">ImageBase</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint ImageBase</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_ImportTable.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImportTable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1083">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_ImportTable" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.ImportTable">ImportTable</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">ImportTable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY ImportTable</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_LoadConfigTable.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoadConfigTable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1119">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_LoadConfigTable" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoadConfigTable">LoadConfigTable</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">LoadConfigTable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY LoadConfigTable</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_LoaderFlags.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoaderFlags%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1071">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_LoaderFlags" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.LoaderFlags">LoaderFlags</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">LoaderFlags</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint LoaderFlags</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_Magic.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.Magic%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L959">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_Magic" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.Magic">Magic</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">Magic</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MagicType Magic</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.MagicType.html">MagicType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_MajorImageVersion.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorImageVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1015">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_MajorImageVersion" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorImageVersion">MajorImageVersion</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">MajorImageVersion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort MajorImageVersion</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_MajorLinkerVersion.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorLinkerVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L963">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_MajorLinkerVersion" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorLinkerVersion">MajorLinkerVersion</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">MajorLinkerVersion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte MajorLinkerVersion</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_MajorOperatingSystemVersion.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorOperatingSystemVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1007">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_MajorOperatingSystemVersion" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorOperatingSystemVersion">MajorOperatingSystemVersion</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">MajorOperatingSystemVersion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort MajorOperatingSystemVersion</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_MajorSubsystemVersion.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorSubsystemVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1023">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_MajorSubsystemVersion" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.MajorSubsystemVersion">MajorSubsystemVersion</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">MajorSubsystemVersion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort MajorSubsystemVersion</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_MinorImageVersion.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorImageVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1019">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_MinorImageVersion" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorImageVersion">MinorImageVersion</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">MinorImageVersion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort MinorImageVersion</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_MinorLinkerVersion.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorLinkerVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L967">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_MinorLinkerVersion" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorLinkerVersion">MinorLinkerVersion</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">MinorLinkerVersion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte MinorLinkerVersion</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_MinorOperatingSystemVersion.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorOperatingSystemVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1011">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_MinorOperatingSystemVersion" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorOperatingSystemVersion">MinorOperatingSystemVersion</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">MinorOperatingSystemVersion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort MinorOperatingSystemVersion</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_MinorSubsystemVersion.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorSubsystemVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1027">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_MinorSubsystemVersion" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.MinorSubsystemVersion">MinorSubsystemVersion</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">MinorSubsystemVersion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort MinorSubsystemVersion</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_NumberOfRvaAndSizes.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.NumberOfRvaAndSizes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1075">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_NumberOfRvaAndSizes" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.NumberOfRvaAndSizes">NumberOfRvaAndSizes</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">NumberOfRvaAndSizes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint NumberOfRvaAndSizes</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_Reserved.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.Reserved%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1139">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_Reserved" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.Reserved">Reserved</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">Reserved</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY Reserved</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_ResourceTable.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.ResourceTable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1087">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_ResourceTable" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.ResourceTable">ResourceTable</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">ResourceTable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY ResourceTable</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_SectionAlignment.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.SectionAlignment%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L999">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_SectionAlignment" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.SectionAlignment">SectionAlignment</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">SectionAlignment</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint SectionAlignment</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfCode.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L971">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfCode" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfCode">SizeOfCode</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">SizeOfCode</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint SizeOfCode</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfHeaders.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeaders%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1039">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfHeaders" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeaders">SizeOfHeaders</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">SizeOfHeaders</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint SizeOfHeaders</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfHeapCommit.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapCommit%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1067">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfHeapCommit" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapCommit">SizeOfHeapCommit</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">SizeOfHeapCommit</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint SizeOfHeapCommit</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfHeapReserve.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapReserve%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1063">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfHeapReserve" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfHeapReserve">SizeOfHeapReserve</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">SizeOfHeapReserve</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint SizeOfHeapReserve</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfImage.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfImage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1035">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfImage" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfImage">SizeOfImage</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">SizeOfImage</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint SizeOfImage</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfInitializedData.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfInitializedData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L975">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfInitializedData" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfInitializedData">SizeOfInitializedData</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">SizeOfInitializedData</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint SizeOfInitializedData</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfStackCommit.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackCommit%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1059">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfStackCommit" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackCommit">SizeOfStackCommit</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">SizeOfStackCommit</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint SizeOfStackCommit</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfStackReserve.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackReserve%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1055">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfStackReserve" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfStackReserve">SizeOfStackReserve</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">SizeOfStackReserve</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint SizeOfStackReserve</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfUninitializedData.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfUninitializedData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L979">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_SizeOfUninitializedData" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.SizeOfUninitializedData">SizeOfUninitializedData</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">SizeOfUninitializedData</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint SizeOfUninitializedData</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_Subsystem.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.Subsystem%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1047">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_Subsystem" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.Subsystem">Subsystem</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">Subsystem</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SubSystemType Subsystem</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.SubSystemType.html">SubSystemType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_TLSTable.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.TLSTable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1115">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_TLSTable" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.TLSTable">TLSTable</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">TLSTable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMAGE_DATA_DIRECTORY TLSTable</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.IMAGE_DATA_DIRECTORY.html">IMAGE_DATA_DIRECTORY</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32_Win32VersionValue.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32.Win32VersionValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L1031">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_IMAGE_OPTIONAL_HEADER32_Win32VersionValue" data-uid="ERC.Structures.IMAGE_OPTIONAL_HEADER32.Win32VersionValue">Win32VersionValue</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.IMAGE_OPTIONAL_HEADER32.yml" sourcestartlinenumber="2">Win32VersionValue</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint Win32VersionValue</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_IMAGE_OPTIONAL_HEADER32.md&amp;value=---%0Auid%3A%20ERC.Structures.IMAGE_OPTIONAL_HEADER32%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L953" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct CONTEXT64
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct CONTEXT64
+   ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ERC.Structures.CONTEXT64">
+  
+  
+  <h1 id="ERC_Structures_CONTEXT64" data-uid="ERC.Structures.CONTEXT64" class="text-break">Struct CONTEXT64
+  </h1>
+  <div class="markdown level0 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Structure for holding x64 register values.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.ValueType.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.ValueType.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ERC.Structures.html">ERC.Structures</a></h6>
+  <h6><strong>Assembly</strong>: ERC.Net.dll</h6>
+  <h5 id="ERC_Structures_CONTEXT64_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct CONTEXT64</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_ContextFlags.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.ContextFlags%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2589">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_ContextFlags" data-uid="ERC.Structures.CONTEXT64.ContextFlags">ContextFlags</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">ContextFlags</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CONTEXT_FLAGS ContextFlags</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.CONTEXT_FLAGS.html">CONTEXT_FLAGS</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_DebugControl.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.DebugControl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2736">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_DebugControl" data-uid="ERC.Structures.CONTEXT64.DebugControl">DebugControl</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">DebugControl</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong DebugControl</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Dr0.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Dr0%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2627">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Dr0" data-uid="ERC.Structures.CONTEXT64.Dr0">Dr0</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Dr0</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Dr0</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Dr1.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Dr1%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2631">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Dr1" data-uid="ERC.Structures.CONTEXT64.Dr1">Dr1</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Dr1</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Dr1</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Dr2.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Dr2%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2635">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Dr2" data-uid="ERC.Structures.CONTEXT64.Dr2">Dr2</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Dr2</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Dr2</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Dr3.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Dr3%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2639">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Dr3" data-uid="ERC.Structures.CONTEXT64.Dr3">Dr3</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Dr3</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Dr3</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Dr6.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Dr6%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2643">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Dr6" data-uid="ERC.Structures.CONTEXT64.Dr6">Dr6</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Dr6</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Dr6</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Dr7.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Dr7%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2647">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Dr7" data-uid="ERC.Structures.CONTEXT64.Dr7">Dr7</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Dr7</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Dr7</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_DUMMYUNIONNAME.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.DUMMYUNIONNAME%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2721">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_DUMMYUNIONNAME" data-uid="ERC.Structures.CONTEXT64.DUMMYUNIONNAME">DUMMYUNIONNAME</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">DUMMYUNIONNAME</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XSAVE_FORMAT64 DUMMYUNIONNAME</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.XSAVE_FORMAT64.html">XSAVE_FORMAT64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_EFlags.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.EFlags%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2622">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_EFlags" data-uid="ERC.Structures.CONTEXT64.EFlags">EFlags</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">EFlags</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint EFlags</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_LastBranchFromRip.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.LastBranchFromRip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2744">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_LastBranchFromRip" data-uid="ERC.Structures.CONTEXT64.LastBranchFromRip">LastBranchFromRip</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">LastBranchFromRip</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong LastBranchFromRip</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_LastBranchToRip.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.LastBranchToRip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2740">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_LastBranchToRip" data-uid="ERC.Structures.CONTEXT64.LastBranchToRip">LastBranchToRip</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">LastBranchToRip</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong LastBranchToRip</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_LastExceptionFromRip.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.LastExceptionFromRip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2752">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_LastExceptionFromRip" data-uid="ERC.Structures.CONTEXT64.LastExceptionFromRip">LastExceptionFromRip</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">LastExceptionFromRip</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong LastExceptionFromRip</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_LastExceptionToRip.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.LastExceptionToRip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2748">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_LastExceptionToRip" data-uid="ERC.Structures.CONTEXT64.LastExceptionToRip">LastExceptionToRip</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">LastExceptionToRip</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong LastExceptionToRip</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_MxCsr.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.MxCsr%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2593">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_MxCsr" data-uid="ERC.Structures.CONTEXT64.MxCsr">MxCsr</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">MxCsr</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint MxCsr</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_P1Home.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.P1Home%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2564">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_P1Home" data-uid="ERC.Structures.CONTEXT64.P1Home">P1Home</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">P1Home</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong P1Home</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_P2Home.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.P2Home%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2568">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_P2Home" data-uid="ERC.Structures.CONTEXT64.P2Home">P2Home</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">P2Home</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong P2Home</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_P3Home.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.P3Home%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2572">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_P3Home" data-uid="ERC.Structures.CONTEXT64.P3Home">P3Home</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">P3Home</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong P3Home</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_P4Home.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.P4Home%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2576">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_P4Home" data-uid="ERC.Structures.CONTEXT64.P4Home">P4Home</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">P4Home</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong P4Home</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_P5Home.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.P5Home%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2580">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_P5Home" data-uid="ERC.Structures.CONTEXT64.P5Home">P5Home</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">P5Home</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong P5Home</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_P6Home.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.P6Home%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2584">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_P6Home" data-uid="ERC.Structures.CONTEXT64.P6Home">P6Home</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">P6Home</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong P6Home</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_R10.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.R10%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2692">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_R10" data-uid="ERC.Structures.CONTEXT64.R10">R10</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">R10</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong R10</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_R11.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.R11%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2696">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_R11" data-uid="ERC.Structures.CONTEXT64.R11">R11</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">R11</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong R11</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_R12.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.R12%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2700">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_R12" data-uid="ERC.Structures.CONTEXT64.R12">R12</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">R12</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong R12</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_R13.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.R13%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2704">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_R13" data-uid="ERC.Structures.CONTEXT64.R13">R13</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">R13</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong R13</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_R14.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.R14%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2708">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_R14" data-uid="ERC.Structures.CONTEXT64.R14">R14</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">R14</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong R14</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_R15.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.R15%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2712">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_R15" data-uid="ERC.Structures.CONTEXT64.R15">R15</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">R15</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong R15</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_R8.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.R8%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2684">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_R8" data-uid="ERC.Structures.CONTEXT64.R8">R8</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">R8</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong R8</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_R9.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.R9%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2688">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_R9" data-uid="ERC.Structures.CONTEXT64.R9">R9</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">R9</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong R9</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Rax.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Rax%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2652">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Rax" data-uid="ERC.Structures.CONTEXT64.Rax">Rax</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Rax</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Rax</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Rbp.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Rbp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2672">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Rbp" data-uid="ERC.Structures.CONTEXT64.Rbp">Rbp</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Rbp</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Rbp</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Rbx.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Rbx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2664">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Rbx" data-uid="ERC.Structures.CONTEXT64.Rbx">Rbx</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Rbx</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Rbx</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Rcx.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Rcx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2656">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Rcx" data-uid="ERC.Structures.CONTEXT64.Rcx">Rcx</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Rcx</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Rcx</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Rdi.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Rdi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2680">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Rdi" data-uid="ERC.Structures.CONTEXT64.Rdi">Rdi</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Rdi</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Rdi</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Rdx.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Rdx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2660">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Rdx" data-uid="ERC.Structures.CONTEXT64.Rdx">Rdx</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Rdx</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Rdx</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Rip.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Rip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2716">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Rip" data-uid="ERC.Structures.CONTEXT64.Rip">Rip</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Rip</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Rip</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Rsi.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Rsi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2676">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Rsi" data-uid="ERC.Structures.CONTEXT64.Rsi">Rsi</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Rsi</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Rsi</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_Rsp.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.Rsp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2668">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_Rsp" data-uid="ERC.Structures.CONTEXT64.Rsp">Rsp</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Rsp</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Rsp</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_SegCs.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.SegCs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2598">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_SegCs" data-uid="ERC.Structures.CONTEXT64.SegCs">SegCs</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">SegCs</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort SegCs</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_SegDs.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.SegDs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2602">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_SegDs" data-uid="ERC.Structures.CONTEXT64.SegDs">SegDs</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">SegDs</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort SegDs</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_SegEs.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.SegEs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2606">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_SegEs" data-uid="ERC.Structures.CONTEXT64.SegEs">SegEs</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">SegEs</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort SegEs</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_SegFs.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.SegFs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2610">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_SegFs" data-uid="ERC.Structures.CONTEXT64.SegFs">SegFs</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">SegFs</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort SegFs</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_SegGs.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.SegGs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2614">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_SegGs" data-uid="ERC.Structures.CONTEXT64.SegGs">SegGs</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">SegGs</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort SegGs</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_SegSs.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.SegSs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2618">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_SegSs" data-uid="ERC.Structures.CONTEXT64.SegSs">SegSs</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">SegSs</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort SegSs</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_VectorControl.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.VectorControl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2731">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_VectorControl" data-uid="ERC.Structures.CONTEXT64.VectorControl">VectorControl</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">VectorControl</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong VectorControl</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_VectorRegister.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.VectorRegister%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2727">View Source</a>
+  </span>
+  <h4 id="ERC_Structures_CONTEXT64_VectorRegister" data-uid="ERC.Structures.CONTEXT64.VectorRegister">VectorRegister</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">VectorRegister</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public M128A[] VectorRegister</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ERC.Structures.M128A.html">M128A</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64_ToString.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2758">View Source</a>
+  </span>
+  <a id="ERC_Structures_CONTEXT64_ToString_" data-uid="ERC.Structures.CONTEXT64.ToString*"></a>
+  <h4 id="ERC_Structures_CONTEXT64_ToString" data-uid="ERC.Structures.CONTEXT64.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="2">Overridden ToString method, returns register values for the current thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p sourcefile="api/ERC.Structures.CONTEXT64.yml" sourcestartlinenumber="1">String</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Andy53/ERC.net/new/master/apiSpec/new?filename=ERC_Structures_CONTEXT64.md&amp;value=---%0Auid%3A%20ERC.Structures.CONTEXT64%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Andy53/ERC.net/blob/master/ERC/ERC_Core.cs/#L2558" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

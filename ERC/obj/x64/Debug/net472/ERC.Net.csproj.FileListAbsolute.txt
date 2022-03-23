@@ -34,7 +34,6 @@ C:\Users\Andy\Documents\GitHub\ERC.net\ERC\bin\x64\Debug\net472\System.Buffers.d
 C:\Users\Andy\Documents\GitHub\ERC.net\ERC\bin\x64\Debug\net472\System.Memory.dll
 C:\Users\Andy\Documents\GitHub\ERC.net\ERC\bin\x64\Debug\net472\System.Numerics.Vectors.dll
 C:\Users\Andy\Documents\GitHub\ERC.net\ERC\bin\x64\Debug\net472\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\Andy\Documents\GitHub\ERC.net\ERC\obj\x64\Debug\net472\ERC.Net.csproj.AssemblyReference.cache
 C:\Users\Andy\Documents\GitHub\ERC.net\ERC\obj\x64\Debug\net472\ERC.Net.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Andy\Documents\GitHub\ERC.net\ERC\obj\x64\Debug\net472\ERC.Net.AssemblyInfoInputs.cache
 C:\Users\Andy\Documents\GitHub\ERC.net\ERC\obj\x64\Debug\net472\ERC.Net.AssemblyInfo.cs
