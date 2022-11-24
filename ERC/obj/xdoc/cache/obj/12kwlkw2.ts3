@@ -1,0 +1,10 @@
+id: ERC.Net
+language: CSharp
+name:
+  Default: ERC.Net
+qualifiedName:
+  Default: ERC.Net
+type: Assembly
+modifiers: {}
+items: []
+references: {}

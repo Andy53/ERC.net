@@ -149,6 +149,16 @@
             <param name="machineType">a ERC.MachineType of either I386 or x64</param>
             <returns>Returns an ERC_Result containing associated instructions.</returns>
         </member>
+        <member name="M:ERC.Utilities.OpcodeDisassembler.Disassemble(System.Byte[],ERC.MachineType,ERC.ErcCore)">
+            <summary>
+            Disassembles opcodes into the associated instructions. Takes a byte array containing opcodes, a MachineType of I386 or x64, 
+            an instance of the ERC_Core object and returns an ERC_Result containing associated instructions.
+            </summary>
+            <param name="opcodes">A byte array containing opcodes to be disassembled</param>
+            <param name="machineType">a ERC.MachineType of either I386 or x64</param>
+            <param name="core">a ErcCore object</param>
+            <returns>Returns an ERC_Result containing associated instructions.</returns>
+        </member>
         <member name="T:ERC.Utilities.PatternTools">
             <summary>
             Static class used to build a non repeating pattern and identify the position of a string in a non repeating pattern.
@@ -287,9 +297,24 @@
             <returns>Returns a Dictionary of Intptr, string</returns>
         </member>
         <member name="T:ERC.Utilities.RopChainGenerator32">
-            <summary> Attempts to create Rop chains from 64 bit processes. </summary>
+            <summary> Attempts to create Rop chains from 32 bit processes. </summary>
         </member>
         <member name="F:ERC.Utilities.RopChainGenerator32.VirtualAllocChain">
+            <summary>
+            Contains a ROP chain which calls the VirtualAlloc method.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.HeapCreateChain">
+            <summary>
+            Contains a ROP chain which calls the VirtualAlloc method.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.VirtualProtectChain">
+            <summary>
+            Contains a ROP chain which calls the VirtualAlloc method.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.WriteProcessMemoryChain">
             <summary>
             Contains a ROP chain which calls the VirtualAlloc method.
             </summary>
@@ -300,21 +325,31 @@
             </summary>
             <param name="_info">The ProcessInfo object.</param>
         </member>
-        <member name="M:ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String})">
+        <member name="M:ERC.Utilities.RopChainGenerator32.GenerateRopGadgets32(System.Byte[],System.Collections.Generic.List{System.String})">
+            <summary>
+            Creates a list of ROP gadgets for a specific process.
+            </summary>
+            <param name="ptrsToExclude">Takes a byte array of values used to disqualify ROP gadgets</param>
+            <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+            <returns>Returns an ErcResult string containing</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator32.RopMethod)">
             <summary>
             Creates a RopChain for a specific process.
             </summary>
             <param name="ptrsToExclude">Takes a byte array of values used to disqualify ROP gadgets</param>
             <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
             <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+            <param name="methods">RopMethod onject indicating which method to use. Can be omitted for all methods.</param>
             <returns>Returns an ErcResult string containing</returns>
         </member>
-        <member name="M:ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Collections.Generic.List{System.String})">
+        <member name="M:ERC.Utilities.RopChainGenerator32.GenerateRopChain32(System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator32.RopMethod)">
             <summary>
             Creates a RopChain for a specific process.
             </summary>
-            <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
-            <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+            <param name="startAddress">A Address to be used as the start location for which memory will be made executable.</param>
+            <param name="excludes">A list of modules to be excluded from the search for ROP gadgets.</param>
+            <param name="methods">Enum value representing which methods to build rop chains with.</param>
             <returns>Returns an ErcResult string containing</returns>
         </member>
         <member name="M:ERC.Utilities.RopChainGenerator32.GetApiAddresses(ERC.ProcessInfo)">
@@ -612,10 +647,55 @@
             and list.
             </summary>
         </member>
+        <member name="T:ERC.Utilities.RopChainGenerator32.RopMethod">
+            <summary>
+            Enum of methods which can be used to generate a ROP chain.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.RopMethod.VirtualAlloc">
+            <summary>
+            VirtualAlloc
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.RopMethod.HeapCreate">
+            <summary>
+            HeapCreate
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.RopMethod.VirtualProtect">
+            <summary>
+            VirtualProtect
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.RopMethod.WriteProcessMemory">
+            <summary>
+            WriteProcessMemory
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator32.RopMethod.All">
+            <summary>
+            All
+            </summary>
+        </member>
         <member name="T:ERC.Utilities.RopChainGenerator64">
             <summary> Attempts to create Rop chains from 64 bit processes. </summary>
         </member>
         <member name="F:ERC.Utilities.RopChainGenerator64.VirtualAllocChain">
+            <summary>
+            Contains a ROP chain which calls the VirtualAlloc method.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.HeapCreateChain">
+            <summary>
+            Contains a ROP chain which calls the VirtualAlloc method.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.VirtualProtectChain">
+            <summary>
+            Contains a ROP chain which calls the VirtualAlloc method.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.WriteProcessMemoryChain">
             <summary>
             Contains a ROP chain which calls the VirtualAlloc method.
             </summary>
@@ -626,21 +706,31 @@
             </summary>
             <param name="_info">ProcessInfo object for which a ROP chain will be generated</param>
         </member>
-        <member name="M:ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String})">
+        <member name="M:ERC.Utilities.RopChainGenerator64.GenerateRopGadgets64(System.Byte[],System.Collections.Generic.List{System.String})">
+            <summary>
+            Creates a list of ROP gadgets for a specific process.
+            </summary>
+            <param name="ptrsToExclude">Takes a byte array of values used to disqualify ROP gadgets</param>
+            <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+            <returns>Returns an ErcResult string containing</returns>
+        </member>
+        <member name="M:ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator64.RopMethod)">
             <summary>
             Creates a RopChain for a specific process.
             </summary>
             <param name="ptrsToExclude">Takes a byte array of values used to disqualify ROP gadgets</param>
             <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
             <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+            <param name="methods">ushort indicating the ROP method to be utilizied. Can be omiited for all.</param>
             <returns>Returns an ErcResult string containing</returns>
         </member>
-        <member name="M:ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Collections.Generic.List{System.String})">
+        <member name="M:ERC.Utilities.RopChainGenerator64.GenerateRopChain64(System.Byte[],System.Collections.Generic.List{System.String},ERC.Utilities.RopChainGenerator64.RopMethod)">
             <summary>
             Creates a RopChain for a specific process.
             </summary>
             <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
             <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
+            <param name="methods">ushort indicating the ROP method to be utilizied. Can be omiited for all.</param>
             <returns>Returns an ErcResult string containing</returns>
         </member>
         <member name="M:ERC.Utilities.RopChainGenerator64.ZeroRegister(ERC.Utilities.RopChainGenerator64.Register64,ERC.Utilities.RopChainGenerator64.RegisterModifiers64)">
@@ -1119,6 +1209,71 @@
             sub list.
             </summary>
         </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.callRax">
+            <summary>
+            jmpRax list.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.X64Lists.jmpRax">
+            <summary>
+            callRax list.
+            </summary>
+        </member>
+        <member name="T:ERC.Utilities.RopChainGenerator64.RopMethod">
+            <summary>
+            Enum of methods which can be used to generate a ROP chain.
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.RopMethod.VirtualAlloc">
+            <summary>
+            VirtualAlloc
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.RopMethod.HeapCreate">
+            <summary>
+            HeapCreate
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.RopMethod.VirtualProtect">
+            <summary>
+            VirtualProtect
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.RopMethod.WriteProcessMemory">
+            <summary>
+            WriteProcessMemory
+            </summary>
+        </member>
+        <member name="F:ERC.Utilities.RopChainGenerator64.RopMethod.All">
+            <summary>
+            All
+            </summary>
+        </member>
+        <member name="T:ERC.Utilities.Win32Errors">
+            <summary>
+            Handler for Win32 Errors.
+            </summary>
+        </member>
+        <member name="M:ERC.Utilities.Win32Errors.LocalFree(System.IntPtr)">
+            <summary>
+            Win32 Error Handlers
+            </summary>
+            <param name="hMem">A handle to the local memory object. This handle is returned by either the LocalAlloc or LocalReAlloc function.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ERC.Utilities.Win32Errors.FormatMessage(ERC.Utilities.Win32Errors.FormatMessageFlags,System.IntPtr,System.UInt32,System.UInt32,System.IntPtr@,System.UInt32,System.IntPtr)">
+            <summary>
+            
+            </summary>
+            <param name="dwFlags">The formatting options, and how to interpret the lpSource parameter. </param>
+            <param name="lpSource">The formatting options, and how to interpret the lpSource parameter. </param>
+            <param name="dwMessageId">The message identifier for the requested message.</param>
+            <param name="dwLanguageId">The language identifier for the requested message.</param>
+            <param name="lpBuffer">A pointer to a buffer that receives the null-terminated string that specifies the formatted message. </param>
+            <param name="nSize">If the FORMAT_MESSAGE_ALLOCATE_BUFFER flag is not set, this parameter specifies the size of the output buffer</param>
+            <param name="Arguments">An array of values that are used as insert values in the formatted message. </param>
+            <returns>If the function succeeds, the return value is the number of TCHARs stored in the output buffer, excluding the terminating null character.</returns>
+        </member>
         <member name="M:ERC.Utilities.Win32Errors.GetLastWin32Error(System.Int32)">
             <summary>
             Gets a user friendly string message for a system error code
@@ -1317,18 +1472,20 @@
             <param name="extended">Whether the extended character range is to be used when searching for the non repeating pattern</param>
             <returns>Returns a List of strings containing the locations the repeating pattern was identified</returns>
         </member>
-        <member name="M:ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32)">
+        <member name="M:ERC.DisplayOutput.RopChainGadgets32(ERC.Utilities.RopChainGenerator32,System.Boolean)">
             <summary>
             Produces output files containing information about the associated ROP chain, produces files containing ROP gadgets and the associated ROP chain.
             </summary>
             <param name="rcg">The ROP chain generator object</param>
+            <param name="gadgetsOnly">Bool to indicate if ROP chains should be included or just gadget lists generated</param>
             <returns>Returns an array of strings</returns>
         </member>
-        <member name="M:ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64)">
+        <member name="M:ERC.DisplayOutput.RopChainGadgets64(ERC.Utilities.RopChainGenerator64,System.Boolean)">
             <summary>
             Produces output files containing information about the associated ROP chain, produces files containing ROP gadgets and the associated ROP chain.
             </summary>
             <param name="rcg">The ROP chain generator object</param>
+            <param name="gadgetsOnly">Bool to indicate if ROP chains should be included or just gadget lists generated</param>
             <returns>Returns an array of strings</returns>
         </member>
         <member name="M:ERC.DisplayOutput.AssembleOpcodes(System.String[],System.UInt32)">
@@ -1394,7 +1551,10 @@
             <summary>
             Returns statistics about the heap information gathered about the current process.
             </summary>
-            <param name="hi"></param>
+            <param name="hi">HeapInfo Object</param>
+            <param name="heapID">ID of the heap object</param>
+            <param name="hexStartAddress">Start address of the heap object (optional)</param>
+            <param name="extended">Displays an extended set of statistics</param>
             <returns>Returns an of strings</returns>
         </member>
         <member name="M:ERC.DisplayOutput.ListHeapIDs(ERC.HeapInfo)">
@@ -4370,6 +4530,46 @@
             ToolHelp SnapshotFlags
             </summary>
         </member>
+        <member name="F:ERC.Structures.SnapshotFlags.HeapList">
+            <summary>
+            HeapList
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SnapshotFlags.Process">
+            <summary>
+            Process
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SnapshotFlags.Thread">
+            <summary>
+            Thread
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SnapshotFlags.Module">
+            <summary>
+            Module
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SnapshotFlags.Module32">
+            <summary>
+            Module32
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SnapshotFlags.Inherit">
+            <summary>
+            Injerit
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SnapshotFlags.All">
+            <summary>
+            All
+            </summary>
+        </member>
+        <member name="F:ERC.Structures.SnapshotFlags.NoHeaps">
+            <summary>
+            NoHeaps
+            </summary>
+        </member>
         <member name="T:ERC.Structures.PROCESSENTRY32">
             <summary>
             ToolHelp PROCESSENTRY32
@@ -4415,6 +4615,18 @@
         <member name="F:ERC.Structures.HEAPENTRY32.th32HeapID">
             The heap identifier. This is not a handle, and has meaning only to the tool help functions *
         </member>
+        <member name="T:ERC.HeapInfo">
+            <summary>
+            Contains all information relating to a specific heap.
+            </summary>
+        </member>
+        <member name="M:ERC.HeapInfo.#ctor(ERC.ProcessInfo)">
+            <summary>
+            HeapInfo Constructor
+            </summary>
+            <param name="info">ProcessInfo object for the associated process.</param>
+            <exception cref="T:ERC.ERCException">Throws an ERCException if the provided handle or response are invalid.</exception>
+        </member>
         <member name="M:ERC.HeapInfo.SearchHeap(System.Byte[],System.UInt64,System.String)">
             <summary>
             Searches heap entries for a specified pattern. Returns pointers to all instances of the pattern. If heapID and startAddress are both supplied heapID takes precedence.
@@ -4424,8 +4636,21 @@
             <param name="hexStartAddress">Start address of the heap entry to be searched in hexadecimal(Optional)</param>
             <returns>Returns an ERCResult of IntPtr containing pointers to all instances of the pattern found.</returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:ERC.HeapInfo.HeapStatistics(System.Boolean,System.UInt64,System.String)" -->
-        <!-- Badly formed XML comment ignored for member "M:ERC.HeapInfo.HeapIDs" -->
+        <member name="M:ERC.HeapInfo.HeapStatistics(System.Boolean,System.UInt64,System.String)">
+            <summary>
+            Returns a collections of stats related to the heap of the current process object. If both heapID and startAddress are specified heapID takes precedence.
+            </summary>
+            <param name="extended">display an extended set of stats</param>
+            <param name="heapID">The ID of the heap to display stats for. (optional)</param>
+            <param name="hexStartAddress">The start address of the specific heap block to display stats for in hexadecimal. (optional)</param>
+            <returns>returns a List string object</returns>
+        </member>
+        <member name="M:ERC.HeapInfo.HeapIDs">
+            <summary>
+            Lists all HeapIDs associated with a process.
+            </summary>
+            <returns>Returns an ErcResult List ulong"</returns>
+        </member>
         <member name="T:ERC.ModuleInfo">
             <summary>
             Contains all information relating to a specific module.

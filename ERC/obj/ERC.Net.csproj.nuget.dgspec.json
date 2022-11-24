@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Andy\\Documents\\GitHub\\ERC.net\\ERC\\ERC.Net.csproj": {}
+    "C:\\Users\\dev\\Documents\\GitHub\\ERC.net\\ERC\\ERC.Net.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Andy\\Documents\\GitHub\\ERC.net\\ERC\\ERC.Net.csproj": {
+    "C:\\Users\\dev\\Documents\\GitHub\\ERC.net\\ERC\\ERC.Net.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Andy\\Documents\\GitHub\\ERC.net\\ERC\\ERC.Net.csproj",
+        "projectUniqueName": "C:\\Users\\dev\\Documents\\GitHub\\ERC.net\\ERC\\ERC.Net.csproj",
         "projectName": "ERC.Net",
-        "projectPath": "C:\\Users\\Andy\\Documents\\GitHub\\ERC.net\\ERC\\ERC.Net.csproj",
-        "packagesPath": "C:\\Users\\Andy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Andy\\Documents\\GitHub\\ERC.net\\ERC\\obj\\",
+        "projectPath": "C:\\Users\\dev\\Documents\\GitHub\\ERC.net\\ERC\\ERC.Net.csproj",
+        "packagesPath": "C:\\Users\\dev\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dev\\Documents\\GitHub\\ERC.net\\ERC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dev\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "version": "[2.59.0, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
