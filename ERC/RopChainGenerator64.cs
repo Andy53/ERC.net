@@ -1,9 +1,20 @@
-﻿using System;
+﻿// Nullable analysis is off for this file.
+//
+// The two ROP generators are ~7,000 lines of copy-pasted per-register blocks that
+// the planned rework replaces with a table-driven core. Annotating code that is
+// about to be deleted is throwaway effort, and the noise would hide real warnings
+// elsewhere. This pragma comes out as part of that rework.
+// "disable warnings" rather than "disable": nullable annotations elsewhere in
+// the file stay legal, only the warnings are silenced.
+#nullable disable warnings
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
 
+using ERC.Native;
 namespace ERC.Utilities
 {
     /// <summary> Attempts to create Rop chains from 64 bit processes. </summary>
@@ -36,8 +47,8 @@ namespace ERC.Utilities
         internal X64Lists x64Opcodes;
         internal X64Lists usableX64Opcodes;
         internal ProcessInfo RcgInfo;
-        private Dictionary<string, IntPtr> ApiAddresses = new Dictionary<string, IntPtr>();
-        private List<IntPtr> RopNops = new List<IntPtr>();
+        internal Dictionary<string, IntPtr> ApiAddresses = new Dictionary<string, IntPtr>();
+        internal List<IntPtr> RopNops = new List<IntPtr>();
         private List<byte[]> opcodes64 = new List<byte[]>();
         #endregion
 
@@ -96,8 +107,6 @@ namespace ERC.Utilities
             byte[] xorRdx = new byte[] { 0x48, 0x31, 0xD2 };
             byte[] xorRsi = new byte[] { 0x48, 0x31, 0xF6 };
             byte[] xorRdi = new byte[] { 0x48, 0x31, 0xFF };
-            byte[] xorRsp = new byte[] { 0x48, 0x31, 0xE4 };
-            byte[] xorRbp = new byte[] { 0x48, 0x31, 0xED };
             byte[] xorR8 = new byte[] { 0x48, 0x31, 0xC8 };
             byte[] xorR9 = new byte[] { 0x48, 0x31, 0xC9 };
             byte[] xorR10 = new byte[] { 0x48, 0x31, 0xD2 };
@@ -193,8 +202,6 @@ namespace ERC.Utilities
             opcodes64.Add(xorRdx);
             opcodes64.Add(xorRsi);
             opcodes64.Add(xorRdi);
-            opcodes64.Add(xorRsp);
-            opcodes64.Add(xorRbp);
             opcodes64.Add(xorR8);
             opcodes64.Add(xorR9);
             opcodes64.Add(xorR10);
@@ -261,7 +268,7 @@ namespace ERC.Utilities
         /// <param name="ptrsToExclude">Takes a byte array of values used to disqualify ROP gadgets</param>
         /// <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
         /// <returns>Returns an ErcResult string containing</returns>
-        public ErcResult<string> GenerateRopGadgets64(byte[] ptrsToExclude = null, List<string> excludes = null)
+        public ErcResult<string> GenerateRopGadgets64(byte[]? ptrsToExclude = null, List<string>? excludes = null)
         {
             ErcResult<string> RopChain = new ErcResult<string>(RcgInfo.ProcessCore);
             x64Opcodes = new X64Lists();
@@ -291,91 +298,16 @@ namespace ERC.Utilities
             }
 
             OptimiseLists(RcgInfo);
-            usableX64Opcodes.pushRax = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRax, ptrsToExclude);
-            usableX64Opcodes.pushRcx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRcx, ptrsToExclude);
-            usableX64Opcodes.pushRdx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRdx, ptrsToExclude);
-            usableX64Opcodes.pushRbx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRbx, ptrsToExclude);
-            usableX64Opcodes.pushRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRsp, ptrsToExclude);
-            usableX64Opcodes.pushRbp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRbp, ptrsToExclude);
-            usableX64Opcodes.pushRsi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRsi, ptrsToExclude);
-            usableX64Opcodes.pushRdi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRdi, ptrsToExclude);
-            usableX64Opcodes.pushR8 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR8, ptrsToExclude);
-            usableX64Opcodes.pushR9 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR9, ptrsToExclude);
-            usableX64Opcodes.pushR10 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR10, ptrsToExclude);
-            usableX64Opcodes.pushR11 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR11, ptrsToExclude);
-            usableX64Opcodes.pushR12 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR12, ptrsToExclude);
-            usableX64Opcodes.pushR13 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR13, ptrsToExclude);
-            usableX64Opcodes.pushR14 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR14, ptrsToExclude);
-            usableX64Opcodes.pushR15 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR15, ptrsToExclude);
-            usableX64Opcodes.popRax = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRax, ptrsToExclude);
-            usableX64Opcodes.popRbx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRbx, ptrsToExclude);
-            usableX64Opcodes.popRcx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRcx, ptrsToExclude);
-            usableX64Opcodes.popRdx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRdx, ptrsToExclude);
-            usableX64Opcodes.popRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRsp, ptrsToExclude);
-            usableX64Opcodes.popRbp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRbp, ptrsToExclude);
-            usableX64Opcodes.popRsi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRsi, ptrsToExclude);
-            usableX64Opcodes.popRdi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRdi, ptrsToExclude);
-            usableX64Opcodes.popR8 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR8, ptrsToExclude);
-            usableX64Opcodes.popR9 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR9, ptrsToExclude);
-            usableX64Opcodes.popR10 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR10, ptrsToExclude);
-            usableX64Opcodes.popR11 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR11, ptrsToExclude);
-            usableX64Opcodes.popR12 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR12, ptrsToExclude);
-            usableX64Opcodes.popR13 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR13, ptrsToExclude);
-            usableX64Opcodes.popR14 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR14, ptrsToExclude);
-            usableX64Opcodes.popR15 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR15, ptrsToExclude);
-            usableX64Opcodes.xorRax = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRax, ptrsToExclude);
-            usableX64Opcodes.xorRbx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRbx, ptrsToExclude);
-            usableX64Opcodes.xorRcx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRcx, ptrsToExclude);
-            usableX64Opcodes.xorRdx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRdx, ptrsToExclude);
-            usableX64Opcodes.xorRsi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRsi, ptrsToExclude);
-            usableX64Opcodes.xorRdi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRdi, ptrsToExclude);
-            usableX64Opcodes.xorRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRsp, ptrsToExclude);
-            usableX64Opcodes.xorRbp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRbp, ptrsToExclude);
-            usableX64Opcodes.xorR8 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR8, ptrsToExclude);
-            usableX64Opcodes.xorR9 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR9, ptrsToExclude);
-            usableX64Opcodes.xorR10 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR10, ptrsToExclude);
-            usableX64Opcodes.xorR11 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR11, ptrsToExclude);
-            usableX64Opcodes.xorR12 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR12, ptrsToExclude);
-            usableX64Opcodes.xorR13 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR13, ptrsToExclude);
-            usableX64Opcodes.xorR14 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR14, ptrsToExclude);
-            usableX64Opcodes.xorR15 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR15, ptrsToExclude);
-            usableX64Opcodes.jmpRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.jmpRsp, ptrsToExclude);
-            usableX64Opcodes.callRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.callRsp, ptrsToExclude);
-            usableX64Opcodes.incRax = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRax, ptrsToExclude);
-            usableX64Opcodes.incRbx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRbx, ptrsToExclude);
-            usableX64Opcodes.incRcx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRcx, ptrsToExclude);
-            usableX64Opcodes.incRdx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRdx, ptrsToExclude);
-            usableX64Opcodes.incRbp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRbp, ptrsToExclude);
-            usableX64Opcodes.incRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRsp, ptrsToExclude);
-            usableX64Opcodes.incRsi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRsi, ptrsToExclude);
-            usableX64Opcodes.incRdi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRdi, ptrsToExclude);
-            usableX64Opcodes.incR8 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR8, ptrsToExclude);
-            usableX64Opcodes.incR9 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR9, ptrsToExclude);
-            usableX64Opcodes.incR10 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR10, ptrsToExclude);
-            usableX64Opcodes.incR11 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR11, ptrsToExclude);
-            usableX64Opcodes.incR12 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR12, ptrsToExclude);
-            usableX64Opcodes.incR13 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR13, ptrsToExclude);
-            usableX64Opcodes.incR14 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR14, ptrsToExclude);
-            usableX64Opcodes.incR15 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR15, ptrsToExclude);
-            usableX64Opcodes.decRax = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRax, ptrsToExclude);
-            usableX64Opcodes.decRbx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRbx, ptrsToExclude);
-            usableX64Opcodes.decRcx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRcx, ptrsToExclude);
-            usableX64Opcodes.decRdx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRdx, ptrsToExclude);
-            usableX64Opcodes.decRbp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRbp, ptrsToExclude);
-            usableX64Opcodes.decRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRsp, ptrsToExclude);
-            usableX64Opcodes.decRsi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRsi, ptrsToExclude);
-            usableX64Opcodes.decRdi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRdi, ptrsToExclude);
-            usableX64Opcodes.decR8 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR8, ptrsToExclude);
-            usableX64Opcodes.decR9 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR9, ptrsToExclude);
-            usableX64Opcodes.decR10 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR10, ptrsToExclude);
-            usableX64Opcodes.decR11 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR11, ptrsToExclude);
-            usableX64Opcodes.decR12 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR12, ptrsToExclude);
-            usableX64Opcodes.decR13 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR13, ptrsToExclude);
-            usableX64Opcodes.decR14 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR14, ptrsToExclude);
-            usableX64Opcodes.decR15 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR15, ptrsToExclude);
-            usableX64Opcodes.add = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.add, ptrsToExclude);
-            usableX64Opcodes.mov = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.mov, ptrsToExclude);
-            usableX64Opcodes.sub = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.sub, ptrsToExclude);
+            // Every list in the catalogue, rather than a hand-written line per
+            // list. Two of the 64-bit lists - jmpRax and callRax - were missing
+            // from both hand-written copies of this block, so an address holding
+            // a byte the user excluded could still be chosen, and jmpRax is
+            // written straight into the HeapCreate chain.
+            foreach (var list in GadgetCatalog.X64Lists)
+            {
+                list.Set(usableX64Opcodes, PtrRemover.RemovePointers(
+                    RcgInfo.ProcessMachineType, list.Get(usableX64Opcodes), ptrsToExclude));
+            }
 
             DisplayOutput.RopChainGadgets64(this, true);
             return RopChain;
@@ -384,14 +316,28 @@ namespace ERC.Utilities
 
         #region GenerateRopChain64
         /// <summary>
-        /// Creates a RopChain for a specific process.
+        /// Creates a ROP chain for a specific process.
         /// </summary>
-        /// <param name="ptrsToExclude">Takes a byte array of values used to disqualify ROP gadgets</param>
-        /// <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
-        /// <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
-        /// <param name="methods">ushort indicating the ROP method to be utilizied. Can be omiited for all.</param>
-        /// <returns>Returns an ErcResult string containing</returns>
-        public ErcResult<string> GenerateRopChain64(byte[] ptrsToExclude, byte[] startAddress = null, List<string> excludes = null, RopMethod methods = RopMethod.All)
+        /// <param name="startAddress">An address to be used as the start location for which memory will be made executable.</param>
+        /// <param name="excludes">A list of modules to be excluded from the search for ROP gadgets.</param>
+        /// <param name="methods">Enum value representing which methods to build rop chains with.</param>
+        /// <param name="ptrsToExclude">Bytes which disqualify a gadget: any gadget whose address contains one is left out.</param>
+        /// <returns>Returns an ErcResult string containing the chain.</returns>
+        /// <remarks>
+        /// One method where there were two overloads. They were identical apart from
+        /// the block that applies ptrsToExclude, and their first positional parameter
+        /// meant "bytes to exclude" in one and "start address" in the other.
+        ///
+        /// That was not merely confusing. The plugin called this as
+        /// GenerateRopChain64(session.Bytes, excludes), which bound to the overload
+        /// taking startAddress first - so the user's bad-character list was passed as
+        /// the address to make executable, and the bad characters were never excluded
+        /// from the chain at all. A one-argument call did not compile at all: it was
+        /// ambiguous between the two.
+        /// </remarks>
+        public ErcResult<string> GenerateRopChain64(byte[]? startAddress = null,
+            List<string>? excludes = null, RopMethod methods = RopMethod.All,
+            byte[]? ptrsToExclude = null)
         {
             Methods = methods;
             ErcResult<string> RopChain = new ErcResult<string>(RcgInfo.ProcessCore);
@@ -437,91 +383,16 @@ namespace ERC.Utilities
             }
 
             OptimiseLists(RcgInfo);
-            usableX64Opcodes.pushRax = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRax, ptrsToExclude);
-            usableX64Opcodes.pushRcx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRcx, ptrsToExclude);
-            usableX64Opcodes.pushRdx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRdx, ptrsToExclude);
-            usableX64Opcodes.pushRbx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRbx, ptrsToExclude);
-            usableX64Opcodes.pushRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRsp, ptrsToExclude);
-            usableX64Opcodes.pushRbp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRbp, ptrsToExclude);
-            usableX64Opcodes.pushRsi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRsi, ptrsToExclude);
-            usableX64Opcodes.pushRdi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushRdi, ptrsToExclude);
-            usableX64Opcodes.pushR8 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR8, ptrsToExclude);
-            usableX64Opcodes.pushR9 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR9, ptrsToExclude);
-            usableX64Opcodes.pushR10 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR10, ptrsToExclude);
-            usableX64Opcodes.pushR11 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR11, ptrsToExclude);
-            usableX64Opcodes.pushR12 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR12, ptrsToExclude);
-            usableX64Opcodes.pushR13 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR13, ptrsToExclude);
-            usableX64Opcodes.pushR14 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR14, ptrsToExclude);
-            usableX64Opcodes.pushR15 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.pushR15, ptrsToExclude);
-            usableX64Opcodes.popRax = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRax, ptrsToExclude);
-            usableX64Opcodes.popRbx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRbx, ptrsToExclude);
-            usableX64Opcodes.popRcx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRcx, ptrsToExclude);
-            usableX64Opcodes.popRdx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRdx, ptrsToExclude);
-            usableX64Opcodes.popRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRsp, ptrsToExclude);
-            usableX64Opcodes.popRbp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRbp, ptrsToExclude);
-            usableX64Opcodes.popRsi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRsi, ptrsToExclude);
-            usableX64Opcodes.popRdi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popRdi, ptrsToExclude);
-            usableX64Opcodes.popR8 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR8, ptrsToExclude);
-            usableX64Opcodes.popR9 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR9, ptrsToExclude);
-            usableX64Opcodes.popR10 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR10, ptrsToExclude);
-            usableX64Opcodes.popR11 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR11, ptrsToExclude);
-            usableX64Opcodes.popR12 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR12, ptrsToExclude);
-            usableX64Opcodes.popR13 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR13, ptrsToExclude);
-            usableX64Opcodes.popR14 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR14, ptrsToExclude);
-            usableX64Opcodes.popR15 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.popR15, ptrsToExclude);
-            usableX64Opcodes.xorRax = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRax, ptrsToExclude);
-            usableX64Opcodes.xorRbx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRbx, ptrsToExclude);
-            usableX64Opcodes.xorRcx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRcx, ptrsToExclude);
-            usableX64Opcodes.xorRdx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRdx, ptrsToExclude);
-            usableX64Opcodes.xorRsi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRsi, ptrsToExclude);
-            usableX64Opcodes.xorRdi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRdi, ptrsToExclude);
-            usableX64Opcodes.xorRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRsp, ptrsToExclude);
-            usableX64Opcodes.xorRbp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorRbp, ptrsToExclude);
-            usableX64Opcodes.xorR8 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR8, ptrsToExclude);
-            usableX64Opcodes.xorR9 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR9, ptrsToExclude);
-            usableX64Opcodes.xorR10 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR10, ptrsToExclude);
-            usableX64Opcodes.xorR11 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR11, ptrsToExclude);
-            usableX64Opcodes.xorR12 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR12, ptrsToExclude);
-            usableX64Opcodes.xorR13 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR13, ptrsToExclude);
-            usableX64Opcodes.xorR14 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR14, ptrsToExclude);
-            usableX64Opcodes.xorR15 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.xorR15, ptrsToExclude);
-            usableX64Opcodes.jmpRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.jmpRsp, ptrsToExclude);
-            usableX64Opcodes.callRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.callRsp, ptrsToExclude);
-            usableX64Opcodes.incRax = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRax, ptrsToExclude);
-            usableX64Opcodes.incRbx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRbx, ptrsToExclude);
-            usableX64Opcodes.incRcx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRcx, ptrsToExclude);
-            usableX64Opcodes.incRdx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRdx, ptrsToExclude);
-            usableX64Opcodes.incRbp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRbp, ptrsToExclude);
-            usableX64Opcodes.incRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRsp, ptrsToExclude);
-            usableX64Opcodes.incRsi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRsi, ptrsToExclude);
-            usableX64Opcodes.incRdi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incRdi, ptrsToExclude);
-            usableX64Opcodes.incR8 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR8, ptrsToExclude);
-            usableX64Opcodes.incR9 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR9, ptrsToExclude);
-            usableX64Opcodes.incR10 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR10, ptrsToExclude);
-            usableX64Opcodes.incR11 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR11, ptrsToExclude);
-            usableX64Opcodes.incR12 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR12, ptrsToExclude);
-            usableX64Opcodes.incR13 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR13, ptrsToExclude);
-            usableX64Opcodes.incR14 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR14, ptrsToExclude);
-            usableX64Opcodes.incR15 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.incR15, ptrsToExclude);
-            usableX64Opcodes.decRax = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRax, ptrsToExclude);
-            usableX64Opcodes.decRbx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRbx, ptrsToExclude);
-            usableX64Opcodes.decRcx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRcx, ptrsToExclude);
-            usableX64Opcodes.decRdx = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRdx, ptrsToExclude);
-            usableX64Opcodes.decRbp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRbp, ptrsToExclude);
-            usableX64Opcodes.decRsp = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRsp, ptrsToExclude);
-            usableX64Opcodes.decRsi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRsi, ptrsToExclude);
-            usableX64Opcodes.decRdi = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decRdi, ptrsToExclude);
-            usableX64Opcodes.decR8 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR8, ptrsToExclude);
-            usableX64Opcodes.decR9 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR9, ptrsToExclude);
-            usableX64Opcodes.decR10 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR10, ptrsToExclude);
-            usableX64Opcodes.decR11 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR11, ptrsToExclude);
-            usableX64Opcodes.decR12 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR12, ptrsToExclude);
-            usableX64Opcodes.decR13 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR13, ptrsToExclude);
-            usableX64Opcodes.decR14 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR14, ptrsToExclude);
-            usableX64Opcodes.decR15 = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.decR15, ptrsToExclude);
-            usableX64Opcodes.add = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.add, ptrsToExclude);
-            usableX64Opcodes.mov = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.mov, ptrsToExclude);
-            usableX64Opcodes.sub = PtrRemover.RemovePointers(RcgInfo.ProcessMachineType, usableX64Opcodes.sub, ptrsToExclude);
+            // Every list in the catalogue, rather than a hand-written line per
+            // list. Two of the 64-bit lists - jmpRax and callRax - were missing
+            // from both hand-written copies of this block, so an address holding
+            // a byte the user excluded could still be chosen, and jmpRax is
+            // written straight into the HeapCreate chain.
+            foreach (var list in GadgetCatalog.X64Lists)
+            {
+                list.Set(usableX64Opcodes, PtrRemover.RemovePointers(
+                    RcgInfo.ProcessMachineType, list.Get(usableX64Opcodes), ptrsToExclude));
+            }
 
             if (Methods.HasFlag(RopMethod.VirtualAlloc))
             {
@@ -555,97 +426,6 @@ namespace ERC.Utilities
             return RopChain;
         }
 
-        /// <summary>
-        /// Creates a RopChain for a specific process.
-        /// </summary>
-        /// <param name="startAddress">A Address to be used as the start location for which memory will be made executable</param>
-        /// <param name="excludes">A list of modules to be excluded from the search for ROP gadgets</param>
-        /// <param name="methods">ushort indicating the ROP method to be utilizied. Can be omiited for all.</param>
-        /// <returns>Returns an ErcResult string containing</returns>
-        public ErcResult<string> GenerateRopChain64(byte[] startAddress = null, List<string> excludes = null, RopMethod methods = RopMethod.All)
-        {
-            Methods = methods;
-            ErcResult<string> RopChain = new ErcResult<string>(RcgInfo.ProcessCore);
-            x64Opcodes = new X64Lists();
-
-            Console.WriteLine("Getting API Addresses...");
-            var ret1 = GetApiAddresses(RcgInfo);
-            if (ret1.Error != null && ApiAddresses.Count <= 0)
-            {
-                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
-                failed.ReturnValue = "An error has occured, check log file for more details.";
-                failed.Error = ret1.Error;
-            }
-
-            Console.WriteLine("Getting RopNops...");
-            if(excludes != null)
-            {
-                var ret2 = GetRopNops(RcgInfo, excludes);
-                if (ret2.Error != null && RopNops.Count <= 0)
-                {
-                    ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
-                    failed.ReturnValue = "An error has occured, check log file for more details.";
-                    failed.Error = ret2.Error;
-                    return failed;
-                }
-            }
-            else
-            {
-                var ret2 = GetRopNops(RcgInfo);
-                if (ret2.Error != null && RopNops.Count <= 0)
-                {
-                    ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
-                    failed.ReturnValue = "An error has occured, check log file for more details.";
-                    failed.Error = ret2.Error;
-                    return failed;
-                }
-            }
-
-            Console.WriteLine("Populating Opcodes...");
-            var ret3 = PopulateOpcodes(RcgInfo);
-            if (ret3.Error != null)
-            {
-                ErcResult<string> failed = new ErcResult<string>(RcgInfo.ProcessCore);
-                failed.ReturnValue = "An error has occured, check log file for more details.";
-                failed.Error = ret3.Error;
-            }
-
-            Console.WriteLine("Optimizing Lists...");
-            OptimiseLists(RcgInfo);
-
-            Console.WriteLine("Generating VirtualAlloc Chain...");
-            if (Methods.HasFlag(RopMethod.VirtualAlloc))
-            {
-                var vpaChain = GenerateVirtualAllocChain64(RcgInfo);
-                if (vpaChain.Error == null)
-                {
-                    VirtualAllocChain = vpaChain.ReturnValue;
-                }
-            }
-
-            Console.WriteLine("Generating HeapCreate Chain...");
-            if (Methods.HasFlag(RopMethod.HeapCreate))
-            {
-                var hcChain = GenerateHeapCreateChain64(RcgInfo);
-                if (hcChain.Error == null)
-                {
-                    HeapCreateChain = hcChain.ReturnValue;
-                }
-            }
-
-            if (Methods.HasFlag(RopMethod.VirtualProtect))
-            {
-                var vpChain = GenerateVirtualProtectChain64(RcgInfo);
-                if (vpChain.Error == null)
-                {
-                    VirtualProtectChain = vpChain.ReturnValue;
-                }
-            }
-
-            var output = DisplayOutput.RopChainGadgets64(this);
-            RopChain.ReturnValue = String.Join("\n", output);
-            return RopChain;
-        }
         #endregion
 
         #region GetApiAddresses
@@ -663,7 +443,7 @@ namespace ERC.Utilities
                 }
             }
 
-            var virtAllocAddress = ErcCore.GetProcAddress(hModule, "VirtualAlloc");
+            var virtAllocAddress = RcgInfo.Native.GetProcAddress(hModule, "VirtualAlloc");
             if (virtAllocAddress == IntPtr.Zero)
             {
                 returnVar.Error = new ERCException(new Win32Exception(Marshal.GetLastWin32Error()).Message);
@@ -674,7 +454,7 @@ namespace ERC.Utilities
                 ApiAddresses.Add("VirtualAlloc", virtAllocAddress);
             }
 
-            var HeapCreateAddress = ErcCore.GetProcAddress(hModule, "HeapCreate");
+            var HeapCreateAddress = RcgInfo.Native.GetProcAddress(hModule, "HeapCreate");
             if (HeapCreateAddress == IntPtr.Zero)
             {
                 returnVar.Error = new ERCException(new Win32Exception(Marshal.GetLastWin32Error()).Message);
@@ -685,7 +465,7 @@ namespace ERC.Utilities
                 ApiAddresses.Add("HeapCreate", HeapCreateAddress);
             }
 
-            var VirtualProtectAddress = ErcCore.GetProcAddress(hModule, "VirtualProtect");
+            var VirtualProtectAddress = RcgInfo.Native.GetProcAddress(hModule, "VirtualProtect");
             if (VirtualProtectAddress == IntPtr.Zero)
             {
                 returnVar.Error = new ERCException(new Win32Exception(Marshal.GetLastWin32Error()).Message);
@@ -696,7 +476,7 @@ namespace ERC.Utilities
                 ApiAddresses.Add("VirtualProtect", VirtualProtectAddress);
             }
 
-            var WriteProcessMemoryAddress = ErcCore.GetProcAddress(hModule, "WriteProcessMemory");
+            var WriteProcessMemoryAddress = RcgInfo.Native.GetProcAddress(hModule, "WriteProcessMemory");
             if (WriteProcessMemoryAddress == IntPtr.Zero)
             {
                 returnVar.Error = new ERCException(new Win32Exception(Marshal.GetLastWin32Error()).Message);
@@ -712,7 +492,7 @@ namespace ERC.Utilities
         #endregion
 
         #region GetRopNops
-        private ErcResult<List<IntPtr>> GetRopNops(ProcessInfo info, List<string> excludes = null)
+        private ErcResult<List<IntPtr>> GetRopNops(ProcessInfo info, List<string>? excludes = null)
         {
             ErcResult<List<IntPtr>> ropNopsResult = new ErcResult<List<IntPtr>>(info.ProcessCore);
             ropNopsResult.ReturnValue = new List<IntPtr>();
@@ -758,7 +538,7 @@ namespace ERC.Utilities
             {
                 byte[] bytes = new byte[20];
                 IntPtr baseAddress = RopNops[i] - 19;
-                ErcCore.ReadProcessMemory(info.ProcessHandle, baseAddress, bytes, 20, out int bytesRead);
+                RcgInfo.Native.ReadProcessMemory(info.ProcessHandle, baseAddress, bytes, 20, out int bytesRead);
                 if (bytesRead != 20)
                 {
                     ret.Error = new ERCException("ReadProcessMemory Error: " + new Win32Exception(Marshal.GetLastWin32Error()).Message);
@@ -817,8 +597,11 @@ namespace ERC.Utilities
             bool xorRdxDone = false;
             bool xorRsiDone = false;
             bool xorRdiDone = false;
-            bool xorRspDone = false;
-            bool xorRbpDone = false;
+            // There is deliberately no xorRsp or xorRbp. Both had opcode patterns
+            // defined and were scanned for, but nothing ever wrote to their lists and
+            // no filter populated them, so they stayed empty for the life of the
+            // process. Zeroing the stack or frame pointer is not something a chain
+            // wants to do, so they are gone rather than wired up.
             bool xorR8Done = false;
             bool xorR9Done = false;
             bool xorR10Done = false;
@@ -1671,1116 +1454,19 @@ namespace ERC.Utilities
         private void OptimiseLists(ProcessInfo info)
         {
             usableX64Opcodes = new X64Lists();
-            var thisList = x64Opcodes.pushRax.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push rax") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushRax.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushRbx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push rbx") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushRbx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushRcx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push rcx") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushRcx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushRdx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push rdx") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushRdx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushRsp.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push rsp") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushRsp.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushRbp.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push rbp") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushRbp.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushRsi.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push rsi") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushRsi.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushRdi.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push rdi") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushRdi.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushR8.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push r8") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushR8.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushR9.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push r9") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushR9.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushR10.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push r10") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushR10.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushR11.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push r11") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushR11.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushR12.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push r12") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushR12.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushR13.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push r13") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushR13.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushR14.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push r14") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushR14.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.pushR15.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("push r15") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.pushR15.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.jmpRsp.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("jmp rsp"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.jmpRsp.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.callRsp.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("call rsp"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.callRsp.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorRax.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor rax") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorRax.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorRbx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor rbx") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorRbx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorRcx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor rcx") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorRcx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorRdx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor rdx") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorRdx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorRsi.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor rsi") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorRsi.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorRdi.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor rdi") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorRdi.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorR8.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor r8") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorR8.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorR9.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor r9") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorR9.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorR10.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor r10") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorR10.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorR11.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor r11") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorR11.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorR12.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor r12") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorR12.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorR13.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor r13") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorR13.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorR14.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor r14") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorR14.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.xorR15.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("xor r15") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.xorR15.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popRax.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop rax") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popRax.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popRbx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop rbx") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popRbx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popRcx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop rcx") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popRcx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popRdx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop rdx") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popRdx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popRsp.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop rsp") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popRsp.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popRbp.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop rbp") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popRbp.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popRsi.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop rsi") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popRsi.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popRdi.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop rdi") || !thisList[i].Value.Contains("ret") || thisList[i].Value.Any(char.IsDigit))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popRdi.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popR8.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop r8") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popR8.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popR9.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop r9") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popR9.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popR10.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop r10") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popR10.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popR11.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop r11") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popR11.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popR12.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop r12") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popR12.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popR13.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop r13") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popR13.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popR14.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop r14") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popR14.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.popR15.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("pop r15") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.popR15.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incRax.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc rax") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incRax.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incRbx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc rbx") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incRbx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incRcx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc rcx") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incRcx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incRdx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc rdx") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incRdx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incRbp.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc rbp") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incRbp.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incRsp.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc rsp") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incRsp.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incRsi.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc rsi") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incRsi.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incRdi.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc rdi") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incRdi.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incR8.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc r8") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incR8.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incR9.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc r9") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incR9.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incR10.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc r10") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incR10.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incR11.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc r11") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incR11.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incR12.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc r12") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incR12.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incR13.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc r13") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incR13.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incR14.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc r14") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incR14.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.incR15.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("inc r15") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.incR15.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decRax.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec rax") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decRax.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decRbx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec rbx") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decRbx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decRcx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec rcx") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decRcx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decRdx.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec rdx") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decRdx.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decRbp.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec rbp") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decRbp.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decRsp.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec rsp") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decRsp.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decRsi.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec rsi") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decRsi.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decRdi.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec rdi") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decRdi.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decR8.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec r8") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decR8.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decR9.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec r9") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decR9.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decR10.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec r10") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decR10.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decR11.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec r11") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decR11.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decR12.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec r12") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decR12.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decR13.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec r13") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decR13.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decR14.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec r14") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decR14.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.decR15.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("dec r15") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.decR15.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.add.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("add") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.add.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.mov.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("mov") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.mov.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.sub.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("sub") || !thisList[i].Value.Contains("ret"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.sub.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.jmpRax.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("jmp rax"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.jmpRax.Add(thisList[i].Key, thisList[i].Value);
-                }
-            }
-            thisList = x64Opcodes.callRax.ToList();
-            thisList.Sort((x, y) => x.Value.Length.CompareTo(y.Value.Length));
-            for (int i = 0; i < thisList.Count; i++)
-            {
-                if (!thisList[i].Value.Contains("call rax"))
-                {
-                    thisList.RemoveAt(i);
-                }
-                else
-                {
-                    usableX64Opcodes.callRax.Add(thisList[i].Key, thisList[i].Value);
-                }
+            // The mnemonic and the numeric-operand rule for each list live in
+            // GadgetCatalog, so this is the same loop for both architectures
+            // rather than one line per list written out 85 times.
+            foreach (var list in GadgetCatalog.X64Lists)
+            {
+                list.Set(usableX64Opcodes, RopGadgetFilter.SelectUsable(
+                    list.Get(x64Opcodes), list.Mnemonic, list.ExcludeNumericOperands));
             }
         }
         #endregion
 
         #region GenerateVirtualAllocChain64
-        private ErcResult<List<Tuple<byte[], string>>> GenerateVirtualAllocChain64(ProcessInfo info)
+        internal ErcResult<List<Tuple<byte[], string>>> GenerateVirtualAllocChain64(ProcessInfo info)
         {
             ////////////////////////////////////////////////////////////////
             // VirtualAlloc Template:                                     //
@@ -3189,7 +1875,7 @@ namespace ERC.Utilities
         #endregion
 
         #region GenerateHeapCreateChain
-        private ErcResult<List<Tuple<byte[], string>>> GenerateHeapCreateChain64(ProcessInfo info)
+        internal ErcResult<List<Tuple<byte[], string>>> GenerateHeapCreateChain64(ProcessInfo info)
         {
             ////////////////////////////////////////////////////////////////
             // HeapCreate Template:                                       //
@@ -3500,7 +2186,7 @@ namespace ERC.Utilities
         #endregion
 
         #region GenerateVirtualProtectChain
-        private ErcResult<List<Tuple<byte[], string>>> GenerateVirtualProtectChain64(ProcessInfo info)
+        internal ErcResult<List<Tuple<byte[], string>>> GenerateVirtualProtectChain64(ProcessInfo info)
         {
             ////////////////////////////////////////////////////////////////
             // VirtualProtect Template:                                   //
@@ -3871,21 +2557,29 @@ namespace ERC.Utilities
                 ret.Add(regLists64.r9List[i]);
             }
 
+            // Both halves of this used to be written out unguarded: an indexer on
+            // ApiAddresses, which throws KeyNotFoundException when the API could not
+            // be resolved, and ElementAt(0) on a gadget list, which throws
+            // ArgumentOutOfRangeException when it is empty.
+            //
+            // Neither is an unusual state. A target with no "jmp rsp" outside the
+            // modules the user excluded, or none whose address survives the
+            // bad-character filter, produces an empty list, and the whole --rop
+            // command then failed with an argument error naming nothing the user
+            // could act on. A chain with a clearly marked gap is more use.
             switch (method)
             {
                 case RopMethod.VirtualAlloc:
-                    ret.Add(Tuple.Create(BitConverter.GetBytes((long)ApiAddresses["VirtualAlloc"]), "Pointer to VirtualAlloc."));
-                    ret.Add(Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.jmpRsp.ElementAt(0).Key),
-                        usableX64Opcodes.jmpRsp.ElementAt(0).Value));
+                    ret.Add(ApiPointer("VirtualAlloc"));
+                    ret.Add(FirstGadget(usableX64Opcodes.jmpRsp, "jmp rsp"));
                     break;
                 case RopMethod.HeapCreate:
-                    ret.Add(Tuple.Create(BitConverter.GetBytes((long)ApiAddresses["HeapCreate"]), "Pointer to HeapCreate."));
-                    ret.Add(Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.jmpRax.ElementAt(0).Key), usableX64Opcodes.jmpRax.ElementAt(0).Value));
+                    ret.Add(ApiPointer("HeapCreate"));
+                    ret.Add(FirstGadget(usableX64Opcodes.jmpRax, "jmp rax"));
                     break;
                 case RopMethod.VirtualProtect:
-                    ret.Add(Tuple.Create(BitConverter.GetBytes((long)ApiAddresses["VirtualProtect"]), "Pointer to VirtualProtect."));
-                    ret.Add(Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.jmpRsp.ElementAt(0).Key),
-                        usableX64Opcodes.jmpRsp.ElementAt(0).Value));
+                    ret.Add(ApiPointer("VirtualProtect"));
+                    ret.Add(FirstGadget(usableX64Opcodes.jmpRsp, "jmp rsp"));
                     break;
                 default:
                     break;
@@ -3894,6 +2588,34 @@ namespace ERC.Utilities
             return ret;
         }
         #endregion
+
+        /// <summary>
+        /// A stack entry holding the address of an API, or a marked gap.
+        /// </summary>
+        private Tuple<byte[], string> ApiPointer(string name)
+        {
+            IntPtr address;
+
+            return ApiAddresses.TryGetValue(name, out address)
+                ? Tuple.Create(BitConverter.GetBytes((long)address), "Pointer to " + name + ".")
+                : Tuple.Create(new byte[8],
+                    "Unable to resolve " + name + ". This address must be supplied manually.");
+        }
+
+        /// <summary>
+        /// A stack entry holding the first gadget of a list, or a marked gap.
+        /// </summary>
+        private static Tuple<byte[], string> FirstGadget(Dictionary<IntPtr, string> gadgets, string description)
+        {
+            if (gadgets == null || gadgets.Count == 0)
+            {
+                return Tuple.Create(new byte[8],
+                    "Unable to find a \"" + description + "\" gadget. This must be supplied manually.");
+            }
+
+            KeyValuePair<IntPtr, string> first = gadgets.ElementAt(0);
+            return Tuple.Create(BitConverter.GetBytes((long)first.Key), first.Value);
+        }
 
         #region CalculateAddInstructions64
         private byte[] CalculateAddInstructions64(int size)
@@ -3942,7 +2664,7 @@ namespace ERC.Utilities
                         if (xorReg != null && !GetRegisterModified(modifyingReg, reg, regModified64))
                         {
                             instructions.Add(xorReg);
-                            instructions.Add(Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.mov.ElementAt(i).Key).Reverse().ToArray(),
+                            instructions.Add(Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.mov.ElementAt(i).Key).Reversed(),
                                 usableX64Opcodes.mov.ElementAt(i).Value, reg));
                             return instructions;
                         }
@@ -4097,7 +2819,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popRax.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.RAX, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRax.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popRax.ElementAt(i).Value, Register64.RAX);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRax.ElementAt(i).Key).Reversed(), usableX64Opcodes.popRax.ElementAt(i).Value, Register64.RAX);
                         }
                     }
                     break;
@@ -4106,7 +2828,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popRbx.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.RBX, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRbx.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popRbx.ElementAt(i).Value, Register64.RBX);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRbx.ElementAt(i).Key).Reversed(), usableX64Opcodes.popRbx.ElementAt(i).Value, Register64.RBX);
                         }
                     }
                     break;
@@ -4115,7 +2837,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popRcx.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.RCX, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRcx.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popRcx.ElementAt(i).Value, Register64.RCX);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRcx.ElementAt(i).Key).Reversed(), usableX64Opcodes.popRcx.ElementAt(i).Value, Register64.RCX);
                         }
                     }
                     break;
@@ -4124,7 +2846,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popRdx.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.RDX, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRdx.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popRdx.ElementAt(i).Value, Register64.RDX);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRdx.ElementAt(i).Key).Reversed(), usableX64Opcodes.popRdx.ElementAt(i).Value, Register64.RDX);
                         }
                     }
                     break;
@@ -4133,7 +2855,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popRbp.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.RBP, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRbp.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popRbp.ElementAt(i).Value, Register64.RBP);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRbp.ElementAt(i).Key).Reversed(), usableX64Opcodes.popRbp.ElementAt(i).Value, Register64.RBP);
                         }
                     }
                     break;
@@ -4142,7 +2864,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popRsp.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.RSP, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRsp.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popRsp.ElementAt(i).Value, Register64.RSP);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRsp.ElementAt(i).Key).Reversed(), usableX64Opcodes.popRsp.ElementAt(i).Value, Register64.RSP);
                         }
                     }
                     break;
@@ -4151,7 +2873,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popRsi.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.RSI, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRsi.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popRsi.ElementAt(i).Value, Register64.RSI);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRsi.ElementAt(i).Key).Reversed(), usableX64Opcodes.popRsi.ElementAt(i).Value, Register64.RSI);
                         }
                     }
                     break;
@@ -4160,7 +2882,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popRdi.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.RDI, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRdi.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popRdi.ElementAt(i).Value, Register64.RDI);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popRdi.ElementAt(i).Key).Reversed(), usableX64Opcodes.popRdi.ElementAt(i).Value, Register64.RDI);
                         }
                     }
                     break;
@@ -4169,7 +2891,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popR8.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.R8, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR8.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popR8.ElementAt(i).Value, Register64.R8);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR8.ElementAt(i).Key).Reversed(), usableX64Opcodes.popR8.ElementAt(i).Value, Register64.R8);
                         }
                     }
                     break;
@@ -4178,7 +2900,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popR9.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.R9, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR9.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popR9.ElementAt(i).Value, Register64.R9);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR9.ElementAt(i).Key).Reversed(), usableX64Opcodes.popR9.ElementAt(i).Value, Register64.R9);
                         }
                     }
                     break;
@@ -4187,7 +2909,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popR10.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.R10, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR10.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popR10.ElementAt(i).Value, Register64.R10);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR10.ElementAt(i).Key).Reversed(), usableX64Opcodes.popR10.ElementAt(i).Value, Register64.R10);
                         }
                     }
                     break;
@@ -4196,7 +2918,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popR11.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.R11, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR11.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popR11.ElementAt(i).Value, Register64.R11);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR11.ElementAt(i).Key).Reversed(), usableX64Opcodes.popR11.ElementAt(i).Value, Register64.R11);
                         }
                     }
                     break;
@@ -4205,7 +2927,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popR12.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.R12, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR12.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popR12.ElementAt(i).Value, Register64.R12);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR12.ElementAt(i).Key).Reversed(), usableX64Opcodes.popR12.ElementAt(i).Value, Register64.R12);
                         }
                     }
                     break;
@@ -4214,7 +2936,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popR13.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.R13, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR13.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popR13.ElementAt(i).Value, Register64.R13);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR13.ElementAt(i).Key).Reversed(), usableX64Opcodes.popR13.ElementAt(i).Value, Register64.R13);
                         }
                     }
                     break;
@@ -4223,7 +2945,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popR14.ElementAt(i).Value.Length == 14 && !GetRegisterModified(destReg, Register64.R14, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR14.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popR14.ElementAt(i).Value, Register64.R14);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR14.ElementAt(i).Key).Reversed(), usableX64Opcodes.popR14.ElementAt(i).Value, Register64.R14);
                         }
                     }
                     break;
@@ -4232,7 +2954,7 @@ namespace ERC.Utilities
                     {
                         if (usableX64Opcodes.popR15.ElementAt(i).Value.Length == 15 && !GetRegisterModified(destReg, Register64.R15, regModified64))
                         {
-                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR15.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.popR15.ElementAt(i).Value, Register64.R15);
+                            return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.popR15.ElementAt(i).Key).Reversed(), usableX64Opcodes.popR15.ElementAt(i).Value, Register64.R15);
                         }
                     }
                     break;
@@ -4251,42 +2973,42 @@ namespace ERC.Utilities
                 case Register64.RAX:
                     if (usableX64Opcodes.xorRax.Count > 0 && usableX64Opcodes.xorRax.ElementAt(0).Value.Length <= 19)
                     {
-                        byte[] gadget1 = BitConverter.GetBytes((long)usableX64Opcodes.xorRax.ElementAt(0).Key).Reverse().ToArray();
+                        byte[] gadget1 = BitConverter.GetBytes((long)usableX64Opcodes.xorRax.ElementAt(0).Key).Reversed();
                         return Tuple.Create(gadget1, usableX64Opcodes.xorRax.ElementAt(0).Value, Register64.RAX);
                     }
                     break;
                 case Register64.RBX:
                     if (usableX64Opcodes.xorRbx.Count > 0 && usableX64Opcodes.xorRbx.ElementAt(0).Value.Length <= 19)
                     {
-                        byte[] gadget1 = BitConverter.GetBytes((long)usableX64Opcodes.xorRbx.ElementAt(0).Key).Reverse().ToArray();
+                        byte[] gadget1 = BitConverter.GetBytes((long)usableX64Opcodes.xorRbx.ElementAt(0).Key).Reversed();
                         return Tuple.Create(gadget1, usableX64Opcodes.xorRbx.ElementAt(0).Value, Register64.RBX);
                     }
                     break;
                 case Register64.RCX:
                     if (usableX64Opcodes.xorRcx.Count > 0 && usableX64Opcodes.xorRcx.ElementAt(0).Value.Length <= 19)
                     {
-                        byte[] gadget1 = BitConverter.GetBytes((long)usableX64Opcodes.xorRcx.ElementAt(0).Key).Reverse().ToArray();
+                        byte[] gadget1 = BitConverter.GetBytes((long)usableX64Opcodes.xorRcx.ElementAt(0).Key).Reversed();
                         return Tuple.Create(gadget1, usableX64Opcodes.xorRcx.ElementAt(0).Value, Register64.RCX);
                     }
                     break;
                 case Register64.RDX:
                     if (usableX64Opcodes.xorRdx.Count > 0 && usableX64Opcodes.xorRdx.ElementAt(0).Value.Length <= 19)
                     {
-                        byte[] gadget1 = BitConverter.GetBytes((long)usableX64Opcodes.xorRdx.ElementAt(0).Key).Reverse().ToArray();
+                        byte[] gadget1 = BitConverter.GetBytes((long)usableX64Opcodes.xorRdx.ElementAt(0).Key).Reversed();
                         return Tuple.Create(gadget1, usableX64Opcodes.xorRdx.ElementAt(0).Value, Register64.RDX);
                     }
                     break;
                 case Register64.RSI:
                     if (usableX64Opcodes.xorRsi.Count > 0 && usableX64Opcodes.xorRsi.ElementAt(0).Value.Length <= 19)
                     {
-                        byte[] gadget1 = BitConverter.GetBytes((long)usableX64Opcodes.xorRsi.ElementAt(0).Key).Reverse().ToArray();
+                        byte[] gadget1 = BitConverter.GetBytes((long)usableX64Opcodes.xorRsi.ElementAt(0).Key).Reversed();
                         return Tuple.Create(gadget1, usableX64Opcodes.xorRsi.ElementAt(0).Value, Register64.RSI);
                     }
                     break;
                 case Register64.RDI:
                     if (usableX64Opcodes.xorRdi.Count > 0 && usableX64Opcodes.xorRdi.ElementAt(0).Value.Length <= 19)
                     {
-                        byte[] gadget1 = BitConverter.GetBytes((long)usableX64Opcodes.xorRdi.ElementAt(0).Key).Reverse().ToArray();
+                        byte[] gadget1 = BitConverter.GetBytes((long)usableX64Opcodes.xorRdi.ElementAt(0).Key).Reversed();
                         return Tuple.Create(gadget1, usableX64Opcodes.xorRdi.ElementAt(0).Value, Register64.RDI);
                     }
                     break;
@@ -4314,7 +3036,7 @@ namespace ERC.Utilities
                     var reg = registerIdentifier64(gadgetElements[1]);
                     if (reg == srcReg)
                     {
-                        return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.add.ElementAt(i).Key).Reverse().ToArray(),
+                        return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.add.ElementAt(i).Key).Reversed(),
                             usableX64Opcodes.add.ElementAt(i).Value, reg);
                     }
                 }
@@ -4340,7 +3062,7 @@ namespace ERC.Utilities
                     var reg = registerIdentifier64(gadgetElements[1]);
                     if (reg == srcReg)
                     {
-                        return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.sub.ElementAt(i).Key).Reverse().ToArray(),
+                        return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.sub.ElementAt(i).Key).Reversed(),
                             usableX64Opcodes.sub.ElementAt(i).Value, reg);
                     }
                 }
@@ -4367,7 +3089,7 @@ namespace ERC.Utilities
                     var reg = registerIdentifier64(gadgetElements[1]);
                     if (reg == srcReg)
                     {
-                        return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.mov.ElementAt(i).Key).Reverse().ToArray(), usableX64Opcodes.mov.ElementAt(i).Value, reg);
+                        return Tuple.Create(BitConverter.GetBytes((long)usableX64Opcodes.mov.ElementAt(i).Key).Reversed(), usableX64Opcodes.mov.ElementAt(i).Value, reg);
                     }
                 }
             }
@@ -4710,14 +3432,6 @@ namespace ERC.Utilities
             /// </summary>
             public Dictionary<IntPtr, string> xorRdi = new Dictionary<IntPtr, string>();
             /// <summary>
-            /// xorRsp list.
-            /// </summary>
-            public Dictionary<IntPtr, string> xorRsp = new Dictionary<IntPtr, string>();
-            /// <summary>
-            /// xorRbp list.
-            /// </summary>
-            public Dictionary<IntPtr, string> xorRbp = new Dictionary<IntPtr, string>();
-            /// <summary>
             /// xorR8 list.
             /// </summary>
             public Dictionary<IntPtr, string> xorR8 = new Dictionary<IntPtr, string>();
@@ -4934,25 +3648,15 @@ namespace ERC.Utilities
         [Flags]
         public enum RopMethod : ushort
         {
-            /// <summary>
-            /// VirtualAlloc
-            /// </summary>
+            /// <summary>Allocate a new executable region with VirtualAlloc and return into it.</summary>
             [Description(" VirtualAlloc")] VirtualAlloc = 1,
-            /// <summary>
-            /// HeapCreate
-            /// </summary>
+            /// <summary>Create an executable heap with HeapCreate and return into it.</summary>
             [Description(" HeapCreate")] HeapCreate = 2,
-            /// <summary>
-            /// VirtualProtect
-            /// </summary>
+            /// <summary>Mark the existing region executable with VirtualProtect.</summary>
             [Description(" VirtualProtect")] VirtualProtect = 4,
-            /// <summary>
-            /// WriteProcessMemory
-            /// </summary>
+            /// <summary>Write the payload over existing executable memory with WriteProcessMemory.</summary>
             [Description(" WriteProcessMemory")] WriteProcessMemory = 8,
-            /// <summary>
-            /// All
-            /// </summary>
+            /// <summary>Attempt every method and return whichever chains could be built.</summary>
             [Description(" All")] All = 15
         }
     }

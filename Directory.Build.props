@@ -1,0 +1,57 @@
+<Project>
+
+  <!--
+    Shared build configuration for every project in the repository.
+
+    Architecture note: this library inspects another process's memory through
+    Win32, and reads pointer width at run time, so it is built per architecture
+    rather than AnyCPU. That is also why it ships as two NuGet packages,
+    ERC.Net-x86 and ERC.Net-x64.
+  -->
+
+  <PropertyGroup>
+    <Platforms>x86;x64</Platforms>
+    <Platform Condition="'$(Platform)' == '' Or '$(Platform)' == 'AnyCPU'">x86</Platform>
+    <PlatformTarget>$(Platform)</PlatformTarget>
+
+    <LangVersion>latest</LangVersion>
+
+    <!--
+      Nullable reference types on, everywhere. This is part of the public contract:
+      consumers of the NuGet package see which arguments and results can be null.
+    -->
+    <Nullable>enable</Nullable>
+
+    <!--
+      Every warning is an error. The build is at zero warnings and the point of
+      getting there is that it stays there - a warning nobody acts on is worse than
+      not having enabled it. Where a warning is genuinely not worth acting on it is
+      suppressed explicitly and with a reason.
+    -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!--
+      Off. The only unsafe code was the PE header parsing in ModuleInfo, which cast
+      a pointer over a fixed buffer and followed an offset taken from the file with
+      no bounds check. That is now ERC.Utilities.PeHeaders, where every read is
+      checked by the runtime. Leaving the switch off means the next such block does
+      not compile silently.
+    -->
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+
+    <!--
+      Deterministic compilation: the same source produces the same IL, with a
+      content-derived module version id rather than a random one, and no machine
+      paths baked in.
+    -->
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+
+    <Company>ERC</Company>
+    <Authors>Andy Bowden</Authors>
+    <Copyright>Copyright (c) Andy Bowden</Copyright>
+    <Product>ERC.Net</Product>
+    <Version>3.0.0</Version>
+  </PropertyGroup>
+
+</Project>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
+using ERC.Native;
 namespace ERC.Utilities
 {
     /// <summary>
@@ -83,38 +84,37 @@ namespace ERC.Utilities
         /// </summary>
         /// <param name="unwantedBytes">Takes a byte array of bytes to be excluded</param>
         /// <returns>Returns an array of all other possible bytes.</returns>
-        public static byte[] ByteArrayConstructor(byte[] unwantedBytes)
+        public static byte[] ByteArrayConstructor(byte[]? unwantedBytes)
         {
-            byte[] bytes;
-            if(unwantedBytes != null)
-            {
-                bytes = new byte[ByteArray.Length - unwantedBytes.Length];
-            }
-            else
-            {
-                bytes = new byte[ByteArray.Length];
-            }
-            int bytesCounter = 0;
-            for(int i = 0; i < ByteArray.Length; i++)
+            // Built into a list rather than a pre-sized array. The previous version
+            // sized the result as 256 minus the *number of bytes supplied*, so a
+            // repeated exclusion - "ERC --bytearray -bytes 0x0A0x0A", or any set
+            // with a duplicate - left the buffer short and the copy ran off the end.
+            var bytes = new List<byte>(ByteArray.Length);
+
+            for (int i = 0; i < ByteArray.Length; i++)
             {
                 bool addByte = true;
-                if(unwantedBytes != null)
+
+                if (unwantedBytes != null)
                 {
                     for (int j = 0; j < unwantedBytes.Length; j++)
                     {
                         if (ByteArray[i].Equals(unwantedBytes[j]))
                         {
                             addByte = false;
+                            break;
                         }
                     }
                 }
-                if(addByte == true)
+
+                if (addByte)
                 {
-                    bytes[bytesCounter] = ByteArray[i];
-                    bytesCounter++;
+                    bytes.Add(ByteArray[i]);
                 }
             }
-            return bytes;
+
+            return bytes.ToArray();
         }
         #endregion
 
@@ -124,7 +124,7 @@ namespace ERC.Utilities
         /// </summary>
         /// <param name="tag">A custom tag which the egg hunters will search for.</param>
         /// <returns>Returns a dictionary containing a list of EggHunters and string detailing them</returns>
-        public static Dictionary<string, byte[]> EggHunterConstructor(string tag = null)
+        public static Dictionary<string, byte[]> EggHunterConstructor(string? tag = null)
         {
             Dictionary<string, byte[]> eggHunters = new Dictionary<string, byte[]>();
             string eggHunter641Description = "64 Bit Egg Hunter 1:" + Environment.NewLine +
@@ -135,12 +135,16 @@ namespace ERC.Utilities
                 "Usage: To be used on 32 bit systems only, not on 32 bit processes running on a 64 bit system." + Environment.NewLine;
             string eggHunterWOW64Description = "WOW64 Egg Hunter:" + Environment.NewLine +
                 "Usage: To be used on 32 bit processes running on a 64 bit system. Can also be used on 32 bit systems." + Environment.NewLine;
-            if (tag != null)
+            // An egg hunter searches for a four-byte tag, so a tag of any other
+            // length cannot be honoured. This used to discard it and quietly hand
+            // back default "ERCD" hunters, which would then never find the egg the
+            // user had actually placed - a failure that only shows up as an exploit
+            // that does not work. Say so instead.
+            if (tag != null && tag.Length != 4)
             {
-                if (tag.Length != 4)
-                {
-                    tag = null;
-                }
+                throw new ArgumentException(
+                    "Egg hunter tag must be exactly 4 characters long. Received \"" + tag +
+                    "\" (" + tag.Length + " characters).", "tag");
             }
 
             if (tag != null)
@@ -183,10 +187,13 @@ namespace ERC.Utilities
             }
             else
             {
-                eggHunters.Add(eggHunter641Description, EggHunter641);
-                eggHunters.Add(eggHunter642Description, EggHunter642);
-                eggHunters.Add(eggHunter32Description, EggHunter32);
-                eggHunters.Add(eggHunterWOW64Description, EggHunterWOW64);
+                // Copies, not the static fields themselves. Handing out the arrays
+                // directly meant a caller editing one - to patch in its own tag, say
+                // - corrupted the templates for every later call in the session.
+                eggHunters.Add(eggHunter641Description, (byte[])EggHunter641.Clone());
+                eggHunters.Add(eggHunter642Description, (byte[])EggHunter642.Clone());
+                eggHunters.Add(eggHunter32Description, (byte[])EggHunter32.Clone());
+                eggHunters.Add(eggHunterWOW64Description, (byte[])EggHunterWOW64.Clone());
             }
             return eggHunters;
         }
@@ -244,6 +251,11 @@ namespace ERC.Utilities
                     {
                         if(data[i - 1].Equals(assemblies[j][0]))
                         {
+                            // Every read below reaches further back than data[i - 1],
+                            // so each one is guarded. Without these the scan walked
+                            // off the front of the buffer whenever a pop/pop/ret sat
+                            // in its first few bytes, and "ERC --seh" - which scans
+                            // every module region - died on the whole search.
                             if (assemblies[j].Length < 4)
                             {
                                 for (int k = 1; k < assemblies.Count; k++)
@@ -255,7 +267,7 @@ namespace ERC.Utilities
                                     }
                                     else if(data[i - 2].Equals(assemblies[k][0]))
                                     {
-                                        if (data[i - 3].Equals(0x41) && complete == false)
+                                        if (i >= 3 && data[i - 3].Equals(0x41) && complete == false)
                                         {
                                             locations.Add(i - 3);
                                             complete = true;
@@ -265,18 +277,18 @@ namespace ERC.Utilities
                             }
                             else
                             {
-                                if (data[i - 2].Equals(0x41))
+                                if (data[i - 2].Equals(0x41) && i >= 3)
                                 {
                                     for (int k = 1; k < assemblies.Count; k++)
                                     {
-                                        if (data[i - 3].Equals(assemblies[k][0]) && complete == false) 
+                                        if (data[i - 3].Equals(assemblies[k][0]) && complete == false)
                                         {
                                             if(assemblies[k].Length < 4)
                                             {
                                                 locations.Add(i - 3);
                                                 complete = true;
                                             }
-                                            else if(assemblies[k].Length == 4 && data[i - 4].Equals(0x41) && complete == false)
+                                            else if(assemblies[k].Length == 4 && i >= 4 && data[i - 4].Equals(0x41) && complete == false)
                                             {
                                                 locations.Add(i - 4);
                                                 complete = true;
@@ -306,7 +318,7 @@ namespace ERC.Utilities
         public static Tuple<bool, byte[], byte[]> ByteCompare(ProcessInfo info, IntPtr startAddress, byte[] bytes)
         {
             byte[] memoryBytes = new byte[bytes.Length];
-            ErcCore.ReadProcessMemory(info.ProcessHandle, startAddress, bytes, bytes.Length, out int bytesRead);
+            info.Native.ReadProcessMemory(info.ProcessHandle, startAddress, bytes, bytes.Length, out int bytesRead);
             for(int i = 0; i < bytes.Length; i++)
             {
                 if(bytes[i] != memoryBytes[i])
@@ -332,7 +344,7 @@ namespace ERC.Utilities
             {
                 byte[] bytes = File.ReadAllBytes(byteFilePath);
                 byte[] memoryBytes = new byte[bytes.Length];
-                ErcCore.ReadProcessMemory(info.ProcessHandle, startAddress, bytes, bytes.Length, out int bytesRead);
+                info.Native.ReadProcessMemory(info.ProcessHandle, startAddress, bytes, bytes.Length, out int bytesRead);
                 for (int i = 0; i < bytes.Length; i++)
                 {
                     if (bytes[i] != memoryBytes[i])

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using ERC.Structures;
 
+using ERC.Native;
 namespace ERC
 {
     /// <summary>
-    /// Contains all information relating to a specific heap.
+    /// The heaps belonging to a process, and their entries.
     /// </summary>
     public class HeapInfo
     {
@@ -19,59 +20,67 @@ namespace ERC
 
         #region Constructor
         /// <summary>
-        /// HeapInfo Constructor
+        /// Walks the heaps of a process and records what it finds.
         /// </summary>
-        /// <param name="info">ProcessInfo object for the associated process.</param>
-        /// <exception cref="ERCException">Throws an ERCException if the provided handle or response are invalid.</exception>
+        /// <param name="info">The process to walk.</param>
         public HeapInfo(ProcessInfo info)
         {
             HeapProcess = info;
             HEAPLIST32 firstHeapList = new HEAPLIST32();
             firstHeapList.dwSize = (IntPtr)Marshal.SizeOf(typeof(HEAPLIST32));
-            IntPtr Handle = ErcCore.CreateToolhelp32Snapshot(SnapshotFlags.HeapList, (uint)info.ProcessID);
+            IntPtr Handle = HeapProcess.Native.CreateToolhelp32Snapshot(SnapshotFlags.HeapList, (uint)info.ProcessID);
 
             if ((int)Handle == -1)
             {
                 throw new ERCException("CreateToolhelp32Snapshot returned an invalid handle value (-1)");
             }
 
-            if (ErcCore.Heap32ListFirst(Handle, ref firstHeapList))
+            // try/finally so the snapshot handle is closed on every path. It was
+            // never closed at all before, and "ERC --heapinfo" leaks one per call.
+            try
             {
-                HeapLists.Add(firstHeapList);
-                bool moreHeaps = false;
-                do
+                if (HeapProcess.Native.Heap32ListFirst(Handle, ref firstHeapList))
                 {
-                    HEAPLIST32 currentHeap = new HEAPLIST32();
-                    currentHeap.dwSize = (IntPtr)Marshal.SizeOf(typeof(HEAPLIST32));
-                    moreHeaps = ErcCore.Heap32ListNext(Handle, ref currentHeap);
-                    if(HeapEntries.Count == 0)
+                    HeapLists.Add(firstHeapList);
+                    bool moreHeaps = false;
+                    do
                     {
-                        currentHeap = firstHeapList;
-                    }
-
-                    if (moreHeaps)
-                    {
-                        HeapLists.Add(currentHeap);
-                        HEAPENTRY32 heapentry32 = new HEAPENTRY32();
-                        heapentry32.dwSize = (IntPtr)Marshal.SizeOf(typeof(HEAPENTRY32));
-
-                        if (ErcCore.Heap32First(ref heapentry32, (uint)HeapProcess.ProcessID, currentHeap.th32HeapID))
+                        HEAPLIST32 currentHeap = new HEAPLIST32();
+                        currentHeap.dwSize = (IntPtr)Marshal.SizeOf(typeof(HEAPLIST32));
+                        moreHeaps = HeapProcess.Native.Heap32ListNext(Handle, ref currentHeap);
+                        if(HeapEntries.Count == 0)
                         {
-                            bool moreheapblocks = false;
-                            do
+                            currentHeap = firstHeapList;
+                        }
+
+                        if (moreHeaps)
+                        {
+                            HeapLists.Add(currentHeap);
+                            HEAPENTRY32 heapentry32 = new HEAPENTRY32();
+                            heapentry32.dwSize = (IntPtr)Marshal.SizeOf(typeof(HEAPENTRY32));
+
+                            if (HeapProcess.Native.Heap32First(ref heapentry32, (uint)HeapProcess.ProcessID, currentHeap.th32HeapID))
                             {
-                                HeapEntries.Add(heapentry32);
-                                moreheapblocks = ErcCore.Heap32Next(ref heapentry32);
+                                bool moreheapblocks = false;
+                                do
+                                {
+                                    HeapEntries.Add(heapentry32);
+                                    moreheapblocks = HeapProcess.Native.Heap32Next(ref heapentry32);
+                                }
+                                while (moreheapblocks);
                             }
-                            while (moreheapblocks);
                         }
                     }
+                    while (moreHeaps);
                 }
-                while (moreHeaps);
+                else
+                {
+                    throw new ERCException("Heap32ListFirst returned an invalid response. Error: " + Utilities.Win32Errors.GetLastWin32Error());
+                }
             }
-            else
+            finally
             {
-                throw new ERCException("Heap32ListFirst returned an invalid response. Error: " + Utilities.Win32Errors.GetLastWin32Error());
+                HeapProcess.Native.CloseHandle(Handle);
             }
         }
 
@@ -131,7 +140,11 @@ namespace ERC
             if (searchBytes.Length < 3)
             {
                 result.Error = new ERCException("Search pattern not long enough. Minimum length is 3 bytes");
-                result.ReturnValue = null;
+                // Deliberately cleared to signal "no results" alongside the error.
+                // The honest annotation is ErcResult<T>.ReturnValue being T?, but that
+                // cascades through every caller that dereferences it, so it belongs
+                // with the null-dereference work rather than here.
+                result.ReturnValue = default!;
                 return result;
             }
 
@@ -225,10 +238,10 @@ namespace ERC
         /// <summary>
         /// Returns a collections of stats related to the heap of the current process object. If both heapID and startAddress are specified heapID takes precedence.
         /// </summary>
-        /// <param name="extended">display an extended set of stats</param>
+        /// <param name="extended">display an extended set of </param>
         /// <param name="heapID">The ID of the heap to display stats for. (optional)</param>
         /// <param name="hexStartAddress">The start address of the specific heap block to display stats for in hexadecimal. (optional)</param>
-        /// <returns>returns a List string object</returns>
+        /// <returns>returns a List&lt;string&gt; object</returns>
         public ErcResult<List<string>> HeapStatistics(bool extended = false, ulong heapID = 0, string hexStartAddress = "")
         {
             ErcResult<List<string>> result = new ErcResult<List<string>>(HeapProcess);
@@ -447,7 +460,7 @@ namespace ERC
         /// <summary>
         /// Lists all HeapIDs associated with a process.
         /// </summary>
-        /// <returns>Returns an ErcResult List ulong"</returns>
+        /// <returns>Returns an ErcResult&lt;List&lt;ulong&gt;&gt;</returns>
         public ErcResult<List<ulong>> HeapIDs()
         {
             ErcResult<List<ulong>> result = new ErcResult<List<ulong>>(HeapProcess);

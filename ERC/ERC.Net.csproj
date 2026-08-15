@@ -1,105 +1,119 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
-    <Platforms>AnyCPU;x64;x86</Platforms>
+    <!--
+      net472 is what the x64dbg plugin loads. net8.0-windows exists so the library
+      can be tested and consumed on a modern runtime; it is Windows-specific because
+      the whole library is built on Win32 process inspection.
+    -->
+    <TargetFrameworks>net472;net8.0-windows</TargetFrameworks>
+    <AssemblyName>ERC.Net</AssemblyName>
+    <RootNamespace>ERC</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!--
+      CS1591 (missing XML comment) is ON. The only exemption is Native/, where each
+      file carries a file-scoped "#pragma warning disable CS1591" explaining that its
+      declarations mirror Win32 one for one and are documented by Microsoft. Scoping
+      it that way means a new undocumented member anywhere else is reported.
+
+      CS1573 (a documented method with an undocumented parameter) stays suppressed:
+      several long-standing methods have a summary but not a full parameter list, and
+      the warning fires per parameter rather than per member, so it drowns out CS1591
+      without adding much.
+    -->
+    <NoWarn>$(NoWarn);CS1573</NoWarn>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PlatformTarget>x86</PlatformTarget>
-    <DocumentationFile>..\..\ERC.net\ERC\ERC.Net.xml</DocumentationFile>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
+    <!--
+      Obsoletions that the modern runtime flags but that this library keeps
+      deliberately:
+
+      SYSLIB0001 - Encoding.UTF7. Insecure for new work, but the UTF-7 conversions
+                   and search encodings exist precisely to reproduce what a target
+                   application does with UTF-7 input.
+      SYSLIB0012 - Assembly.CodeBase, used only as a fallback when
+                   AppContext.BaseDirectory is empty.
+      SYSLIB0051 - the serialization constructor on ERCException, kept so the type
+                   stays binary-compatible for existing consumers.
+    -->
+    <NoWarn>$(NoWarn);SYSLIB0001;SYSLIB0012;SYSLIB0051</NoWarn>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PlatformTarget>x86</PlatformTarget>
-    <DocumentationFile>..\..\ERC.net\ERC\ERC.Net.xml</DocumentationFile>
-  </PropertyGroup>
+  <!-- packaging -->
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PlatformTarget>x64</PlatformTarget>
-    <DocumentationFile>..\..\ERC.net\ERC\ERC.Net.xml</DocumentationFile>
-  </PropertyGroup>
+  <PropertyGroup>
+    <!--
+      Published as one package per architecture, because the assembly is built per
+      architecture. The ids follow the two that already exist on nuget.org.
+    -->
+    <PackageId Condition="'$(Platform)' == 'x64'">ERC.Net-x64</PackageId>
+    <PackageId Condition="'$(Platform)' != 'x64'">ERC.Net-x86</PackageId>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PlatformTarget>x86</PlatformTarget>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PlatformTarget>x64</PlatformTarget>
+    <Description>A library for assisting in the exploit development process: process and module inspection, pattern generation, memory searching, egg hunters and ROP chain generation.</Description>
+    <PackageTags>exploit-development;rop;x64dbg;reverse-engineering;security</PackageTags>
+    <PackageProjectUrl>https://github.com/Andy53/ERC.net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Andy53/ERC.net</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="docfx.console" Version="2.59.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Reloaded.Assembler" Version="1.0.5" />
-    <PackageReference Include="SharpDisasm" Version="1.1.11" />
+    <None Include="..\LICENSE" Pack="true" PackagePath="" Visible="false" />
+    <None Include="..\README.md" Pack="true" PackagePath="" Visible="false" />
+  </ItemGroup>
+
+  <!-- dependencies -->
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+    <!--
+      HttpClient and ZipArchive live in separate framework assemblies on .NET
+      Framework, which the SDK does not reference by default. Both are part of the
+      shared framework on net8.0, so this is net472 only.
+    -->
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Fasm.NET">
-      <HintPath>..\..\ConsoleApp1\ConsoleApp1\bin\Debug\Fasm.NET.dll</HintPath>
-    </Reference>
-    <Reference Include="Reloaded.Assembler">
-      <HintPath>..\..\ConsoleApp1\ConsoleApp1\bin\Debug\Reloaded.Assembler.dll</HintPath>
-    </Reference>
-    <Reference Include="Reloaded.Memory">
-      <HintPath>..\..\ConsoleApp1\ConsoleApp1\bin\Debug\Reloaded.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="Reloaded.Memory.Buffers">
-      <HintPath>..\..\ConsoleApp1\ConsoleApp1\bin\Debug\Reloaded.Memory.Buffers.dll</HintPath>
-    </Reference>
+    <!--
+      Reloaded.Assembler brings its own FASM native binaries, so the assembler and
+      disassembler need no hand-placed DLLs. The HintPath references this replaces
+      pointed at a "ConsoleApp1" folder on the original author's machine and never
+      resolved on any other checkout - the library could not be built by anyone else.
+    -->
+    <PackageReference Include="Reloaded.Assembler" Version="1.0.14" />
+    <PackageReference Include="Reloaded.Memory" Version="8.0.1" />
+    <!--
+      Iced replaces SharpDisasm, a udis86 port last released in 2017 that does not
+      know about instructions added since.
+    -->
+    <PackageReference Include="Iced" Version="1.21.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <NativeLibs Remove="Payloads.cs" />
+    <!--
+      Reloaded's dependencies resolve to older versions of these three than the ones
+      it actually binds against. Pinning them here unifies the graph for everything
+      downstream; without it the build reports unresolvable conflicts.
+    -->
+    <PackageReference Include="System.Memory" Version="4.5.5" />
+    <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <NativeLibs Remove="Thread_Info.cs" />
-  </ItemGroup>
+  <!--
+    docfx.console is deliberately not referenced. It ran on every build to
+    regenerate the documentation site, which made an ordinary build slow and tied
+    compiling the library to producing its website. The site is generated
+    separately.
 
-  <ItemGroup>
-    <NativeLibs Remove="ERCException.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <NativeLibs Remove="RopChainGenerator32.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <NativeLibs Remove="RopChainGenerator64.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <NativeLibs Remove="PtrRemover.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <NativeLibs Remove="Convert.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <NativeLibs Remove="Heap_Info.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <NativeLibs Remove="Win32Errors.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="C:\Users\Andy\.nuget\packages\reloaded.assembler\1.0.5\build\FASM-LICENSE.TXT" />
-  </ItemGroup>
+    The DocumentationFile property it needed pointed at "..\..\ERC.net\ERC\..",
+    which only resolves when the repository sits in a directory of exactly that
+    name. GenerateDocumentationFile above puts the XML beside the assembly instead.
+  -->
 
 </Project>

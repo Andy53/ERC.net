@@ -16,58 +16,32 @@ namespace ERC.Utilities
         /// <param name="srcList">The list from which to remove the pointers</param>
         /// <param name="bytes">If a pointer contains any of these bytes it will be discarded</param>
         /// <returns>Returns a ErcResult of List IntPtr</returns>
-        public static List<IntPtr> RemovePointers(MachineType mt, List<IntPtr> srcList, byte[] bytes)
+        public static List<IntPtr> RemovePointers(MachineType mt, List<IntPtr> srcList, byte[]? bytes)
         {
+            // A null list is a caller error rather than a filter instruction, so
+            // it yields an empty result instead of propagating the null onward.
+            if (srcList == null)
+            {
+                return new List<IntPtr>();
+            }
+
             if (bytes == null || bytes.Length == 0)
             {
                 return srcList;
             }
 
-            bool nullByte = false;
-            foreach (byte b in bytes)
+            int width = PointerWidth(mt);
+            var kept = new List<IntPtr>(srcList.Count);
+
+            foreach (IntPtr pointer in srcList)
             {
-                if (b == 0x00)
+                if (!ContainsExcludedByte(pointer, width, bytes))
                 {
-                    nullByte = true;
+                    kept.Add(pointer);
                 }
             }
 
-            for (int i = 0; i < srcList.Count; i++)
-            {
-                bool removed = false;
-                var ptr = BitConverter.GetBytes((long)srcList[i]);
-                for(int j = 0; j < ptr.Length; j++)
-                {
-                    for(int k = 0; k < bytes.Length; k++)
-                    {
-                        if (bytes[k] == ptr[j] && removed == false)
-                        {
-                            srcList.RemoveAt(i);
-                            removed = true;
-                            i--;
-                        }
-                        if(mt == MachineType.I386 && removed == false && nullByte == true)
-                        {
-                            if(srcList[i].ToString("X8").Length < 7)
-                            {
-                                srcList.RemoveAt(i);
-                                removed = true;
-                                i--;
-                            }
-                        }
-                        else if(mt == MachineType.x64 && removed == false && nullByte == true)
-                        {
-                            if (srcList[i].ToString("X").Length < 15)
-                            {
-                                srcList.RemoveAt(i);
-                                removed = true;
-                                i--;
-                            }
-                        }
-                    }
-                }
-            }
-            return srcList;
+            return kept;
         }
 
         /// <summary>
@@ -77,58 +51,76 @@ namespace ERC.Utilities
         /// <param name="srcList">The list from which to remove the pointers</param>
         /// <param name="bytes">If a pointer contains any of these bytes it will be discarded</param>
         /// <returns>Returns a ErcResult of Dictionary IntPtr, String</returns>
-        public static Dictionary<IntPtr, string> RemovePointers(MachineType mt, Dictionary<IntPtr, string> srcList, byte[] bytes)
+        public static Dictionary<IntPtr, string> RemovePointers(MachineType mt, Dictionary<IntPtr, string> srcList, byte[]? bytes)
         {
+            if (srcList == null)
+            {
+                return new Dictionary<IntPtr, string>();
+            }
+
             if (bytes == null || bytes.Length == 0)
             {
                 return srcList;
             }
 
-            bool nullByte = false;
-            foreach(byte b in bytes)
+            int width = PointerWidth(mt);
+            var kept = new Dictionary<IntPtr, string>(srcList.Count);
+
+            foreach (KeyValuePair<IntPtr, string> entry in srcList)
             {
-                if(b == 0x00)
+                if (!ContainsExcludedByte(entry.Key, width, bytes))
                 {
-                    nullByte = true;
+                    kept.Add(entry.Key, entry.Value);
                 }
             }
 
-            for (int i = 0; i < srcList.Count; i++)
+            return kept;
+        }
+
+        /// <summary>
+        /// The number of bytes a pointer occupies in the target process.
+        /// </summary>
+        private static int PointerWidth(MachineType mt)
+        {
+            return mt == MachineType.x64 ? 8 : 4;
+        }
+
+        /// <summary>
+        /// True when any byte of the pointer, as it would appear in the target's
+        /// memory, is one of the excluded bytes.
+        /// </summary>
+        /// <remarks>
+        /// Only the bytes the pointer actually occupies are examined, which is what
+        /// the two previous implementations each got wrong in a different direction:
+        ///
+        /// The list overload narrowed with "(int)srcList[i]". IntPtr's conversion to
+        /// int is checked, so on a 64-bit target every address above 0x7FFFFFFF threw
+        /// an OverflowException instead of being filtered - the "-Bytes" option was
+        /// unusable there.
+        ///
+        /// The dictionary overload widened every pointer to 8 bytes, so on a 32-bit
+        /// target the four bytes of padding read as nulls. Excluding 0x00, the most
+        /// common bad character there is, silently discarded every pointer and left
+        /// the user believing no gadgets existed.
+        /// </remarks>
+        private static bool ContainsExcludedByte(IntPtr pointer, int width, byte[] excluded)
+        {
+            long value = pointer.ToInt64();
+
+            for (int i = 0; i < width; i++)
             {
-                bool removed = false;
-                var ptr = BitConverter.GetBytes((long)srcList.ElementAt(i).Key);
-                for (int j = 0; j < ptr.Length; j++)
+                byte current = (byte)(value >> (i * 8));
+
+                for (int j = 0; j < excluded.Length; j++)
                 {
-                    for (int k = 0; k < bytes.Length; k++)
+                    if (excluded[j] == current)
                     {
-                        if (bytes[k] == ptr[j] && removed == false)
-                        {
-                            srcList.Remove(srcList.ElementAt(i).Key);
-                            removed = true;
-                            i--;
-                        }
-                        if (mt == MachineType.I386 && removed == false && nullByte == true)
-                        {
-                            if (srcList.ElementAt(i).Key.ToString("X").Length < 7)
-                            {
-                                srcList.Remove(srcList.ElementAt(i).Key);
-                                removed = true;
-                                i--;
-                            }
-                        }
-                        else if (mt == MachineType.x64 && removed == false && nullByte == true)
-                        {
-                            if (srcList.ElementAt(i).Key.ToString("X").Length < 15)
-                            {
-                                srcList.Remove(srcList.ElementAt(i).Key);
-                                removed = true;
-                                i--;
-                            }
-                        }
+                        return true;
                     }
                 }
             }
-            return srcList;
+
+            return false;
         }
 
         #region Remove Pointers Protection
@@ -141,7 +133,7 @@ namespace ERC.Utilities
         /// <returns>Returns a Dictionary of Intptr, string</returns>
         public static List<IntPtr> RemovePointersProtection(ProcessInfo info, List<IntPtr> srcList, string protection = "exec")
         {
-            if(protection == null)
+            if (protection == null)
             {
                 return srcList;
             }
@@ -271,12 +263,12 @@ namespace ERC.Utilities
                 IntPtr ptr = srcList[i];
                 if (info.ProcessMachineType == MachineType.I386)
                 {
-                    for (int j = 0; j < info.ProcessMemoryBasicInfo32.Count; j++)
+                    for (int j = 0; j < info.MemoryRegions32.Count; j++)
                     {
-                        ulong topAddress = (ulong)info.ProcessMemoryBasicInfo32[j].BaseAddress + (ulong)info.ProcessMemoryBasicInfo32[j].RegionSize;
-                        if ((ulong)srcList[i] > (ulong)info.ProcessMemoryBasicInfo32[j].BaseAddress && (ulong)srcList[i] < topAddress)
+                        ulong topAddress = (ulong)info.MemoryRegions32[j].BaseAddress + (ulong)info.MemoryRegions32[j].RegionSize;
+                        if ((ulong)srcList[i] > (ulong)info.MemoryRegions32[j].BaseAddress && (ulong)srcList[i] < topAddress)
                         {
-                            if (!acceptedProtectionValues.Contains(info.ProcessMemoryBasicInfo32[j].AllocationProtect) && srcList.Contains(ptr))
+                            if (!acceptedProtectionValues.Contains(info.MemoryRegions32[j].AllocationProtect) && srcList.Contains(ptr))
                             {
                                 srcList.Remove(ptr);
                             }
@@ -285,12 +277,12 @@ namespace ERC.Utilities
                 }
                 else
                 {
-                    for (int j = 0; j < info.ProcessMemoryBasicInfo64.Count; j++)
+                    for (int j = 0; j < info.MemoryRegions64.Count; j++)
                     {
-                        ulong topAddress = (ulong)info.ProcessMemoryBasicInfo64[j].BaseAddress + (ulong)info.ProcessMemoryBasicInfo64[j].RegionSize;
-                        if ((ulong)srcList[i] > (ulong)info.ProcessMemoryBasicInfo64[j].BaseAddress && (ulong)srcList[i] < topAddress)
+                        ulong topAddress = (ulong)info.MemoryRegions64[j].BaseAddress + (ulong)info.MemoryRegions64[j].RegionSize;
+                        if ((ulong)srcList[i] > (ulong)info.MemoryRegions64[j].BaseAddress && (ulong)srcList[i] < topAddress)
                         {
-                            if (!acceptedProtectionValues.Contains(info.ProcessMemoryBasicInfo64[j].AllocationProtect) && srcList.Contains(ptr))
+                            if (!acceptedProtectionValues.Contains(info.MemoryRegions64[j].AllocationProtect) && srcList.Contains(ptr))
                             {
                                 srcList.Remove(ptr);
                             }
@@ -315,12 +307,12 @@ namespace ERC.Utilities
                 IntPtr ptr = srcList[i];
                 if (info.ProcessMachineType == MachineType.I386)
                 {
-                    for (int j = 0; j < info.ProcessMemoryBasicInfo32.Count; j++)
+                    for (int j = 0; j < info.MemoryRegions32.Count; j++)
                     {
-                        ulong topAddress = (ulong)info.ProcessMemoryBasicInfo32[j].BaseAddress + (ulong)info.ProcessMemoryBasicInfo32[j].RegionSize;
-                        if ((ulong)srcList[i] > (ulong)info.ProcessMemoryBasicInfo32[j].BaseAddress && (ulong)srcList[i] < topAddress)
+                        ulong topAddress = (ulong)info.MemoryRegions32[j].BaseAddress + (ulong)info.MemoryRegions32[j].RegionSize;
+                        if ((ulong)srcList[i] > (ulong)info.MemoryRegions32[j].BaseAddress && (ulong)srcList[i] < topAddress)
                         {
-                            if (protection != info.ProcessMemoryBasicInfo32[j].AllocationProtect && srcList.Contains(ptr))
+                            if (protection != info.MemoryRegions32[j].AllocationProtect && srcList.Contains(ptr))
                             {
                                 srcList.Remove(ptr);
                                 i--;
@@ -330,12 +322,12 @@ namespace ERC.Utilities
                 }
                 else
                 {
-                    for (int j = 0; j < info.ProcessMemoryBasicInfo64.Count; j++)
+                    for (int j = 0; j < info.MemoryRegions64.Count; j++)
                     {
-                        ulong topAddress = (ulong)info.ProcessMemoryBasicInfo64[j].BaseAddress + (ulong)info.ProcessMemoryBasicInfo64[j].RegionSize;
-                        if ((ulong)srcList[i] > (ulong)info.ProcessMemoryBasicInfo64[j].BaseAddress && (ulong)srcList[i] < topAddress)
+                        ulong topAddress = (ulong)info.MemoryRegions64[j].BaseAddress + (ulong)info.MemoryRegions64[j].RegionSize;
+                        if ((ulong)srcList[i] > (ulong)info.MemoryRegions64[j].BaseAddress && (ulong)srcList[i] < topAddress)
                         {
-                            if (protection != info.ProcessMemoryBasicInfo64[j].AllocationProtect && srcList.Contains(ptr))
+                            if (protection != info.MemoryRegions64[j].AllocationProtect && srcList.Contains(ptr))
                             {
                                 srcList.Remove(ptr);
                                 i--;

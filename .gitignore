@@ -1,10 +1,51 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+artifacts/
+
+# Test output
+tests/**/coverage/
+TestResults/
+*.trx
+
+# Visual Studio / Rider / VS Code
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
 *.ide
-.vs/*
-.vs/ERC.net/v15/Server/sqlite3/storage.ide-shm
-.vs/ERC.net/v15/Server/sqlite3/storage.ide-wal
-D:\Source\Repos\ERC_net\ERC.net\ERC_test_app
-*ERC.net.sln
-ERC_test_app/*
-ERC\obj\ERC.Net.csproj.nuget.cache
-docfx_project/**
-docfx_project
+*.userprefs
+
+# NuGet
+*.nupkg
+*.snupkg
+
+# DocFX
+docfx_project/
+_site/
+
+# Logs
+log.txt
+*.log
+
+# Scratch
+ERC_test_app/
+
+# Three rules were removed from this file. Recorded here because each was
+# actively harmful rather than merely stale:
+#
+#   *ERC.net.sln
+#       Ignored the solution file. Git on Windows matches ignore rules case
+#       insensitively by default, so this also swallowed "ERC.Net.sln" - the file
+#       the test suite uses to locate the repository root. Committing with this in
+#       place produced a clone whose tests could not find the repository they were
+#       in.
+#
+#   D:\Source\Repos\ERC_net\ERC.net\ERC_test_app
+#       An absolute path from one machine. Ignore patterns are relative to the
+#       repository, so this matched nothing on any machine, including that one.
+#
+#   ERC\obj\ERC.Net.csproj.nuget.cache
+#       A single generated file inside obj, while obj itself was not ignored - so
+#       the rest of the build output was tracked.

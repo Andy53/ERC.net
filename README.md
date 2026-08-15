@@ -11,11 +11,59 @@ ERC.Net is a collection of tools designed to assist in debugging Windows applica
 
 Install one of the nuget packages ([x86](https://www.nuget.org/packages/ERC.Net-x86/)/[x64](https://www.nuget.org/packages/ERC.Net-x64/)) or download the source code from [Github](https://github.com/Andy53/ERC.net), build the library and then link it in your project.
 
+There are two packages because the library reads pointer width at run time and
+P/Invokes into Win32: pick the one matching the process you will be inspecting.
+
 ### Prerequisites
 
-Visual studio  
-.Net 4.7.2   
-C#   
+The [.NET SDK](https://dotnet.microsoft.com/download) 8.0 or newer. Visual Studio
+is optional - the library builds from the command line, and nothing here needs
+full MSBuild.
+
+The library targets `net472` and `net8.0-windows`, so it can be consumed from
+either .NET Framework or a modern runtime. It is Windows-only in both cases.
+
+### Building from source
+
+```
+git clone https://github.com/Andy53/ERC.net
+cd ERC.net
+.\build.ps1
+```
+
+That produces both architectures for both target frameworks.
+
+```
+.\build.ps1 -Platform x64          # one architecture
+.\build.ps1 -Configuration Debug   # a debug build
+.\build.ps1 -CleanPackages         # restore into an empty package folder
+```
+
+`-CleanPackages` exists because this project could not, for a long time, be built
+by anyone but its author: it referenced four assemblies by path into a
+`ConsoleApp1` folder that existed on one machine. Building from an empty package
+folder is how that class of problem gets caught rather than discovered by a
+contributor.
+
+### Running the tests
+
+```
+.\test.ps1                     # both architectures
+.\test.ps1 -Platform x64       # one
+.\test.ps1 -Coverage           # with a per-class coverage summary
+.\test.ps1 -SkipIntegration    # skip the live-process tests
+```
+
+The suite runs against both x86 and x64 because the library is built per
+architecture and reads pointer width at run time, so some behaviour genuinely
+differs between the two - pointer filtering and PE flag parsing both did.
+
+Some tests launch a real target process and inspect it, so that memory searching,
+gadget finding, module parsing and thread enumeration are exercised against
+something real rather than a substitute. The target
+(`tests/Fixtures/ErcTestTarget`) plants known byte sequences and strings in
+unmanaged memory and prints their addresses, and the tests assert that ERC finds
+the exact address the target reported.
 
 ### Documentation
 This library contains the fundamental specifications, documentation, and architecture that underpin ERC.Net. If you're looking to understand the system better, or want to know how to integrate the various components, there is a lot of valuable information contained here.    

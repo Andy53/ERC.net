@@ -18,8 +18,15 @@ namespace ERC.Utilities
         /// </summary>
         /// <param name="hex">A string containing hex characters.</param>
         /// <returns>A string containing the equivalent ASCII values</returns>
-        public static string HexToAscii(string hex)
+        public static string HexToAscii(string? hex)
         {
+            // Null is treated like any other unusable input. It used to be the one
+            // case that threw, so a caller guarding on an empty result still crashed.
+            if (hex == null)
+            {
+                return string.Empty;
+            }
+
             if (hex.Length % 2 != 0)
             {
                 hex = "0" + hex;
@@ -33,26 +40,22 @@ namespace ERC.Utilities
                 }
             }
 
-            try
+            // No try/catch here any more. It caught every exception and reported it
+            // with Console.WriteLine, which goes nowhere at all inside x64dbg, then
+            // returned "" - indistinguishable from a valid conversion of empty input.
+            //
+            // Nothing in this loop can throw: the input has already been checked to
+            // contain only hex characters and to have an even length, so Substring is
+            // in range and two hex digits always convert to a value of 0 to 255.
+            var ascii = new StringBuilder(hex.Length / 2);
+
+            for (int i = 0; i < hex.Length; i += 2)
             {
-                string ascii = string.Empty;
-
-                for (int i = 0; i < hex.Length; i += 2)
-                {
-                    String hs = string.Empty;
-
-                    hs = hex.Substring(i, 2);
-                    uint decval = System.Convert.ToUInt32(hs, 16);
-                    char character = System.Convert.ToChar(decval);
-                    ascii += character;
-
-                }
-
-                return ascii;
+                uint value = System.Convert.ToUInt32(hex.Substring(i, 2), 16);
+                ascii.Append((char)value);
             }
-            catch (Exception ex) { Console.WriteLine(ex.Message); }
 
-            return string.Empty;
+            return ascii.ToString();
         }
 
         /// <summary>
@@ -60,11 +63,30 @@ namespace ERC.Utilities
         /// </summary>
         /// <param name="hex">A string containing hex characters.</param>
         /// <returns>A byte array containing the associated values.</returns>
-        public static byte[] HexToBytes(string hex)
+        public static byte[] HexToBytes(string? hex)
         {
+            // Rejects the same input HexToAscii rejects, and in the same way.
+            //
+            // These two used to disagree: this one threw a FormatException from
+            // deep inside byte.Parse, while HexToAscii returned "" for exactly the
+            // same input. A caller could not handle both uniformly, and the plugin
+            // surfaced a raw parse error for what is ordinary user input.
+            if (hex == null)
+            {
+                return new byte[0];
+            }
+
             if (hex.Length % 2 != 0)
             {
                 hex = "0" + hex;
+            }
+
+            foreach (char c in hex)
+            {
+                if (!HEX_CHARS.Contains(c))
+                {
+                    return new byte[0];
+                }
             }
 
             byte[] bytes = new byte[hex.Length / 2];
@@ -75,6 +97,44 @@ namespace ERC.Utilities
             }
 
             return bytes;
+        }
+
+        /// <summary>
+        /// Converts a hex string to bytes, reporting whether the input was valid.
+        /// </summary>
+        /// <param name="hex">A string containing hex characters.</param>
+        /// <param name="bytes">The converted bytes, or an empty array on failure.</param>
+        /// <returns>True when the input was a valid hex string.</returns>
+        /// <remarks>
+        /// Use this where the difference between "empty input" and "invalid input"
+        /// matters; <see cref="HexToBytes(string)"/> cannot express it.
+        /// </remarks>
+        public static bool TryHexToBytes(string? hex, out byte[] bytes)
+        {
+            bytes = new byte[0];
+
+            if (hex == null)
+            {
+                return false;
+            }
+
+            if (hex.Length == 0)
+            {
+                return true;
+            }
+
+            string padded = hex.Length % 2 != 0 ? "0" + hex : hex;
+
+            foreach (char c in padded)
+            {
+                if (!HEX_CHARS.Contains(c))
+                {
+                    return false;
+                }
+            }
+
+            bytes = HexToBytes(padded);
+            return true;
         }
         #endregion
 
@@ -185,6 +245,18 @@ namespace ERC.Utilities
         public static string UTF32ToHex(string utf32)
         {
             return BitConverter.ToString(Encoding.UTF32.GetBytes(utf32)).Replace("-", " ");
+        }
+        #endregion
+
+        #region HTML
+        /// <summary>
+        /// Converts the spaces in a string to Html fixed width character.
+        /// </summary>
+        /// <param name="str">A UTF-8 string.</param>
+        /// <returns>A string with spaces converted to HTML entities.</returns>
+        public static string htmlWhitespaceFix(string str)
+        {
+            return str.Replace(" ", "&nbsp;");
         }
         #endregion
     }

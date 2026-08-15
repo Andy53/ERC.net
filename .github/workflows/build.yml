@@ -1,0 +1,102 @@
+name: Build
+
+# Proves the library builds and its tests pass on a machine with none of the
+# author's local state.
+#
+# That is not a formality here. The project file used to reference Fasm.NET and
+# three Reloaded assemblies by HintPath into "..\..\ConsoleApp1\ConsoleApp1\bin\Debug"
+# and exclude a file by absolute path under C:\Users\Andy, so the library could not
+# be built by anyone else at all.
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [x86, x64]
+        configuration: [Debug, Release]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ runner.os }}-${{ hashFiles('**/*.csproj', 'Directory.Build.props') }}
+          restore-keys: nuget-${{ runner.os }}-
+
+      - name: Build
+        shell: pwsh
+        env:
+          CI: 'true'
+        run: ./build.ps1 -Platform ${{ matrix.platform }} -Configuration ${{ matrix.configuration }}
+
+      - name: Test
+        shell: pwsh
+        env:
+          CI: 'true'
+        # Including the live-process tests: they launch a real target and inspect
+        # it, which is the point of running this on a real Windows runner.
+        run: ./test.ps1 -Platform ${{ matrix.platform }} -Configuration ${{ matrix.configuration }} -Coverage
+
+      - name: Upload coverage
+        if: matrix.configuration == 'Debug'
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-${{ matrix.platform }}
+          # One report per target framework, named after it.
+          path: tests/ERC.Net.Tests/coverage/*.cobertura.xml
+          if-no-files-found: error
+
+  clean-machine-build:
+    # Builds with an empty NuGet package folder, so nothing can be satisfied by a
+    # package that happens to be cached already. Deliberately no actions/cache: a
+    # warm cache is the thing being ruled out.
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Build from an empty package folder
+        shell: pwsh
+        env:
+          CI: 'true'
+        run: ./build.ps1 -Platform x64 -Configuration Release -CleanPackages
+
+  no-hand-edited-architecture-switches:
+    # The library used to select its architecture by commenting a line in and out
+    # of ERC_Core.cs before a release. Architecture is now read at run time from
+    # pointer width, and a returning toggle is worth failing the build over.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scan for commented-out architecture toggles
+        shell: bash
+        run: |
+          if grep -rniE '^[[:space:]]*//.*(uncomment|comment out).*(32|64)[[:space:]]*bit' \
+               --include='*.cs' . ; then
+            echo
+            echo "Found a commented-out architecture switch."
+            echo "Architecture is determined at run time, not by hand-editing source."
+            exit 1
+          fi
+          echo "No hand-edited architecture switches found."
